@@ -8,6 +8,8 @@
 <meta name="author" content="Ahmed Sultan Al-Qahtani (CybPhantom / c0d319)">
 <meta name="copyright" content="© 2026 Ahmed Sultan Al-Qahtani — All rights reserved">
 <meta name="theme-color" content="#0d0905">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_SA">
@@ -58,6 +60,7 @@ nav.scrolled{background:rgba(2,4,8,.95);border-bottom-color:rgba(59,130,246,.2);
 body.en .nav-links a::after{transform-origin:left}
 .nav-links a:hover{color:var(--text)}
 .nav-links a:hover::after{transform:scaleX(1)}
+.menu-btn{display:none;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);color:var(--accent2);min-height:38px;padding:6px 12px;border-radius:8px;cursor:pointer;font-family:inherit;font-weight:700}
 .lang-btn{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);color:var(--accent2);
   padding:6px 16px;border-radius:8px;cursor:pointer;font-size:.82rem;font-weight:600;transition:all .2s;white-space:nowrap}
 .lang-btn:hover{background:rgba(59,130,246,.2);border-color:var(--accent)}
@@ -205,7 +208,7 @@ body.en .tl-card:hover{transform:translateX(4px)}
 .contact-link:hover{background:rgba(59,130,246,.1);border-color:var(--accent);color:var(--accent2)}
 .contact-link svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
 
-footer{text-align:center;color:var(--muted2);padding:40px 24px;font-size:.82rem;border-top:1px solid var(--border);position:relative;z-index:1}
+footer{text-align:center;color:var(--muted);padding:40px 24px;font-size:.82rem;border-top:1px solid var(--border);position:relative;z-index:1}
 footer a{color:var(--muted);text-decoration:none}
 footer a:hover{color:var(--accent2)}
 
@@ -259,7 +262,8 @@ body.en [data-ar]{display:none}
 body.en [data-en]{display:revert}
 
 @media(max-width:768px){
-  nav{padding:0 16px}.nav-links{display:none}
+  nav{padding:0 16px}.menu-btn{display:inline-flex;align-items:center;gap:6px}.nav-links{display:none;position:absolute;top:64px;inset-inline:12px;background:rgba(8,13,20,.98);border:1px solid var(--border2);border-radius:12px;padding:12px;flex-direction:column;gap:2px;box-shadow:0 16px 40px rgba(0,0,0,.45)}
+  .nav-links.open{display:flex}.nav-links li{width:100%}.nav-links a{display:block;padding:10px 12px;border-radius:8px}
   .stats-band{grid-template-columns:repeat(2,1fr)}
   .flagship{padding:22px}.feat-grid{grid-template-columns:1fr}
   .section{padding:64px 16px}.contact-box{padding:28px 18px}
@@ -319,7 +323,7 @@ body:hover #cursor-glow{opacity:1}
   box-shadow:0 16px 48px rgba(0,0,0,.5)}
 .theme-panel.open{display:grid}
 .theme-opt{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;cursor:pointer;
-  border:1px solid transparent;transition:all .2s;font-size:.8rem;color:var(--muted)}
+  width:100%;font-family:inherit;text-align:start;background:transparent;border:1px solid transparent;transition:all .2s;font-size:.8rem;color:var(--muted)}
 .theme-opt:hover{background:rgba(255,255,255,.06);border-color:var(--border2);color:var(--text)}
 .theme-opt.active{border-color:var(--accent);color:var(--accent2);background:rgba(59,130,246,.08)}
 .theme-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
@@ -415,6 +419,15 @@ body:hover #cursor-glow{opacity:1}
   .js .reveal{opacity:1!important;transform:none!important}
 }
 
+.solution-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0 30px}
+.solution-shot{margin:0;background:var(--card2);border:1px solid var(--border2);border-radius:16px;overflow:hidden;transition:transform .2s,border-color .2s}
+.solution-shot:hover{transform:translateY(-3px);border-color:var(--accent)}
+.solution-shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--bg2)}
+.solution-shot figcaption{padding:13px 14px;color:var(--muted);font-size:.78rem;line-height:1.6}
+.solution-shot figcaption strong{display:block;color:var(--text);font-size:.9rem;margin-bottom:3px}
+@media(max-width:900px){.solution-gallery{grid-template-columns:1fr 1fr}.solution-shot:first-child{grid-column:1/-1}}
+@media(max-width:620px){.solution-gallery{grid-template-columns:1fr}.solution-shot:first-child{grid-column:auto}}
+
 /* ============================================================
    PRINT / PDF STYLES
    ============================================================ */
@@ -509,6 +522,150 @@ body:hover #cursor-glow{opacity:1}
   #features{page-break-before:always}
   #skills{page-break-before:always}
 }
+
+.trust-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.trust-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);color:var(--green2,#34d399);border-radius:999px;padding:7px 16px;font-size:.82rem;font-weight:700}
+.valueprop{background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(16,185,129,.06));border:1px solid var(--border);border-inline-start:4px solid var(--gold,#f59e0b);border-radius:12px;padding:14px 18px;margin-bottom:18px;font-size:.92rem;line-height:1.7;max-width:760px}
+.terms{margin-top:14px;background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:4px 16px}
+.terms summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:.92rem}
+.terms ul{margin:6px 0 14px;padding-inline-start:20px;display:flex;flex-direction:column;gap:7px}
+.terms li{font-size:.82rem;color:var(--muted);line-height:1.6}
+.svc-cta{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:var(--grad1);color:#fff;text-decoration:none;padding:11px 22px;border-radius:10px;font-weight:700;font-size:.9rem}
+.promo-banner{display:inline-block;background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(59,130,246,.12));border:1px solid var(--accent);color:var(--text);padding:8px 16px;border-radius:999px;font-size:.82rem;margin-bottom:18px}
+.bill-toggle{display:flex;gap:6px;background:var(--card2);border:1px solid var(--border);border-radius:999px;padding:5px;width:max-content;margin-bottom:26px}
+.bill-toggle button{background:transparent;border:0;color:var(--muted);padding:9px 22px;border-radius:999px;cursor:pointer;font-family:inherit;font-weight:700;font-size:.9rem;transition:all .2s}
+.bill-toggle button.active{background:var(--grad1);color:#fff}
+.bill-toggle em{font-style:normal;font-size:.68rem;opacity:.85;margin-inline-start:4px}
+.plans-note{max-width:760px;margin:0 0 18px;font-size:.86rem;line-height:1.7;color:var(--muted);background:rgba(59,130,246,.06);border:1px solid var(--border);border-inline-start:4px solid var(--accent);border-radius:12px;padding:12px 16px}
+.plans-note b{color:var(--text)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.audience-guide{margin:0 0 28px}
+.aud-title{font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
+.aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.aud-card{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:16px 18px;transition:border-color .2s}
+.aud-card:hover{border-color:var(--accent)}
+.aud-icon{font-size:1.5rem;margin-bottom:8px}
+.aud-name{font-weight:800;font-size:.95rem;margin-bottom:4px}
+.aud-desc{font-size:.78rem;color:var(--muted);line-height:1.5;margin-bottom:10px}
+.aud-plan{font-size:.82rem;color:var(--green2);font-weight:700}
+.aud-plan b{color:var(--accent2)}
+.plan{background:var(--card2);border:1px solid var(--border);border-radius:18px;padding:26px 22px;display:flex;flex-direction:column;position:relative;transition:transform .2s,border-color .2s}
+.plan:hover{transform:translateY(-4px);border-color:var(--accent)}
+.plan.featured{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 18px 50px -20px var(--accent)}
+.plan-badge{position:absolute;top:-12px;inset-inline-start:50%;transform:translateX(50%);background:var(--grad1);color:#fff;font-size:.7rem;font-weight:800;padding:4px 14px;border-radius:999px;white-space:nowrap}
+body.en .plan-badge{transform:translateX(-50%)}
+.plan-name{font-size:1.5rem;font-weight:900;margin-bottom:2px}
+.plan-tag{font-size:.78rem;color:var(--muted);margin-bottom:16px}
+.plan-price{font-size:2rem;font-weight:900;margin-bottom:4px;font-family:Inter,Tajawal,sans-serif}
+.plan-price .price-suf{font-size:.5em;font-weight:600;color:var(--muted)}
+.price-orig{font-size:.5em;font-weight:600;color:var(--muted2);text-decoration:line-through;margin-inline-end:6px}
+.plan-feats{list-style:none;padding:0;margin:18px 0;display:flex;flex-direction:column;gap:9px;flex:1}
+.plan-feats li{font-size:.84rem;padding-inline-start:26px;position:relative;line-height:1.5}
+.plan-feats li::before{position:absolute;inset-inline-start:0;top:0;font-weight:900}
+.plan-feats li.yes::before{content:'✓';color:var(--accent)}
+.plan-feats li.no{color:var(--muted2)}
+.plan-feats li.no::before{content:'✕';color:var(--muted2)}
+.plan-feats li.quota{font-weight:800;color:var(--text);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:9px;padding:8px 10px;margin-bottom:6px}
+.plan-feats li.quota::before{content:''}
+.plan-feats li.quota b{font-family:Inter,Tajawal,sans-serif;color:var(--gold2,#fbbf24)}
+.plan-cta{display:block;text-align:center;padding:11px;border-radius:10px;border:1px solid var(--accent);color:var(--accent2);text-decoration:none;font-weight:700;font-size:.9rem;transition:all .2s}
+.plan-cta:hover{background:rgba(59,130,246,.1)}
+.plan-cta.primary{background:var(--grad1);color:#fff;border:0}
+.configurator{margin-top:24px;background:var(--card2);border:1px solid var(--border);border-radius:18px;padding:26px}
+.cfg-grid{margin:14px 0}
+.cfg-size{display:flex;flex-direction:column;gap:6px;font-size:.82rem;color:var(--muted);max-width:280px}
+.cfg-size select{background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:10px;font-family:inherit;font-size:.9rem}
+.cfg-items{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:8px 0 18px}
+.cfg-item{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:11px 14px;font-size:.84rem;cursor:pointer}
+.cfg-item .ci-t{flex:1}
+.cfg-item b{font-family:Inter,sans-serif;color:var(--accent2)}
+.cfg-item.base{opacity:.85;cursor:default}
+.cfg-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:16px}
+.cfg-col-h{font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:10px}
+.cfg-list{display:flex;flex-direction:column;gap:8px;min-height:40px;max-height:300px;overflow-y:auto;padding-inline-end:6px}
+.cfg-list::-webkit-scrollbar{width:7px}.cfg-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.cfg-row{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:11px 14px;font-size:.84rem;text-align:inherit;width:100%;color:var(--text);font-family:inherit}
+.cfg-row b{font-family:Inter,sans-serif;color:var(--accent2);white-space:nowrap}
+button.cfg-row.add{cursor:pointer;transition:all .15s}
+button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.08)}
+.cfg-row.in{border-color:var(--accent)}
+.cfg-row.base{opacity:.85}
+.cfg-x{background:rgba(239,68,68,.12);color:#ef4444;border:0;border-radius:6px;width:24px;height:24px;cursor:pointer;font-weight:800;line-height:1}
+.cfg-empty{color:var(--muted2);font-size:.82rem;text-align:center;padding:14px}
+.cfg-custom{display:flex;flex-direction:column;gap:6px;font-size:.82rem;color:var(--muted);margin:16px 0 18px}
+.cfg-custom textarea{background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:10px;font-family:inherit;font-size:.88rem;resize:vertical}
+.cfg-total{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid var(--border);padding-top:18px}
+.cfg-num{font-size:2rem;font-weight:900;font-family:Inter,sans-serif;color:var(--text)}
+.cfg-orig{font-size:1rem;font-weight:600;color:var(--muted2);text-decoration:line-through;font-family:Inter,sans-serif}
+.cfg-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text);padding:11px 18px;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;font-size:.88rem}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.svc{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:18px;transition:transform .2s,border-color .2s}
+.svc:hover{transform:translateY(-3px);border-color:var(--accent)}
+.svc-i{font-size:1.7rem;margin-bottom:8px}
+.svc-n{font-weight:800;font-size:.98rem;margin-bottom:4px}
+.svc-d{font-size:.8rem;color:var(--muted);line-height:1.5;margin-bottom:10px}
+.svc-p{font-weight:800;color:var(--accent2);font-family:Inter,Tajawal,sans-serif}
+.howit{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
+.howit-step{display:flex;gap:10px;background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:14px}
+.howit-step b{display:block;margin-bottom:3px;font-size:.9rem}
+.howit-step span[data-ar],.howit-step span[data-en]{font-size:.76rem;color:var(--muted);line-height:1.5}
+.howit-n{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--grad1);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+.sectors{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.sector{display:inline-flex;align-items:center;gap:6px;background:var(--card2);border:1px solid var(--border);border-radius:999px;padding:6px 14px;font-size:.8rem;font-weight:600;color:var(--text)}
+.own-band{margin-top:8px;background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(16,185,129,.05));border:1px solid rgba(245,158,11,.3);border-radius:18px;padding:24px;position:relative}
+.own-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--gold,#f59e0b),var(--green,#10b981));color:#fff;font-size:.74rem;font-weight:800;padding:5px 14px;border-radius:999px;margin-bottom:16px}
+.own-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:22px}
+.own-title{font-size:1.4rem;font-weight:900;margin-bottom:8px}
+.own-desc{color:var(--muted);font-size:.9rem;line-height:1.8;margin-bottom:14px}
+.own-desc strong{color:var(--text)}
+.own-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.own-list li{font-size:.85rem;padding-inline-start:26px;position:relative;line-height:1.5}
+.own-list li::before{content:'✓';position:absolute;inset-inline-start:0;top:0;font-weight:900;color:var(--green2,#34d399)}
+.own-price-col{display:flex;flex-direction:column;gap:10px}
+.own-price-card{background:var(--card2);border:1px solid var(--border2);border-radius:14px;padding:16px 18px}
+.own-price-card.alt{background:rgba(255,255,255,.02)}
+.opc-label{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:4px}
+.opc-num{font-family:Inter,Tajawal,sans-serif;font-size:1.9rem;font-weight:900;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1}
+.opc-num.sm{font-size:1.3rem}
+.opc-num span{font-size:.5em;font-weight:600;-webkit-text-fill-color:var(--muted);color:var(--muted)}
+.opc-sub{font-size:.75rem;color:var(--muted2);margin-top:4px;line-height:1.5}
+@media(max-width:760px){.own-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.howit{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.svc-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.plans{grid-template-columns:1fr}.cfg-items{grid-template-columns:1fr}.cfg-layout{grid-template-columns:1fr}}
+@media(max-width:760px){.aud-grid{grid-template-columns:1fr}}
+.ind-section{margin-top:42px}
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.ind-card{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:16px 18px;transition:transform .2s,border-color .2s;display:flex;flex-direction:column;gap:4px}
+.ind-card:hover{transform:translateY(-3px);border-color:rgba(139,92,246,.5)}
+.ind-card.ind-custom{border-style:dashed;border-color:rgba(139,92,246,.3);background:rgba(139,92,246,.04)}
+.ind-icon{font-size:1.5rem;margin-bottom:4px}
+.ind-name{font-weight:800;font-size:.92rem;margin-bottom:2px}
+.ind-desc{font-size:.78rem;color:var(--muted);line-height:1.5;flex:1}
+.ind-price{font-weight:800;color:#a78bfa;font-family:Inter,Tajawal,sans-serif;font-size:.9rem;margin-top:8px}
+.ind-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;text-decoration:none;padding:11px 22px;border-radius:10px;font-weight:700;font-size:.9rem}
+.ind-cta:hover{opacity:.9}
+@media(max-width:760px){.ind-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.ind-grid{grid-template-columns:1fr}}
+.savings-band{margin:28px 0;background:var(--card2);border:1px solid var(--border);border-radius:18px;padding:26px;overflow-x:auto}
+.savings-head{margin-bottom:18px}
+.savings-head h3{font-size:1.25rem;font-weight:800;margin:6px 0 4px}
+.savings-tag{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px}
+.savings-head p{font-size:.78rem;color:var(--muted)}
+.savings-tbl{width:100%;border-collapse:collapse;font-size:.82rem;min-width:560px}
+.savings-tbl th{background:rgba(59,130,246,.08);color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;padding:10px 12px;text-align:right;border-bottom:1px solid var(--border)}
+.savings-tbl td{padding:11px 12px;border-bottom:1px solid var(--border);line-height:1.4}
+.savings-tbl tr.me td{background:rgba(16,185,129,.06);font-weight:700}
+.savings-tbl tr:last-child td{border-bottom:0}
+.tc-g{color:var(--green2)}.tc-r{color:#ef4444}.tc-y{color:var(--gold2)}
+.savings-note{margin-top:12px;font-size:.72rem;color:var(--muted2);line-height:1.6}
+.scope-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0;margin:0}
+.scope-list li{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;color:var(--muted);font-size:.8rem;line-height:1.6}
+.scope-list strong{display:block;color:var(--text);font-size:.9rem;margin-bottom:4px}
+@media(max-width:620px){.scope-list{grid-template-columns:1fr}}
+.vat-note{margin-top:8px;font-size:.77rem;color:var(--muted);background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:8px 14px}
+
 </style>
 </head>
 <body>
@@ -539,7 +696,8 @@ body:hover #cursor-glow{opacity:1}
 
 <nav id="nav">
   <div class="nav-logo"><span data-ar>أحمد القحطاني</span><span data-en>Ahmed Alqahtani</span></div>
-  <ul class="nav-links">
+  <button class="menu-btn" id="menu-btn" type="button" aria-controls="nav-links" aria-expanded="false" onclick="toggleMenu()">☰ <span data-ar>القائمة</span><span data-en>Menu</span></button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="https://cybphantom.github.io/" class="page-turn" data-ar>← المعرض</a><a href="https://cybphantom.github.io/en.html" class="page-turn" data-en>← Portfolio</a></li>
     <li><a href="https://cybphantom.github.io/#flagship" class="page-turn" data-ar>المشروع الأبرز</a><a href="https://cybphantom.github.io/en.html#flagship" class="page-turn" data-en>Flagship</a></li>
     <li><a href="https://cybphantom.github.io/#skills" class="page-turn" data-ar>المهارات</a><a href="https://cybphantom.github.io/en.html#skills" class="page-turn" data-en>Skills</a></li>
@@ -550,18 +708,18 @@ body:hover #cursor-glow{opacity:1}
     <div class="theme-wrap">
       <button class="theme-btn" id="theme-btn" type="button" onclick="toggleThemePanel()" aria-controls="theme-panel" aria-expanded="false" title="تغيير المظهر / Change theme">🎨 <span><span data-ar>تغيير المظهر</span><span data-en>Change theme</span></span></button>
       <div class="theme-panel" id="theme-panel">
-        <div class="theme-opt" data-t="dark" onclick="setTheme('dark')"><span class="theme-dot" style="background:linear-gradient(135deg,#3b82f6,#10b981)"></span><span data-ar>داكن</span><span data-en>Dark</span></div>
-        <div class="theme-opt" data-t="midnight" onclick="setTheme('midnight')"><span class="theme-dot" style="background:linear-gradient(135deg,#8b5cf6,#3b82f6)"></span><span data-ar>منتصف الليل</span><span data-en>Midnight</span></div>
-        <div class="theme-opt active" data-t="desert" onclick="setTheme('desert')"><span class="theme-dot" style="background:linear-gradient(135deg,#f59e0b,#ef4444)"></span><span data-ar>صحراوي</span><span data-en>Desert</span></div>
-        <div class="theme-opt" data-t="light" onclick="setTheme('light')"><span class="theme-dot" style="background:linear-gradient(135deg,#1d4ed8,#059669)"></span><span data-ar>فاتح</span><span data-en>Light</span></div>
+        <button type="button" class="theme-opt" data-t="dark" onclick="setTheme('dark')"><span class="theme-dot" style="background:linear-gradient(135deg,#3b82f6,#10b981)"></span><span data-ar>داكن</span><span data-en>Dark</span></button>
+        <button type="button" class="theme-opt" data-t="midnight" onclick="setTheme('midnight')"><span class="theme-dot" style="background:linear-gradient(135deg,#8b5cf6,#3b82f6)"></span><span data-ar>منتصف الليل</span><span data-en>Midnight</span></button>
+        <button type="button" class="theme-opt active" data-t="desert" onclick="setTheme('desert')"><span class="theme-dot" style="background:linear-gradient(135deg,#f59e0b,#ef4444)"></span><span data-ar>صحراوي</span><span data-en>Desert</span></button>
+        <button type="button" class="theme-opt" data-t="light" onclick="setTheme('light')"><span class="theme-dot" style="background:linear-gradient(135deg,#1d4ed8,#059669)"></span><span data-ar>فاتح</span><span data-en>Light</span></button>
       </div>
     </div>
-    <button class="lang-btn" onclick="toggleLang()"><span data-ar>English</span><span data-en>العربية</span></button>
+    <button class="lang-btn" type="button" onclick="toggleLang()"><span data-ar>English</span><span data-en>العربية</span></button>
   </div>
 </nav>
 
+<main>
 <section id="about">
-<main role="main">
 <div id="hero">
   <canvas id="particles-canvas"></canvas>
   <div class="hero-bg"></div>
@@ -632,13 +790,28 @@ body:hover #cursor-glow{opacity:1}
       <span style="color:var(--muted)"><span data-ar>وثيقة مهنية سارية دون نشر أرقام تعريفية</span><span data-en>Valid professional license; identifiers kept private</span></span>
       <span style="color:var(--muted)">·</span>
       <span style="color:var(--muted)"><span data-ar>صالح حتى يونيو 2027</span><span data-en>Valid until June 2027</span></span>
-      <a href="https://freelance.hrsd.gov.sa" target="_blank" rel="noopener" style="color:var(--accent2);text-decoration:none;font-size:.76rem;margin-inline-start:auto"><span data-ar>تحقق ←</span><span data-en>Verify →</span></a>
+      <a href="https://freelance.sa/certificate-validation" target="_blank" rel="noopener noreferrer" style="color:var(--accent2);text-decoration:none;font-size:.76rem;margin-inline-start:auto"><span data-ar>تحقق من الوثيقة ←</span><span data-en>Verify the license →</span></a>
     </div>
 
     <!-- value proposition -->
     <div class="valueprop">
-      <span data-ar>💡 SAP وOracle وOdoo تبدأ أسعارها من <strong>50,000 – 300,000 ر.س سنوياً</strong>، وتكاليف التطبيق وحدها قد تتجاوز <strong>200,000 ر.س</strong> — ناهيك عن شُح الدعم العربي وضعف التكامل مع الجهات السعودية. أبني لك نظاماً <strong>مخصّصاً 100%</strong>، <strong>عربياً من اليوم الأول</strong>، مع ربط حكومي مدمج — <strong>بدون رسوم تطبيق، وبأقل من نصف تكلفة البدائل.</strong></span>
-      <span data-en>💡 SAP, Oracle &amp; Odoo start at <strong>50,000–300,000 SAR/year</strong>, with implementation alone exceeding <strong>200,000 SAR</strong> — on top of poor Arabic support and weak Saudi integrations. I build you a <strong>100% custom</strong>, <strong>Arabic-first</strong> system with built-in government connectivity — <strong>zero setup fee, under half the cost of alternatives.</strong></span>
+      <span data-ar>💡 نظام أعمال <strong>مخصّص حسب نطاقك</strong>، عربي من اليوم الأول، مع صلاحيات وسجل تدقيق وتكاملات قابلة للتوسع. يوضّح العرض الرسمي النطاق والسعر والمدة والتكاليف المتكررة قبل بدء العمل، دون ادعاءات سعرية غير موثقة.</span>
+      <span data-en>💡 A business system <strong>tailored to your agreed scope</strong>, Arabic-first, with roles, auditability, and scalable integrations. The formal quote defines scope, price, timeline, and recurring costs before work begins, without unsupported market-price claims.</span>
+    </div>
+
+    <div class="solution-gallery" role="region" aria-label="نماذج حلول تجريبية آمنة">
+      <figure class="solution-shot">
+        <img src="assets/erp-dashboard-demo.png" width="1672" height="942" loading="lazy" decoding="async" alt="تصور تجريبي للوحة عمليات ولوجستيات ببيانات مجمعة وهمية">
+        <figcaption><strong><span data-ar>منصة العمليات واللوجستيات</span><span data-en>Logistics Operations</span></strong><span data-ar>تصور آمن؛ ليس لقطة من نظام إنتاج ولا يحتوي بيانات عملاء أو موظفين حقيقية.</span><span data-en>Sanitized concept; not a production screenshot and contains no real customer or employee data.</span></figcaption>
+      </figure>
+      <figure class="solution-shot">
+        <img src="assets/clinic-platform-concept.png" width="1672" height="942" loading="lazy" decoding="async" alt="تصور تجريبي لمنصة عيادة أو مستشفى دون بيانات مرضى أو موظفين">
+        <figcaption><strong><span data-ar>منصة عيادة أو مستشفى</span><span data-en>Clinic or Hospital Platform</span></strong><span data-ar>بيانات تشغيلية مجمعة ووهمية، دون سجلات مرضى أو موظفين أو معلومات طبية حقيقية.</span><span data-en>Fictional aggregate operations data with no real patient, employee, or medical records.</span></figcaption>
+      </figure>
+      <figure class="solution-shot">
+        <img src="assets/workshop-spare-parts-concept.png" width="1672" height="942" loading="lazy" decoding="async" alt="تصور تجريبي لمنصة قطع غيار للورش ببيانات وأسعار وهمية">
+        <figcaption><strong><span data-ar>منصة قطع غيار للورش</span><span data-en>Workshop Spare-Parts Platform</span></strong><span data-ar>كتالوج وطلبات شراء ومقارنة عروض ومخزون وتوافق مركبات ببيانات تجريبية بالكامل.</span><span data-en>Catalog, purchasing, quote comparison, stock, and compatibility using entirely fictional data.</span></figcaption>
+      </figure>
     </div>
 
     <!-- WHO IS THIS FOR -->
@@ -670,8 +843,8 @@ body:hover #cursor-glow{opacity:1}
     <div class="promo-banner">🎉 <strong><span data-ar>خصم 30%</span><span data-en>30% OFF</span></strong> <span data-ar>لكل المشتركين قبل نهاية 2026 — العرض لفترة محدودة</span><span data-en>for all subscriptions before end of 2026 — limited time</span></div>
 
     <div class="bill-toggle">
-      <button class="active" data-m="monthly" onclick="setBilling('monthly')"><span data-ar>شهري</span><span data-en>Monthly</span></button>
-      <button data-m="annual" onclick="setBilling('annual')"><span data-ar>سنوي</span><span data-en>Annual</span> <em><span data-ar>وفّر شهرين</span><span data-en>2 months free</span></em></button>
+      <button type="button" class="active" data-m="monthly" onclick="setBilling('monthly')"><span data-ar>شهري</span><span data-en>Monthly</span></button>
+      <button type="button" data-m="annual" onclick="setBilling('annual')"><span data-ar>سنوي</span><span data-en>Annual</span> <em><span data-ar>وفّر شهرين</span><span data-en>2 months free</span></em></button>
     </div>
 
     <!-- PLANS -->
@@ -738,64 +911,19 @@ body:hover #cursor-glow{opacity:1}
     </div>
 
     <!-- SAVINGS COMPARISON -->
-    <div class="savings-band reveal">
+    <div class="savings-band reveal" role="region" tabindex="0" aria-label="مقارنة استرشادية للأسعار والخصائص">
       <div class="savings-head">
-        <div class="savings-tag">📊 <span data-ar>مقارنة أسعار السوق</span><span data-en>Market Price Comparison</span></div>
-        <h3><span data-ar>أسعار <span class="grad">تنافسية</span> مقارنةً بالأنظمة العالمية</span><span data-en><span class="grad">Competitive pricing</span> vs global systems</span></h3>
-        <p><span data-ar>أسعار مرجعية موثّقة — المصدر: موردو الأنظمة الرسميون في السوق السعودي</span><span data-en>Reference prices — source: official system vendors in the Saudi market</span></p>
+        <div class="savings-tag">📊 <span data-ar>وضوح العرض التجاري</span><span data-en>Commercial Clarity</span></div>
+        <h3><span data-ar>قارن العروض على <span class="grad">النطاق والتكلفة الكاملة</span></span><span data-en>Compare offers by <span class="grad">scope and total cost</span></span></h3>
+        <p><span data-ar>أسعار الأنظمة تختلف جذرياً حسب عدد المستخدمين والتكاملات والاستضافة والدعم؛ المرجع النهائي هو العرض المكتوب.</span><span data-en>System pricing varies materially by users, integrations, hosting, and support; the written quote is the final reference.</span></p>
       </div>
-      <table class="savings-tbl">
-        <thead>
-          <tr>
-            <th><span data-ar>النظام</span><span data-en>System</span></th>
-            <th><span data-ar>رسوم سنوية (ر.س)</span><span data-en>Annual fee (SAR)</span></th>
-            <th><span data-ar>تكلفة التطبيق</span><span data-en>Implementation</span></th>
-            <th><span data-ar>دعم عربي</span><span data-en>Arabic support</span></th>
-            <th><span data-ar>تكامل سعودي</span><span data-en>Saudi integration</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="me">
-            <td>⭐ <span data-ar><b>خطط CybPhantom</b></span><span data-en><b>CybPhantom Plans</b></span></td>
-            <td class="tc-g"><b>60,000 – 192,000</b></td>
-            <td class="tc-g"><span data-ar>مشمول ✓</span><span data-en>Included ✓</span></td>
-            <td class="tc-g"><span data-ar>كامل ✓</span><span data-en>Full ✓</span></td>
-            <td class="tc-g"><span data-ar>مدمج ✓</span><span data-en>Built-in ✓</span></td>
-          </tr>
-          <tr>
-            <td>SAP Business One</td>
-            <td class="tc-r">50,000 – 200,000</td>
-            <td class="tc-r">100,000+</td>
-            <td class="tc-y"><span data-ar>جزئي</span><span data-en>Partial</span></td>
-            <td class="tc-y"><span data-ar>جزئي</span><span data-en>Partial</span></td>
-          </tr>
-          <tr>
-            <td>Oracle NetSuite</td>
-            <td class="tc-r">60,000 – 300,000</td>
-            <td class="tc-r">200,000+</td>
-            <td class="tc-r"><span data-ar>محدود</span><span data-en>Limited</span></td>
-            <td class="tc-r"><span data-ar>محدود</span><span data-en>Limited</span></td>
-          </tr>
-          <tr>
-            <td>Odoo Enterprise</td>
-            <td class="tc-y">20,000 – 80,000</td>
-            <td class="tc-r">40,000+</td>
-            <td class="tc-y"><span data-ar>جزئي</span><span data-en>Partial</span></td>
-            <td class="tc-y"><span data-ar>جزئي</span><span data-en>Partial</span></td>
-          </tr>
-          <tr>
-            <td>Microsoft Dynamics 365</td>
-            <td class="tc-r">60,000 – 400,000</td>
-            <td class="tc-r">150,000+</td>
-            <td class="tc-y"><span data-ar>جزئي</span><span data-en>Partial</span></td>
-            <td class="tc-y"><span data-ar>جزئي</span><span data-en>Partial</span></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="savings-note">
-        <span data-ar>* أسعار تقريبية مرجعية للسوق السعودي — تتفاوت حسب المورِّد وحجم الشركة والتخصيص. أسعار باقاتي هي السعر الكامل (لا رسوم خفية ولا تكاليف تطبيق إضافية). الأسعار لا تشمل ضريبة القيمة المضافة 15%.</span>
-        <span data-en>* Approximate reference prices for the Saudi market — vary by vendor, company size, and customization. My plan prices are all-inclusive (no hidden fees, no extra implementation costs). Prices exclude 15% VAT.</span>
-      </div>
+      <ul class="scope-list">
+        <li><strong><span data-ar>النطاق والنتائج</span><span data-en>Scope and outcomes</span></strong><span data-ar>وحدات النظام، المستخدمون، التكاملات، ومعايير القبول مكتوبة بوضوح.</span><span data-en>Modules, users, integrations, and acceptance criteria are documented clearly.</span></li>
+        <li><strong><span data-ar>التكلفة الكاملة</span><span data-en>Total cost</span></strong><span data-ar>يفصل العرض تكلفة التنفيذ والاستضافة والدعم وأي خدمات خارجية متكررة.</span><span data-en>The quote separates implementation, hosting, support, and recurring third-party costs.</span></li>
+        <li><strong><span data-ar>الأمان والخصوصية</span><span data-en>Security and privacy</span></strong><span data-ar>صلاحيات حسب الدور، سجل تدقيق، تقليل البيانات، ونسخ احتياطي حسب النطاق.</span><span data-en>Role-based access, audit logs, data minimization, and scoped backups.</span></li>
+        <li><strong><span data-ar>التسليم والملكية</span><span data-en>Delivery and ownership</span></strong><span data-ar>تُحدد حقوق الاستخدام أو نقل الكود المصدري والدعم في العقد قبل البدء.</span><span data-en>Usage rights or source-code transfer and support are defined before kickoff.</span></li>
+      </ul>
+      <div class="savings-note"><span data-ar>* لا تُعد الأسعار الظاهرة عقداً أو فاتورة؛ يُعتمد السعر والنطاق والضريبة — إن انطبقت — في العرض الرسمي.</span><span data-en>* Displayed prices are not a contract or invoice; scope, price, and applicable tax are confirmed in the formal quote.</span></div>
     </div>
 
     <!-- OWNERSHIP MODEL -->
@@ -929,32 +1057,32 @@ body:hover #cursor-glow{opacity:1}
         </div>
         <div class="ind-card">
           <div class="ind-icon">🔗</div>
-          <div class="ind-name"><span data-ar>إنشاء حساب في أي منصة</span><span data-en>Account Creation (any platform)</span></div>
-          <div class="ind-desc"><span data-ar>تسجيل وإعداد حساب في أي موقع أو منصة (Upwork، Freelancer، Noon، غيرها)</span><span data-en>Register and set up an account on any website or platform</span></div>
+          <div class="ind-name"><span data-ar>إرشاد لإعداد حساب في منصة</span><span data-en>Guided Platform Account Setup</span></div>
+          <div class="ind-desc"><span data-ar>مساعدة مباشرة في الإعداد، بينما يُدخل العميل كلمة المرور ورمز التحقق بنفسه</span><span data-en>Guided setup while the client enters passwords and verification codes privately</span></div>
           <div class="ind-price"><span data-ar>من 80 ر.س</span><span data-en>from 80 SAR</span></div>
         </div>
         <div class="ind-card">
           <div class="ind-icon">🏛️</div>
-          <div class="ind-name"><span data-ar>تسجيل في منصات حكومية</span><span data-en>Government Platform Registration</span></div>
-          <div class="ind-desc"><span data-ar>تسجيل وإعداد حسابات في منصات حكومية (أبشر، قوى، منصة العمل الحر، غيرها)</span><span data-en>Register on Saudi government platforms (Absher, Qiwa, Freelance, etc.)</span></div>
+          <div class="ind-name"><span data-ar>إرشاد لاستخدام المنصات الحكومية</span><span data-en>Guided Government Platform Setup</span></div>
+          <div class="ind-desc"><span data-ar>جلسة إرشادية فقط؛ العميل يُدخل بيانات الدخول ورمز التحقق بنفسه ولا تُحفظ لدينا</span><span data-en>Guidance only; the client enters credentials and verification codes, which are never stored</span></div>
           <div class="ind-price"><span data-ar>من 100 ر.س</span><span data-en>from 100 SAR</span></div>
         </div>
         <div class="ind-card">
           <div class="ind-icon">🔄</div>
-          <div class="ind-name"><span data-ar>تعديل / تحديث بيانات في أي موقع</span><span data-en>Profile Update (any site)</span></div>
-          <div class="ind-desc"><span data-ar>تعديل أو تحديث معلوماتك في أي منصة أو موقع إلكتروني</span><span data-en>Edit or update your info on any platform or website</span></div>
+          <div class="ind-name"><span data-ar>إرشاد لتحديث ملف إلكتروني</span><span data-en>Guided Online Profile Update</span></div>
+          <div class="ind-desc"><span data-ar>مساعدة في تحديث الملف دون استلام كلمات المرور أو رموز التحقق</span><span data-en>Help updating a profile without receiving passwords or verification codes</span></div>
           <div class="ind-price"><span data-ar>من 50 ر.س</span><span data-en>from 50 SAR</span></div>
         </div>
         <div class="ind-card">
           <div class="ind-icon">🌐</div>
-          <div class="ind-name"><span data-ar>ترجمة مستندات (عربي / إنجليزي)</span><span data-en>Document Translation (AR/EN)</span></div>
-          <div class="ind-desc"><span data-ar>ترجمة سيرة ذاتية أو مستند رسمي بين العربية والإنجليزية</span><span data-en>Translate a CV or official document between Arabic and English</span></div>
+          <div class="ind-name"><span data-ar>ترجمة غير معتمدة (عربي / إنجليزي)</span><span data-en>Non-Certified Translation (AR/EN)</span></div>
+          <div class="ind-desc"><span data-ar>ترجمة سيرة ذاتية أو مستند عام؛ لا تُقدّم بوصفها ترجمة قانونية معتمدة</span><span data-en>Translate a CV or general document; not offered as certified legal translation</span></div>
           <div class="ind-price"><span data-ar>من 100 ر.س</span><span data-en>from 100 SAR</span></div>
         </div>
         <div class="ind-card">
           <div class="ind-icon">📧</div>
           <div class="ind-name"><span data-ar>إنشاء بريد إلكتروني مهني</span><span data-en>Professional Email Setup</span></div>
-          <div class="ind-desc"><span data-ar>إنشاء وإعداد بريد إلكتروني باسمك المهني وإعداده على أجهزتك</span><span data-en>Create and configure a professional email and set it up on your devices</span></div>
+          <div class="ind-desc"><span data-ar>إرشاد للإعداد على أجهزتك؛ كلمة المرور ورمز التحقق يُدخلهما العميل بنفسه</span><span data-en>Guided setup on your devices; the client enters passwords and verification codes privately</span></div>
           <div class="ind-price"><span data-ar>من 80 ر.س</span><span data-en>from 80 SAR</span></div>
         </div>
         <div class="ind-card">
@@ -979,7 +1107,7 @@ body:hover #cursor-glow{opacity:1}
       <a class="ind-cta" href="mailto:doomyksa@gmail.com?subject=طلب%20خدمة%20فردية">
         ✉️ <span data-ar>تواصل بالبريد — اطلب خدمتك الآن</span><span data-en>Email — Request your service now</span>
       </a>
-      <div style="margin-top:10px;font-size:.75rem;color:var(--muted2)"><span data-ar>الأسعار تبدأ من — السعر النهائي يُحدَّد بعد معرفة تفاصيل طلبك · <b>الدفع مقدّماً 100% قبل البدء</b> · ضمان استرجاع كامل إذا لم تُسلَّم الخدمة.</span><span data-en>Prices start from — final price set after knowing your request details · <b>Full payment upfront before work begins</b> · Full refund if service is not delivered.</span></div>
+      <div style="margin-top:10px;font-size:.75rem;color:var(--muted2)"><span data-ar>الأسعار تبدأ من — السعر النهائي يُحدَّد بعد معرفة التفاصيل · <b>الخدمات الفردية تُدفع مقدّماً</b> · يُسترد المبلغ إذا لم يبدأ العمل أو تعذّر التسليم بسبب مقدم الخدمة، وفق العرض المكتوب.</span><span data-en>Starting prices — final price follows scope review · <b>Individual services are prepaid</b> · refunded if work has not started or delivery fails due to the provider, subject to the written quote.</span></div>
     </div>
 
     <!-- HOW IT WORKS -->
@@ -996,18 +1124,18 @@ body:hover #cursor-glow{opacity:1}
       <br>📦 <span data-ar><b>التملّك الكامل</b> (شراء النظام + الكود المصدري بالكامل ملكاً لكم) متاح لأي قطاع عند الطلب · عرض تجريبي (ديمو) متاح.</span><span data-en><b>Full ownership</b> (system + complete source code, fully yours) available for any industry on request · Live demo available.</span>
       <br>🏛️ <span data-ar><b>الربط الحكومي:</b> الربط البرمجي مشمول — بيانات الربط الرسمية يوفّرها العميل من سجله التجاري، والرسوم الحكومية (إن وُجدت) على العميل.</span><span data-en><b>Government integration:</b> technical bridge included — official credentials provided by the client; any government fees are the client's.</span>
     </div>
-    <div class="vat-note">⚠️ <span data-ar><b>ملاحظة:</b> جميع الأسعار المذكورة <b>لا تشمل ضريبة القيمة المضافة (15%)</b> وفق نظام ضريبة القيمة المضافة السعودي. سيُضاف مبلغ الضريبة في الفاتورة الرسمية.</span><span data-en><b>Note:</b> All prices listed <b>exclude 15% VAT</b> per Saudi VAT regulations. Tax will be added on the official invoice.</span></div>
+    <div class="vat-note">⚠️ <span data-ar><b>ملاحظة:</b> الأسعار استرشادية وتؤكد بعرض مكتوب. تُطبق ضريبة القيمة المضافة عند انطباقها نظاماً ووفق حالة التسجيل، وتُوضّح في العرض أو الفاتورة.</span><span data-en><b>Note:</b> Prices are indicative and confirmed in writing. VAT applies only where legally applicable and according to registration status, as shown in the quote or invoice.</span></div>
 
     <!-- TERMS & REFUND -->
     <details class="terms">
-      <summary><span data-ar>📜 الشروط والاستبدال والخصوصية</span><span data-en>📜 Terms, Refunds & Privacy</span></summary>
+      <summary><span data-ar>📜 الشروط والاسترجاع والخصوصية</span><span data-en>📜 Terms, Refunds & Privacy</span></summary>
       <ul>
         <li data-ar><b>العربون:</b> 50% عند البدء غير مسترد (يغطّي العمل المنجز).</li><li data-en><b>Deposit:</b> 50% upfront, non-refundable (covers work done).</li>
         <li data-ar><b>التعديلات:</b> جولتا تعديل مجانيتان لمطابقة المتفق عليه في العرض.</li><li data-en><b>Revisions:</b> two free revision rounds to match the agreed scope.</li>
         <li data-ar><b>التسليم والكود:</b> تسليم النظام/الكود المصدري بعد السداد الكامل فقط.</li><li data-en><b>Delivery & code:</b> system/source code delivered only after full payment.</li>
         <li data-ar><b>الاشتراكات:</b> تُدفع مقدّماً، والإلغاء يوقف التجديد القادم · ضمان استرجاع 7 أيام (قبل الاستخدام الفعلي).</li><li data-en><b>Subscriptions:</b> paid in advance; cancellation stops the next renewal · 7-day money-back (before active use).</li>
         <li data-ar><b>الملكية:</b> تبقى للمطوّر حتى اكتمال السداد · في باقة التملّك تنتقل بالكامل للعميل بعد السداد.</li><li data-en><b>Ownership:</b> stays with the developer until full payment; transfers fully to the client in the ownership plan.</li>
-        <li data-ar><b>الخصوصية (PDPL):</b> بياناتكم سرّية، مشفّرة، ولا تُشارك مع أي طرف ثالث.</li><li data-en><b>Privacy (PDPL):</b> your data is confidential, encrypted, never shared with third parties.</li>
+        <li data-ar><b>الخصوصية:</b> نطلب الحد الأدنى من البيانات ونستخدمها للتنفيذ فقط، ولا نشاركها إلا مع معالِج يوافق عليه العميل عند الضرورة. لا نطلب كلمات المرور أو رموز التحقق.</li><li data-en><b>Privacy:</b> we collect only what is necessary for delivery and share it only with a client-approved processor when required. We never request passwords or verification codes.</li>
         <li data-ar><b>الدعم:</b> مشمول في الاشتراك · في التملّك يُتفق عليه بعقد صيانة منفصل.</li><li data-en><b>Support:</b> included in subscriptions; in ownership via a separate maintenance contract.</li>
       </ul>
     </details>
@@ -1023,153 +1151,15 @@ body:hover #cursor-glow{opacity:1}
   </div>
   <div class="divider"></div>
 
-  <style>
-  .trust-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-  .trust-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);color:var(--green2,#34d399);border-radius:999px;padding:7px 16px;font-size:.82rem;font-weight:700}
-  .valueprop{background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(16,185,129,.06));border:1px solid var(--border);border-inline-start:4px solid var(--gold,#f59e0b);border-radius:12px;padding:14px 18px;margin-bottom:18px;font-size:.92rem;line-height:1.7;max-width:760px}
-  .terms{margin-top:14px;background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:4px 16px}
-  .terms summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:.92rem}
-  .terms ul{margin:6px 0 14px;padding-inline-start:20px;display:flex;flex-direction:column;gap:7px}
-  .terms li{font-size:.82rem;color:var(--muted);line-height:1.6}
-  .svc-cta{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:var(--grad1);color:#fff;text-decoration:none;padding:11px 22px;border-radius:10px;font-weight:700;font-size:.9rem}
-  .promo-banner{display:inline-block;background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(59,130,246,.12));border:1px solid var(--accent);color:var(--text);padding:8px 16px;border-radius:999px;font-size:.82rem;margin-bottom:18px}
-  .bill-toggle{display:flex;gap:6px;background:var(--card2);border:1px solid var(--border);border-radius:999px;padding:5px;width:max-content;margin-bottom:26px}
-  .bill-toggle button{background:transparent;border:0;color:var(--muted);padding:9px 22px;border-radius:999px;cursor:pointer;font-family:inherit;font-weight:700;font-size:.9rem;transition:all .2s}
-  .bill-toggle button.active{background:var(--grad1);color:#fff}
-  .bill-toggle em{font-style:normal;font-size:.68rem;opacity:.85;margin-inline-start:4px}
-  .plans-note{max-width:760px;margin:0 0 18px;font-size:.86rem;line-height:1.7;color:var(--muted);background:rgba(59,130,246,.06);border:1px solid var(--border);border-inline-start:4px solid var(--accent);border-radius:12px;padding:12px 16px}
-  .plans-note b{color:var(--text)}
-  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .audience-guide{margin:0 0 28px}
-  .aud-title{font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
-  .aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-  .aud-card{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:16px 18px;transition:border-color .2s}
-  .aud-card:hover{border-color:var(--accent)}
-  .aud-icon{font-size:1.5rem;margin-bottom:8px}
-  .aud-name{font-weight:800;font-size:.95rem;margin-bottom:4px}
-  .aud-desc{font-size:.78rem;color:var(--muted);line-height:1.5;margin-bottom:10px}
-  .aud-plan{font-size:.82rem;color:var(--green2);font-weight:700}
-  .aud-plan b{color:var(--accent2)}
-  .plan{background:var(--card2);border:1px solid var(--border);border-radius:18px;padding:26px 22px;display:flex;flex-direction:column;position:relative;transition:transform .2s,border-color .2s}
-  .plan:hover{transform:translateY(-4px);border-color:var(--accent)}
-  .plan.featured{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 18px 50px -20px var(--accent)}
-  .plan-badge{position:absolute;top:-12px;inset-inline-start:50%;transform:translateX(50%);background:var(--grad1);color:#fff;font-size:.7rem;font-weight:800;padding:4px 14px;border-radius:999px;white-space:nowrap}
-  body.en .plan-badge{transform:translateX(-50%)}
-  .plan-name{font-size:1.5rem;font-weight:900;margin-bottom:2px}
-  .plan-tag{font-size:.78rem;color:var(--muted);margin-bottom:16px}
-  .plan-price{font-size:2rem;font-weight:900;margin-bottom:4px;font-family:Inter,Tajawal,sans-serif}
-  .plan-price .price-suf{font-size:.5em;font-weight:600;color:var(--muted)}
-  .price-orig{font-size:.5em;font-weight:600;color:var(--muted2);text-decoration:line-through;margin-inline-end:6px}
-  .plan-feats{list-style:none;padding:0;margin:18px 0;display:flex;flex-direction:column;gap:9px;flex:1}
-  .plan-feats li{font-size:.84rem;padding-inline-start:26px;position:relative;line-height:1.5}
-  .plan-feats li::before{position:absolute;inset-inline-start:0;top:0;font-weight:900}
-  .plan-feats li.yes::before{content:'✓';color:var(--accent)}
-  .plan-feats li.no{color:var(--muted2)}
-  .plan-feats li.no::before{content:'✕';color:var(--muted2)}
-  .plan-feats li.quota{font-weight:800;color:var(--text);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:9px;padding:8px 10px;margin-bottom:6px}
-  .plan-feats li.quota::before{content:''}
-  .plan-feats li.quota b{font-family:Inter,Tajawal,sans-serif;color:var(--gold2,#fbbf24)}
-  .plan-cta{display:block;text-align:center;padding:11px;border-radius:10px;border:1px solid var(--accent);color:var(--accent2);text-decoration:none;font-weight:700;font-size:.9rem;transition:all .2s}
-  .plan-cta:hover{background:rgba(59,130,246,.1)}
-  .plan-cta.primary{background:var(--grad1);color:#fff;border:0}
-  .configurator{margin-top:24px;background:var(--card2);border:1px solid var(--border);border-radius:18px;padding:26px}
-  .cfg-grid{margin:14px 0}
-  .cfg-size{display:flex;flex-direction:column;gap:6px;font-size:.82rem;color:var(--muted);max-width:280px}
-  .cfg-size select{background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:10px;font-family:inherit;font-size:.9rem}
-  .cfg-items{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:8px 0 18px}
-  .cfg-item{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:11px 14px;font-size:.84rem;cursor:pointer}
-  .cfg-item .ci-t{flex:1}
-  .cfg-item b{font-family:Inter,sans-serif;color:var(--accent2)}
-  .cfg-item.base{opacity:.85;cursor:default}
-  .cfg-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:16px}
-  .cfg-col-h{font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:10px}
-  .cfg-list{display:flex;flex-direction:column;gap:8px;min-height:40px;max-height:300px;overflow-y:auto;padding-inline-end:6px}
-  .cfg-list::-webkit-scrollbar{width:7px}.cfg-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
-  .cfg-row{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:11px 14px;font-size:.84rem;text-align:inherit;width:100%;color:var(--text);font-family:inherit}
-  .cfg-row b{font-family:Inter,sans-serif;color:var(--accent2);white-space:nowrap}
-  button.cfg-row.add{cursor:pointer;transition:all .15s}
-  button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.08)}
-  .cfg-row.in{border-color:var(--accent)}
-  .cfg-row.base{opacity:.85}
-  .cfg-x{background:rgba(239,68,68,.12);color:#ef4444;border:0;border-radius:6px;width:24px;height:24px;cursor:pointer;font-weight:800;line-height:1}
-  .cfg-empty{color:var(--muted2);font-size:.82rem;text-align:center;padding:14px}
-  .cfg-custom{display:flex;flex-direction:column;gap:6px;font-size:.82rem;color:var(--muted);margin:16px 0 18px}
-  .cfg-custom textarea{background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:10px;font-family:inherit;font-size:.88rem;resize:vertical}
-  .cfg-total{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid var(--border);padding-top:18px}
-  .cfg-num{font-size:2rem;font-weight:900;font-family:Inter,sans-serif;color:var(--text)}
-  .cfg-orig{font-size:1rem;font-weight:600;color:var(--muted2);text-decoration:line-through;font-family:Inter,sans-serif}
-  .cfg-actions{display:flex;gap:10px;flex-wrap:wrap}
-  .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text);padding:11px 18px;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;font-size:.88rem}
-  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .svc{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:18px;transition:transform .2s,border-color .2s}
-  .svc:hover{transform:translateY(-3px);border-color:var(--accent)}
-  .svc-i{font-size:1.7rem;margin-bottom:8px}
-  .svc-n{font-weight:800;font-size:.98rem;margin-bottom:4px}
-  .svc-d{font-size:.8rem;color:var(--muted);line-height:1.5;margin-bottom:10px}
-  .svc-p{font-weight:800;color:var(--accent2);font-family:Inter,Tajawal,sans-serif}
-  .howit{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
-  .howit-step{display:flex;gap:10px;background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:14px}
-  .howit-step b{display:block;margin-bottom:3px;font-size:.9rem}
-  .howit-step span[data-ar],.howit-step span[data-en]{font-size:.76rem;color:var(--muted);line-height:1.5}
-  .howit-n{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--grad1);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.85rem}
-  .sectors{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-  .sector{display:inline-flex;align-items:center;gap:6px;background:var(--card2);border:1px solid var(--border);border-radius:999px;padding:6px 14px;font-size:.8rem;font-weight:600;color:var(--text)}
-  .own-band{margin-top:8px;background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(16,185,129,.05));border:1px solid rgba(245,158,11,.3);border-radius:18px;padding:24px;position:relative}
-  .own-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--gold,#f59e0b),var(--green,#10b981));color:#fff;font-size:.74rem;font-weight:800;padding:5px 14px;border-radius:999px;margin-bottom:16px}
-  .own-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:22px}
-  .own-title{font-size:1.4rem;font-weight:900;margin-bottom:8px}
-  .own-desc{color:var(--muted);font-size:.9rem;line-height:1.8;margin-bottom:14px}
-  .own-desc strong{color:var(--text)}
-  .own-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
-  .own-list li{font-size:.85rem;padding-inline-start:26px;position:relative;line-height:1.5}
-  .own-list li::before{content:'✓';position:absolute;inset-inline-start:0;top:0;font-weight:900;color:var(--green2,#34d399)}
-  .own-price-col{display:flex;flex-direction:column;gap:10px}
-  .own-price-card{background:var(--card2);border:1px solid var(--border2);border-radius:14px;padding:16px 18px}
-  .own-price-card.alt{background:rgba(255,255,255,.02)}
-  .opc-label{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:4px}
-  .opc-num{font-family:Inter,Tajawal,sans-serif;font-size:1.9rem;font-weight:900;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1}
-  .opc-num.sm{font-size:1.3rem}
-  .opc-num span{font-size:.5em;font-weight:600;-webkit-text-fill-color:var(--muted);color:var(--muted)}
-  .opc-sub{font-size:.75rem;color:var(--muted2);margin-top:4px;line-height:1.5}
-  @media(max-width:760px){.own-grid{grid-template-columns:1fr}}
-  @media(max-width:760px){.howit{grid-template-columns:1fr 1fr}}
-  @media(max-width:760px){.svc-grid{grid-template-columns:1fr}}
-  @media(max-width:760px){.plans{grid-template-columns:1fr}.cfg-items{grid-template-columns:1fr}.cfg-layout{grid-template-columns:1fr}}
-  @media(max-width:760px){.aud-grid{grid-template-columns:1fr}}
-  .ind-section{margin-top:42px}
-  .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
-  .ind-card{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:16px 18px;transition:transform .2s,border-color .2s;display:flex;flex-direction:column;gap:4px}
-  .ind-card:hover{transform:translateY(-3px);border-color:rgba(139,92,246,.5)}
-  .ind-card.ind-custom{border-style:dashed;border-color:rgba(139,92,246,.3);background:rgba(139,92,246,.04)}
-  .ind-icon{font-size:1.5rem;margin-bottom:4px}
-  .ind-name{font-weight:800;font-size:.92rem;margin-bottom:2px}
-  .ind-desc{font-size:.78rem;color:var(--muted);line-height:1.5;flex:1}
-  .ind-price{font-weight:800;color:#a78bfa;font-family:Inter,Tajawal,sans-serif;font-size:.9rem;margin-top:8px}
-  .ind-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;text-decoration:none;padding:11px 22px;border-radius:10px;font-weight:700;font-size:.9rem}
-  .ind-cta:hover{opacity:.9}
-  @media(max-width:760px){.ind-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:480px){.ind-grid{grid-template-columns:1fr}}
-  .savings-band{margin:28px 0;background:var(--card2);border:1px solid var(--border);border-radius:18px;padding:26px;overflow-x:auto}
-  .savings-head{margin-bottom:18px}
-  .savings-head h3{font-size:1.25rem;font-weight:800;margin:6px 0 4px}
-  .savings-tag{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px}
-  .savings-head p{font-size:.78rem;color:var(--muted)}
-  .savings-tbl{width:100%;border-collapse:collapse;font-size:.82rem;min-width:560px}
-  .savings-tbl th{background:rgba(59,130,246,.08);color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;padding:10px 12px;text-align:right;border-bottom:1px solid var(--border)}
-  .savings-tbl td{padding:11px 12px;border-bottom:1px solid var(--border);line-height:1.4}
-  .savings-tbl tr.me td{background:rgba(16,185,129,.06);font-weight:700}
-  .savings-tbl tr:last-child td{border-bottom:0}
-  .tc-g{color:var(--green2)}.tc-r{color:#ef4444}.tc-y{color:var(--gold2)}
-  .savings-note{margin-top:12px;font-size:.72rem;color:var(--muted2);line-height:1.6}
-  .vat-note{margin-top:8px;font-size:.77rem;color:var(--muted);background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:8px 14px}
-  </style>
 
   <script>
   (function(){
     var billing='monthly', DISC=0.7;
     function fmt(n){return n.toLocaleString('en-US');}
+    function escapeHtml(value){return String(value).replace(/[&<>"']/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];});}
     window.setBilling=function(m){
       billing=m;
+      window.currentBilling=m;
       document.querySelectorAll('.bill-toggle button').forEach(function(b){b.classList.toggle('active',b.dataset.m===m);});
       document.querySelectorAll('.plan[data-m]').forEach(function(p){
         var base=billing==='monthly'?+p.dataset.m:+p.dataset.a;
@@ -1287,7 +1277,7 @@ body:hover #cursor-glow{opacity:1}
       '<p class="muted">عرض ساري 7 أيام · يشمل خصم 30%</p>'+
       '<p><b>حجم الشركة:</b> '+d.size+' موظف</p>'+
       '<table><thead><tr><th>الخدمة</th><th style="text-align:left">السعر الشهري</th></tr></thead><tbody>'+rows+'</tbody></table>'+
-      (d.notes?'<p><b>مميزات إضافية مطلوبة:</b><br>'+d.notes.replace(/</g,'&lt;').replace(/\n/g,'<br>')+'</p>':'')+
+      (d.notes?'<p><b>مميزات إضافية مطلوبة:</b><br>'+escapeHtml(d.notes).replace(/\n/g,'<br>')+'</p>':'')+
       '<p>الإجمالي قبل الخصم: '+fmt(d.base)+' ر.س/شهر</p>'+
       '<p class="tot">بعد خصم 30%: '+fmt(d.disc)+' ر.س/شهر</p>'+
       '<p class="muted">مدة التنفيذ: حسب حجم الطلب وتُحدَّد في العرض الرسمي · عربون 50% عند البدء والباقي عند التسليم.</p>'+
@@ -1314,9 +1304,9 @@ body:hover #cursor-glow{opacity:1}
         <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         GitHub
       </a>
-      <a href="mailto:doomyksa@gmail.com?subject=طلب%20السيرة%20الذاتية%20-%20Ahmed%20Alqahtani&body=السلام%20عليكم،%20أرغب%20بالحصول%20على%20نسختكم%20من%20السيرة%20الذاتية.%20شكراً." class="contact-link">
+      <a href="mailto:doomyksa@gmail.com?subject=طلب%20عرض%20سعر%20-%20حلول%20الأعمال&body=السلام%20عليكم،%20أرغب%20بطلب%20عرض%20سعر.%0A%0Aنوع%20النشاط:%0Aالنطاق%20المطلوب:%0Aعدد%20المستخدمين:%0Aالتفاصيل:" class="contact-link">
         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        <span data-ar>اطلب السيرة الذاتية</span><span data-en>Request CV</span>
+        <span data-ar>اطلب عرض سعر</span><span data-en>Request a Quote</span>
       </a>
     </div>
   </div>
@@ -1431,6 +1421,19 @@ function toggleLang(){
   if(typeof renderCfg === 'function') renderCfg();
   if(typeof setBilling === 'function') setBilling(window.currentBilling || 'monthly');
 }
+
+function toggleMenu(){
+  const menu=document.getElementById('nav-links');
+  const button=document.getElementById('menu-btn');
+  const open=menu.classList.toggle('open');
+  button.setAttribute('aria-expanded',String(open));
+}
+document.querySelectorAll('#nav-links a').forEach(function(link){
+  link.addEventListener('click',function(){
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('menu-btn').setAttribute('aria-expanded','false');
+  });
+});
 
 /* ── EARLY JOBS ── */
 function toggleEarly(){
