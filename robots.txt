@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cybphantom.github.io/business-solutions/sitemap.xml

@@ -14,7 +14,9 @@
 <meta property="og:title" content="حلول أعمال وأنظمة مخصّصة — Ahmed Alqahtani">
 <meta property="og:description" content="باقات مرنة لتطوير أنظمة إدارة وأعمال مخصّصة، مع خيارات الاشتراك أو التملّك الكامل.">
 <meta property="og:url" content="https://cybphantom.github.io/business-solutions/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://cybphantom.github.io/business-solutions/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cybphantom.github.io/business-solutions/og-image.png">
 <link rel="canonical" href="https://cybphantom.github.io/business-solutions/">
 <link rel="alternate" hreflang="x-default" href="https://cybphantom.github.io/business-solutions/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -559,6 +561,7 @@ body:hover #cursor-glow{opacity:1}
 </nav>
 
 <section id="about">
+<main role="main">
 <div id="hero">
   <canvas id="particles-canvas"></canvas>
   <div class="hero-bg"></div>
@@ -738,7 +741,7 @@ body:hover #cursor-glow{opacity:1}
     <div class="savings-band reveal">
       <div class="savings-head">
         <div class="savings-tag">📊 <span data-ar>مقارنة أسعار السوق</span><span data-en>Market Price Comparison</span></div>
-        <h3><span data-ar>وفّر <span class="grad">60%–80%</span> مقارنةً بالأنظمة العالمية</span><span data-en>Save <span class="grad">60%–80%</span> vs global systems</span></h3>
+        <h3><span data-ar>أسعار <span class="grad">تنافسية</span> مقارنةً بالأنظمة العالمية</span><span data-en><span class="grad">Competitive pricing</span> vs global systems</span></h3>
         <p><span data-ar>أسعار مرجعية موثّقة — المصدر: موردو الأنظمة الرسميون في السوق السعودي</span><span data-en>Reference prices — source: official system vendors in the Saudi market</span></p>
       </div>
       <table class="savings-tbl">
@@ -790,7 +793,7 @@ body:hover #cursor-glow{opacity:1}
         </tbody>
       </table>
       <div class="savings-note">
-        <span data-ar>* أسعار تقريبية مرجعية للسوق السعودي — تتفاوت حسب الموّرد وحجم الشركة والتخصيص. أسعار باقاتي هي السعر الكامل (لا رسوم خفية ولا تكاليف تطبيق إضافية). الأسعار لا تشمل ضريبة القيمة المضافة 15%.</span>
+        <span data-ar>* أسعار تقريبية مرجعية للسوق السعودي — تتفاوت حسب المورِّد وحجم الشركة والتخصيص. أسعار باقاتي هي السعر الكامل (لا رسوم خفية ولا تكاليف تطبيق إضافية). الأسعار لا تشمل ضريبة القيمة المضافة 15%.</span>
         <span data-en>* Approximate reference prices for the Saudi market — vary by vendor, company size, and customization. My plan prices are all-inclusive (no hidden fees, no extra implementation costs). Prices exclude 15% VAT.</span>
       </div>
     </div>
@@ -1318,6 +1321,7 @@ body:hover #cursor-glow{opacity:1}
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div style="font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:6px">
@@ -1423,6 +1427,9 @@ function toggleLang(){
   document.documentElement.lang=en?'en':'ar';
   document.documentElement.dir=en?'ltr':'rtl';
   document.querySelectorAll('.portfolio-link').forEach(a=>a.href=en?'https://cybphantom.github.io/en.html':'https://cybphantom.github.io/');
+  // إعادة تشغيل المكونات المترجمة
+  if(typeof renderCfg === 'function') renderCfg();
+  if(typeof setBilling === 'function') setBilling(window.currentBilling || 'monthly');
 }
 
 /* ── EARLY JOBS ── */
