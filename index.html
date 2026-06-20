@@ -422,11 +422,20 @@ body:hover #cursor-glow{opacity:1}
 .solution-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0 30px}
 .solution-shot{margin:0;background:var(--card2);border:1px solid var(--border2);border-radius:16px;overflow:hidden;transition:transform .2s,border-color .2s}
 .solution-shot:hover{transform:translateY(-3px);border-color:var(--accent)}
-.solution-shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--bg2)}
+.solution-shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--bg2);cursor:zoom-in}
 .solution-shot figcaption{padding:13px 14px;color:var(--muted);font-size:.78rem;line-height:1.6}
 .solution-shot figcaption strong{display:block;color:var(--text);font-size:.9rem;margin-bottom:3px}
+.solution-shot img:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.lightbox{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(6,10,16,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility .2s ease;z-index:1200}
+.lightbox.open{opacity:1;visibility:visible;pointer-events:auto}
+.lightbox-dialog{position:relative;max-width:min(92vw,1400px);max-height:92vh;width:100%;display:grid;gap:12px;justify-items:center}
+.lightbox-image{display:block;max-width:100%;max-height:calc(92vh - 88px);width:auto;height:auto;border-radius:18px;border:1px solid rgba(255,255,255,.16);box-shadow:0 28px 80px rgba(0,0,0,.45);background:#0b1220}
+.lightbox-caption{max-width:900px;text-align:center;color:#e5e7eb;font-size:.92rem;line-height:1.7}
+.lightbox-close{position:absolute;top:-8px;inset-inline-end:-8px;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(15,23,42,.82);color:#fff;font-size:1.4rem;cursor:pointer}
+.lightbox-close:hover,.lightbox-close:focus-visible{background:rgba(30,41,59,.95);border-color:rgba(255,255,255,.32);outline:none}
 @media(max-width:900px){.solution-gallery{grid-template-columns:1fr 1fr}.solution-shot:first-child{grid-column:1/-1}}
 @media(max-width:620px){.solution-gallery{grid-template-columns:1fr}.solution-shot:first-child{grid-column:auto}}
+@media(max-width:620px){.lightbox{padding:14px}.lightbox-image{max-height:calc(92vh - 120px)}.lightbox-close{top:6px;inset-inline-end:6px}}
 
 /* ============================================================
    PRINT / PDF STYLES
@@ -1326,6 +1335,14 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
   <span data-en>© 2026 Ahmed Alqahtani — All rights reserved · Saudi Arabia</span>
 </footer>
 
+<div class="lightbox" id="image-lightbox" aria-hidden="true">
+  <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close image preview">×</button>
+    <img class="lightbox-image" id="lightbox-image" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+
 <script>
 console.log('%c🔒 Ahmed Alqahtani Portfolio','color:#3b82f6;font-size:18px;font-weight:bold');
 console.log('%cDesigned & Built by Ahmed Sultan Alqahtani © 2026','color:#10b981;font-size:12px');
@@ -1428,6 +1445,15 @@ function toggleMenu(){
   const open=menu.classList.toggle('open');
   button.setAttribute('aria-expanded',String(open));
 }
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    if(lightbox.classList.contains('open')) closeLightbox();
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('menu-btn').setAttribute('aria-expanded','false');
+    document.getElementById('theme-panel').classList.remove('open');
+    document.getElementById('theme-btn').setAttribute('aria-expanded','false');
+  }
+});
 document.querySelectorAll('#nav-links a').forEach(function(link){
   link.addEventListener('click',function(){
     document.getElementById('nav-links').classList.remove('open');
@@ -1503,7 +1529,7 @@ document.querySelectorAll('.proj-card').forEach(card=>{
 });
 
 /* ── TYPING ANIMATION (hero subtitle) ── */
-(()=>{
+(()=>{ 
   const phrases=[
     {ar:'أنظمة أعمال لأي قطاع',en:'Business systems for any industry'},
     {ar:'باقات جاهزة أو نظام مخصّص',en:'Ready plans or fully custom'},
@@ -1537,6 +1563,46 @@ document.querySelectorAll('.proj-card').forEach(card=>{
   }
   type();
 })();
+
+/* ── IMAGE LIGHTBOX ── */
+const lightbox=document.getElementById('image-lightbox');
+const lightboxImage=document.getElementById('lightbox-image');
+const lightboxCaption=document.getElementById('lightbox-caption');
+const lightboxClose=document.getElementById('lightbox-close');
+let lastLightboxTrigger=null;
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  if(lastLightboxTrigger) lastLightboxTrigger.focus();
+}
+function openLightbox(img){
+  const caption=img.closest('figure')?.querySelector('figcaption');
+  lightboxImage.src=img.currentSrc||img.src;
+  lightboxImage.alt=img.alt||'Expanded preview';
+  lightboxCaption.innerHTML=caption?caption.innerHTML:'';
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  lastLightboxTrigger=img;
+  lightboxClose.focus();
+}
+document.querySelectorAll('.solution-shot img').forEach(img=>{
+  img.setAttribute('tabindex','0');
+  img.setAttribute('role','button');
+  img.setAttribute('aria-haspopup','dialog');
+  img.addEventListener('click',()=>openLightbox(img));
+  img.addEventListener('keydown',e=>{
+    if(e.key==='Enter' || e.key===' '){
+      e.preventDefault();
+      openLightbox(img);
+    }
+  });
+});
+lightboxClose.addEventListener('click',closeLightbox);
+lightbox.addEventListener('click',e=>{
+  if(e.target===lightbox) closeLightbox();
+});
 </script>
 </body>
 </html>
