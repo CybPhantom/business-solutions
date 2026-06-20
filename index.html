@@ -703,6 +703,22 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
   📖 <span data-ar>المعرض</span><span data-en>Portfolio</span>
 </a>
 
+<!-- FLOATING: WHATSAPP -->
+<style>
+#fab-wa{position:fixed;bottom:22px;inset-inline-start:22px;z-index:300;display:inline-flex;align-items:center;gap:8px;
+  background:#25D366;color:#062e16;text-decoration:none;padding:12px 18px;border-radius:100px;font-weight:800;font-size:.9rem;
+  box-shadow:0 10px 30px rgba(37,211,102,.4);transition:transform .2s,box-shadow .2s}
+#fab-wa:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(37,211,102,.55)}
+#fab-wa svg{width:20px;height:20px;fill:#062e16;flex-shrink:0}
+#fab-wa .fab-wa-txt{white-space:nowrap}
+@media print{#fab-wa{display:none!important}}
+@media(max-width:768px){#fab-wa{bottom:16px;inset-inline-start:16px;padding:11px 14px}#fab-wa .fab-wa-txt{display:none}}
+</style>
+<a id="fab-wa" href="https://wa.me/966530670502?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A3%D9%86%D8%B8%D9%85%D8%A9%20%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84" target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.738-.981v.174zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.017-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  <span class="fab-wa-txt"><span data-ar>واتساب</span><span data-en>WhatsApp</span></span>
+</a>
+
 <nav id="nav">
   <div class="nav-logo"><span data-ar>أحمد القحطاني</span><span data-en>Ahmed Alqahtani</span></div>
   <button class="menu-btn" id="menu-btn" type="button" aria-controls="nav-links" aria-expanded="false" onclick="toggleMenu()">☰ <span data-ar>القائمة</span><span data-en>Menu</span></button>
@@ -711,6 +727,8 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     <li><a href="https://cybphantom.github.io/#flagship" class="page-turn" data-ar>المشروع الأبرز</a><a href="https://cybphantom.github.io/en.html#flagship" class="page-turn" data-en>Flagship</a></li>
     <li><a href="https://cybphantom.github.io/#skills" class="page-turn" data-ar>المهارات</a><a href="https://cybphantom.github.io/en.html#skills" class="page-turn" data-en>Skills</a></li>
     <li><a href="#offer" data-ar>الباقات والأسعار</a><a href="#offer" data-en>Plans & Pricing</a></li>
+    <li><a href="#trust" data-ar>الأمان والثقة</a><a href="#trust" data-en>Security & Trust</a></li>
+    <li><a href="#faq" data-ar>الأسئلة والدعم</a><a href="#faq" data-en>FAQ & Support</a></li>
     <li><a href="#contact" data-ar>التواصل</a><a href="#contact" data-en>Contact</a></li>
   </ul>
   <div class="nav-controls">
@@ -1300,11 +1318,222 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
   </script>
 </section>
 
+<section class="section" id="trust">
+  <style>
+  /* ===== Security & Trust (scoped: tr-) ===== */
+  #trust .tr-intro{color:var(--muted);max-width:720px;margin:0 0 28px;line-height:1.9}
+  #trust .tr-cmp{width:100%;border-collapse:separate;border-spacing:0;margin:0 0 36px;
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;font-size:.9rem}
+  #trust .tr-cmp th,#trust .tr-cmp td{padding:14px 16px;text-align:start;vertical-align:top;border-bottom:1px solid var(--border)}
+  #trust .tr-cmp thead th{background:var(--bg3);font-weight:800;font-size:.86rem}
+  #trust .tr-cmp thead th.tr-us{color:var(--green2)}
+  #trust .tr-cmp thead th.tr-them{color:var(--muted)}
+  #trust .tr-cmp tbody tr:last-child td{border-bottom:none}
+  #trust .tr-cmp .tr-crit{font-weight:700;color:var(--text);width:24%}
+  #trust .tr-cmp .tr-them-cell{color:var(--muted2)}
+  #trust .tr-cmp .tr-us-cell{color:var(--text);background:rgba(16,185,129,.05);font-weight:600}
+  #trust .tr-cmp .tr-us-cell::before{content:'✓ ';color:var(--green2);font-weight:900}
+  #trust .tr-cmp .tr-them-cell::before{content:'– ';color:var(--muted2)}
+  #trust .tr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:0 0 36px}
+  #trust .tr-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius2);
+    padding:18px 16px;transition:transform .2s,border-color .2s}
+  #trust .tr-card:hover{transform:translateY(-3px);border-color:var(--border2)}
+  #trust .tr-card .tr-ico{font-size:1.5rem;display:block;margin-bottom:8px}
+  #trust .tr-card .tr-h{font-weight:700;font-size:.9rem;margin-bottom:4px;color:var(--text)}
+  #trust .tr-card .tr-p{font-size:.78rem;color:var(--muted);line-height:1.6}
+  #trust .tr-block-title{font-size:1.05rem;font-weight:800;margin:0 0 16px;display:flex;align-items:center;gap:8px}
+  #trust .tr-guards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:0 0 28px}
+  #trust .tr-guard{display:flex;gap:12px;align-items:flex-start;background:rgba(16,185,129,.05);
+    border:1px solid rgba(16,185,129,.2);border-radius:var(--radius2);padding:14px 16px}
+  #trust .tr-guard .tr-gi{font-size:1.3rem;flex-shrink:0}
+  #trust .tr-guard .tr-gh{font-weight:700;font-size:.88rem;color:var(--text);margin-bottom:3px}
+  #trust .tr-guard .tr-gp{font-size:.78rem;color:var(--muted);line-height:1.6}
+  #trust .tr-note{font-size:.76rem;color:var(--muted2);line-height:1.8;background:var(--bg3);
+    border:1px solid var(--border);border-radius:var(--radius2);padding:14px 18px;margin:0}
+  @media(max-width:620px){
+    #trust .tr-cmp{font-size:.8rem;display:block;overflow-x:auto;white-space:nowrap}
+    #trust .tr-cmp .tr-crit{width:auto}
+  }
+  </style>
+
+  <div class="reveal">
+    <div class="section-label"><span data-ar>الأمان والثقة</span><span data-en>Security & Trust</span></div>
+    <h2 class="section-title"><span data-ar>أمان موثّق <span class="grad">بمعايير حقيقية</span></span><span data-en>Trust Built on <span class="grad">Real Standards</span></span></h2>
+    <p class="tr-intro">
+      <span data-ar>تتردّد الشركات قبل اعتماد أي نظام: «هل بياناتنا آمنة؟ هل يُزرع شيء في الملفات؟ ولماذا نثق بمطوّر مستقل بدل شركة كبيرة؟» — هنا الإجابة بالحقائق والمعايير، لا بالكلام.</span>
+      <span data-en>Companies hesitate before adopting any system: "Is our data safe? Could something be hidden in the code? And why trust an independent developer over a big company?" — here are the answers, in facts and standards, not slogans.</span>
+    </p>
+
+    <!-- COMPARISON -->
+    <div class="tr-block-title">⚖️ <span data-ar>الحلول الجاهزة مقابل نظامك المخصّص</span><span data-en>Off-the-shelf vs. Your Custom System</span></div>
+    <table class="tr-cmp">
+      <thead>
+        <tr>
+          <th class="tr-crit"><span data-ar>المعيار</span><span data-en>Criteria</span></th>
+          <th class="tr-them"><span data-ar>الحلول الجاهزة</span><span data-en>Off-the-shelf</span></th>
+          <th class="tr-us"><span data-ar>نظامك مع CybPhantom</span><span data-en>Your CybPhantom System</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tr-crit"><span data-ar>التخصيص</span><span data-en>Customization</span></td>
+          <td class="tr-them-cell"><span data-ar>قالب ثابت تتكيّف أنت معه</span><span data-en>Fixed template — you adapt to it</span></td>
+          <td class="tr-us-cell"><span data-ar>مبني حسب نطاقك بالضبط</span><span data-en>Built exactly to your scope</span></td>
+        </tr>
+        <tr>
+          <td class="tr-crit"><span data-ar>الملكية</span><span data-en>Ownership</span></td>
+          <td class="tr-them-cell"><span data-ar>استئجار دائم — لا تملك شيئاً</span><span data-en>Rent forever — you own nothing</span></td>
+          <td class="tr-us-cell"><span data-ar>خيار تملّك كامل للسورس كود</span><span data-en>Full source-code ownership option</span></td>
+        </tr>
+        <tr>
+          <td class="tr-crit"><span data-ar>العربية</span><span data-en>Arabic</span></td>
+          <td class="tr-them-cell"><span data-ar>ترجمة على نظام أجنبي</span><span data-en>Translation over a foreign system</span></td>
+          <td class="tr-us-cell"><span data-ar>عربي أصيل من اليوم الأول</span><span data-en>Arabic-first from day one</span></td>
+        </tr>
+        <tr>
+          <td class="tr-crit"><span data-ar>الذكاء الاصطناعي</span><span data-en>AI assistant</span></td>
+          <td class="tr-them-cell"><span data-ar>محدود أو غير موجود</span><span data-en>Limited or absent</span></td>
+          <td class="tr-us-cell"><span data-ar>مساعد عربي مدمج (Claude API)</span><span data-en>Built-in Arabic assistant (Claude API)</span></td>
+        </tr>
+        <tr>
+          <td class="tr-crit"><span data-ar>التطوير والدعم</span><span data-en>Development & support</span></td>
+          <td class="tr-them-cell"><span data-ar>تنتظر دورك بين آلاف العملاء</span><span data-en>Wait your turn among thousands</span></td>
+          <td class="tr-us-cell"><span data-ar>تواصل مباشر مع المطوّر</span><span data-en>Direct line to the developer</span></td>
+        </tr>
+        <tr>
+          <td class="tr-crit"><span data-ar>خصوصية البيانات</span><span data-en>Data privacy</span></td>
+          <td class="tr-them-cell"><span data-ar>سيرفر مشترك مع الجميع</span><span data-en>Shared server with everyone</span></td>
+          <td class="tr-us-cell"><span data-ar>استضافة خاصة بك حسب الاتفاق</span><span data-en>Your own hosting per agreement</span></td>
+        </tr>
+        <tr>
+          <td class="tr-crit"><span data-ar>الأمان</span><span data-en>Security</span></td>
+          <td class="tr-them-cell"><span data-ar>قياسي عام</span><span data-en>Generic baseline</span></td>
+          <td class="tr-us-cell"><span data-ar>طبقات حماية + مختص أمن سيبراني</span><span data-en>Layered defenses + a cybersecurity specialist</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- SECURITY STANDARDS -->
+    <div class="tr-block-title">🛡️ <span data-ar>معايير الأمان المطبّقة في أنظمتنا</span><span data-en>Security Standards Applied in Our Systems</span></div>
+    <div class="tr-grid">
+      <div class="tr-card"><span class="tr-ico">🔑</span><div class="tr-h"><span data-ar>تشفير كلمات المرور</span><span data-en>Password Hashing</span></div><div class="tr-p"><span data-ar>bcrypt — لا تُخزَّن كلمة المرور كنص أبداً.</span><span data-en>bcrypt — passwords are never stored in plain text.</span></div></div>
+      <div class="tr-card"><span class="tr-ico">🔐</span><div class="tr-h"><span data-ar>مصادقة ثنائية (MFA)</span><span data-en>Two-Factor Auth</span></div><div class="tr-p"><span data-ar>رمز تحقق لمرة واحدة (OTP) للحسابات الحساسة.</span><span data-en>One-time codes (OTP) for sensitive accounts.</span></div></div>
+      <div class="tr-card"><span class="tr-ico">🚫</span><div class="tr-h"><span data-ar>حماية ضد التخمين</span><span data-en>Brute-force Defense</span></div><div class="tr-p"><span data-ar>ثلاث طبقات: قفل البريد + حظر IP + تحديد المعدّل.</span><span data-en>Three layers: account lock + IP ban + rate limiting.</span></div></div>
+      <div class="tr-card"><span class="tr-ico">👥</span><div class="tr-h"><span data-ar>صلاحيات حسب الدور</span><span data-en>Role-Based Access</span></div><div class="tr-p"><span data-ar>RBAC — كل مستخدم يرى ويعدّل ما يخصّه فقط.</span><span data-en>RBAC — each user sees and edits only what's theirs.</span></div></div>
+      <div class="tr-card"><span class="tr-ico">🧱</span><div class="tr-h"><span data-ar>رؤوس أمان كاملة</span><span data-en>Full Security Headers</span></div><div class="tr-p"><span data-ar>CSP و HSTS و حماية الإطارات لمنع الحقن والاختطاف.</span><span data-en>CSP, HSTS & frame protection against injection & hijacking.</span></div></div>
+      <div class="tr-card"><span class="tr-ico">💉</span><div class="tr-h"><span data-ar>محصّن ضد الحقن</span><span data-en>Injection-Safe</span></div><div class="tr-p"><span data-ar>استعلامات مُجهّزة تمنع SQL Injection و XSS.</span><span data-en>Prepared statements block SQL injection & XSS.</span></div></div>
+      <div class="tr-card"><span class="tr-ico">💾</span><div class="tr-h"><span data-ar>نسخ احتياطي مشفّر</span><span data-en>Encrypted Backups</span></div><div class="tr-p"><span data-ar>نسخ تلقائية مشفّرة لاستمرارية العمل.</span><span data-en>Automatic encrypted backups for continuity.</span></div></div>
+      <div class="tr-card"><span class="tr-ico">📝</span><div class="tr-h"><span data-ar>سجل تدقيق كامل</span><span data-en>Full Audit Log</span></div><div class="tr-p"><span data-ar>كل عملية حساسة مُسجّلة بالمستخدم والوقت.</span><span data-en>Every sensitive action logged with user & time.</span></div></div>
+      <div class="tr-card"><span class="tr-ico">🕵️</span><div class="tr-h"><span data-ar>رصد التهديدات</span><span data-en>Threat Detection</span></div><div class="tr-p"><span data-ar>نقاط فخّ (honeypots) وحظر تلقائي للمتسللين.</span><span data-en>Honeypots & automatic intruder banning.</span></div></div>
+      <div class="tr-card"><span class="tr-ico">🔍</span><div class="tr-h"><span data-ar>فحص ثغرات آلي</span><span data-en>Automated Scanning</span></div><div class="tr-p"><span data-ar>Gitleaks و Semgrep قبل كل إصدار.</span><span data-en>Gitleaks & Semgrep before every release.</span></div></div>
+      <div class="tr-card"><span class="tr-ico">🏛️</span><div class="tr-h"><span data-ar>التزام PDPL</span><span data-en>PDPL Compliance</span></div><div class="tr-p"><span data-ar>وفق نظام حماية البيانات الشخصية السعودي.</span><span data-en>Aligned with Saudi data-protection law.</span></div></div>
+      <div class="tr-card"><span class="tr-ico">☁️</span><div class="tr-h"><span data-ar>استضافة مدقّقة</span><span data-en>Audited Hosting</span></div><div class="tr-p"><span data-ar>بنية سحابية بشهادة SOC 2 وتشفير TLS كامل.</span><span data-en>SOC 2-certified cloud with full TLS encryption.</span></div></div>
+    </div>
+
+    <!-- TRUST GUARANTEES -->
+    <div class="tr-block-title">🤝 <span data-ar>لماذا تثق بمطوّر مستقل؟ — ضماناتك</span><span data-en>Why Trust an Independent Developer? — Your Guarantees</span></div>
+    <div class="tr-guards">
+      <div class="tr-guard"><span class="tr-gi">🏛️</span><div><div class="tr-gh"><span data-ar>توثيق رسمي قابل للتحقق</span><span data-en>Officially Verifiable</span></div><div class="tr-gp"><span data-ar>وثيقة عمل حر من وزارة الموارد البشرية، سارية حتى 2027 — تتحقق منها بنفسك عبر freelance.sa.</span><span data-en>Ministry-issued freelance license valid to 2027 — verify it yourself via freelance.sa.</span></div></div></div>
+      <div class="tr-guard"><span class="tr-gi">📜</span><div><div class="tr-gh"><span data-ar>عقد رسمي + اتفاقية سرية</span><span data-en>Formal Contract + NDA</span></div><div class="tr-gp"><span data-ar>كل مشروع يبدأ بعقد مكتوب يحدّد النطاق والملكية والسرية وحماية بياناتك.</span><span data-en>Every project starts with a written contract defining scope, ownership, confidentiality & data protection.</span></div></div></div>
+      <div class="tr-guard"><span class="tr-gi">🔓</span><div><div class="tr-gh"><span data-ar>تملّك الكود بالكامل</span><span data-en>Full Code Ownership</span></div><div class="tr-gp"><span data-ar>خيار تسلُّم السورس كود كاملاً مع التوثيق — النظام يبقى يعمل حتى بدوني.</span><span data-en>Option to receive the full source code with docs — the system keeps running even without me.</span></div></div></div>
+      <div class="tr-guard"><span class="tr-gi">🧪</span><div><div class="tr-gh"><span data-ar>مراجعة طرف ثالث مرحَّب بها</span><span data-en>Third-Party Review Welcome</span></div><div class="tr-gp"><span data-ar>تقدر تعرض الكود على أي مطوّر أو شركة أمنية للمراجعة قبل التسليم النهائي.</span><span data-en>You may have any developer or security firm review the code before final handover.</span></div></div></div>
+      <div class="tr-guard"><span class="tr-gi">🧾</span><div><div class="tr-gh"><span data-ar>شفافية كاملة</span><span data-en>Full Transparency</span></div><div class="tr-gp"><span data-ar>النطاق والسعر والمدة والتكاليف المتكررة موضّحة في عرض رسمي قبل بدء العمل.</span><span data-en>Scope, price, timeline & recurring costs spelled out in a formal quote before work starts.</span></div></div></div>
+      <div class="tr-guard"><span class="tr-gi">🔄</span><div><div class="tr-gh"><span data-ar>أمان مستمر ضمن الدعم</span><span data-en>Ongoing Security</span></div><div class="tr-gp"><span data-ar>تحديثات حماية ومراجعة دورية وفحص للثغرات ضمن عقد الدعم السنوي.</span><span data-en>Security updates, periodic reviews & vulnerability scans within the annual support plan.</span></div></div></div>
+    </div>
+
+    <p class="tr-note">
+      <span data-ar><strong>ملاحظة بصدق مهني:</strong> لا يوجد نظام «محمي 100%» — حتى أنظمة البنوك. ما نقدّمه هو مستوى حماية عالٍ مبني على ممارسات فعلية، مع التزام بالمراجعة والتحديث المستمر. المقارنة أعلاه عامة لأغراض توضيحية، والأسماء التجارية تخص أصحابها.</span>
+      <span data-en><strong>An honest professional note:</strong> no system is "100% secure" — not even banks'. What we provide is a high level of protection built on real practices, with a commitment to continuous review and updates. The comparison above is general and illustrative; trademarks belong to their respective owners.</span>
+    </p>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <style>
+  #faq .fq-pay{background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.28);border-radius:var(--radius);padding:22px;margin:0 0 32px}
+  #faq .fq-pay-h{font-size:1.05rem;font-weight:800;display:flex;align-items:center;gap:8px;margin:0 0 14px}
+  #faq .fq-pay-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+  #faq .fq-pay-item{display:flex;gap:10px;align-items:flex-start}
+  #faq .fq-pay-item .fq-pi{font-size:1.2rem;flex-shrink:0}
+  #faq .fq-pay-item b{color:var(--text);font-size:.88rem}
+  #faq .fq-pay-item span.d{display:block;color:var(--muted);font-size:.78rem;line-height:1.6}
+  #faq .fq-steps{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+  #faq .fq-step{background:var(--card);border:1px solid var(--border2);border-radius:100px;padding:7px 14px;font-size:.8rem;font-weight:700;color:var(--text)}
+  #faq .fq-step em{color:var(--green2);font-style:normal}
+  #faq details{background:var(--card);border:1px solid var(--border);border-radius:var(--radius2);margin:0 0 10px;overflow:hidden}
+  #faq details[open]{border-color:var(--border2)}
+  #faq summary{cursor:pointer;padding:15px 18px;font-weight:700;font-size:.92rem;color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  #faq summary::-webkit-details-marker{display:none}
+  #faq summary::after{content:'+';color:var(--accent2);font-size:1.3rem;font-weight:400;flex-shrink:0;transition:transform .2s}
+  #faq details[open] summary::after{transform:rotate(45deg)}
+  #faq .fq-a{padding:0 18px 16px;color:var(--muted);font-size:.86rem;line-height:1.9}
+  </style>
+  <div class="reveal">
+    <div class="section-label"><span data-ar>الأسئلة والدعم</span><span data-en>FAQ & Support</span></div>
+    <h2 class="section-title"><span data-ar>كل ما <span class="grad">يهمّك معرفته</span></span><span data-en>Everything <span class="grad">You Need to Know</span></span></h2>
+
+    <!-- PAY SAFELY -->
+    <div class="fq-pay">
+      <div class="fq-pay-h">🛡️ <span data-ar>ادفع بأمان — أموالك محمية</span><span data-en>Pay Safely — Your Money Is Protected</span></div>
+      <div class="fq-pay-grid">
+        <div class="fq-pay-item"><span class="fq-pi">💸</span><div><b><span data-ar>لا دفع كامل مقدّماً أبداً</span><span data-en>Never pay in full upfront</span></b><span class="d"><span data-ar>دفعة بسيطة للبدء، والباقي عند التسليم والاستلام.</span><span data-en>A small deposit to start; the rest on delivery & acceptance.</span></span></div></div>
+        <div class="fq-pay-item"><span class="fq-pi">🤝</span><div><b><span data-ar>خيار الوساطة المضمونة</span><span data-en>Escrow option</span></b><span class="d"><span data-ar>للعميل الجديد: ادفع عبر منصة مستقل/بحر تمسك المبلغ ولا تُطلقه إلا بعد التسليم.</span><span data-en>For new clients: pay via Mostaql/Bahr, which holds the funds until delivery.</span></span></div></div>
+        <div class="fq-pay-item"><span class="fq-pi">📜</span><div><b><span data-ar>عقد رسمي + فاتورة</span><span data-en>Formal contract + invoice</span></b><span class="d"><span data-ar>كل ريال موثّق بعقد وفاتورة باسمك — مرجع رسمي كامل.</span><span data-en>Every riyal documented by contract & invoice in your name.</span></span></div></div>
+        <div class="fq-pay-item"><span class="fq-pi">🚫</span><div><b><span data-ar>لا نطلب كلمة مرور أو رمز تحقق</span><span data-en>We never ask for passwords or OTP</span></b><span class="d"><span data-ar>لن نطلب منك بيانات بنكية حسّاسة أو رموز تحقق إطلاقاً.</span><span data-en>We will never request sensitive banking data or verification codes.</span></span></div></div>
+      </div>
+      <div class="fq-steps">
+        <span class="fq-step"><em>1</em> <span data-ar>طلب وعرض رسمي</span><span data-en>Request & quote</span></span>
+        <span class="fq-step"><em>2</em> <span data-ar>عقد + عربون 50%</span><span data-en>Contract + 50% deposit</span></span>
+        <span class="fq-step"><em>3</em> <span data-ar>تطوير ومتابعة</span><span data-en>Build & follow-up</span></span>
+        <span class="fq-step"><em>4</em> <span data-ar>تسليم + الدفعة الأخيرة</span><span data-en>Delivery + final payment</span></span>
+      </div>
+    </div>
+
+    <!-- FAQ ACCORDION -->
+    <details>
+      <summary><span data-ar>كيف أضمن أن أموالي لا تضيع إذا دفعت؟</span><span data-en>How do I know my money is safe if I pay?</span></summary>
+      <div class="fq-a"><span data-ar>لا تدفع المبلغ كاملاً مقدّماً. تبدأ بعربون 50% بعد توقيع عقد رسمي يحدّد النطاق والمدة، والباقي عند التسليم. وللعميل الجديد المتردّد، يمكن الدفع عبر منصة وساطة مضمونة (مستقل/بحر) تحتفظ بالمبلغ ولا تُطلقه لي إلا بعد استلامك العمل. كل دفعة موثّقة بعقد وفاتورة.</span><span data-en>You never pay in full upfront. You start with a 50% deposit after signing a formal contract that defines scope and timeline; the rest is due on delivery. For hesitant new clients, payment can go through an escrow platform (Mostaql/Bahr) that holds the funds and releases them only after you accept the work. Every payment is documented by contract and invoice.</span></div>
+    </details>
+    <details>
+      <summary><span data-ar>هل بياناتي آمنة؟ وهل يمكن اختراق النظام؟</span><span data-en>Is my data safe? Can the system be hacked?</span></summary>
+      <div class="fq-a"><span data-ar>كل نظام يُبنى بطبقات حماية فعلية: تشفير كلمات المرور (bcrypt)، مصادقة ثنائية، صلاحيات حسب الدور، رؤوس أمان، تحصين ضد الحقن، نسخ احتياطي مشفّر، وسجل تدقيق — راجع قسم «الأمان والثقة». لا يوجد نظام محمي 100% (حتى البنوك)، لكن المستوى المطبّق عالٍ ونلتزم بالمراجعة والتحديث المستمر ضمن الدعم.</span><span data-en>Every system is built with real security layers: password hashing (bcrypt), two-factor auth, role-based access, security headers, injection hardening, encrypted backups, and an audit log — see the "Security & Trust" section. No system is 100% unhackable (not even banks'), but the level applied is high and we commit to continuous review and updates within support.</span></div>
+    </details>
+    <details>
+      <summary><span data-ar>هل أملك النظام بالكامل؟</span><span data-en>Do I fully own the system?</span></summary>
+      <div class="fq-a"><span data-ar>نعم، خيار التملّك الكامل متاح: تستلم السورس كود كاملاً مع التوثيق التقني وحقوق الاستخدام، ويبقى النظام يعمل حتى بدون استمراري. يُحدَّد ذلك بوضوح في العقد قبل البدء.</span><span data-en>Yes, full ownership is available: you receive the complete source code with technical docs and usage rights, and the system keeps running even without my involvement. This is defined clearly in the contract before we start.</span></div>
+    </details>
+    <details>
+      <summary><span data-ar>كم تستغرق مدة التنفيذ؟</span><span data-en>How long does delivery take?</span></summary>
+      <div class="fq-a"><span data-ar>تعتمد على حجم النطاق وعدد الوحدات المطلوبة، وتُحدَّد المدة بدقة في العرض الرسمي قبل البدء. الأنظمة البسيطة عادة أسابيع، والأكبر حسب الاتفاق.</span><span data-en>It depends on scope size and the number of modules; the exact timeline is set in the formal quote before we begin. Simple systems are usually a few weeks; larger ones per agreement.</span></div>
+    </details>
+    <details>
+      <summary><span data-ar>هل يوجد دعم فني بعد التسليم؟</span><span data-en>Is there technical support after delivery?</span></summary>
+      <div class="fq-a"><span data-ar>نعم. يتوفّر عقد دعم وصيانة يشمل إصلاح الأعطال، التحديثات الأمنية، والاستشارات، مع وقت استجابة متفق عليه (SLA). التواصل عبر واتساب والبريد الإلكتروني.</span><span data-en>Yes. A support & maintenance plan covers bug fixes, security updates, and consulting, with an agreed response time (SLA). Reach me via WhatsApp and email.</span></div>
+    </details>
+    <details>
+      <summary><span data-ar>كيف أتواصل معك؟ وكم وقت الرد؟</span><span data-en>How do I reach you, and how fast is the reply?</span></summary>
+      <div class="fq-a"><span data-ar>عبر واتساب (الأسرع)، البريد الإلكتروني، أو LinkedIn. الرد عادة خلال ساعات العمل في نفس اليوم، والأعطال الحرجة ضمن وقت الاستجابة المتفق عليه في عقد الدعم.</span><span data-en>Via WhatsApp (fastest), email, or LinkedIn. Replies are usually same-day within business hours; critical issues within the response time agreed in the support contract.</span></div>
+    </details>
+    <details>
+      <summary><span data-ar>هل أنت موثّق رسمياً؟</span><span data-en>Are you officially verified?</span></summary>
+      <div class="fq-a"><span data-ar>نعم — وثيقة عمل حر صادرة من وزارة الموارد البشرية، سارية حتى 2027، يمكنك التحقق منها عبر freelance.sa. كما يجري التسجيل في منصة «معروف» التابعة لوزارة التجارة لمزيد من التوثيق.</span><span data-en>Yes — a freelance license issued by the Ministry of Human Resources, valid to 2027, verifiable via freelance.sa. Registration on the Ministry of Commerce's "Maroof" platform is also in progress for added verification.</span></div>
+    </details>
+    <details>
+      <summary><span data-ar>ماذا لو احتجت تعديلات بعد التسليم؟</span><span data-en>What if I need changes after delivery?</span></summary>
+      <div class="fq-a"><span data-ar>يشمل كل مشروع جولتَي تعديل مجانيتين ضمن النطاق المتفق عليه. التعديلات أو الميزات خارج النطاق تُسعَّر بشفافية في ملحق منفصل.</span><span data-en>Each project includes two free revision rounds within the agreed scope. Out-of-scope changes or new features are priced transparently in a separate addendum.</span></div>
+    </details>
+  </div>
+</section>
+
 <section class="section" id="contact">
   <div class="contact-box reveal">
     <h3><span data-ar>تواصل معنا الآن</span><span data-en>Get in Touch Now</span></h3>
     <p><span data-ar>للاستفسار أو طلب عرض تجريبي آمن للمنصة — تواصل عبر LinkedIn أو البريد الإلكتروني.</span><span data-en>For inquiries or a sanitized platform demo, reach out through LinkedIn or email.</span></p>
     <div class="contact-links">
+      <a href="https://wa.me/966530670502?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A3%D9%86%D8%B8%D9%85%D8%A9%20%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84" target="_blank" rel="noopener noreferrer" class="contact-link" style="border-color:rgba(37,211,102,.5)">
+        <svg viewBox="0 0 24 24" style="fill:#25D366"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.738-.981v.174zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.017-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span data-ar>واتساب</span><span data-en>WhatsApp</span>
+      </a>
       <a href="https://linkedin.com/in/ahmed-alqahtani-cybersecurity" target="_blank" rel="noopener noreferrer" class="contact-link">
         <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         LinkedIn
@@ -1330,6 +1559,11 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
   </div>
   <p style="margin-bottom:8px;color:var(--muted);font-size:.78rem">
     <a href="https://github.com/CybPhantom" target="_blank" rel="noopener">GitHub</a>
+  </p>
+  <p style="margin-bottom:10px;font-size:.78rem;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a href="privacy.html" style="color:var(--muted)"><span data-ar>سياسة الخصوصية</span><span data-en>Privacy Policy</span></a>
+    <a href="terms.html" style="color:var(--muted)"><span data-ar>الشروط والأحكام</span><span data-en>Terms &amp; Conditions</span></a>
+    <a href="refund.html" style="color:var(--muted)"><span data-ar>سياسة الاسترجاع</span><span data-en>Refund Policy</span></a>
   </p>
   <span data-ar>© 2026 أحمد القحطاني — جميع الحقوق محفوظة · المملكة العربية السعودية</span>
   <span data-en>© 2026 Ahmed Alqahtani — All rights reserved · Saudi Arabia</span>
@@ -1502,8 +1736,13 @@ function toggleEarly(){
 })();
 
 /* ── REVEAL ON SCROLL ── */
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.1});
+// threshold:0 = أي جزء يظهر يكفي (يصلح الأقسام الأطول من الشاشة التي لا تصل نسبتها للعتبة)
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:0,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// فيزفِل: لو لأي سبب بقي عنصر مخفياً، أظهره عند التمرير القريب + بعد مهلة قصيرة (لا يبقى محتوى مخفي أبداً)
+function revealNear(){const vh=innerHeight;document.querySelectorAll('.reveal:not(.visible)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<vh*1.1&&r.bottom>0){el.classList.add('visible');obs.unobserve(el)}})}
+addEventListener('scroll',revealNear,{passive:true});addEventListener('resize',revealNear,{passive:true});
+revealNear();setTimeout(()=>document.querySelectorAll('.reveal:not(.visible)').forEach(el=>el.classList.add('visible')),2500);
 
 /* ── COUNTER ANIMATION ── */
 function animateCounter(el,target,duration=1400){
