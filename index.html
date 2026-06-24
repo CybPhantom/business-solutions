@@ -694,6 +694,22 @@ body.en .plan-badge{transform:translateX(-50%)}
 .cfg-list{display:flex;flex-direction:column;gap:8px;min-height:40px;max-height:min(52vh,520px);overflow-y:auto;padding-inline-end:6px}
 .cfg-cat{font-size:.72rem;font-weight:800;color:var(--accent2);text-transform:uppercase;letter-spacing:.04em;margin:12px 0 6px;padding-top:4px;border-top:1px solid var(--border)}
 .cfg-cat:first-child{margin-top:0;padding-top:0;border-top:0}
+.cfg-legend{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px;align-items:center}
+.cfg-legend-note{font-size:.75rem;color:var(--muted2);width:100%;margin-top:2px;line-height:1.6}
+.cfg-tag{font-size:.62rem;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap;display:inline-block;vertical-align:middle}
+.cfg-tag.hot{background:rgba(245,158,11,.15);color:var(--gold2);border:1px solid rgba(245,158,11,.35)}
+.cfg-tag.essential{background:rgba(16,185,129,.12);color:var(--green2);border:1px solid rgba(16,185,129,.3)}
+.cfg-tag.pro{background:rgba(139,92,246,.12);color:#a78bfa;border:1px solid rgba(139,92,246,.35)}
+.cfg-tag.sa{background:rgba(59,130,246,.12);color:var(--accent2);border:1px solid rgba(59,130,246,.3)}
+button.cfg-row.add.tag-hot{border-color:rgba(245,158,11,.28);background:rgba(245,158,11,.04)}
+.cfg-row .cfg-lbl{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;flex:1;min-width:0;text-align:inherit}
+.svc-tag{display:inline-block;font-size:.62rem;font-weight:800;padding:2px 8px;border-radius:999px;margin-inline-start:6px;vertical-align:middle}
+.svc-tag.hot{background:rgba(245,158,11,.15);color:var(--gold2);border:1px solid rgba(245,158,11,.35)}
+.svc-tag.essential{background:rgba(16,185,129,.12);color:var(--green2);border:1px solid rgba(16,185,129,.3)}
+.svc-tag.sa{background:rgba(59,130,246,.12);color:var(--accent2);border:1px solid rgba(59,130,246,.3)}
+.svc-link-card{grid-column:1/-1;background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(16,185,129,.06));border:1px dashed rgba(59,130,246,.35);border-radius:14px;padding:16px 18px;text-align:center}
+.svc-link-card a{color:var(--accent2);font-weight:800;text-decoration:none}
+.svc-link-card a:hover{text-decoration:underline}
 .cfg-row .cfg-pill{font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:999px;background:rgba(245,158,11,.12);color:var(--gold2);margin-inline-start:6px}
 .cfg-row .cfg-pill.setup{background:rgba(59,130,246,.12);color:var(--accent2)}
 .cfg-total-sub{font-size:.72rem;color:var(--muted2);margin-top:4px}
@@ -1172,11 +1188,18 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     </div>
 
     <!-- CUSTOM CONFIGURATOR -->
-    <div class="configurator">
+    <div class="configurator" id="configurator">
       <div class="cfg-head">
         <div>
-          <div class="plan-name" style="font-size:1.3rem">🎛️ <span data-ar>صمّم نظامك المخصّص</span><span data-en>Design Your Custom System</span></div>
-          <div class="plan-tag"><span data-ar>نظام عالمي كامل — إدارة، مبيعات، موارد بشرية، تكاملات، وقطاعات متعددة · اختر وشاهد السعر فوراً</span><span data-en>Full global system — management, sales, HR, integrations & multi-industry · pick & see price instantly</span></div>
+          <div class="plan-name" style="font-size:1.3rem">🎛️ <span data-ar>صمّم نظامك المخصّص</span><span data-en>Design Your Custom System</span> <span style="font-size:.72rem;font-weight:700;color:var(--accent2);vertical-align:middle">50+</span></div>
+          <div class="plan-tag"><span data-ar><b>هنا القائمة الكاملة</b> (50+ خدمة) — إدارة، مبيعات، موارد بشرية، تكاملات، قطاعات. <b>مو محصورة فيها:</b> اكتب أي طلب إضافي في الملاحظات ويُسعَّر بعرض مخصص.</span><span data-en><b>Full catalog here</b> (50+ services) — management, sales, HR, integrations, industries. <b>Not limited to this list:</b> add custom requests in notes for a tailored quote.</span></div>
+          <div class="cfg-legend" id="cfgLegend" aria-hidden="true">
+            <span class="cfg-tag hot"><span data-ar>الأكثر طلباً</span><span data-en>Popular</span></span>
+            <span class="cfg-tag essential"><span data-ar>أساسي</span><span data-en>Essential</span></span>
+            <span class="cfg-tag pro"><span data-ar>احترافي</span><span data-en>Pro</span></span>
+            <span class="cfg-tag sa"><span data-ar>مهم في السعودية</span><span data-en>Key in KSA</span></span>
+            <span class="cfg-legend-note"><span data-ar>العلامات توجّهك للخيارات الشائعة — مو إلزامية. اختر حسب نشاطك فقط.</span><span data-en>Tags highlight common picks — not mandatory. Choose only what fits your business.</span></span>
+          </div>
         </div>
       </div>
 
@@ -1266,13 +1289,17 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
 
     <!-- OTHER SERVICES -->
     <h3 id="add-services" style="margin:28px 0 4px;font-size:1.4rem;font-weight:800"><span data-ar>خدمات إضافية</span><span data-en>Other Services</span></h3>
-    <p style="color:var(--muted);margin:0 0 18px;font-size:.9rem"><span data-ar>خدمة واحدة أو أكثر — كل بطاقة فيها السعر والوصف. اضغط «اطلب» أو تواصل مباشرة.</span><span data-en>One or more services — each card shows price and scope. Click order or contact us directly.</span></p>
+    <p style="color:var(--muted);margin:0 0 18px;font-size:.9rem"><span data-ar>هذي <b>أشهر الخدمات المنفردة</b> — القائمة الكاملة (50+) في <a href="#configurator" style="color:var(--accent2);font-weight:700">مُكوّن «صمّم نظامك» ↑</a> فوق.</span><span data-en>These are <b>popular standalone services</b> — the full list (50+) is in <a href="#configurator" style="color:var(--accent2);font-weight:700">Design Your System ↑</a> above.</span></p>
     <div class="svc-grid">
-      <div class="svc"><div class="svc-i">🌐</div><div class="svc-n"><span data-ar>موقع شركة احترافي</span><span data-en>Professional company website</span></div><div class="svc-d"><span data-ar>تصميم عصري سريع متجاوب + SEO — أو اختر <a href="#website-packs" style="color:var(--accent2)">باقة موقع جاهزة</a></span><span data-en>Modern, fast, responsive + SEO — or pick a <a href="#website-packs" style="color:var(--accent2)">website pack</a></span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 2,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
+      <div class="svc-link-card"><span data-ar>🔎 تبي نظام كامل مخصّص؟ </span><span data-en>🔎 Building a full custom system? </span><a href="#configurator"><span data-ar>افتح المُكوّن — 50+ خدمة بأسعار فورية</span><span data-en>Open the configurator — 50+ services, instant pricing</span></a></div>
+      <div class="svc"><div class="svc-i">🌐</div><div class="svc-n"><span data-ar>موقع شركة احترافي</span><span data-en>Professional company website</span><span class="svc-tag hot"><span data-ar>الأكثر طلباً</span><span data-en>Popular</span></span></div><div class="svc-d"><span data-ar>تصميم عصري سريع متجاوب + SEO — أو اختر <a href="#website-packs" style="color:var(--accent2)">باقة موقع جاهزة</a></span><span data-en>Modern, fast, responsive + SEO — or pick a <a href="#website-packs" style="color:var(--accent2)">website pack</a></span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 2,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
       <div class="svc"><div class="svc-i">☁️</div><div class="svc-n"><span data-ar>استضافة ورفع</span><span data-en>Hosting & deployment</span></div><div class="svc-d"><span data-ar>سعودية أو عالمية · SSL · نسخ احتياطي · صيانة</span><span data-en>Saudi or global · SSL · backups · maintenance</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 800 <span data-ar>ر.س/سنة</span><span data-en>SAR/yr</span></div></div>
       <div class="svc"><div class="svc-i">🛡️</div><div class="svc-n"><span data-ar>حماية ومراقبة</span><span data-en>Security & monitoring</span></div><div class="svc-d"><span data-ar>جدار حماية · فحص ثغرات · تحديثات أمنية</span><span data-en>WAF · vulnerability scans · security patches</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 700 <span data-ar>ر.س/سنة</span><span data-en>SAR/yr</span></div></div>
       <div class="svc"><div class="svc-i">✉️</div><div class="svc-n"><span data-ar>إيميلات باسم مشروعك</span><span data-en>Branded business email</span></div><div class="svc-d"><span data-ar>name@yourproject.com · Google Workspace أو Microsoft 365</span><span data-en>name@yourproject.com · Google Workspace or Microsoft 365</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 1,200 <span data-ar>ر.س/سنة</span><span data-en>SAR/yr</span></div></div>
-      <div class="svc"><div class="svc-i">🛒</div><div class="svc-n"><span data-ar>متجر إلكتروني</span><span data-en>Online store</span></div><div class="svc-d"><span data-ar>منتجات + سلة + دفع إلكتروني + إدارة طلبات</span><span data-en>Products + cart + payment + order management</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 6,000 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
+      <div class="svc"><div class="svc-i">🛒</div><div class="svc-n"><span data-ar>متجر إلكتروني</span><span data-en>Online store</span><span class="svc-tag hot"><span data-ar>الأكثر طلباً</span><span data-en>Popular</span></span></div><div class="svc-d"><span data-ar>منتجات + سلة + دفع إلكتروني + إدارة طلبات</span><span data-en>Products + cart + payment + order management</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 6,000 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
+      <div class="svc"><div class="svc-i">🧾</div><div class="svc-n"><span data-ar>الفوترة الإلكترونية (ZATCA)</span><span data-en>ZATCA e-invoicing</span><span class="svc-tag sa"><span data-ar>مهم في السعودية</span><span data-en>Key in KSA</span></span></div><div class="svc-d"><span data-ar>فواتير إلكترونية متوافقة مع هيئة الزكاة والضريبة · ربط تقني من طرفنا</span><span data-en>ZATCA-compliant e-invoices · we build the technical integration</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 3,000 <span data-ar>ر.س تأسيس</span><span data-en>SAR setup</span></div></div>
+      <div class="svc"><div class="svc-i">🏛️</div><div class="svc-n"><span data-ar>ربط الأنظمة الحكومية</span><span data-en>Government integration</span><span class="svc-tag sa"><span data-ar>مهم في السعودية</span><span data-en>Key in KSA</span></span></div><div class="svc-d"><span data-ar>زاتكا، أبشر، نفاذ، قوى… حسب ما يتطلبه نشاطك</span><span data-en>ZATCA, Absher, Nafath, Qiwa… per your business needs</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 3,000 <span data-ar>ر.س تأسيس</span><span data-en>SAR setup</span></div></div>
+      <div class="svc"><div class="svc-i">👥</div><div class="svc-n"><span data-ar>CRM — إدارة العملاء</span><span data-en>CRM — customer management</span><span class="svc-tag essential"><span data-ar>أساسي</span><span data-en>Essential</span></span></div><div class="svc-d"><span data-ar>ملفات عملاء، متابعة مبيعات، تذكيرات، تقارير</span><span data-en>Customer profiles, sales tracking, reminders, reports</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 1,800 <span data-ar>ر.س/شهر</span><span data-en>SAR/mo</span></div></div>
       <div class="svc"><div class="svc-i">📱</div><div class="svc-n"><span data-ar>تطبيقات الجوال</span><span data-en>Mobile apps</span></div><div class="svc-d"><span data-ar><b>PWA</b> (من المتصفح) من 1,500 ر.س · <b>متجر رسمي</b> أندرويد + آبل من 8,500 ر.س (يشمل إعداد الرفع) · <b>رسوم المتاجر على العميل:</b> Google ~25$ مرة · Apple ~99$/سنة — الحساب باسمك</span><span data-en><b>PWA</b> from 1,500 SAR · <b>Store app</b> Android + iOS from 8,500 SAR (publish setup included) · <b>Store fees paid by client:</b> Google ~$25 once · Apple ~$99/yr — account in your name</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 1,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
       <div class="svc"><div class="svc-i">📊</div><div class="svc-n"><span data-ar>مساعد تحليل داخلي (اختياري)</span><span data-en>Internal analytics assistant (optional)</span></div><div class="svc-d"><span data-ar>للإدارة داخل النظام — أسئلة عربية عن التقارير والعمليات · <b>ليس شات للزوار</b> · يُفعَّل فقط عند الطلب وبعقد منفصل</span><span data-en>For managers inside your system — Arabic queries on reports & operations · <b>not a public website chatbot</b> · enabled only on request with a separate agreement</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 4,000 <span data-ar>ر.س تأسيس</span><span data-en>SAR setup</span> + <span data-ar>API باسم العميل</span><span data-en>client API account</span></div></div>
       <div class="svc"><div class="svc-i">🎨</div><div class="svc-n"><span data-ar>مظاهر متعددة (فاتح / داكن / مخصص)</span><span data-en>Multi-theme (light / dark / custom)</span></div><div class="svc-d"><span data-ar>الزائر يختار المظهر المناسب — فاتح، داكن، أو ألوان تناسب نشاطك · <b>مشمول في باقات المواقع</b> · جرّب زر 🎨 أعلى الصفحة</span><span data-en>Visitors pick their preferred look — light, dark, or colors matching your brand · <b>included in website packs</b> · try the 🎨 button above</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 400 <span data-ar>ر.س</span><span data-en>SAR</span> · <b><span data-ar>مشمول بالمواقع</span><span data-en>in website packs</span></b></div></div>
@@ -1428,19 +1455,21 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       sector:{ar:'🏭 قطاعات وتشغيل',en:'🏭 Industry & operations'},
       advanced:{ar:'⚡ متقدم و enterprise',en:'⚡ Advanced & enterprise'}
     };
+    var TAGS={hot:{ar:'الأكثر طلباً',en:'Popular',cls:'hot'},essential:{ar:'أساسي',en:'Essential',cls:'essential'},pro:{ar:'احترافي',en:'Pro',cls:'pro'},sa:{ar:'مهم في السعودية',en:'Key in KSA',cls:'sa'}};
     var CORE_M=1200;
     var SERVICES=[
-      {id:'crm',cat:'biz',ar:'إدارة علاقات العملاء (CRM)',en:'CRM',m:1800},
-      {id:'sales',cat:'biz',ar:'المبيعات والتوزيع والخرائط',en:'Sales, distribution & maps',m:2000},
-      {id:'accounting',cat:'biz',ar:'تكامل محاسبي (قيود وفواتير)',en:'Accounting integration',m:1500},
-      {id:'payroll',cat:'biz',ar:'الرواتب وقسائم الراتب',en:'Payroll & payslips',m:2000},
-      {id:'inventory',cat:'biz',ar:'إدارة المخزون والمستودعات',en:'Inventory & warehouses',m:1500},
+      {id:'crm',cat:'biz',ar:'إدارة علاقات العملاء (CRM)',en:'CRM',m:1800,tag:'hot'},
+      {id:'sales',cat:'biz',ar:'المبيعات والتوزيع والخرائط',en:'Sales, distribution & maps',m:2000,tag:'hot'},
+      {id:'accounting',cat:'biz',ar:'تكامل محاسبي (قيود وفواتير)',en:'Accounting integration',m:1500,tag:'essential'},
+      {id:'payroll',cat:'biz',ar:'الرواتب وقسائم الراتب',en:'Payroll & payslips',m:2000,tag:'essential'},
+      {id:'inventory',cat:'biz',ar:'إدارة المخزون والمستودعات',en:'Inventory & warehouses',m:1500,tag:'essential'},
+      {id:'hr',cat:'biz',ar:'موارد بشرية وملفات موظفين',en:'HR & employee files',m:1000,tag:'essential'},
       {id:'procure',cat:'biz',ar:'المشتريات وطلبات الشراء',en:'Procurement & purchase orders',m:1200},
       {id:'projects',cat:'biz',ar:'إدارة المشاريع والمهام',en:'Projects & tasks',m:1500},
       {id:'approvals',cat:'biz',ar:'نظام موافقات وسير عمل',en:'Approvals & workflow',m:1200},
-      {id:'analytics',cat:'biz',ar:'تقارير وتحليلات متقدمة',en:'Advanced analytics',m:1000},
-      {id:'decision',cat:'biz',ar:'لوحة قرار تنفيذية موحّدة',en:'Executive decision dashboard',m:1500},
-      {id:'multi',cat:'biz',ar:'متعدد الفروع / الشركات',en:'Multi-branch / company',m:2500},
+      {id:'analytics',cat:'biz',ar:'تقارير وتحليلات متقدمة',en:'Advanced analytics',m:1000,tag:'pro'},
+      {id:'decision',cat:'biz',ar:'لوحة قرار تنفيذية موحّدة',en:'Executive decision dashboard',m:1500,tag:'pro'},
+      {id:'multi',cat:'biz',ar:'متعدد الفروع / الشركات',en:'Multi-branch / company',m:2500,tag:'pro'},
       {id:'portal',cat:'biz',ar:'بوابة عملاء (خدمة ذاتية)',en:'Customer self-service portal',m:1500},
       {id:'msg',cat:'biz',ar:'مراسلة عملاء داخلية',en:'Internal customer messaging',m:800},
       {id:'vault',cat:'biz',ar:'خزنة وثائق آمنة',en:'Secure document vault',m:800},
@@ -1453,39 +1482,48 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       {id:'assets',cat:'biz',ar:'الأصول الثابتة',en:'Fixed assets',m:1200},
       {id:'commissions',cat:'biz',ar:'عمولات المبيعات',en:'Sales commissions',m:900},
       {id:'maint',cat:'biz',ar:'إدارة الصيانة والأصول التشغيلية',en:'Maintenance & operational assets',m:1500},
-      {id:'notify',cat:'biz',ar:'إشعارات واتساب / SMS',en:'WhatsApp / SMS notifications',m:1000},
-      {id:'website',cat:'digital',ar:'موقع شركة / بوابة عامة',en:'Company website / public portal',s:2500,fixed:true},
+      {id:'notify',cat:'biz',ar:'إشعارات واتساب / SMS',en:'WhatsApp / SMS notifications',m:1000,tag:'essential'},
+      {id:'export',cat:'biz',ar:'تصدير Excel/PDF وتقارير جاهزة',en:'Excel/PDF export & ready reports',m:600},
+      {id:'website',cat:'digital',ar:'موقع شركة / بوابة عامة',en:'Company website / public portal',s:2500,fixed:true,tag:'hot'},
       {id:'themes',cat:'digital',ar:'مظاهر متعددة (فاتح/داكن/مخصص)',en:'Multi-theme (light/dark/custom)',s:400,fixed:true},
-      {id:'logo',cat:'digital',ar:'تصميم شعار وهوية بصرية',en:'Logo & visual identity',s:350,fixed:true},
-      {id:'lang',cat:'digital',ar:'ثنائي اللغة (عربي + إنجليزي)',en:'Bilingual (AR+EN)',s:600,fixed:true},
+      {id:'logo',cat:'digital',ar:'تصميم شعار وهوية بصرية',en:'Logo & visual identity',s:350,fixed:true,tag:'hot'},
+      {id:'lang',cat:'digital',ar:'ثنائي اللغة (عربي + إنجليزي)',en:'Bilingual (AR+EN)',s:600,fixed:true,tag:'hot'},
       {id:'langx',cat:'digital',ar:'لغة إضافية',en:'Extra language',s:300,fixed:true},
-      {id:'whitelabel',cat:'digital',ar:'علامة بيضاء (White-label)',en:'White-label branding',s:2000},
-      {id:'gov',cat:'integrate',ar:'ربط الأنظمة الحكومية الرسمية',en:'Official government integration',s:3000},
-      {id:'zatca',cat:'integrate',ar:'الفوترة الإلكترونية (ZATCA)',en:'ZATCA e-invoicing',s:3000},
-      {id:'pay',cat:'integrate',ar:'بوابة دفع إلكتروني',en:'Online payment gateway',s:1500,m:200},
-      {id:'api',cat:'integrate',ar:'API مفتوح لأنظمة خارجية',en:'Public API for external systems',s:2000,m:300},
+      {id:'whitelabel',cat:'digital',ar:'علامة بيضاء (White-label)',en:'White-label branding',s:2000,tag:'pro'},
+      {id:'gov',cat:'integrate',ar:'ربط الأنظمة الحكومية الرسمية',en:'Official government integration',s:3000,tag:'sa'},
+      {id:'zatca',cat:'integrate',ar:'الفوترة الإلكترونية (ZATCA)',en:'ZATCA e-invoicing',s:3000,tag:'sa'},
+      {id:'pay',cat:'integrate',ar:'بوابة دفع إلكتروني',en:'Online payment gateway',s:1500,m:200,tag:'essential'},
+      {id:'api',cat:'integrate',ar:'API مفتوح لأنظمة خارجية',en:'Public API for external systems',s:2000,m:300,tag:'pro'},
       {id:'sso',cat:'integrate',ar:'تسجيل دخول موحّد (SSO/LDAP)',en:'SSO / LDAP login',s:1800,m:200},
       {id:'migrate',cat:'integrate',ar:'ترحيل بيانات من نظام قديم',en:'Data migration from legacy system',s:2500},
-      {id:'gps',cat:'sector',ar:'تتبع GPS مباشر للأسطول',en:'Live GPS fleet tracking',m:2500},
-      {id:'workshop',cat:'sector',ar:'إدارة ورشة (أوامر تشغيل + فنيين)',en:'Workshop mgmt (job orders + techs)',m:2000},
+      {id:'gps',cat:'sector',ar:'تتبع GPS مباشر للأسطول',en:'Live GPS fleet tracking',m:2500,tag:'hot'},
+      {id:'workshop',cat:'sector',ar:'إدارة ورشة (أوامر تشغيل + فنيين)',en:'Workshop mgmt (job orders + techs)',m:2000,tag:'hot'},
       {id:'parts',cat:'sector',ar:'مخزون قطع غيار + باركود',en:'Spare-parts inventory + barcode',m:1800},
       {id:'estimates',cat:'sector',ar:'عروض أسعار وفواتير صيانة',en:'Repair quotes & service invoices',m:1200},
       {id:'svchistory',cat:'sector',ar:'سجل صيانة لكل مركبة/عميل',en:'Per-vehicle / customer service history',m:1000},
-      {id:'clinic',cat:'sector',ar:'حجوزات عيادة + ملفات مرضى',en:'Clinic bookings + patient files',m:2000},
+      {id:'clinic',cat:'sector',ar:'حجوزات عيادة + ملفات مرضى',en:'Clinic bookings + patient files',m:2000,tag:'hot'},
       {id:'menu',cat:'sector',ar:'إدارة مطعم (قوائم + طاولات + طلبات)',en:'Restaurant (menus + tables + orders)',m:1800},
-      {id:'store',cat:'sector',ar:'متجر إلكتروني متكامل',en:'Full e-commerce store',s:6000,m:400},
+      {id:'store',cat:'sector',ar:'متجر إلكتروني متكامل',en:'Full e-commerce store',s:6000,m:400,tag:'hot'},
       {id:'drivers',cat:'sector',ar:'تطبيق سائقين وتوصيل',en:'Driver & delivery app',s:3000,m:500},
       {id:'supplier',cat:'sector',ar:'بوابة موردين',en:'Supplier portal',m:1200},
       {id:'franchise',cat:'sector',ar:'إدارة امتياز وفرنشايز',en:'Franchise management',m:2000},
-      {id:'security',cat:'advanced',ar:'أمان متقدم + تشفير + سجل تدقيق',en:'Advanced security + audit log',m:1500},
-      {id:'mobile_pwa',cat:'advanced',ar:'تطبيق ويب للجوال (PWA)',en:'Mobile web app (PWA)',s:1500,m:200},
-      {id:'mobile_store',cat:'advanced',ar:'تطبيق متجر (أندرويد + آبل + رفع)',en:'Store app (Android + iOS + publish)',s:8500,m:500},
+      {id:'realestate',cat:'sector',ar:'إدارة عقارات ووحدات',en:'Real estate & units',m:2000},
+      {id:'education',cat:'sector',ar:'تسجيل دورات وطلاب',en:'Courses & student enrollment',m:1800},
+      {id:'hotel',cat:'sector',ar:'حجوزات فنادق وغرف',en:'Hotel bookings & rooms',m:2000},
+      {id:'security',cat:'advanced',ar:'أمان متقدم + تشفير + سجل تدقيق',en:'Advanced security + audit log',m:1500,tag:'pro'},
+      {id:'mobile_pwa',cat:'advanced',ar:'تطبيق ويب للجوال (PWA)',en:'Mobile web app (PWA)',s:1500,m:200,tag:'hot'},
+      {id:'mobile_store',cat:'advanced',ar:'تطبيق متجر (أندرويد + آبل + رفع)',en:'Store app (Android + iOS + publish)',s:8500,m:500,tag:'pro'},
       {id:'ai',cat:'advanced',ar:'مساعد تحليل داخلي (اختياري)',en:'Internal analytics assistant (optional)',s:4000,m:200},
-      {id:'sla',cat:'advanced',ar:'SLA أولوية ودعم مميز',en:'Priority SLA & premium support',m:1500},
+      {id:'sla',cat:'advanced',ar:'SLA أولوية ودعم مميز',en:'Priority SLA & premium support',m:1500,tag:'pro'},
       {id:'training',cat:'advanced',ar:'تدريب الفريق (جلسات)',en:'Team training (sessions)',s:800,fixed:true}
     ];
     var cart={};
     function svcLabel(s){return isEn()?s.en:s.ar;}
+    function svcTagHtml(s){
+      if(!s.tag||!TAGS[s.tag])return '';
+      var t=TAGS[s.tag];
+      return '<span class="cfg-tag '+t.cls+'">'+(isEn()?t.en:t.ar)+'</span>';
+    }
     function scaledSetup(s,size){return s.fixed?s.s:Math.round(s.s*size);}
     function scaledMonthly(v,size){return Math.round(v*size);}
     function svcPriceHtml(s,size){
@@ -1513,15 +1551,16 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
         h.innerHTML=isEn()?CATS[catKey].en:CATS[catKey].ar;
         av.appendChild(h);
         inCat.forEach(function(s){
-          var a=document.createElement('button'); a.type='button'; a.className='cfg-row add'; a.dataset.id=s.id;
-          a.innerHTML='<span>＋ '+svcLabel(s)+'</span><b>'+svcPriceHtml(s,size)+'</b>';
+          var a=document.createElement('button'); a.type='button'; a.className='cfg-row add'+(s.tag==='hot'?' tag-hot':'');
+          a.dataset.id=s.id;
+          a.innerHTML='<span class="cfg-lbl"><span>＋ '+svcLabel(s)+'</span>'+svcTagHtml(s)+'</span><b>'+svcPriceHtml(s,size)+'</b>';
           av.appendChild(a);
         });
       });
       SERVICES.forEach(function(s){
         if(!cart[s.id])return;
         var r=document.createElement('div'); r.className='cfg-row in';
-        r.innerHTML='<span>'+svcLabel(s)+'</span><span style="display:flex;gap:8px;align-items:center"><b>'+svcCartPrice(s,size)+'</b> <button type="button" class="cfg-x" data-id="'+s.id+'">✕</button></span>';
+        r.innerHTML='<span class="cfg-lbl"><span>'+svcLabel(s)+'</span>'+svcTagHtml(s)+'</span><span style="display:flex;gap:8px;align-items:center"><b>'+svcCartPrice(s,size)+'</b> <button type="button" class="cfg-x" data-id="'+s.id+'">✕</button></span>';
         ct.appendChild(r);
       });
       if(!av.querySelector('.cfg-row.add')) av.innerHTML='<div class="cfg-empty">'+(isEn()?'All services added ✓':'كل الخدمات مضافة ✓')+'</div>';
