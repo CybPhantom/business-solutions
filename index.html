@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="desert">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,7 +83,7 @@
   }
 }
 </script>
-<meta name="theme-color" content="#0d0905">
+<meta name="theme-color" content="#020408">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -810,6 +810,7 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     <li><a href="https://cybphantom.github.io/#skills" class="page-turn" data-ar>المهارات</a><a href="https://cybphantom.github.io/en.html#skills" class="page-turn" data-en>Skills</a></li>
     <li><a href="#offer" data-ar>الباقات والأسعار</a><a href="#offer" data-en>Plans & Pricing</a></li>
     <li><a href="#trust" data-ar>الأمان والثقة</a><a href="#trust" data-en>Security & Trust</a></li>
+    <li><a href="#transparency" data-ar>الشفافية</a><a href="#transparency" data-en>Transparency</a></li>
     <li><a href="#hosting" data-ar>الاستضافة</a><a href="#hosting" data-en>Hosting</a></li>
     <li><a href="#faq" data-ar>الأسئلة والدعم</a><a href="#faq" data-en>FAQ & Support</a></li>
     <li><a href="demo.html" data-ar>تجربة المنصات</a><a href="demo.html" data-en>Platform Demo</a></li>
@@ -819,9 +820,9 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     <div class="theme-wrap">
       <button class="theme-btn" id="theme-btn" type="button" onclick="toggleThemePanel()" aria-controls="theme-panel" aria-expanded="false" title="تغيير المظهر / Change theme">🎨 <span><span data-ar>تغيير المظهر</span><span data-en>Change theme</span></span></button>
       <div class="theme-panel" id="theme-panel">
-        <button type="button" class="theme-opt" data-t="dark" onclick="setTheme('dark')"><span class="theme-dot" style="background:linear-gradient(135deg,#3b82f6,#10b981)"></span><span data-ar>داكن</span><span data-en>Dark</span></button>
+        <button type="button" class="theme-opt active" data-t="dark" onclick="setTheme('dark')"><span class="theme-dot" style="background:linear-gradient(135deg,#3b82f6,#10b981)"></span><span data-ar>داكن</span><span data-en>Dark</span></button>
         <button type="button" class="theme-opt" data-t="midnight" onclick="setTheme('midnight')"><span class="theme-dot" style="background:linear-gradient(135deg,#8b5cf6,#3b82f6)"></span><span data-ar>منتصف الليل</span><span data-en>Midnight</span></button>
-        <button type="button" class="theme-opt active" data-t="desert" onclick="setTheme('desert')"><span class="theme-dot" style="background:linear-gradient(135deg,#f59e0b,#ef4444)"></span><span data-ar>صحراوي</span><span data-en>Desert</span></button>
+        <button type="button" class="theme-opt" data-t="desert" onclick="setTheme('desert')"><span class="theme-dot" style="background:linear-gradient(135deg,#f59e0b,#ef4444)"></span><span data-ar>صحراوي</span><span data-en>Desert</span></button>
         <button type="button" class="theme-opt" data-t="light" onclick="setTheme('light')"><span class="theme-dot" style="background:linear-gradient(135deg,#1d4ed8,#059669)"></span><span data-ar>فاتح</span><span data-en>Light</span></button>
       </div>
     </div>
@@ -1766,6 +1767,46 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
   </div>
 </section>
 
+<!-- ═══ TRANSPARENCY: TOOLS & DATA ═══ -->
+<section class="section" id="transparency">
+  <div class="reveal">
+    <div class="section-label"><span data-ar>الشفافية والمصداقية</span><span data-en>Transparency & Honesty</span></div>
+    <h2 class="section-title"><span data-ar>نعمل <span class="grad">بشفافية كاملة</span></span><span data-en>We Work with <span class="grad">Full Transparency</span></span></h2>
+    <p style="color:var(--muted);max-width:740px;margin:0 0 24px;line-height:1.9;font-size:.92rem">
+      <span data-ar>نؤمن أن الثقة تُبنى بالصدق لا بالمبالغة. إليك الحقيقة كاملة عن طريقة عملنا، والأدوات التي نستخدمها، وكيف نحمي بياناتك.</span>
+      <span data-en>We believe trust is built on honesty, not hype. Here's the full truth about how we work, the tools we use, and how we protect your data.</span>
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px">
+      <div class="svc" style="border-inline-start:3px solid var(--accent)">
+        <div class="svc-i">🤖</div>
+        <div class="svc-n"><span data-ar>نستخدم أحدث الأدوات — بشفافية</span><span data-en>We use modern tools — transparently</span></div>
+        <div class="svc-d"><span data-ar>نستخدم أحدث أدوات التطوير (بما فيها الذكاء الاصطناعي) لتسريع العمل ورفع الجودة. لكن <strong>كل كود يُراجَع يدوياً</strong> سطراً بسطر قبل التسليم — الأدوات تساعدنا، والخبرة البشرية هي من يقرّر.</span><span data-en>We use the latest development tools (including AI) to speed up work and raise quality. But <strong>every line of code is manually reviewed</strong> before delivery — tools assist us, human expertise decides.</span></div>
+      </div>
+      <div class="svc" style="border-inline-start:3px solid var(--green)">
+        <div class="svc-i">🔒</div>
+        <div class="svc-n"><span data-ar>بياناتك لا تُرسل لأي طرف</span><span data-en>Your data is never sent anywhere</span></div>
+        <div class="svc-d"><span data-ar>بيانات نظامك وعملائك <strong>لا تُرسل لأي خدمة خارجية</strong> ولا تُستخدم لتدريب أي نموذج. تبقى على استضافتك الخاصة، تحت سيطرتك الكاملة، ووفق نظام حماية البيانات الشخصية (PDPL).</span><span data-en>Your system and customer data is <strong>never sent to any external service</strong> nor used to train any model. It stays on your own hosting, under your full control, per the Saudi PDPL.</span></div>
+      </div>
+      <div class="svc" style="border-inline-start:3px solid var(--gold)">
+        <div class="svc-i">🔍</div>
+        <div class="svc-n"><span data-ar>راجع الكود قبل التسليم</span><span data-en>Audit the code before delivery</span></div>
+        <div class="svc-d"><span data-ar>تقدر تعرض الكود على <strong>أي مطوّر أو شركة أمن سيبراني</strong> للمراجعة قبل الاستلام النهائي. لا نخفي شيئاً — الشفافية الكاملة جزء من العقد.</span><span data-en>You may have <strong>any developer or cybersecurity firm</strong> review the code before final acceptance. We hide nothing — full transparency is part of the contract.</span></div>
+      </div>
+      <div class="svc" style="border-inline-start:3px solid var(--purple)">
+        <div class="svc-i">🎯</div>
+        <div class="svc-n"><span data-ar>وعود واقعية، لا مبالغات</span><span data-en>Realistic promises, no hype</span></div>
+        <div class="svc-d"><span data-ar>لا ندّعي «المستحيل» ولا «الكمال». نقدّم حلولاً واقعية بجودة عالية، ونوضّح النطاق والمدة والتكلفة بعرض مكتوب قبل البدء. ما نوعد به، ننفّذه.</span><span data-en>We don't claim "the impossible" or "perfection." We deliver realistic, high-quality solutions, with scope, timeline, and cost defined in writing before we start. What we promise, we deliver.</span></div>
+      </div>
+    </div>
+
+    <div style="background:rgba(59,130,246,.06);border:1px solid var(--border);border-inline-start:4px solid var(--accent);border-radius:12px;padding:16px 20px;font-size:.88rem;line-height:1.9;margin-top:16px">
+      <span data-ar>💬 <strong>بصراحة:</strong> أنا مطوّر مستقل أستعين بأفضل الأدوات الحديثة لأقدّم لك جودة شركة كبيرة بسعر وسرعة المستقل. الفرق أنك تتعامل مباشرة معي، وتقدر تتحقق من كل شي بنفسك — التوثيق الرسمي، الكود، والعقد.</span>
+      <span data-en>💬 <strong>Honestly:</strong> I'm an independent developer who uses the best modern tools to give you enterprise quality at a freelancer's price and speed. The difference is you deal directly with me, and you can verify everything yourself — the official license, the code, and the contract.</span>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ HOSTING & INFRASTRUCTURE ═══ -->
 <section class="section" id="hosting">
   <div class="reveal">
@@ -1773,8 +1814,8 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     <h2 class="section-title"><span data-ar>استضافة <span class="grad">آمنة ومرنة</span></span><span data-en>Secure & <span class="grad">Flexible Hosting</span></span></h2>
 
     <div class="valueprop" style="border-inline-start-color:var(--accent)">
-      <span data-ar>🛡️ <strong>لا شيء مستحيل.</strong> كل نظام يُبنى بأعلى معايير الأمان الحديث والمتطور — حماية متعددة الطبقات، تشفير كامل، صلاحيات دقيقة، وسجل تدقيق لكل عملية. بياناتك في أمان ولا أحد يوصلها غيرك.</span>
-      <span data-en>🛡️ <strong>Nothing is impossible.</strong> Every system is built with the highest modern security standards — multi-layered protection, full encryption, granular permissions, and a complete audit trail. Your data is safe and only you can access it.</span>
+      <span data-ar>🛡️ <strong>أمان مبني على ممارسات فعلية.</strong> كل نظام يُبنى بطبقات حماية حديثة — تشفير كامل، صلاحيات دقيقة حسب الدور، وسجل تدقيق لكل عملية. بياناتك تبقى ملكك، ويمكنك مراجعة الكود أو عرضه على مختص أمني قبل التسليم. لا نظام «محمي 100%» — لكن نلتزم بمستوى حماية عالٍ ومراجعة مستمرة.</span>
+      <span data-en>🛡️ <strong>Security built on real practices.</strong> Every system uses modern protection layers — full encryption, granular role-based access, and a complete audit trail. Your data stays yours, and you can review the code or have a security expert audit it before delivery. No system is "100% unbreakable" — but we commit to a high protection standard and continuous review.</span>
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:22px">
@@ -1991,7 +2032,7 @@ function toggleThemePanel(){
 document.addEventListener('click',e=>{
   if(!e.target.closest('.theme-wrap')) document.getElementById('theme-panel').classList.remove('open');
 });
-(()=>{const s=localStorage.getItem('pf-theme');setTheme(s||'desert')})();
+(()=>{const s=localStorage.getItem('pf-theme');setTheme(s||'dark')})();
 
 /* ── LANG TOGGLE (in-page only — لا تنقل لصفحة أخرى) ── */
 function toggleLang(){
