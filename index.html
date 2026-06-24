@@ -663,10 +663,10 @@ body.en .plan-badge{transform:translateX(-50%)}
 .web-pack-save{font-size:.72rem;color:var(--green2);font-weight:700;margin-top:2px}
 .web-pack-cta{display:block;text-align:center;margin-top:12px;padding:9px;border-radius:9px;border:1px solid var(--border2);color:var(--accent2);text-decoration:none;font-weight:700;font-size:.82rem}
 .web-pack-cta:hover{background:rgba(59,130,246,.08)}
-.web-ala-carte{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 18px}
-.web-ala-note{color:var(--muted);font-size:.84rem;line-height:1.75;margin:14px 0 8px;max-width:720px}
-.web-ala-carte span{display:inline-flex;align-items:center;gap:5px;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:5px 12px;font-size:.74rem;color:var(--muted)}
-.web-ala-carte b{color:var(--text);font-family:Inter,Tajawal,sans-serif}
+.web-pack-alt{margin:18px 0 0;padding:16px 20px;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);border-radius:14px;font-size:.88rem;line-height:1.8;color:var(--muted)}
+.web-pack-alt b{color:var(--text);display:block;margin-bottom:4px;font-size:.95rem}
+.web-pack-alt a{color:var(--accent2);font-weight:700;text-decoration:none}
+.web-pack-alt a:hover{text-decoration:underline}
 .price-orig{font-size:.5em;font-weight:600;color:var(--muted2);text-decoration:line-through;margin-inline-end:6px}
 .plan-feats{list-style:none;padding:0;margin:18px 0;display:flex;flex-direction:column;gap:9px;flex:1}
 .plan-feats li{font-size:.84rem;padding-inline-start:26px;position:relative;line-height:1.5}
@@ -1258,28 +1258,22 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
         <a class="web-pack-cta" href="mailto:doomyksa@gmail.com?subject=طلب%20باقة%20حضور%20رقمي%20كامل"><span data-ar>اطلب الآن</span><span data-en>Order now</span></a>
       </div>
     </div>
-    <p class="web-ala-note">💡 <span data-ar><b>المربعات أدناه</b> = أسعار <b>منفردة</b> لو ما تبي باقة كاملة — مثلاً: موقع بس بدون استضافة، أو شعار لوحده، أو لغة إضافية. اختر باقة فوق إذا تبي كل شي مجمّع بسعر أوفر.</span><span data-en><b>The pills below</b> are <b>à la carte</b> prices if you don't want a full pack — e.g. website only, logo only, or an extra language. Pick a pack above for a bundled better deal.</span></p>
-    <div class="web-ala-carte">
-      <span><span data-ar>أو اختر منفرداً:</span><span data-en>Or à la carte:</span></span>
-      <span><span data-ar>موقع من</span><span data-en>Website from</span> <b>2,500</b></span>
-      <span><span data-ar>استضافة من</span><span data-en>Hosting from</span> <b>800</b><span data-ar>/سنة</span><span data-en>/yr</span></span>
-      <span><span data-ar>حماية من</span><span data-en>Security from</span> <b>700</b><span data-ar>/سنة</span><span data-en>/yr</span></span>
-      <span><span data-ar>بريد مهني من</span><span data-en>Email from</span> <b>1,200</b><span data-ar>/سنة</span><span data-en>/yr</span></span>
-      <span><span data-ar>متجر من</span><span data-en>Store from</span> <b>6,000</b></span>
-      <span><span data-ar>شعار من</span><span data-en>Logo from</span> <b>350</b></span>
-      <span><span data-ar>لغة إضافية من</span><span data-en>Extra lang from</span> <b>300</b></span>
+    <div class="web-pack-alt">
+      <b><span data-ar>تحتاج خدمة واحدة فقط؟</span><span data-en>Need just one service?</span></b>
+      <span data-ar>ما تحتاج تختار باقة كاملة — تقدر تطلب <b>موقع فقط</b>، أو <b>شعار</b>، أو <b>استضافة</b>… الأسعار واضحة في <a href="#add-services">قسم الخدمات الإضافية ↓</a> تحت، أو <a href="#contact">تواصل معنا</a> ونرسل لك عرضاً مكتوباً بالضبط اللي تحتاجه.</span>
+      <span data-en>You don't have to pick a full pack — request a <b>website only</b>, <b>logo</b>, <b>hosting</b>… See clear prices in <a href="#add-services">Additional Services ↓</a> below, or <a href="#contact">contact us</a> for a written quote for exactly what you need.</span>
     </div>
 
     <!-- OTHER SERVICES -->
-    <h3 style="margin:28px 0 4px;font-size:1.4rem;font-weight:800"><span data-ar>خدمات إضافية</span><span data-en>Other Services</span></h3>
-    <p style="color:var(--muted);margin:0 0 18px;font-size:.9rem"><span data-ar>توسعات وتكاملات — تُضاف للنظام أو الموقع حسب الحاجة</span><span data-en>Add-ons & integrations — added to your system or site as needed</span></p>
+    <h3 id="add-services" style="margin:28px 0 4px;font-size:1.4rem;font-weight:800"><span data-ar>خدمات إضافية</span><span data-en>Other Services</span></h3>
+    <p style="color:var(--muted);margin:0 0 18px;font-size:.9rem"><span data-ar>خدمة واحدة أو أكثر — كل بطاقة فيها السعر والوصف. اضغط «اطلب» أو تواصل مباشرة.</span><span data-en>One or more services — each card shows price and scope. Click order or contact us directly.</span></p>
     <div class="svc-grid">
       <div class="svc"><div class="svc-i">🌐</div><div class="svc-n"><span data-ar>موقع شركة احترافي</span><span data-en>Professional company website</span></div><div class="svc-d"><span data-ar>تصميم عصري سريع متجاوب + SEO — أو اختر <a href="#website-packs" style="color:var(--accent2)">باقة موقع جاهزة</a></span><span data-en>Modern, fast, responsive + SEO — or pick a <a href="#website-packs" style="color:var(--accent2)">website pack</a></span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 2,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
       <div class="svc"><div class="svc-i">☁️</div><div class="svc-n"><span data-ar>استضافة ورفع</span><span data-en>Hosting & deployment</span></div><div class="svc-d"><span data-ar>سعودية أو عالمية · SSL · نسخ احتياطي · صيانة</span><span data-en>Saudi or global · SSL · backups · maintenance</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 800 <span data-ar>ر.س/سنة</span><span data-en>SAR/yr</span></div></div>
       <div class="svc"><div class="svc-i">🛡️</div><div class="svc-n"><span data-ar>حماية ومراقبة</span><span data-en>Security & monitoring</span></div><div class="svc-d"><span data-ar>جدار حماية · فحص ثغرات · تحديثات أمنية</span><span data-en>WAF · vulnerability scans · security patches</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 700 <span data-ar>ر.س/سنة</span><span data-en>SAR/yr</span></div></div>
       <div class="svc"><div class="svc-i">✉️</div><div class="svc-n"><span data-ar>إيميلات باسم مشروعك</span><span data-en>Branded business email</span></div><div class="svc-d"><span data-ar>name@yourproject.com · Google Workspace أو Microsoft 365</span><span data-en>name@yourproject.com · Google Workspace or Microsoft 365</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 1,200 <span data-ar>ر.س/سنة</span><span data-en>SAR/yr</span></div></div>
       <div class="svc"><div class="svc-i">🛒</div><div class="svc-n"><span data-ar>متجر إلكتروني</span><span data-en>Online store</span></div><div class="svc-d"><span data-ar>منتجات + سلة + دفع إلكتروني + إدارة طلبات</span><span data-en>Products + cart + payment + order management</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 6,000 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-      <div class="svc"><div class="svc-i">📱</div><div class="svc-n"><span data-ar>تطبيقات الجوال</span><span data-en>Mobile apps</span></div><div class="svc-d"><span data-ar><b>PWA</b> (من المتصفح) من 1,500 ر.س · <b>متجر رسمي</b> أندرويد + آبل من 8,500 ر.س تأسيس · <b>رسوم المتاجر على العميل:</b> Google Play ~25$ (مرة) · Apple ~99$/سنة — الحساب باسمك</span><span data-en><b>PWA</b> (browser) from 1,500 SAR · <b>Store app</b> Android + iOS from 8,500 SAR setup · <b>Store fees paid by client:</b> Google Play ~$25 once · Apple ~$99/yr — account in your name</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 1,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
+      <div class="svc"><div class="svc-i">📱</div><div class="svc-n"><span data-ar>تطبيقات الجوال</span><span data-en>Mobile apps</span></div><div class="svc-d"><span data-ar><b>PWA</b> (من المتصفح) من 1,500 ر.س · <b>متجر رسمي</b> أندرويد + آبل من 8,500 ر.س (يشمل إعداد الرفع) · <b>رسوم المتاجر على العميل:</b> Google ~25$ مرة · Apple ~99$/سنة — الحساب باسمك</span><span data-en><b>PWA</b> from 1,500 SAR · <b>Store app</b> Android + iOS from 8,500 SAR (publish setup included) · <b>Store fees paid by client:</b> Google ~$25 once · Apple ~$99/yr — account in your name</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 1,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
       <div class="svc"><div class="svc-i">📊</div><div class="svc-n"><span data-ar>مساعد تحليل داخلي (اختياري)</span><span data-en>Internal analytics assistant (optional)</span></div><div class="svc-d"><span data-ar>للإدارة داخل النظام — أسئلة عربية عن التقارير والعمليات · <b>ليس شات للزوار</b> · يُفعَّل فقط عند الطلب وبعقد منفصل</span><span data-en>For managers inside your system — Arabic queries on reports & operations · <b>not a public website chatbot</b> · enabled only on request with a separate agreement</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 4,000 <span data-ar>ر.س تأسيس</span><span data-en>SAR setup</span> + <span data-ar>API باسم العميل</span><span data-en>client API account</span></div></div>
       <div class="svc"><div class="svc-i">🎨</div><div class="svc-n"><span data-ar>مظاهر متعددة (فاتح / داكن / مخصص)</span><span data-en>Multi-theme (light / dark / custom)</span></div><div class="svc-d"><span data-ar>الزائر يختار المظهر المناسب — فاتح، داكن، أو ألوان تناسب نشاطك · <b>مشمول في باقات المواقع</b> · جرّب زر 🎨 أعلى الصفحة</span><span data-en>Visitors pick their preferred look — light, dark, or colors matching your brand · <b>included in website packs</b> · try the 🎨 button above</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 400 <span data-ar>ر.س</span><span data-en>SAR</span> · <b><span data-ar>مشمول بالمواقع</span><span data-en>in website packs</span></b></div></div>
       <div class="svc"><div class="svc-i">✨</div><div class="svc-n"><span data-ar>تصميم شعار وهوية بصرية</span><span data-en>Logo & visual identity</span></div><div class="svc-d"><span data-ar>شعار احترافي للموقع أو الشركة · أيقونة (favicon) · مقاسات السوشال ميديا · ملفات جاهزة للطباعة</span><span data-en>Professional logo for your site or company · favicon · social media sizes · print-ready files</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 350 <span data-ar>ر.س</span><span data-en>SAR</span> · <span data-ar>باقة كاملة من</span><span data-en>full pack from</span> 600</div></div>
@@ -1485,8 +1479,7 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       {id:'franchise',cat:'sector',ar:'إدارة امتياز وفرنشايز',en:'Franchise management',m:2000},
       {id:'security',cat:'advanced',ar:'أمان متقدم + تشفير + سجل تدقيق',en:'Advanced security + audit log',m:1500},
       {id:'mobile_pwa',cat:'advanced',ar:'تطبيق ويب للجوال (PWA)',en:'Mobile web app (PWA)',s:1500,m:200},
-      {id:'mobile_store',cat:'advanced',ar:'تطبيق متجر (أندرويد + آبل)',en:'Store app (Android + iOS)',s:8500,m:500},
-      {id:'store_pub',cat:'advanced',ar:'إعداد ورفع على Google Play / App Store',en:'Google Play / App Store setup & publish',s:1200,fixed:true},
+      {id:'mobile_store',cat:'advanced',ar:'تطبيق متجر (أندرويد + آبل + رفع)',en:'Store app (Android + iOS + publish)',s:8500,m:500},
       {id:'ai',cat:'advanced',ar:'مساعد تحليل داخلي (اختياري)',en:'Internal analytics assistant (optional)',s:4000,m:200},
       {id:'sla',cat:'advanced',ar:'SLA أولوية ودعم مميز',en:'Priority SLA & premium support',m:1500},
       {id:'training',cat:'advanced',ar:'تدريب الفريق (جلسات)',en:'Team training (sessions)',s:800,fixed:true}
