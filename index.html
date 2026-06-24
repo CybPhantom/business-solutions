@@ -690,7 +690,12 @@ body.en .plan-badge{transform:translateX(-50%)}
 .cfg-item.base{opacity:.85;cursor:default}
 .cfg-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:16px}
 .cfg-col-h{font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:10px}
-.cfg-list{display:flex;flex-direction:column;gap:8px;min-height:40px;max-height:300px;overflow-y:auto;padding-inline-end:6px}
+.cfg-list{display:flex;flex-direction:column;gap:8px;min-height:40px;max-height:min(52vh,520px);overflow-y:auto;padding-inline-end:6px}
+.cfg-cat{font-size:.72rem;font-weight:800;color:var(--accent2);text-transform:uppercase;letter-spacing:.04em;margin:12px 0 6px;padding-top:4px;border-top:1px solid var(--border)}
+.cfg-cat:first-child{margin-top:0;padding-top:0;border-top:0}
+.cfg-row .cfg-pill{font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:999px;background:rgba(245,158,11,.12);color:var(--gold2);margin-inline-start:6px}
+.cfg-row .cfg-pill.setup{background:rgba(59,130,246,.12);color:var(--accent2)}
+.cfg-total-sub{font-size:.72rem;color:var(--muted2);margin-top:4px}
 .cfg-list::-webkit-scrollbar{width:7px}.cfg-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
 .cfg-row{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:11px 14px;font-size:.84rem;text-align:inherit;width:100%;color:var(--text);font-family:inherit}
 .cfg-row b{font-family:Inter,sans-serif;color:var(--accent2);white-space:nowrap}
@@ -1169,13 +1174,13 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       <div class="cfg-head">
         <div>
           <div class="plan-name" style="font-size:1.3rem">🎛️ <span data-ar>صمّم نظامك المخصّص</span><span data-en>Design Your Custom System</span></div>
-          <div class="plan-tag"><span data-ar>اختر خدماتك، تنتقل لسلّتك، واحصل على سعرك فوراً</span><span data-en>Pick services, they move to your cart, get your price instantly</span></div>
+          <div class="plan-tag"><span data-ar>نظام عالمي كامل — إدارة، مبيعات، موارد بشرية، تكاملات، وقطاعات متعددة · اختر وشاهد السعر فوراً</span><span data-en>Full global system — management, sales, HR, integrations & multi-industry · pick & see price instantly</span></div>
         </div>
       </div>
 
       <label class="cfg-size">
         <span data-ar>حجم الشركة (عدد الموظفين)</span><span data-en>Company size (employees)</span>
-        <select id="cfgSize" onchange="recalcCfg()">
+        <select id="cfgSize" onchange="renderCfg()">
           <option value="1">1 – 20</option>
           <option value="1.25">21 – 50</option>
           <option value="1.5">51 – 100</option>
@@ -1196,15 +1201,18 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
 
           <label class="cfg-custom">
             <span data-ar>🖊️ مميزات أخرى تريدها؟ اكتبها (تُسعَّر بعرض خاص)</span><span data-en>🖊️ Other features? Write them (priced separately)</span>
-            <textarea id="cfgNotes" rows="2" placeholder="مثال: ربط نقاط بيع، تطبيق سائقين، تكامل بنكي..."></textarea>
+            <textarea id="cfgNotes" rows="2" placeholder="مثال: ربط SAP، تطبيق عملاء، تقارير مخصصة، لغة أوردو..."></textarea>
           </label>
 
           <div class="cfg-total">
-            <div>
+            <div style="flex:1;min-width:200px">
               <div style="font-size:.78rem;color:var(--muted)"><span data-ar>تأسيس النظام (مرة واحدة — بعد خصم 30%)</span><span data-en>System setup (one-time — after 30% off)</span></div>
               <div><span class="cfg-setup-orig"></span> <span class="cfg-setup-num" id="cfgSetup">3,504</span> <span style="font-size:.5em;font-weight:600"><span data-ar>ر.س</span><span data-en>SAR</span></span></div>
+              <div class="cfg-total-sub" id="cfgSetupBreak"></div>
               <div style="font-size:.78rem;color:var(--muted);margin-top:10px"><span data-ar>دعم شهري (بعد خصم 30%)</span><span data-en>Monthly support (after 30% off)</span></div>
               <div><span class="cfg-orig"></span> <span class="cfg-num" id="cfgPrice">840</span> <span style="font-size:.5em;font-weight:600"><span data-ar>ر.س/شهر</span><span data-en>SAR/mo</span></span></div>
+              <div class="cfg-total-sub" id="cfgMonthlyBreak"></div>
+              <div class="cfg-total-sub" id="cfgYearHint" style="margin-top:8px;color:var(--muted)"></div>
             </div>
           </div>
           <div class="cfg-actions">
@@ -1415,62 +1423,109 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       });
     };
     var SIZE_LABEL={'1':'1–20','1.25':'21–50','1.5':'51–100','1.8':'101–200','2.1':'201–500','2.4':'+500'};
+    var CATS={
+      biz:{ar:'🏢 إدارة وأعمال — نظام عالمي',en:'🏢 Business & management'},
+      digital:{ar:'🎨 واجهة وهوية ولغات',en:'🎨 UI, brand & languages'},
+      integrate:{ar:'🔗 تكاملات وربط خارجي',en:'🔗 Integrations'},
+      sector:{ar:'🏭 قطاعات وتشغيل',en:'🏭 Industry & operations'},
+      advanced:{ar:'⚡ متقدم و enterprise',en:'⚡ Advanced & enterprise'}
+    };
+    var CORE_M=1200;
     var SERVICES=[
-      {id:'sales',ar:'المبيعات والتوزيع والخرائط',en:'Sales, distribution & maps',p:2000},
-      {id:'gov',ar:'ربط الأنظمة الحكومية الرسمية',en:'Official government integration',p:3000},
-      {id:'ai',ar:'مساعد تحليل داخلي (اختياري)',en:'Internal analytics assistant (optional)',p:4000},
-      {id:'zatca',ar:'الفوترة الإلكترونية (ZATCA)',en:'ZATCA e-invoicing',p:3000},
-      {id:'multi',ar:'متعدد الفروع / الشركات',en:'Multi-branch / company',p:2500},
-      {id:'gps',ar:'تتبع GPS مباشر للأسطول',en:'Live GPS fleet tracking',p:2500},
-      {id:'payroll',ar:'الرواتب وقسائم الراتب',en:'Payroll & payslips',p:2000},
-      {id:'mobile',ar:'تطبيق جوال متقدم',en:'Advanced mobile app',p:2000},
-      {id:'inventory',ar:'إدارة المخزون والمستودعات',en:'Inventory & warehouses',p:1500},
-      {id:'maint',ar:'إدارة الصيانة والأصول',en:'Maintenance & assets',p:1500},
-      {id:'security',ar:'أمان متقدم + تشفير + سجل تدقيق',en:'Advanced security + audit',p:1500},
-      {id:'decision',ar:'لوحة قرار ذكية موحّدة',en:'Unified smart decision center',p:1500},
-      {id:'pay',ar:'بوابة دفع إلكتروني',en:'Online payment gateway',p:1500},
-      {id:'approvals',ar:'نظام موافقات وسير عمل',en:'Approvals & workflow',p:1200},
-      {id:'analytics',ar:'تقارير وتحليلات متقدمة',en:'Advanced analytics',p:1000},
-      {id:'notify',ar:'إشعارات واتساب / SMS',en:'WhatsApp / SMS notifications',p:1000},
-      {id:'vault',ar:'خزنة وثائق آمنة',en:'Secure document vault',p:800},
-      {id:'msg',ar:'مراسلة عملاء داخلية',en:'Internal customer messaging',p:800},
-      {id:'pos',ar:'نظام نقاط بيع (POS)',en:'Point of Sale (POS)',p:2000},
-      {id:'booking',ar:'حجوزات ومواعيد',en:'Bookings & appointments',p:1500},
-      {id:'projects',ar:'إدارة المشاريع والمهام',en:'Projects & tasks management',p:1500},
-      {id:'portal',ar:'بوابة عملاء (خدمة ذاتية)',en:'Customer self-service portal',p:1500},
-      {id:'accounting',ar:'تكامل محاسبي (قيود وفواتير)',en:'Accounting integration',p:1500},
-      {id:'crm',ar:'إدارة علاقات العملاء (CRM)',en:'Customer relations (CRM)',p:1800},
-      {id:'training',ar:'تدريب الفريق (جلسات)',en:'Team training (sessions)',p:800},
-      {id:'themes',ar:'مظاهر متعددة (فاتح/داكن/مخصص)',en:'Multi-theme (light/dark/custom)',p:400},
-      {id:'logo',ar:'تصميم شعار وهوية بصرية',en:'Logo & visual identity',p:350},
-      {id:'lang',ar:'ثنائي اللغة (عربي+إنجليزي)',en:'Bilingual (AR+EN)',p:600},
-      {id:'langx',ar:'لغة إضافية',en:'Extra language',p:300},
-      {id:'workshop',ar:'إدارة ورشة (أوامر تشغيل + فنيين)',en:'Workshop mgmt (job orders + technicians)',p:2000},
-      {id:'parts',ar:'مخزون قطع غيار + باركود',en:'Spare-parts inventory + barcode',p:1800},
-      {id:'estimates',ar:'عروض أسعار وفواتير صيانة',en:'Repair quotes & service invoices',p:1200},
-      {id:'svchistory',ar:'سجل صيانة لكل مركبة/عميل',en:'Per-vehicle / customer service history',p:1000},
-      {id:'clinic',ar:'حجوزات عيادة + ملفات مرضى',en:'Clinic bookings + patient files',p:2000},
-      {id:'menu',ar:'إدارة مطعم (قوائم + طاولات + طلبات)',en:'Restaurant (menus + tables + orders)',p:1800},
-      {id:'loyalty',ar:'برنامج ولاء ونقاط للعملاء',en:'Customer loyalty & points',p:900}
+      {id:'crm',cat:'biz',ar:'إدارة علاقات العملاء (CRM)',en:'CRM',m:1800},
+      {id:'sales',cat:'biz',ar:'المبيعات والتوزيع والخرائط',en:'Sales, distribution & maps',m:2000},
+      {id:'accounting',cat:'biz',ar:'تكامل محاسبي (قيود وفواتير)',en:'Accounting integration',m:1500},
+      {id:'payroll',cat:'biz',ar:'الرواتب وقسائم الراتب',en:'Payroll & payslips',m:2000},
+      {id:'inventory',cat:'biz',ar:'إدارة المخزون والمستودعات',en:'Inventory & warehouses',m:1500},
+      {id:'procure',cat:'biz',ar:'المشتريات وطلبات الشراء',en:'Procurement & purchase orders',m:1200},
+      {id:'projects',cat:'biz',ar:'إدارة المشاريع والمهام',en:'Projects & tasks',m:1500},
+      {id:'approvals',cat:'biz',ar:'نظام موافقات وسير عمل',en:'Approvals & workflow',m:1200},
+      {id:'analytics',cat:'biz',ar:'تقارير وتحليلات متقدمة',en:'Advanced analytics',m:1000},
+      {id:'decision',cat:'biz',ar:'لوحة قرار تنفيذية موحّدة',en:'Executive decision dashboard',m:1500},
+      {id:'multi',cat:'biz',ar:'متعدد الفروع / الشركات',en:'Multi-branch / company',m:2500},
+      {id:'portal',cat:'biz',ar:'بوابة عملاء (خدمة ذاتية)',en:'Customer self-service portal',m:1500},
+      {id:'msg',cat:'biz',ar:'مراسلة عملاء داخلية',en:'Internal customer messaging',m:800},
+      {id:'vault',cat:'biz',ar:'خزنة وثائق آمنة',en:'Secure document vault',m:800},
+      {id:'booking',cat:'biz',ar:'حجوزات ومواعيد',en:'Bookings & appointments',m:1500},
+      {id:'loyalty',cat:'biz',ar:'برنامج ولاء ونقاط',en:'Loyalty & points',m:900},
+      {id:'pos',cat:'biz',ar:'نظام نقاط بيع (POS)',en:'Point of Sale (POS)',m:2000},
+      {id:'tickets',cat:'biz',ar:'دعم فني وتذاكر (Help Desk)',en:'Help desk & tickets',m:1000},
+      {id:'attendance',cat:'biz',ar:'حضور وانصراف',en:'Time & attendance',m:1200},
+      {id:'contracts',cat:'biz',ar:'إدارة العقود',en:'Contract management',m:1000},
+      {id:'assets',cat:'biz',ar:'الأصول الثابتة',en:'Fixed assets',m:1200},
+      {id:'commissions',cat:'biz',ar:'عمولات المبيعات',en:'Sales commissions',m:900},
+      {id:'maint',cat:'biz',ar:'إدارة الصيانة والأصول التشغيلية',en:'Maintenance & operational assets',m:1500},
+      {id:'notify',cat:'biz',ar:'إشعارات واتساب / SMS',en:'WhatsApp / SMS notifications',m:1000},
+      {id:'website',cat:'digital',ar:'موقع شركة / بوابة عامة',en:'Company website / public portal',s:2500,fixed:true},
+      {id:'themes',cat:'digital',ar:'مظاهر متعددة (فاتح/داكن/مخصص)',en:'Multi-theme (light/dark/custom)',s:400,fixed:true},
+      {id:'logo',cat:'digital',ar:'تصميم شعار وهوية بصرية',en:'Logo & visual identity',s:350,fixed:true},
+      {id:'lang',cat:'digital',ar:'ثنائي اللغة (عربي + إنجليزي)',en:'Bilingual (AR+EN)',s:600,fixed:true},
+      {id:'langx',cat:'digital',ar:'لغة إضافية',en:'Extra language',s:300,fixed:true},
+      {id:'whitelabel',cat:'digital',ar:'علامة بيضاء (White-label)',en:'White-label branding',s:2000},
+      {id:'gov',cat:'integrate',ar:'ربط الأنظمة الحكومية الرسمية',en:'Official government integration',s:3000},
+      {id:'zatca',cat:'integrate',ar:'الفوترة الإلكترونية (ZATCA)',en:'ZATCA e-invoicing',s:3000},
+      {id:'pay',cat:'integrate',ar:'بوابة دفع إلكتروني',en:'Online payment gateway',s:1500,m:200},
+      {id:'api',cat:'integrate',ar:'API مفتوح لأنظمة خارجية',en:'Public API for external systems',s:2000,m:300},
+      {id:'sso',cat:'integrate',ar:'تسجيل دخول موحّد (SSO/LDAP)',en:'SSO / LDAP login',s:1800,m:200},
+      {id:'migrate',cat:'integrate',ar:'ترحيل بيانات من نظام قديم',en:'Data migration from legacy system',s:2500},
+      {id:'gps',cat:'sector',ar:'تتبع GPS مباشر للأسطول',en:'Live GPS fleet tracking',m:2500},
+      {id:'workshop',cat:'sector',ar:'إدارة ورشة (أوامر تشغيل + فنيين)',en:'Workshop mgmt (job orders + techs)',m:2000},
+      {id:'parts',cat:'sector',ar:'مخزون قطع غيار + باركود',en:'Spare-parts inventory + barcode',m:1800},
+      {id:'estimates',cat:'sector',ar:'عروض أسعار وفواتير صيانة',en:'Repair quotes & service invoices',m:1200},
+      {id:'svchistory',cat:'sector',ar:'سجل صيانة لكل مركبة/عميل',en:'Per-vehicle / customer service history',m:1000},
+      {id:'clinic',cat:'sector',ar:'حجوزات عيادة + ملفات مرضى',en:'Clinic bookings + patient files',m:2000},
+      {id:'menu',cat:'sector',ar:'إدارة مطعم (قوائم + طاولات + طلبات)',en:'Restaurant (menus + tables + orders)',m:1800},
+      {id:'store',cat:'sector',ar:'متجر إلكتروني متكامل',en:'Full e-commerce store',s:6000,m:400},
+      {id:'drivers',cat:'sector',ar:'تطبيق سائقين وتوصيل',en:'Driver & delivery app',s:3000,m:500},
+      {id:'supplier',cat:'sector',ar:'بوابة موردين',en:'Supplier portal',m:1200},
+      {id:'franchise',cat:'sector',ar:'إدارة امتياز وفرنشايز',en:'Franchise management',m:2000},
+      {id:'security',cat:'advanced',ar:'أمان متقدم + تشفير + سجل تدقيق',en:'Advanced security + audit log',m:1500},
+      {id:'mobile',cat:'advanced',ar:'تطبيق جوال للموظفين والإدارة',en:'Staff & management mobile app',s:3500,m:400},
+      {id:'ai',cat:'advanced',ar:'مساعد تحليل داخلي (اختياري)',en:'Internal analytics assistant (optional)',s:4000,m:200},
+      {id:'sla',cat:'advanced',ar:'SLA أولوية ودعم مميز',en:'Priority SLA & premium support',m:1500},
+      {id:'training',cat:'advanced',ar:'تدريب الفريق (جلسات)',en:'Team training (sessions)',s:800,fixed:true}
     ];
     var cart={};
     function svcLabel(s){return isEn()?s.en:s.ar;}
+    function scaledSetup(s,size){return s.fixed?s.s:Math.round(s.s*size);}
+    function scaledMonthly(v,size){return Math.round(v*size);}
+    function svcPriceHtml(s,size){
+      var parts=[];
+      if(s.s) parts.push('+'+fmt(scaledSetup(s,size))+(isEn()?' setup':' تأسيس'));
+      if(s.m) parts.push('+'+fmt(scaledMonthly(s.m,size))+' <small style="font-weight:600;opacity:.75">'+(isEn()?'/mo':'/شهر')+'</small>');
+      return parts.join(' · ');
+    }
+    function svcCartPrice(s,size){
+      var parts=[];
+      if(s.s) parts.push('+'+fmt(scaledSetup(s,size))+(isEn()?' setup':' تأسيس'));
+      if(s.m) parts.push('+'+fmt(scaledMonthly(s.m,size))+(isEn()?'/mo':'/شهر'));
+      return parts.join(' · ');
+    }
     window.renderCfg=function(){
       var av=document.getElementById('cfgAvail'), ct=document.getElementById('cfgCart');
       if(!av||!ct)return;
-      av.innerHTML=''; ct.innerHTML='<div class="cfg-row base"><span>'+(isEn()?'Core system (included)':'النظام الأساسي (مشمول)')+'</span><b>1,200 <small style="font-weight:600;opacity:.7">'+(isEn()?'/mo':'/شهر')+'</small></b></div>';
-      SERVICES.forEach(function(s){
-        if(cart[s.id]){
-          var r=document.createElement('div'); r.className='cfg-row in';
-          r.innerHTML='<span>'+svcLabel(s)+'</span><span style="display:flex;gap:8px;align-items:center"><b>+'+fmt(s.p)+'</b> <button type="button" class="cfg-x" data-id="'+s.id+'">✕</button></span>';
-          ct.appendChild(r);
-        } else {
+      var size=+(document.getElementById('cfgSize').value||1);
+      av.innerHTML='';
+      ct.innerHTML='<div class="cfg-row base"><span>'+(isEn()?'Core system (included)':'النظام الأساسي (مشمول)')+'</span><b>1,200 <small style="font-weight:600;opacity:.7">'+(isEn()?'/mo':'/شهر')+'</small></b></div>';
+      Object.keys(CATS).forEach(function(catKey){
+        var inCat=SERVICES.filter(function(s){return s.cat===catKey&&!cart[s.id];});
+        if(!inCat.length)return;
+        var h=document.createElement('div'); h.className='cfg-cat';
+        h.innerHTML=isEn()?CATS[catKey].en:CATS[catKey].ar;
+        av.appendChild(h);
+        inCat.forEach(function(s){
           var a=document.createElement('button'); a.type='button'; a.className='cfg-row add'; a.dataset.id=s.id;
-          a.innerHTML='<span>＋ '+svcLabel(s)+'</span><b>+'+fmt(s.p)+'</b>';
+          a.innerHTML='<span>＋ '+svcLabel(s)+'</span><b>'+svcPriceHtml(s,size)+'</b>';
           av.appendChild(a);
-        }
+        });
       });
-      if(!av.children.length) av.innerHTML='<div class="cfg-empty">'+(isEn()?'All services added ✓':'كل الخدمات مضافة ✓')+'</div>';
+      SERVICES.forEach(function(s){
+        if(!cart[s.id])return;
+        var r=document.createElement('div'); r.className='cfg-row in';
+        r.innerHTML='<span>'+svcLabel(s)+'</span><span style="display:flex;gap:8px;align-items:center"><b>'+svcCartPrice(s,size)+'</b> <button type="button" class="cfg-x" data-id="'+s.id+'">✕</button></span>';
+        ct.appendChild(r);
+      });
+      if(!av.querySelector('.cfg-row.add')) av.innerHTML='<div class="cfg-empty">'+(isEn()?'All services added ✓':'كل الخدمات مضافة ✓')+'</div>';
       recalcCfg();
     };
     document.addEventListener('click',function(e){
@@ -1478,13 +1533,27 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       var x=e.target.closest('.cfg-x'); if(x){delete cart[x.dataset.id];renderCfg();return;}
     });
     function cfgData(){
-      var size=+document.getElementById('cfgSize').value;
-      var base=1200, items=[{t:isEn()?'Core system':'النظام الأساسي',p:1200}];
-      SERVICES.forEach(function(s){if(cart[s.id]){base+=s.p;items.push({t:svcLabel(s),p:s.p});}});
-      var sized=Math.round(base*size), disc=Math.round(sized*DISC);
-      var setupSized=Math.round(SETUP_BASE*size), setupDisc=Math.round(setupSized*DISC);
+      var size=+(document.getElementById('cfgSize').value||1);
+      var monthlyRaw=CORE_M, setupScaled=Math.round(SETUP_BASE*size);
+      var monthlyItems=[{t:isEn()?'Core system':'النظام الأساسي',p:Math.round(CORE_M*size)}];
+      var setupItems=[{t:isEn()?'Base system build':'بناء النظام الأساسي',p:Math.round(SETUP_BASE*size)}];
+      SERVICES.forEach(function(s){
+        if(!cart[s.id])return;
+        if(s.m){
+          monthlyRaw+=s.m;
+          monthlyItems.push({t:svcLabel(s),p:Math.round(s.m*size)});
+        }
+        if(s.s){
+          var sp=scaledSetup(s,size);
+          setupScaled+=sp;
+          setupItems.push({t:svcLabel(s),p:sp});
+        }
+      });
+      var monthlyBase=Math.round(monthlyRaw*size);
+      var disc=Math.round(monthlyBase*DISC);
+      var setupDisc=Math.round(setupScaled*DISC);
       var notes=(document.getElementById('cfgNotes').value||'').trim();
-      return {items:items,base:sized,disc:disc,setup:setupSized,setupDisc:setupDisc,size:SIZE_LABEL[document.getElementById('cfgSize').value],notes:notes};
+      return {monthlyItems:monthlyItems,setupItems:setupItems,base:monthlyBase,disc:disc,setup:setupScaled,setupDisc:setupDisc,size:SIZE_LABEL[document.getElementById('cfgSize').value],notes:notes,sizeMult:size};
     }
     window.recalcCfg=function(){
       var d=cfgData();
@@ -1493,18 +1562,28 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       document.querySelector('.cfg-orig').textContent=fmt(d.base);
       var setupOrig=document.querySelector('.cfg-setup-orig');
       if(setupOrig)setupOrig.textContent=fmt(d.setup);
+      var sb=document.getElementById('cfgSetupBreak');
+      var mb=document.getElementById('cfgMonthlyBreak');
+      var yh=document.getElementById('cfgYearHint');
+      if(sb)sb.textContent=(isEn()?'Before discount: ':'قبل الخصم: ')+fmt(d.setup)+(isEn()?' SAR (incl. one-time add-ons)':' ر.س (يشمل إضافات التأسيس)');
+      if(mb)mb.textContent=(isEn()?'Before discount: ':'قبل الخصم: ')+fmt(d.base)+(isEn()?' SAR/mo':' ر.س/شهر');
+      if(yh)yh.innerHTML=(isEn()?'Year 1 estimate (setup + 12 mo support after discount): <b>':'تقدير السنة الأولى (تأسيس + 12 شهر دعم بعد الخصم): <b>')+fmt(d.setupDisc+d.disc*12)+(isEn()?' SAR</b>':' ر.س</b>');
     };
     window.sendCfg=function(){
-      var d=cfgData(), b='السلام عليكم،\nأرغب بنظام مخصّص بالمواصفات التالية:\n\nحجم الشركة (عدد الموظفين): '+d.size+'\n\nالخدمات المختارة (دعم شهري):\n';
-      d.items.forEach(function(i){b+='- '+i.t+' ('+fmt(i.p)+' ر.س/شهر)\n';});
+      var d=cfgData(), b='السلام عليكم،\nأرغب بنظام مخصّص بالمواصفات التالية:\n\nحجم الشركة (عدد الموظفين): '+d.size+'\n\n── تأسيس (مرة واحدة) ──\n';
+      d.setupItems.forEach(function(i){b+='- '+i.t+' ('+fmt(i.p)+' ر.س)\n';});
+      b+='\n── دعم شهري ──\n';
+      d.monthlyItems.forEach(function(i){b+='- '+i.t+' ('+fmt(i.p)+' ر.س/شهر)\n';});
       if(d.notes)b+='\nمميزات إضافية مطلوبة:\n'+d.notes+'\n';
-      b+='\nتأسيس النظام (مرة واحدة) قبل الخصم: '+fmt(d.setup)+' ر.س\nبعد خصم 30%: '+fmt(d.setupDisc)+' ر.س\n';
-      b+='دعم شهري قبل الخصم: '+fmt(d.base)+' ر.س\nبعد خصم 30%: '+fmt(d.disc)+' ر.س/شهر\n\n— بياناتي —\nالاسم:\nاسم الشركة:\nالجوال:\nالبريد الإلكتروني:\nالمجال/النشاط:';
+      b+='\nتأسيس النظام قبل الخصم: '+fmt(d.setup)+' ر.س\nبعد خصم 30%: '+fmt(d.setupDisc)+' ر.س\n';
+      b+='دعم شهري قبل الخصم: '+fmt(d.base)+' ر.س\nبعد خصم 30%: '+fmt(d.disc)+' ر.س/شهر\n';
+      b+='تقدير السنة الأولى (بعد الخصم): '+fmt(d.setupDisc+d.disc*12)+' ر.س\n\n— بياناتي —\nالاسم:\nاسم الشركة:\nالجوال:\nالبريد الإلكتروني:\nالمجال/النشاط:';
       location.href='mailto:doomyksa@gmail.com?subject='+encodeURIComponent('طلب نظام مخصّص - تأسيس '+fmt(d.setupDisc)+' + دعم '+fmt(d.disc)+' ر.س/شهر')+'&body='+encodeURIComponent(b);
     };
     window.savePdfCfg=function(){
-      var d=cfgData(), rows='';
-      d.items.forEach(function(i){rows+='<tr><td>'+i.t+'</td><td style="text-align:left">'+fmt(i.p)+' ر.س</td></tr>';});
+      var d=cfgData(), mRows='', sRows='';
+      d.monthlyItems.forEach(function(i){mRows+='<tr><td>'+i.t+'</td><td style="text-align:left">'+fmt(i.p)+' ر.س/شهر</td></tr>';});
+      d.setupItems.forEach(function(i){sRows+='<tr><td>'+i.t+'</td><td style="text-align:left">'+fmt(i.p)+' ر.س</td></tr>';});
       // واترمارك قوي: اسم المؤلف مائل ومكرّر قطرياً خلف كل الصفحة والجداول
       var wm='<svg xmlns="http://www.w3.org/2000/svg" width="440" height="250"><text x="14" y="150" font-family="Tajawal,Arial" font-size="26" font-style="italic" font-weight="bold" fill="#1a6b45" fill-opacity="0.08" transform="rotate(-28 220 125)">أحمد القحطاني · CybPhantom</text></svg>';
       var bg='data:image/svg+xml;base64,'+btoa(unescape(encodeURIComponent(wm)));
@@ -1528,12 +1607,15 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       '<h1>عرض سعر — نظام أعمال مخصّص</h1>'+
       '<p class="muted">عرض ساري 7 أيام · يشمل خصم 30%</p>'+
       '<p><b>حجم الشركة:</b> '+d.size+' موظف</p>'+
-      '<table><thead><tr><th>الخدمة</th><th style="text-align:left">دعم شهري</th></tr></thead><tbody>'+rows+'</tbody></table>'+
+      '<h2 style="font-size:1.1rem;color:#1a6b45;margin:18px 0 8px">تأسيس (مرة واحدة)</h2>'+
+      '<table><thead><tr><th>البند</th><th style="text-align:left">مبلغ</th></tr></thead><tbody>'+sRows+'</tbody></table>'+
+      '<p class="tot">تأسيس بعد خصم 30%: '+fmt(d.setupDisc)+' ر.س</p>'+
+      '<h2 style="font-size:1.1rem;color:#1a6b45;margin:18px 0 8px">دعم شهري</h2>'+
+      '<table><thead><tr><th>الخدمة</th><th style="text-align:left">دعم شهري</th></tr></thead><tbody>'+mRows+'</tbody></table>'+
       (d.notes?'<p><b>مميزات إضافية مطلوبة:</b><br>'+escapeHtml(d.notes).replace(/\n/g,'<br>')+'</p>':'')+
-      '<p>تأسيس النظام قبل الخصم: '+fmt(d.setup)+' ر.س</p>'+
-      '<p class="tot">تأسيس بعد خصم 30%: '+fmt(d.setupDisc)+' ر.س (مرة واحدة)</p>'+
       '<p>دعم شهري قبل الخصم: '+fmt(d.base)+' ر.س/شهر</p>'+
       '<p class="tot">دعم بعد خصم 30%: '+fmt(d.disc)+' ر.س/شهر</p>'+
+      '<p class="tot">تقدير السنة الأولى: '+fmt(d.setupDisc+d.disc*12)+' ر.س</p>'+
       '<p class="muted">مدة التنفيذ: حسب حجم الطلب · تأسيس: 50% عند العقد + 50% عند التسليم · الدعم يبدأ بعد التسليم.</p>'+
       '<p class="muted">الأسعار استرشادية وتُؤكَّد بعرض رسمي. خيار التملّك الكامل متاح عند الطلب.</p>'+
       '<div class="sig"><b>أحمد القحطاني — Ahmed Alqahtani</b><div class="lnk">cybphantom.github.io · © 2026 جميع الحقوق محفوظة — هذا العرض ملكية فكرية للمطوّر</div></div>'+
