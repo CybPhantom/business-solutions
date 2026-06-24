@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الباقات والأسعار | أنظمة أعمال مخصّصة — Ahmed Alqahtani</title>
-<meta name="description" content="أنظمة أعمال مخصّصة بأعلى معايير الأمان لأي قطاع — ورش، قطع غيار، عيادات، مطاعم، لوجستيات. تصميم احترافي، حماية متعددة الطبقات، استضافة محلية أو عالمية. اشتراك شهري أو تملّك كامل. Custom secure business systems — Saudi Arabia.">
+<meta name="description" content="أنظمة أعمال ومواقع مخصّصة لأي قطاع — باقات مواقع من 2,500 ر.س، أنظمة لايت من 5,005 ر.س تأسيس + دعم شهري. استضافة، حماية، بريد مهني. تملّك كامل متاح. السعودية والعالم.">
 <meta name="keywords" content="أنظمة أعمال, تصميم مواقع, برمجة مخصّصة, ERP, نظام إدارة, ورش سيارات, قطع غيار, عيادات, السعودية, الخبر, حلول تقنية, أمان سيبراني, business systems, custom software, Saudi Arabia, web development, CybPhantom">
 <meta name="author" content="Ahmed Sultan Al-Qahtani (CybPhantom / c0d319)">
 <meta name="copyright" content="© 2026 Ahmed Sultan Al-Qahtani — All rights reserved">
@@ -58,26 +58,23 @@
       {
         "@type": "Offer",
         "name": "Lite Plan",
-        "description": "Operations, staff, finance, basic security, hosting & support",
-        "price": "5000",
-        "priceCurrency": "SAR",
-        "priceSpecification": {"@type": "UnitPriceSpecification", "referenceQuantity": {"@type": "QuantitativeValue", "value": "1", "unitCode": "MON"}}
+        "description": "Core system setup from 5,005 SAR + support from 1,200 SAR/month — operations, staff, finance, hosting",
+        "price": "5005",
+        "priceCurrency": "SAR"
       },
       {
         "@type": "Offer",
         "name": "Plus Plan",
-        "description": "Everything in Lite + CRM, government integration, advanced security, customer portal",
-        "price": "9000",
-        "priceCurrency": "SAR",
-        "priceSpecification": {"@type": "UnitPriceSpecification", "referenceQuantity": {"@type": "QuantitativeValue", "value": "1", "unitCode": "MON"}}
+        "description": "Setup from 8,995 SAR + support from 2,100 SAR/month — Lite + CRM, ZATCA, advanced security",
+        "price": "8995",
+        "priceCurrency": "SAR"
       },
       {
         "@type": "Offer",
         "name": "Pro Plan",
-        "description": "Everything in Plus + AI assistant, multi-branch, BI dashboards, SLA, mobile app",
-        "price": "15000",
-        "priceCurrency": "SAR",
-        "priceSpecification": {"@type": "UnitPriceSpecification", "referenceQuantity": {"@type": "QuantitativeValue", "value": "1", "unitCode": "MON"}}
+        "description": "Setup from 14,980 SAR + support from 3,500 SAR/month — Plus + AI, multi-branch, BI, SLA",
+        "price": "14980",
+        "priceCurrency": "SAR"
       }
     ]
   }
@@ -90,7 +87,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_SA">
 <meta property="og:title" content="حلول أعمال وأنظمة مخصّصة — Ahmed Alqahtani">
-<meta property="og:description" content="باقات مرنة لتطوير أنظمة إدارة وأعمال مخصّصة، مع خيارات الاشتراك أو التملّك الكامل.">
+<meta property="og:description" content="باقات مواقع وأنظمة أعمال — تأسيس + دعم شهري واضح، أو تملّك كامل. أسعار تنافسية لكل الفئات.">
 <meta property="og:url" content="https://cybphantom.github.io/business-solutions/">
 <meta property="og:image" content="https://cybphantom.github.io/business-solutions/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -643,6 +640,28 @@ body.en .plan-badge{transform:translateX(-50%)}
 .plan-tag{font-size:.78rem;color:var(--muted);margin-bottom:16px}
 .plan-price{font-size:2rem;font-weight:900;margin-bottom:4px;font-family:Inter,Tajawal,sans-serif}
 .plan-price .price-suf{font-size:.5em;font-weight:600;color:var(--muted)}
+.plan-price-split{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
+.pps-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.pps-label{font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.pps-val{font-size:1.35rem;font-weight:900;font-family:Inter,Tajawal,sans-serif;line-height:1.1}
+.pps-row.pps-support .pps-val{font-size:1.05rem;color:var(--accent2)}
+.plan-price-note{font-size:.74rem;color:var(--muted2);line-height:1.6;margin:0 0 12px;padding:8px 10px;background:rgba(59,130,246,.05);border-radius:8px;border:1px solid var(--border)}
+.price-clarity{max-width:760px;margin:0 0 18px;font-size:.86rem;line-height:1.75;color:var(--muted);background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.22);border-inline-start:4px solid var(--green);border-radius:12px;padding:14px 16px}
+.price-clarity b{color:var(--text)}
+.web-packs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
+.web-pack{background:var(--card2);border:1px solid var(--border);border-radius:16px;padding:18px 16px;display:flex;flex-direction:column;position:relative;transition:transform .2s,border-color .2s}
+.web-pack:hover{transform:translateY(-3px);border-color:var(--accent)}
+.web-pack.featured{border-color:var(--gold);box-shadow:0 0 0 1px rgba(245,158,11,.4)}
+.web-pack-badge{position:absolute;top:-10px;inset-inline-start:14px;background:var(--gold);color:#111;font-size:.65rem;font-weight:800;padding:3px 10px;border-radius:999px}
+.web-pack-name{font-weight:900;font-size:.95rem;margin-bottom:4px}
+.web-pack-desc{font-size:.76rem;color:var(--muted);line-height:1.55;flex:1;margin-bottom:10px}
+.web-pack-price{font-size:1.5rem;font-weight:900;font-family:Inter,Tajawal,sans-serif;color:var(--accent2)}
+.web-pack-save{font-size:.72rem;color:var(--green2);font-weight:700;margin-top:2px}
+.web-pack-cta{display:block;text-align:center;margin-top:12px;padding:9px;border-radius:9px;border:1px solid var(--border2);color:var(--accent2);text-decoration:none;font-weight:700;font-size:.82rem}
+.web-pack-cta:hover{background:rgba(59,130,246,.08)}
+.web-ala-carte{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}
+.web-ala-carte span{display:inline-flex;align-items:center;gap:5px;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:5px 12px;font-size:.74rem;color:var(--muted)}
+.web-ala-carte b{color:var(--text);font-family:Inter,Tajawal,sans-serif}
 .price-orig{font-size:.5em;font-weight:600;color:var(--muted2);text-decoration:line-through;margin-inline-end:6px}
 .plan-feats{list-style:none;padding:0;margin:18px 0;display:flex;flex-direction:column;gap:9px;flex:1}
 .plan-feats li{font-size:.84rem;padding-inline-start:26px;position:relative;line-height:1.5}
@@ -717,9 +736,12 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
 .opc-sub{font-size:.75rem;color:var(--muted2);margin-top:4px;line-height:1.5}
 @media(max-width:760px){.own-grid{grid-template-columns:1fr}}
 @media(max-width:760px){.howit{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.howit{grid-template-columns:1fr}}
 @media(max-width:760px){.svc-grid{grid-template-columns:1fr}}
-@media(max-width:760px){.plans{grid-template-columns:1fr}.cfg-items{grid-template-columns:1fr}.cfg-layout{grid-template-columns:1fr}}
-@media(max-width:760px){.aud-grid{grid-template-columns:1fr}}
+@media(max-width:960px){.web-packs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.plans{grid-template-columns:1fr}.cfg-items{grid-template-columns:1fr}.cfg-layout{grid-template-columns:1fr}.web-packs{grid-template-columns:1fr}}
+@media(max-width:960px){.aud-grid{grid-template-columns:repeat(2,1fr)!important}}
+@media(max-width:760px){.aud-grid{grid-template-columns:1fr!important}}
 .ind-section{margin-top:42px}
 .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
 .ind-card{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:16px 18px;transition:transform .2s,border-color .2s;display:flex;flex-direction:column;gap:4px}
@@ -808,7 +830,8 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     <li><a href="https://cybphantom.github.io/" class="page-turn" data-ar>← المعرض</a><a href="https://cybphantom.github.io/en.html" class="page-turn" data-en>← Portfolio</a></li>
     <li><a href="https://cybphantom.github.io/#flagship" class="page-turn" data-ar>المشروع الأبرز</a><a href="https://cybphantom.github.io/en.html#flagship" class="page-turn" data-en>Flagship</a></li>
     <li><a href="https://cybphantom.github.io/#skills" class="page-turn" data-ar>المهارات</a><a href="https://cybphantom.github.io/en.html#skills" class="page-turn" data-en>Skills</a></li>
-    <li><a href="#offer" data-ar>الباقات والأسعار</a><a href="#offer" data-en>Plans & Pricing</a></li>
+    <li><a href="#offer" data-ar>أنظمة الأعمال</a><a href="#offer" data-en>Business Systems</a></li>
+    <li><a href="#website-packs" data-ar>باقات المواقع</a><a href="#website-packs" data-en>Website Packs</a></li>
     <li><a href="#trust" data-ar>الأمان والثقة</a><a href="#trust" data-en>Security & Trust</a></li>
     <li><a href="#transparency" data-ar>الشفافية</a><a href="#transparency" data-en>Transparency</a></li>
     <li><a href="#hosting" data-ar>الاستضافة</a><a href="#hosting" data-en>Hosting</a></li>
@@ -932,12 +955,18 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     <!-- WHO IS THIS FOR -->
     <div class="audience-guide reveal">
       <div class="aud-title"><span data-ar>من يستفيد؟</span><span data-en>Who's it for?</span></div>
-      <div class="aud-grid">
+      <div class="aud-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="aud-card">
+          <div class="aud-icon">🚀</div>
+          <div class="aud-name"><span data-ar>شباب / مشروع ناشئ</span><span data-en>Youth / Startup</span></div>
+          <div class="aud-desc"><span data-ar>موقع أو حضور رقمي · بداية بميزانية محدودة</span><span data-en>Website or digital presence · budget-friendly start</span></div>
+          <div class="aud-plan"><span data-ar>→ <b>باقات المواقع</b> أو <b>لايت</b></span><span data-en>→ <b>Website packs</b> or <b>Lite</b></span></div>
+        </div>
         <div class="aud-card">
           <div class="aud-icon">🧑‍💼</div>
           <div class="aud-name"><span data-ar>فرد / باحث عمل</span><span data-en>Individual / Job Seeker</span></div>
-          <div class="aud-desc"><span data-ar>سيرة ذاتية · حساب مهني · منصات توظيف · مستندات</span><span data-en>CV · professional profile · job platforms · documents</span></div>
-          <div class="aud-plan"><span data-ar>→ <b>خدمات الأفراد</b> (بسعر كل خدمة)</span><span data-en>→ <b>Individual Services</b> (per task)</span></div>
+          <div class="aud-desc"><span data-ar>سيرة ذاتية · حساب مهني · منصات توظيف</span><span data-en>CV · professional profile · job platforms</span></div>
+          <div class="aud-plan"><span data-ar>→ <b>خدمات الأفراد</b></span><span data-en>→ <b>Individual Services</b></span></div>
         </div>
         <div class="aud-card">
           <div class="aud-icon">🏢</div>
@@ -946,10 +975,10 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
           <div class="aud-plan"><span data-ar>→ باقة <b>لايت</b> أو <b>بلس</b></span><span data-en>→ <b>Lite</b> or <b>Plus</b></span></div>
         </div>
         <div class="aud-card">
-          <div class="aud-icon">🏛️</div>
-          <div class="aud-name"><span data-ar>مؤسسة / حكومي / شركة كبرى</span><span data-en>Enterprise / Government</span></div>
-          <div class="aud-desc"><span data-ar>متعدد الفروع · ذكاء اصطناعي · SLA رسمي</span><span data-en>Multi-branch · AI · formal SLA</span></div>
-          <div class="aud-plan"><span data-ar>→ باقة <b>برو</b> أو تملّك كامل</span><span data-en>→ <b>Pro</b> or full ownership</span></div>
+          <div class="aud-icon">🌍</div>
+          <div class="aud-name"><span data-ar>مؤسسة كبرى / عالمية</span><span data-en>Enterprise / Global</span></div>
+          <div class="aud-desc"><span data-ar>متعدد الفروع · استضافة عالمية · SLA رسمي</span><span data-en>Multi-branch · global hosting · formal SLA</span></div>
+          <div class="aud-plan"><span data-ar>→ <b>برو</b> أو <b>تملّك كامل</b></span><span data-en>→ <b>Pro</b> or <b>full ownership</b></span></div>
         </div>
       </div>
     </div>
@@ -958,8 +987,13 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     <div class="promo-banner">🎉 <strong><span data-ar>خصم 30%</span><span data-en>30% OFF</span></strong> <span data-ar>لكل المشتركين قبل نهاية 2026 — العرض لفترة محدودة</span><span data-en>for all subscriptions before end of 2026 — limited time</span></div>
 
     <div class="bill-toggle">
-      <button type="button" class="active" data-m="monthly" onclick="setBilling('monthly')"><span data-ar>شهري</span><span data-en>Monthly</span></button>
-      <button type="button" data-m="annual" onclick="setBilling('annual')"><span data-ar>سنوي</span><span data-en>Annual</span> <em><span data-ar>وفّر شهرين</span><span data-en>2 months free</span></em></button>
+      <button type="button" class="active" data-m="monthly" onclick="setBilling('monthly')"><span data-ar>دعم شهري</span><span data-en>Monthly support</span></button>
+      <button type="button" data-m="annual" onclick="setBilling('annual')"><span data-ar>دعم سنوي</span><span data-en>Annual support</span> <em><span data-ar>وفّر شهرين</span><span data-en>2 months free</span></em></button>
+    </div>
+
+    <div class="price-clarity">
+      <span data-ar>💡 <b>كيف يُحسب السعر؟</b> كل باقة نظام = <b>تأسيس لمرة واحدة</b> (بناء + رفع + تدريب + جولتا تعديل + ضمان 30 يوم) + <b>اشتراك دعم</b> (استضافة + تحديثات + دعم). مثال لايت: <b>5,005 ر.س</b> تأسيس (<b>50%</b> عند العقد + <b>50%</b> عند التسليم) ثم <b>1,200 ر.س/شهر</b> دعم يبدأ بعد التسليم. المواقع: نفس نظام <b>50% + 50%</b> بدون اشتراك شهري إلزامي.</span>
+      <span data-en>💡 <b>How pricing works:</b> Each system plan = <b>one-time setup</b> (build + deploy + training + 2 revisions + 30-day guarantee) + <b>support subscription</b> (hosting + updates + support). Example Lite: <b>5,005 SAR</b> setup (<b>50%</b> at contract + <b>50%</b> at delivery) then <b>1,200 SAR/month</b> support starting after delivery. Websites: same <b>50% + 50%</b> model, no mandatory monthly subscription.</span>
     </div>
 
     <!-- PLANS -->
@@ -967,8 +1001,8 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     <div style="background:linear-gradient(135deg,rgba(99,102,241,.08),rgba(16,185,129,.05));border:1px solid var(--border);border-inline-start:4px solid var(--accent);border-radius:14px;padding:16px 20px;margin-bottom:14px">
       <div style="font-weight:800;font-size:1rem;margin-bottom:6px">🎯 <span data-ar>الباقات تناسب أي نوع نشاط — ليست تشغيلية فقط</span><span data-en>Plans fit ANY business — not just operational</span></div>
       <p style="color:var(--muted);font-size:.87rem;line-height:1.85;margin:0">
-        <span data-ar>سواء كنت <b>عيادة، مطعم، متجر، ورشة، شركة خدمات، أو نشاط لوجستي</b> — نبني نظامك مخصّصاً لمجالك بالضبط. الباقة تحدّد <b>مستوى القوة والمميزات</b>، والنظام نفسه يُصمَّم حسب نشاطك. كل باقة تشمل منصة كاملة واستضافة ودعماً — ويمكن إضافة موقع تعريفي أو متجر إلكتروني أو إيميلات مهنية حسب حاجتك.</span>
-        <span data-en>Whether you run a <b>clinic, restaurant, store, workshop, service company, or logistics business</b> — we build your system tailored exactly to your field. The plan sets the <b>power tier & features</b>; the system itself is designed for your business. Every plan includes a complete platform, hosting & support — and you can add a website, online store, or professional emails as needed.</span>
+        <span data-ar>سواء كنت <b>عيادة، مطعم، متجر، ورشة، شركة خدمات، أو نشاط لوجستي</b> — نبني نظامك أو موقعك مخصّصاً لمجالك. الباقة تحدّد <b>مستوى القوة والمميزات</b>، أو اختر <a href="#website-packs" style="color:var(--accent2)">باقة موقع جاهزة</a> إذا تحتاج حضوراً رقمياً فقط.</span>
+        <span data-en>Whether you run a <b>clinic, restaurant, store, workshop, service company, or logistics business</b> — we build your system or site tailored to your field. The plan sets the <b>power tier & features</b>, or pick a <a href="#website-packs" style="color:var(--accent2)">ready website pack</a> if you only need a digital presence.</span>
       </p>
     </div>
 
@@ -990,29 +1024,49 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
 
     <div class="plans">
       <!-- LITE -->
-      <div class="plan" data-m="7150" data-a="71500">
+      <div class="plan" data-setup="7150" data-sm="1714" data-sa="17140">
         <div class="plan-name"><span data-ar>لايت</span><span data-en>Lite</span></div>
         <div class="plan-tag"><span data-ar>للمشاريع الناشئة والشركات الصغيرة</span><span data-en>For startups & small businesses</span></div>
-        <div class="plan-price"><span class="price-orig"></span><span class="price-num"></span> <span class="price-suf"><span data-ar>ر.س</span><span data-en>SAR</span><span class="per"></span></span></div>
+        <div class="plan-price-split">
+          <div class="pps-row">
+            <span class="pps-label"><span data-ar>تأسيس (مرة واحدة)</span><span data-en>Setup (one-time)</span></span>
+            <div class="pps-val"><span class="setup-orig price-orig"></span><span class="setup-num"></span> <span class="price-suf"><span data-ar>ر.س</span><span data-en>SAR</span></span></div>
+          </div>
+          <div class="pps-row pps-support">
+            <span class="pps-label"><span data-ar>+ دعم</span><span data-en>+ Support</span></span>
+            <div class="pps-val"><span class="sup-orig price-orig"></span><span class="sup-num"></span> <span class="price-suf"><span data-ar>ر.س</span><span data-en>SAR</span><span class="per-suf"></span></span></div>
+          </div>
+        </div>
+        <p class="plan-price-note"><span data-ar>التأسيس: 50% عند العقد + 50% عند التسليم · يشمل بناء + رفع + تدريب + جولتا تعديل + ضمان 30 يوم</span><span data-en>Setup: 50% at contract + 50% at delivery · includes build + deploy + training + 2 revisions + 30-day guarantee</span></p>
         <ul class="plan-feats">
-          <li class="yes"><span data-ar>نظام إدارة كامل مخصّص لمجالك (عيادة/متجر/ورشة/مطعم/خدمات…)</span><span data-en>Complete management system tailored to your field (clinic/store/workshop/restaurant…)</span></li>
+          <li class="yes quota"><span data-ar>✅ <b>نظام أساسي مشمول</b> — مخصّص لمجالك (عيادة/متجر/ورشة/مطعم/خدمات…)</span><span data-en>✅ <b>Core system included</b> — tailored to your field (clinic/store/workshop/restaurant…)</span></li>
           <li class="yes"><span data-ar>إدارة الموظفين والمستندات</span><span data-en>Staff & documents management</span></li>
           <li class="yes"><span data-ar>المالية والفواتير والتقارير الأساسية</span><span data-en>Finance, invoices & basic reports</span></li>
           <li class="yes"><span data-ar>صلاحيات حسب الدور + أمان أساسي + نسخ احتياطي</span><span data-en>Role-based access + base security + backups</span></li>
           <li class="yes"><span data-ar>لوحة تحكم مخصّصة لنشاطك</span><span data-en>Custom dashboard for your business</span></li>
-          <li class="yes"><span data-ar>استضافة وتحديثات ودعم فني</span><span data-en>Hosting, updates & technical support</span></li>
+          <li class="yes"><span data-ar>استضافة وتحديثات ودعم فني (ضمن الاشتراك)</span><span data-en>Hosting, updates & support (in subscription)</span></li>
           <li class="no"><span data-ar>ربط الأنظمة الحكومية</span><span data-en>Government integration</span></li>
           <li class="no"><span data-ar>مساعد ذكاء اصطناعي</span><span data-en>AI assistant</span></li>
         </ul>
-        <a class="plan-cta" href="mailto:doomyksa@gmail.com?subject=اشتراك%20باقة%20لايت&body=السلام%20عليكم،%20أرغب%20بالاشتراك%20في%20باقة%20لايت."><span data-ar>اشترك الآن</span><span data-en>Subscribe</span></a>
+        <a class="plan-cta" href="mailto:doomyksa@gmail.com?subject=طلب%20باقة%20لايت&body=السلام%20عليكم،%20أرغب%20بباقة%20لايت.%0A%0Aاسم%20النشاط:%0Aالمجال:%0Aالجوال:"><span data-ar>اطلب عرضاً</span><span data-en>Get a quote</span></a>
       </div>
 
       <!-- PLUS (featured) -->
-      <div class="plan featured" data-m="12850" data-a="128500">
+      <div class="plan featured" data-setup="12850" data-sm="3000" data-sa="30000">
         <div class="plan-badge"><span data-ar>الأكثر طلباً</span><span data-en>Most Popular</span></div>
         <div class="plan-name"><span data-ar>بلس</span><span data-en>Plus</span></div>
         <div class="plan-tag"><span data-ar>للشركات النامية والمتوسطة</span><span data-en>For growing & mid-size companies</span></div>
-        <div class="plan-price"><span class="price-orig"></span><span class="price-num"></span> <span class="price-suf"><span data-ar>ر.س</span><span data-en>SAR</span><span class="per"></span></span></div>
+        <div class="plan-price-split">
+          <div class="pps-row">
+            <span class="pps-label"><span data-ar>تأسيس (مرة واحدة)</span><span data-en>Setup (one-time)</span></span>
+            <div class="pps-val"><span class="setup-orig price-orig"></span><span class="setup-num"></span> <span class="price-suf"><span data-ar>ر.س</span><span data-en>SAR</span></span></div>
+          </div>
+          <div class="pps-row pps-support">
+            <span class="pps-label"><span data-ar>+ دعم</span><span data-en>+ Support</span></span>
+            <div class="pps-val"><span class="sup-orig price-orig"></span><span class="sup-num"></span> <span class="price-suf"><span data-ar>ر.س</span><span data-en>SAR</span><span class="per-suf"></span></span></div>
+          </div>
+        </div>
+        <p class="plan-price-note"><span data-ar>التأسيس: 50% عند العقد + 50% عند التسليم</span><span data-en>Setup: 50% at contract + 50% at delivery</span></p>
         <ul class="plan-feats">
           <li class="yes quota"><span data-ar>✅ <b>كل مزايا لايت</b> مشمولة تلقائياً</span><span data-en>✅ <b>Everything in Lite</b> included</span></li>
           <li class="yes"><span data-ar>المبيعات وإدارة العملاء (CRM) والخرائط الجغرافية</span><span data-en>Sales, CRM & geographic maps</span></li>
@@ -1023,14 +1077,24 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
           <li class="no"><span data-ar>مساعد ذكاء اصطناعي عربي</span><span data-en>Arabic AI assistant</span></li>
           <li class="no"><span data-ar>متعدد الفروع والشركات</span><span data-en>Multi-branch & company</span></li>
         </ul>
-        <a class="plan-cta primary" href="mailto:doomyksa@gmail.com?subject=اشتراك%20باقة%20بلس&body=السلام%20عليكم،%20أرغب%20بالاشتراك%20في%20باقة%20بلس."><span data-ar>اشترك الآن</span><span data-en>Subscribe</span></a>
+        <a class="plan-cta primary" href="mailto:doomyksa@gmail.com?subject=طلب%20باقة%20بلس&body=السلام%20عليكم،%20أرغب%20بباقة%20بلس.%0A%0Aاسم%20النشاط:%0Aالمجال:%0Aالجوال:"><span data-ar>اطلب عرضاً</span><span data-en>Get a quote</span></a>
       </div>
 
       <!-- PRO -->
-      <div class="plan" data-m="21400" data-a="214000">
+      <div class="plan" data-setup="21400" data-sm="5000" data-sa="50000">
         <div class="plan-name"><span data-ar>برو</span><span data-en>Pro</span></div>
         <div class="plan-tag"><span data-ar>للمؤسسات الكبيرة والحكومية</span><span data-en>For enterprises & government</span></div>
-        <div class="plan-price"><span class="price-orig"></span><span class="price-num"></span> <span class="price-suf"><span data-ar>ر.س</span><span data-en>SAR</span><span class="per"></span></span></div>
+        <div class="plan-price-split">
+          <div class="pps-row">
+            <span class="pps-label"><span data-ar>تأسيس (مرة واحدة)</span><span data-en>Setup (one-time)</span></span>
+            <div class="pps-val"><span class="setup-orig price-orig"></span><span class="setup-num"></span> <span class="price-suf"><span data-ar>ر.س</span><span data-en>SAR</span></span></div>
+          </div>
+          <div class="pps-row pps-support">
+            <span class="pps-label"><span data-ar>+ دعم</span><span data-en>+ Support</span></span>
+            <div class="pps-val"><span class="sup-orig price-orig"></span><span class="sup-num"></span> <span class="price-suf"><span data-ar>ر.س</span><span data-en>SAR</span><span class="per-suf"></span></span></div>
+          </div>
+        </div>
+        <p class="plan-price-note"><span data-ar>التأسيس: 50% عند العقد + 50% عند التسليم · دعم أولوية + SLA</span><span data-en>Setup: 50% at contract + 50% at delivery · priority support + SLA</span></p>
         <ul class="plan-feats">
           <li class="yes quota"><span data-ar>✅ <b>كل مزايا بلس</b> مشمولة تلقائياً</span><span data-en>✅ <b>Everything in Plus</b> included</span></li>
           <li class="yes"><span data-ar>مساعد ذكاء اصطناعي عربي مدمج</span><span data-en>Embedded Arabic AI assistant</span></li>
@@ -1041,7 +1105,7 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
           <li class="yes"><span data-ar>SLA واتفاقية مستوى خدمة رسمية</span><span data-en>Formal SLA agreement</span></li>
           <li class="yes"><span data-ar>تطبيق جوال متقدم</span><span data-en>Advanced mobile app</span></li>
         </ul>
-        <a class="plan-cta" href="mailto:doomyksa@gmail.com?subject=اشتراك%20باقة%20برو&body=السلام%20عليكم،%20أرغب%20بالاشتراك%20في%20باقة%20برو."><span data-ar>تواصل معنا</span><span data-en>Contact us</span></a>
+        <a class="plan-cta" href="mailto:doomyksa@gmail.com?subject=طلب%20باقة%20برو&body=السلام%20عليكم،%20أرغب%20بباقة%20برو.%0A%0Aاسم%20النشاط:%0Aالمجال:%0Aالجوال:"><span data-ar>تواصل معنا</span><span data-en>Contact us</span></a>
       </div>
     </div>
 
@@ -1131,8 +1195,10 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
 
           <div class="cfg-total">
             <div>
-              <div style="font-size:.78rem;color:var(--muted)"><span data-ar>سعرك الشهري بعد خصم 30%</span><span data-en>Monthly price after 30% off</span></div>
-              <div><span class="cfg-orig"></span> <span class="cfg-num" id="cfgPrice">4,200</span> <span style="font-size:.5em;font-weight:600"><span data-ar>ر.س/شهر</span><span data-en>SAR/mo</span></span></div>
+              <div style="font-size:.78rem;color:var(--muted)"><span data-ar>تأسيس النظام (مرة واحدة — بعد خصم 30%)</span><span data-en>System setup (one-time — after 30% off)</span></div>
+              <div><span class="cfg-setup-orig"></span> <span class="cfg-setup-num" id="cfgSetup">3,504</span> <span style="font-size:.5em;font-weight:600"><span data-ar>ر.س</span><span data-en>SAR</span></span></div>
+              <div style="font-size:.78rem;color:var(--muted);margin-top:10px"><span data-ar>دعم شهري (بعد خصم 30%)</span><span data-en>Monthly support (after 30% off)</span></div>
+              <div><span class="cfg-orig"></span> <span class="cfg-num" id="cfgPrice">840</span> <span style="font-size:.5em;font-weight:600"><span data-ar>ر.س/شهر</span><span data-en>SAR/mo</span></span></div>
             </div>
           </div>
           <div class="cfg-actions">
@@ -1143,16 +1209,58 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       </div>
     </div>
 
+    <!-- WEBSITE PACKAGES -->
+    <h3 id="website-packs" style="margin:42px 0 4px;font-size:1.4rem;font-weight:800"><span data-ar>باقات المواقع والحضور الرقمي</span><span data-en>Website & Digital Presence Packs</span></h3>
+    <p style="color:var(--muted);margin:0 0 14px;font-size:.9rem;line-height:1.75"><span data-ar>للشباب والمشاريع الناشئة والشركات التي تحتاج موقعاً أو حضوراً رقمياً — <b>بدون اشتراك شهري إلزامي</b>. الدفع: <b>50%</b> عند العقد + <b>50%</b> عند التسليم. الأسعار تنافسية لمواقع مخصّصة (وليس قوالب رخيصة).</span><span data-en>For startups needing a website or digital presence — <b>no mandatory monthly subscription</b>. Payment: <b>50%</b> at contract + <b>50%</b> at delivery. Competitive pricing for custom-built sites (not cheap templates).</span></p>
+    <div class="web-packs">
+      <div class="web-pack">
+        <div class="web-pack-name"><span data-ar>موقع فقط</span><span data-en>Website Only</span></div>
+        <div class="web-pack-desc"><span data-ar>5–8 صفحات · تصميم متجاوب · SEO أساسي · عربي/إنجليزي</span><span data-en>5–8 pages · responsive · basic SEO · AR/EN</span></div>
+        <div class="web-pack-price">2,500 <span style="font-size:.55em;color:var(--muted)"><span data-ar>ر.س</span><span data-en>SAR</span></span></div>
+        <a class="web-pack-cta" href="mailto:doomyksa@gmail.com?subject=طلب%20باقة%20موقع%20فقط&body=السلام%20عليكم،%20أرغب%20بباقة%20موقع%20فقط."><span data-ar>اطلب الآن</span><span data-en>Order now</span></a>
+      </div>
+      <div class="web-pack">
+        <div class="web-pack-name"><span data-ar>موقع + استضافة</span><span data-en>Site + Hosting</span></div>
+        <div class="web-pack-desc"><span data-ar>كل ما في «موقع فقط» + استضافة سنة + SSL + نسخ احتياطي</span><span data-en>Everything in Website Only + 1yr hosting + SSL + backups</span></div>
+        <div class="web-pack-price">3,200 <span style="font-size:.55em;color:var(--muted)"><span data-ar>ر.س</span><span data-en>SAR</span></span></div>
+        <div class="web-pack-save"><span data-ar>وفّر 100 ر.س</span><span data-en>Save 100 SAR</span></div>
+        <a class="web-pack-cta" href="mailto:doomyksa@gmail.com?subject=طلب%20باقة%20موقع%20%2B%20استضافة"><span data-ar>اطلب الآن</span><span data-en>Order now</span></a>
+      </div>
+      <div class="web-pack featured">
+        <span class="web-pack-badge"><span data-ar>الأكثر طلباً</span><span data-en>Popular</span></span>
+        <div class="web-pack-name"><span data-ar>موقع + استضافة + حماية</span><span data-en>Site + Hosting + Security</span></div>
+        <div class="web-pack-desc"><span data-ar>+ جدار حماية · مراقبة · تحديثات أمنية · نسخ احتياطي مشفّر</span><span data-en>+ WAF · monitoring · security patches · encrypted backups</span></div>
+        <div class="web-pack-price">4,400 <span style="font-size:.55em;color:var(--muted)"><span data-ar>ر.س</span><span data-en>SAR</span></span></div>
+        <div class="web-pack-save"><span data-ar>وفّر 200 ر.س</span><span data-en>Save 200 SAR</span></div>
+        <a class="web-pack-cta" href="mailto:doomyksa@gmail.com?subject=طلب%20باقة%20موقع%20%2B%20استضافة%20%2B%20حماية"><span data-ar>اطلب الآن</span><span data-en>Order now</span></a>
+      </div>
+      <div class="web-pack">
+        <div class="web-pack-name"><span data-ar>حضور رقمي كامل</span><span data-en>Full Digital Presence</span></div>
+        <div class="web-pack-desc"><span data-ar>+ بريد إلكتروني باسم مشروعك (مستخدم واحد) · ربط دومين · إعداد كامل</span><span data-en>+ branded email (1 user) · domain linking · full setup</span></div>
+        <div class="web-pack-price">5,500 <span style="font-size:.55em;color:var(--muted)"><span data-ar>ر.س</span><span data-en>SAR</span></span></div>
+        <div class="web-pack-save"><span data-ar>وفّر 500 ر.س</span><span data-en>Save 500 SAR</span></div>
+        <a class="web-pack-cta" href="mailto:doomyksa@gmail.com?subject=طلب%20باقة%20حضور%20رقمي%20كامل"><span data-ar>اطلب الآن</span><span data-en>Order now</span></a>
+      </div>
+    </div>
+    <div class="web-ala-carte">
+      <span><span data-ar>أو اختر منفرداً:</span><span data-en>Or à la carte:</span></span>
+      <span><span data-ar>موقع من</span><span data-en>Website from</span> <b>2,500</b></span>
+      <span><span data-ar>استضافة من</span><span data-en>Hosting from</span> <b>800</b><span data-ar>/سنة</span><span data-en>/yr</span></span>
+      <span><span data-ar>حماية من</span><span data-en>Security from</span> <b>700</b><span data-ar>/سنة</span><span data-en>/yr</span></span>
+      <span><span data-ar>بريد مهني من</span><span data-en>Email from</span> <b>1,200</b><span data-ar>/سنة</span><span data-en>/yr</span></span>
+      <span><span data-ar>متجر من</span><span data-en>Store from</span> <b>6,000</b></span>
+    </div>
+
     <!-- OTHER SERVICES -->
-    <h3 style="margin:42px 0 4px;font-size:1.4rem;font-weight:800"><span data-ar>خدمات إضافية</span><span data-en>Other Services</span></h3>
-    <p style="color:var(--muted);margin:0 0 18px;font-size:.9rem"><span data-ar>حلول أصغر وأسرع — بداية مثالية لأي نشاط</span><span data-en>Smaller, faster solutions — a perfect start for any business</span></p>
+    <h3 style="margin:28px 0 4px;font-size:1.4rem;font-weight:800"><span data-ar>خدمات إضافية</span><span data-en>Other Services</span></h3>
+    <p style="color:var(--muted);margin:0 0 18px;font-size:.9rem"><span data-ar>توسعات وتكاملات — تُضاف للنظام أو الموقع حسب الحاجة</span><span data-en>Add-ons & integrations — added to your system or site as needed</span></p>
     <div class="svc-grid">
-      <div class="svc"><div class="svc-i">🌐</div><div class="svc-n"><span data-ar>موقع شركة احترافي</span><span data-en>Professional company website</span></div><div class="svc-d"><span data-ar>تصميم عصري سريع متجاوب + SEO</span><span data-en>Modern, fast, responsive + SEO</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 2,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-      <div class="svc"><div class="svc-i">✉️</div><div class="svc-n"><span data-ar>إيميلات باسم شركتك</span><span data-en>Company-branded emails</span></div><div class="svc-d"><span data-ar>name@company.com + إعداد كامل</span><span data-en>name@company.com + full setup</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 1,200 <span data-ar>ر.س/سنة</span><span data-en>SAR/yr</span></div></div>
-      <div class="svc"><div class="svc-i">🛒</div><div class="svc-n"><span data-ar>متجر إلكتروني</span><span data-en>Online store</span></div><div class="svc-d"><span data-ar>منتجات + سلة + دفع إلكتروني</span><span data-en>Products + cart + online payment</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 6,000 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-      <div class="svc"><div class="svc-i">🤖</div><div class="svc-n"><span data-ar>مساعد ذكاء اصطناعي لموقعك</span><span data-en>AI assistant for your site</span></div><div class="svc-d"><span data-ar>شات بوت عربي يرد على عملائك</span><span data-en>Arabic chatbot for your customers</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 4,000 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-      <div class="svc"><div class="svc-i">📊</div><div class="svc-n"><span data-ar>لوحات تحكم وتقارير</span><span data-en>Dashboards & reports</span></div><div class="svc-d"><span data-ar>حوّل بياناتك لقرارات بصرية</span><span data-en>Turn your data into visual decisions</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 3,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-      <div class="svc"><div class="svc-i">⚙️</div><div class="svc-n"><span data-ar>أتمتة المهام المتكررة</span><span data-en>Workflow automation</span></div><div class="svc-d"><span data-ar>وفّر وقت فريقك بمهام تلقائية</span><span data-en>Save your team's time with automation</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 2,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
+      <div class="svc"><div class="svc-i">🌐</div><div class="svc-n"><span data-ar>موقع شركة احترافي</span><span data-en>Professional company website</span></div><div class="svc-d"><span data-ar>تصميم عصري سريع متجاوب + SEO — أو اختر <a href="#website-packs" style="color:var(--accent2)">باقة موقع جاهزة</a></span><span data-en>Modern, fast, responsive + SEO — or pick a <a href="#website-packs" style="color:var(--accent2)">website pack</a></span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 2,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
+      <div class="svc"><div class="svc-i">☁️</div><div class="svc-n"><span data-ar>استضافة ورفع</span><span data-en>Hosting & deployment</span></div><div class="svc-d"><span data-ar>سعودية أو عالمية · SSL · نسخ احتياطي · صيانة</span><span data-en>Saudi or global · SSL · backups · maintenance</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 800 <span data-ar>ر.س/سنة</span><span data-en>SAR/yr</span></div></div>
+      <div class="svc"><div class="svc-i">🛡️</div><div class="svc-n"><span data-ar>حماية ومراقبة</span><span data-en>Security & monitoring</span></div><div class="svc-d"><span data-ar>جدار حماية · فحص ثغرات · تحديثات أمنية</span><span data-en>WAF · vulnerability scans · security patches</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 700 <span data-ar>ر.س/سنة</span><span data-en>SAR/yr</span></div></div>
+      <div class="svc"><div class="svc-i">✉️</div><div class="svc-n"><span data-ar>إيميلات باسم مشروعك</span><span data-en>Branded business email</span></div><div class="svc-d"><span data-ar>name@yourproject.com · Google Workspace أو Microsoft 365</span><span data-en>name@yourproject.com · Google Workspace or Microsoft 365</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 1,200 <span data-ar>ر.س/سنة</span><span data-en>SAR/yr</span></div></div>
+      <div class="svc"><div class="svc-i">🛒</div><div class="svc-n"><span data-ar>متجر إلكتروني</span><span data-en>Online store</span></div><div class="svc-d"><span data-ar>منتجات + سلة + دفع إلكتروني + إدارة طلبات</span><span data-en>Products + cart + payment + order management</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 6,000 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
+      <div class="svc"><div class="svc-i">🤖</div><div class="svc-n"><span data-ar>مساعد ذكاء اصطناعي</span><span data-en>AI assistant</span></div><div class="svc-d"><span data-ar>شات بوت عربي يرد على عملائك 24/7</span><span data-en>Arabic chatbot for your customers 24/7</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 4,000 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
     </div>
     <a class="svc-cta" href="mailto:doomyksa@gmail.com?subject=طلب%20خدمة%20(موقع%20%2F%20تصميم%20%2F%20إيميلات)&body=السلام%20عليكم،%20أرغب%20بطلب:%20%0A(موقع%20%2F%20متجر%20%2F%20إيميلات%20%2F%20شات%20بوت%20%2F%20أخرى)%0A%0Aالاسم:%0Aاسم%20النشاط:%0Aالجوال:%0Aالتفاصيل:">
       🎨 <span data-ar>اطلب موقعك أو تصميمك</span><span data-en>Request a website or design</span>
@@ -1193,13 +1301,13 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
         <div class="ind-card">
           <div class="ind-icon">🔗</div>
           <div class="ind-name"><span data-ar>إرشاد لإعداد حساب في منصة</span><span data-en>Guided Platform Account Setup</span></div>
-          <div class="ind-desc"><span data-ar>مساعدة مباشرة في الإعداد، بينما يُدخل العميل كلمة المرور ورمز التحقق بنفسه</span><span data-en>Guided setup while the client enters passwords and verification codes privately</span></div>
+          <div class="ind-desc"><span data-ar>جلسة إرشاد مباشرة — أنت تُدخل كلمة المرور ورمز التحقق على جهازك، ولا تُرسلهما لنا</span><span data-en>Live guided session — you enter passwords & codes on your device; never sent to us</span></div>
           <div class="ind-price"><span data-ar>من 80 ر.س</span><span data-en>from 80 SAR</span></div>
         </div>
         <div class="ind-card">
           <div class="ind-icon">🏛️</div>
           <div class="ind-name"><span data-ar>إرشاد لاستخدام المنصات الحكومية</span><span data-en>Guided Government Platform Setup</span></div>
-          <div class="ind-desc"><span data-ar>جلسة إرشادية فقط؛ العميل يُدخل بيانات الدخول ورمز التحقق بنفسه ولا تُحفظ لدينا</span><span data-en>Guidance only; the client enters credentials and verification codes, which are never stored</span></div>
+          <div class="ind-desc"><span data-ar>جلسة إرشادية — أنت تُدخل بيانات الدخول ورمز التحقق على جهازك؛ لا نخزّنها ولا نطلبها عبر واتساب</span><span data-en>Guidance session — you enter credentials & codes on your device; we don't store them or ask via WhatsApp</span></div>
           <div class="ind-price"><span data-ar>من 100 ر.س</span><span data-en>from 100 SAR</span></div>
         </div>
         <div class="ind-card">
@@ -1217,7 +1325,7 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
         <div class="ind-card">
           <div class="ind-icon">📧</div>
           <div class="ind-name"><span data-ar>إنشاء بريد إلكتروني مهني</span><span data-en>Professional Email Setup</span></div>
-          <div class="ind-desc"><span data-ar>إرشاد للإعداد على أجهزتك؛ كلمة المرور ورمز التحقق يُدخلهما العميل بنفسه</span><span data-en>Guided setup on your devices; the client enters passwords and verification codes privately</span></div>
+          <div class="ind-desc"><span data-ar>إرشاد على جهازك — أنت تُدخل كلمة المرور ورمز التحقق عندما يطلبها النظام</span><span data-en>Guided on your device — you enter password & verification code when the system asks</span></div>
           <div class="ind-price"><span data-ar>من 80 ر.س</span><span data-en>from 80 SAR</span></div>
         </div>
         <div class="ind-card">
@@ -1247,17 +1355,18 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
 
     <!-- HOW IT WORKS -->
     <div class="howit">
-      <div class="howit-step"><span class="howit-n">1</span><div><b><span data-ar>اطلب</span><span data-en>Request</span></b><span data-ar>اختر باقتك أو صمّم نظامك وأرسل طلبك ببريدك</span><span data-en>Pick a plan or design your system and send your request with your email</span></div></div>
-      <div class="howit-step"><span class="howit-n">2</span><div><b><span data-ar>عرض رسمي</span><span data-en>Formal quote</span></b><span data-ar>ندرس طلبك ونرسل لك عرضاً رسمياً بالسعر والمدة</span><span data-en>We study your request and send a formal quote with price & timeline</span></div></div>
-      <div class="howit-step"><span class="howit-n">3</span><div><b><span data-ar>بدء العمل</span><span data-en>Kickoff</span></b><span data-ar>تدفع عربون 50% ويبدأ التنفيذ — المدة حسب حجم الطلب المتفق عليه</span><span data-en>Pay a 50% deposit and work begins — duration depends on the agreed scope</span></div></div>
-      <div class="howit-step"><span class="howit-n">4</span><div><b><span data-ar>تسليم وتشغيل</span><span data-en>Delivery</span></b><span data-ar>سداد الباقي + رفع النظام أونلاين + حساباتكم + تدريب</span><span data-en>Final payment + go-live + your accounts + training</span></div></div>
+      <div class="howit-step"><span class="howit-n">1</span><div><b><span data-ar>اطلب</span><span data-en>Request</span></b><span data-ar>اختر باقتك أو صمّم نظامك وأرسل طلبك</span><span data-en>Pick a plan or design your system and send your request</span></div></div>
+      <div class="howit-step"><span class="howit-n">2</span><div><b><span data-ar>عرض رسمي</span><span data-en>Formal quote</span></b><span data-ar>ندرس طلبك ونرسل عرضاً بالسعر والمدة وطريقة الدفع</span><span data-en>We study your request and send a quote with price, timeline & payment terms</span></div></div>
+      <div class="howit-step"><span class="howit-n">3</span><div><b><span data-ar>عقد + عربون 50%</span><span data-en>Contract + 50% deposit</span></b><span data-ar>توقيع العقد ودفع نصف مبلغ التأسيس — ثم يبدأ التنفيذ</span><span data-en>Sign contract & pay half the setup fee — then work begins</span></div></div>
+      <div class="howit-step"><span class="howit-n">4</span><div><b><span data-ar>تسليم + 50% المتبقية</span><span data-en>Delivery + remaining 50%</span></b><span data-ar>بعد قبولك: سداد النصف الثاني + رفع النظام + حساباتك + تدريب</span><span data-en>After your acceptance: pay the other half + go-live + your accounts + training</span></div></div>
+      <div class="howit-step"><span class="howit-n">5</span><div><b><span data-ar>اشتراك الدعم</span><span data-en>Support subscription</span></b><span data-ar>يبدأ بعد التسليم (شهري/سنوي) — استضافة + تحديثات + دعم</span><span data-en>Starts after delivery (monthly/annual) — hosting + updates + support</span></div></div>
     </div>
 
     <div style="margin-top:16px;font-size:.75rem;color:var(--muted2);line-height:1.8;padding:12px 14px;background:rgba(255,255,255,.02);border-radius:8px;border:1px solid var(--border)">
       ⏱️ <span data-ar><b>مدة التنفيذ:</b> حسب حجم الطلب — تُحدَّد بدقة في العرض الرسمي بعد دراسة المشروع كاملاً.</span><span data-en><b>Delivery:</b> depends on scope — set precisely in the formal quote after studying the full project.</span>
-      <br>💵 <span data-ar><b>الدفع:</b> الأنظمة المخصّصة والتملّك: عربون 50% عند البدء والباقي عند التسليم · الاشتراكات تُدفع مقدّماً (شهري/سنوي).</span><span data-en><b>Payment:</b> Custom builds & ownership: 50% deposit upfront, balance on delivery · Subscriptions paid in advance.</span>
+      <br>💵 <span data-ar><b>الدفع:</b> <b>التأسيس والمواقع:</b> عربون <b>50%</b> عند توقيع العقد + <b>50%</b> المتبقية عند التسليم بعد قبولك · <b>اشتراك الدعم:</b> يُدفع مقدّماً (شهري/سنوي) ويبدأ بعد التسليم فقط · الإلغاء = إيقاف التجديد القادم.</span><span data-en><b>Payment:</b> <b>Setup & websites:</b> <b>50%</b> deposit at contract signing + remaining <b>50%</b> on delivery after your acceptance · <b>Support subscription:</b> paid in advance (monthly/annual), starts only after delivery · cancel = stop next renewal.</span>
       <br>📦 <span data-ar><b>التملّك الكامل</b> (شراء النظام + الكود المصدري بالكامل ملكاً لكم) متاح لأي قطاع عند الطلب · عرض تجريبي (ديمو) متاح.</span><span data-en><b>Full ownership</b> (system + complete source code, fully yours) available for any industry on request · Live demo available.</span>
-      <br>🏛️ <span data-ar><b>الربط الحكومي:</b> الربط البرمجي مشمول — بيانات الربط الرسمية يوفّرها العميل من سجله التجاري، والرسوم الحكومية (إن وُجدت) على العميل.</span><span data-en><b>Government integration:</b> technical bridge included — official credentials provided by the client; any government fees are the client's.</span>
+      <br>🏛️ <span data-ar><b>الربط الحكومي:</b> الربط البرمجي من طرفنا — شهادات/مفاتيح API توفّرها أنت من حسابك الرسمي، ورمز التحقق تُدخله أنت على جهازك. الرسوم الحكومية (إن وُجدت) على العميل.</span><span data-en><b>Government integration:</b> we build the technical bridge — certificates/API keys come from your official account, and you enter verification codes on your device. Any government fees are the client's.</span>
     </div>
     <!-- GUARANTEE -->
     <div style="background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(59,130,246,.05));border:1px solid rgba(16,185,129,.3);border-radius:18px;padding:22px;margin-bottom:18px;display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
@@ -1283,12 +1392,12 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     <details class="terms">
       <summary><span data-ar>📜 الشروط والاسترجاع والخصوصية</span><span data-en>📜 Terms, Refunds & Privacy</span></summary>
       <ul>
-        <li data-ar><b>العربون:</b> 50% عند البدء غير مسترد (يغطّي العمل المنجز).</li><li data-en><b>Deposit:</b> 50% upfront, non-refundable (covers work done).</li>
+        <li data-ar><b>العربون:</b> 50% من مبلغ التأسيس عند توقيع العقد — غير مسترد (يغطّي العمل المنجز) · 50% المتبقية عند التسليم بعد قبول العميل.</li><li data-en><b>Deposit:</b> 50% of the setup fee at contract signing — non-refundable (covers work done) · remaining 50% on delivery after client acceptance.</li>
         <li data-ar><b>التعديلات:</b> جولتا تعديل مجانيتان لمطابقة المتفق عليه في العرض.</li><li data-en><b>Revisions:</b> two free revision rounds to match the agreed scope.</li>
         <li data-ar><b>التسليم والكود:</b> تسليم النظام/الكود المصدري بعد السداد الكامل فقط.</li><li data-en><b>Delivery & code:</b> system/source code delivered only after full payment.</li>
-        <li data-ar><b>الاشتراكات:</b> تُدفع مقدّماً، والإلغاء يوقف التجديد القادم · ضمان استرجاع 7 أيام (قبل الاستخدام الفعلي).</li><li data-en><b>Subscriptions:</b> paid in advance; cancellation stops the next renewal · 7-day money-back (before active use).</li>
+        <li data-ar><b>الاشتراكات (دعم):</b> تبدأ بعد التسليم · تُدفع مقدّماً · الإلغاء يوقف التجديد القادم · ضمان استرجاع 7 أيام (قبل الاستخدام الفعلي).</li><li data-en><b>Support subscriptions:</b> start after delivery · paid in advance · cancellation stops next renewal · 7-day money-back (before active use).</li>
         <li data-ar><b>الملكية:</b> تبقى للمطوّر حتى اكتمال السداد · في باقة التملّك تنتقل بالكامل للعميل بعد السداد.</li><li data-en><b>Ownership:</b> stays with the developer until full payment; transfers fully to the client in the ownership plan.</li>
-        <li data-ar><b>الخصوصية:</b> نطلب الحد الأدنى من البيانات ونستخدمها للتنفيذ فقط، ولا نشاركها إلا مع معالِج يوافق عليه العميل عند الضرورة. لا نطلب كلمات المرور أو رموز التحقق.</li><li data-en><b>Privacy:</b> we collect only what is necessary for delivery and share it only with a client-approved processor when required. We never request passwords or verification codes.</li>
+        <li data-ar><b>الخصوصية والوصول:</b> الحسابات (استضافة، بريد، حكومي) باسم العميل. لا نطلب OTP بنكي أو كلمات مرور عبر واتساب/بريد. الوصول التقني عبر مستخدم فرعي محدود، أو إرشاد مباشر والعميل يُدخل البيانات الحساسة على جهازه.</li><li data-en><b>Privacy & access:</b> accounts (hosting, email, government) are in the client's name. We never ask for bank OTPs or passwords via WhatsApp/email. Technical access is via a limited sub-user, or guided setup where the client enters sensitive data on their own device.</li>
         <li data-ar><b>الدعم:</b> مشمول في الاشتراك · في التملّك يُتفق عليه بعقد صيانة منفصل.</li><li data-en><b>Support:</b> included in subscriptions; in ownership via a separate maintenance contract.</li>
       </ul>
     </details>
@@ -1307,19 +1416,23 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
 
   <script>
   (function(){
-    var billing='monthly', DISC=0.7;
+    var billing='monthly', DISC=0.7, SETUP_BASE=5005;
     function fmt(n){return n.toLocaleString('en-US');}
+    function isEn(){return document.body.classList.contains('en');}
     function escapeHtml(value){return String(value).replace(/[&<>"']/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];});}
     window.setBilling=function(m){
       billing=m;
       window.currentBilling=m;
       document.querySelectorAll('.bill-toggle button').forEach(function(b){b.classList.toggle('active',b.dataset.m===m);});
-      document.querySelectorAll('.plan[data-m]').forEach(function(p){
-        var base=billing==='monthly'?+p.dataset.m:+p.dataset.a;
-        var disc=Math.round(base*DISC);
-        p.querySelector('.price-orig').textContent=fmt(base);
-        p.querySelector('.price-num').textContent=fmt(disc);
-        p.querySelector('.per').textContent=(billing==='monthly'?'/'+(document.body.classList.contains('en')?'mo':'شهر'):'/'+(document.body.classList.contains('en')?'yr':'سنة'));
+      document.querySelectorAll('.plan[data-setup]').forEach(function(p){
+        var setupBase=+p.dataset.setup, setupDisc=Math.round(setupBase*DISC);
+        var supBase=billing==='monthly'?+p.dataset.sm:+p.dataset.sa;
+        var supDisc=Math.round(supBase*DISC);
+        p.querySelector('.setup-orig').textContent=fmt(setupBase);
+        p.querySelector('.setup-num').textContent=fmt(setupDisc);
+        p.querySelector('.sup-orig').textContent=fmt(supBase);
+        p.querySelector('.sup-num').textContent=fmt(supDisc);
+        p.querySelector('.per-suf').textContent=billing==='monthly'?'/'+(isEn()?'mo':'شهر'):'/'+(isEn()?'yr':'سنة');
       });
     };
     var SIZE_LABEL={'1':'1–20','1.25':'21–50','1.5':'51–100','1.8':'101–200','2.1':'201–500','2.4':'+500'};
@@ -1359,12 +1472,11 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       {id:'loyalty',ar:'برنامج ولاء ونقاط للعملاء',en:'Customer loyalty & points',p:900}
     ];
     var cart={};
-    function isEn(){return document.body.classList.contains('en');}
     function svcLabel(s){return isEn()?s.en:s.ar;}
     window.renderCfg=function(){
       var av=document.getElementById('cfgAvail'), ct=document.getElementById('cfgCart');
       if(!av||!ct)return;
-      av.innerHTML=''; ct.innerHTML='<div class="cfg-row base"><span>'+(isEn()?'Core system (included)':'النظام الأساسي (مشمول)')+'</span><b>6,000</b></div>';
+      av.innerHTML=''; ct.innerHTML='<div class="cfg-row base"><span>'+(isEn()?'Core system (included)':'النظام الأساسي (مشمول)')+'</span><b>1,200 <small style="font-weight:600;opacity:.7">'+(isEn()?'/mo':'/شهر')+'</small></b></div>';
       SERVICES.forEach(function(s){
         if(cart[s.id]){
           var r=document.createElement('div'); r.className='cfg-row in';
@@ -1385,23 +1497,28 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     });
     function cfgData(){
       var size=+document.getElementById('cfgSize').value;
-      var base=6000, items=[{t:isEn()?'Core system':'النظام الأساسي',p:6000}];
+      var base=1200, items=[{t:isEn()?'Core system':'النظام الأساسي',p:1200}];
       SERVICES.forEach(function(s){if(cart[s.id]){base+=s.p;items.push({t:svcLabel(s),p:s.p});}});
       var sized=Math.round(base*size), disc=Math.round(sized*DISC);
+      var setupSized=Math.round(SETUP_BASE*size), setupDisc=Math.round(setupSized*DISC);
       var notes=(document.getElementById('cfgNotes').value||'').trim();
-      return {items:items,base:sized,disc:disc,size:SIZE_LABEL[document.getElementById('cfgSize').value],notes:notes};
+      return {items:items,base:sized,disc:disc,setup:setupSized,setupDisc:setupDisc,size:SIZE_LABEL[document.getElementById('cfgSize').value],notes:notes};
     }
     window.recalcCfg=function(){
       var d=cfgData();
       document.getElementById('cfgPrice').textContent=fmt(d.disc);
+      document.getElementById('cfgSetup').textContent=fmt(d.setupDisc);
       document.querySelector('.cfg-orig').textContent=fmt(d.base);
+      var setupOrig=document.querySelector('.cfg-setup-orig');
+      if(setupOrig)setupOrig.textContent=fmt(d.setup);
     };
     window.sendCfg=function(){
-      var d=cfgData(), b='السلام عليكم،\nأرغب بنظام مخصّص بالمواصفات التالية:\n\nحجم الشركة (عدد الموظفين): '+d.size+'\n\nالخدمات المختارة:\n';
-      d.items.forEach(function(i){b+='- '+i.t+' ('+fmt(i.p)+' ر.س)\n';});
+      var d=cfgData(), b='السلام عليكم،\nأرغب بنظام مخصّص بالمواصفات التالية:\n\nحجم الشركة (عدد الموظفين): '+d.size+'\n\nالخدمات المختارة (دعم شهري):\n';
+      d.items.forEach(function(i){b+='- '+i.t+' ('+fmt(i.p)+' ر.س/شهر)\n';});
       if(d.notes)b+='\nمميزات إضافية مطلوبة:\n'+d.notes+'\n';
-      b+='\nالإجمالي الشهري قبل الخصم: '+fmt(d.base)+' ر.س\nبعد خصم 30%: '+fmt(d.disc)+' ر.س/شهر\n\n— بياناتي —\nالاسم:\nاسم الشركة:\nالجوال:\nالبريد الإلكتروني:\nالمجال/النشاط:';
-      location.href='mailto:doomyksa@gmail.com?subject='+encodeURIComponent('طلب نظام مخصّص - '+fmt(d.disc)+' ر.س/شهر')+'&body='+encodeURIComponent(b);
+      b+='\nتأسيس النظام (مرة واحدة) قبل الخصم: '+fmt(d.setup)+' ر.س\nبعد خصم 30%: '+fmt(d.setupDisc)+' ر.س\n';
+      b+='دعم شهري قبل الخصم: '+fmt(d.base)+' ر.س\nبعد خصم 30%: '+fmt(d.disc)+' ر.س/شهر\n\n— بياناتي —\nالاسم:\nاسم الشركة:\nالجوال:\nالبريد الإلكتروني:\nالمجال/النشاط:';
+      location.href='mailto:doomyksa@gmail.com?subject='+encodeURIComponent('طلب نظام مخصّص - تأسيس '+fmt(d.setupDisc)+' + دعم '+fmt(d.disc)+' ر.س/شهر')+'&body='+encodeURIComponent(b);
     };
     window.savePdfCfg=function(){
       var d=cfgData(), rows='';
@@ -1429,11 +1546,13 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       '<h1>عرض سعر — نظام أعمال مخصّص</h1>'+
       '<p class="muted">عرض ساري 7 أيام · يشمل خصم 30%</p>'+
       '<p><b>حجم الشركة:</b> '+d.size+' موظف</p>'+
-      '<table><thead><tr><th>الخدمة</th><th style="text-align:left">السعر الشهري</th></tr></thead><tbody>'+rows+'</tbody></table>'+
+      '<table><thead><tr><th>الخدمة</th><th style="text-align:left">دعم شهري</th></tr></thead><tbody>'+rows+'</tbody></table>'+
       (d.notes?'<p><b>مميزات إضافية مطلوبة:</b><br>'+escapeHtml(d.notes).replace(/\n/g,'<br>')+'</p>':'')+
-      '<p>الإجمالي قبل الخصم: '+fmt(d.base)+' ر.س/شهر</p>'+
-      '<p class="tot">بعد خصم 30%: '+fmt(d.disc)+' ر.س/شهر</p>'+
-      '<p class="muted">مدة التنفيذ: حسب حجم الطلب وتُحدَّد في العرض الرسمي · عربون 50% عند البدء والباقي عند التسليم.</p>'+
+      '<p>تأسيس النظام قبل الخصم: '+fmt(d.setup)+' ر.س</p>'+
+      '<p class="tot">تأسيس بعد خصم 30%: '+fmt(d.setupDisc)+' ر.س (مرة واحدة)</p>'+
+      '<p>دعم شهري قبل الخصم: '+fmt(d.base)+' ر.س/شهر</p>'+
+      '<p class="tot">دعم بعد خصم 30%: '+fmt(d.disc)+' ر.س/شهر</p>'+
+      '<p class="muted">مدة التنفيذ: حسب حجم الطلب · تأسيس: 50% عند العقد + 50% عند التسليم · الدعم يبدأ بعد التسليم.</p>'+
       '<p class="muted">الأسعار استرشادية وتُؤكَّد بعرض رسمي. خيار التملّك الكامل متاح عند الطلب.</p>'+
       '<div class="sig"><b>أحمد القحطاني — Ahmed Alqahtani</b><div class="lnk">cybphantom.github.io · © 2026 جميع الحقوق محفوظة — هذا العرض ملكية فكرية للمطوّر</div></div>'+
       '</body></html>');
@@ -1619,6 +1738,15 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
   #faq .fq-pay-item .fq-pi{font-size:1.2rem;flex-shrink:0}
   #faq .fq-pay-item b{color:var(--text);font-size:.88rem}
   #faq .fq-pay-item span.d{display:block;color:var(--muted);font-size:.78rem;line-height:1.6}
+  #faq .fq-pay-table{width:100%;border-collapse:collapse;margin:16px 0 0;font-size:.8rem}
+  #faq .fq-pay-table th,#faq .fq-pay-table td{padding:10px 12px;border:1px solid var(--border);text-align:start;vertical-align:top;line-height:1.55}
+  #faq .fq-pay-table th{background:var(--bg3);font-weight:800;font-size:.76rem;color:var(--muted)}
+  #faq .fq-pay-table td{color:var(--muted)}
+  #faq .fq-pay-table td b{color:var(--text)}
+  #faq .fq-access{background:rgba(59,130,246,.06);border:1px solid var(--border);border-inline-start:4px solid var(--accent);border-radius:12px;padding:14px 16px;margin:0 0 32px;font-size:.84rem;line-height:1.85;color:var(--muted)}
+  #faq .fq-access b{color:var(--text)}
+  #faq .fq-access ul{margin:8px 0 0;padding-inline-start:18px}
+  #faq .fq-access li{margin-bottom:6px}
   #faq .fq-steps{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
   #faq .fq-step{background:var(--card);border:1px solid var(--border2);border-radius:100px;padding:7px 14px;font-size:.8rem;font-weight:700;color:var(--text)}
   #faq .fq-step em{color:var(--green2);font-style:normal}
@@ -1638,23 +1766,74 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     <div class="fq-pay">
       <div class="fq-pay-h">🛡️ <span data-ar>ادفع بأمان — أموالك محمية</span><span data-en>Pay Safely — Your Money Is Protected</span></div>
       <div class="fq-pay-grid">
-        <div class="fq-pay-item"><span class="fq-pi">💸</span><div><b><span data-ar>لا دفع كامل مقدّماً أبداً</span><span data-en>Never pay in full upfront</span></b><span class="d"><span data-ar>دفعة بسيطة للبدء، والباقي عند التسليم والاستلام.</span><span data-en>A small deposit to start; the rest on delivery & acceptance.</span></span></div></div>
-        <div class="fq-pay-item"><span class="fq-pi">🤝</span><div><b><span data-ar>خيار الوساطة المضمونة</span><span data-en>Escrow option</span></b><span class="d"><span data-ar>للعميل الجديد: ادفع عبر منصة مستقل/بحر تمسك المبلغ ولا تُطلقه إلا بعد التسليم.</span><span data-en>For new clients: pay via Mostaql/Bahr, which holds the funds until delivery.</span></span></div></div>
-        <div class="fq-pay-item"><span class="fq-pi">📜</span><div><b><span data-ar>عقد رسمي + فاتورة</span><span data-en>Formal contract + invoice</span></b><span class="d"><span data-ar>كل ريال موثّق بعقد وفاتورة باسمك — مرجع رسمي كامل.</span><span data-en>Every riyal documented by contract & invoice in your name.</span></span></div></div>
-        <div class="fq-pay-item"><span class="fq-pi">🚫</span><div><b><span data-ar>لا نطلب كلمة مرور أو رمز تحقق</span><span data-en>We never ask for passwords or OTP</span></b><span class="d"><span data-ar>لن نطلب منك بيانات بنكية حسّاسة أو رموز تحقق إطلاقاً.</span><span data-en>We will never request sensitive banking data or verification codes.</span></span></div></div>
+        <div class="fq-pay-item"><span class="fq-pi">💸</span><div><b><span data-ar>50% عند العقد — 50% عند التسليم</span><span data-en>50% at contract — 50% at delivery</span></b><span class="d"><span data-ar>لا تدفع المبلغ كاملاً مقدّماً. <b>نصف مبلغ التأسيس</b> بعد توقيع العقد، و<b>النصف الثاني</b> بعد استلامك العمل وقبوله — موثّق بعقد وفاتورة.</span><span data-en>You never pay the full setup amount upfront. <b>Half the setup fee</b> after signing the contract, and the <b>other half</b> after you receive and accept the work — documented by contract & invoice.</span></span></div></div>
+        <div class="fq-pay-item"><span class="fq-pi">🤝</span><div><b><span data-ar>خيار الوساطة المضمونة</span><span data-en>Escrow option</span></b><span class="d"><span data-ar>للعميل الجديد: ادفع عبر منصة مستقل/بحر تمسك المبلغ ولا تُطلقه إلا بعد التسليم والقبول.</span><span data-en>For new clients: pay via Mostaql/Bahr, which holds the funds until delivery & acceptance.</span></span></div></div>
+        <div class="fq-pay-item"><span class="fq-pi">📜</span><div><b><span data-ar>عقد رسمي + فاتورة</span><span data-en>Formal contract + invoice</span></b><span class="d"><span data-ar>كل دفعة موثّقة بعقد وفاتورة باسمك — مرجع رسمي كامل.</span><span data-en>Every payment documented by contract & invoice in your name.</span></span></div></div>
+        <div class="fq-pay-item"><span class="fq-pi">🔐</span><div><b><span data-ar>بياناتك الحساسة تبقى عندك</span><span data-en>Your sensitive data stays with you</span></b><span class="d"><span data-ar>لا نطلب عبر واتساب/بريد: رموز تحقق بنكية، OTP، أو كلمات مرور حساباتك الشخصية. التفاصيل في السؤال أدناه «كيف ترفعون النظام بدون كلمة مروري؟»</span><span data-en>We never ask via WhatsApp/email for: bank OTPs, verification codes, or your personal account passwords. See the FAQ below: "How do you deploy without my password?"</span></span></div></div>
       </div>
+      <table class="fq-pay-table" aria-label="ملخص طرق الدفع">
+        <thead>
+          <tr>
+            <th><span data-ar>نوع الخدمة</span><span data-en>Service type</span></th>
+            <th><span data-ar>متى تدفع؟</span><span data-en>When do you pay?</span></th>
+            <th><span data-ar>كيف؟</span><span data-en>How?</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b><span data-ar>أنظمة (تأسيس) + مواقع + متاجر</span><span data-en>Systems (setup) + websites + stores</span></b></td>
+            <td><span data-ar>عند توقيع العقد + عند التسليم</span><span data-en>At contract signing + at delivery</span></td>
+            <td><span data-ar><b>50%</b> عربون للبدء · <b>50%</b> عند التسليم بعد قبولك</span><span data-en><b>50%</b> deposit to start · <b>50%</b> on delivery after your acceptance</span></td>
+          </tr>
+          <tr>
+            <td><b><span data-ar>اشتراك الدعم (شهري/سنوي)</span><span data-en>Support subscription</span></b></td>
+            <td><span data-ar>بعد تسليم النظام/الموقع</span><span data-en>After system/site delivery</span></td>
+            <td><span data-ar>يُدفع مقدّماً كل شهر/سنة · الإلغاء = إيقاف التجديد القادم</span><span data-en>Paid in advance each month/year · Cancel = stop next renewal</span></td>
+          </tr>
+          <tr>
+            <td><b><span data-ar>خدمات الأفراد</span><span data-en>Individual services</span></b></td>
+            <td><span data-ar>قبل بدء العمل</span><span data-en>Before work starts</span></td>
+            <td><span data-ar>دفعة واحدة مقدّماً (المبلغ صغير)</span><span data-en>One upfront payment (small amount)</span></td>
+          </tr>
+          <tr>
+            <td><b><span data-ar>التملّك الكامل</span><span data-en>Full ownership</span></b></td>
+            <td><span data-ar>عند العقد + عند التسليم</span><span data-en>At contract + at delivery</span></td>
+            <td><span data-ar>عادة <b>50%</b> عربون + <b>50%</b> عند تسليم الكود والنظام</span><span data-en>Usually <b>50%</b> deposit + <b>50%</b> on code & system handover</span></td>
+          </tr>
+        </tbody>
+      </table>
       <div class="fq-steps">
         <span class="fq-step"><em>1</em> <span data-ar>طلب وعرض رسمي</span><span data-en>Request & quote</span></span>
         <span class="fq-step"><em>2</em> <span data-ar>عقد + عربون 50%</span><span data-en>Contract + 50% deposit</span></span>
         <span class="fq-step"><em>3</em> <span data-ar>تطوير ومتابعة</span><span data-en>Build & follow-up</span></span>
-        <span class="fq-step"><em>4</em> <span data-ar>تسليم + الدفعة الأخيرة</span><span data-en>Delivery + final payment</span></span>
+        <span class="fq-step"><em>4</em> <span data-ar>تسليم + 50% المتبقية</span><span data-en>Delivery + remaining 50%</span></span>
+        <span class="fq-step"><em>5</em> <span data-ar>بدء اشتراك الدعم (إن وُجد)</span><span data-en>Support subscription starts (if any)</span></span>
       </div>
     </div>
 
-    <!-- FAQ ACCORDION -->
+    <div class="fq-access">
+      <b><span data-ar>🔑 كيف نرفع النظام ونربط الخدمات بدون أن تسلّمنا كلمة مرورك؟</span><span data-en>🔑 How do we deploy & connect services without you giving us your password?</span></b>
+      <ul>
+        <li><span data-ar><b>النظام الذي نبنيه لك:</b> ننشئ لك حساب مدير (Admin) جديد بكلمة مرور مؤقتة — تغيّرها أنت فور أول دخول. لا نحتاج كلمة مرور حساباتك الشخصية.</span><span data-en><b>The system we build for you:</b> we create a new admin account with a temporary password — you change it on first login. We don't need your personal account passwords.</span></li>
+        <li><span data-ar><b>الاستضافة والدومين:</b> إمّا تفتح حساب استضافة باسمك وتضيفني كمستخدم تقني بصلاحيات محدودة، أو نرشدك خطوة بخطوة وأنت تُدخل بيانات الدخول على جهازك (مشاركة شاشة آمنة).</span><span data-en><b>Hosting & domain:</b> either you open a hosting account in your name and add me as a limited technical user, or we guide you step-by-step while you enter credentials on your device (secure screen share).</span></li>
+        <li><span data-ar><b>البريد الإلكتروني (Google/Microsoft):</b> تفتح الحساب باسم شركتك، وأنا أُعدّ الربط والإعدادات — أنت فقط تُدخل رمز التحقق على جهازك عندما يطلبه النظام.</span><span data-en><b>Business email (Google/Microsoft):</b> you open the account in your company name; I configure linking & settings — you only enter the verification code on your device when the system asks.</span></li>
+        <li><span data-ar><b>المنصات الحكومية (زاتكا، أبشر، نفاذ…):</b> الربط البرمجي من طرفنا — بيانات الاعتماد الرسمية (شهادة/مفتاح API) توفّرها أنت من حسابك الحكومي، وتُدخل رمز التحقق بنفسك عند الحاجة. لا نخزّن OTP ولا نطلبه عبر واتساب.</span><span data-en><b>Government platforms (ZATCA, Absher, Nafath…):</b> we build the technical bridge — official credentials (certificate/API key) come from your government account, and you enter verification codes yourself when needed. We don't store OTPs or ask for them via WhatsApp.</span></li>
+        <li><span data-ar><b>بوابات الدفع والخدمات الخارجية:</b> تفتح حساب التاجر باسمك، ونربطه تقنياً — مفاتيح API تُمرَّر عبر قناة آمنة متفق عليها في العقد، وليس عبر دردشة عادية.</span><span data-en><b>Payment gateways & third-party services:</b> you open the merchant account in your name; we connect it technically — API keys are shared via a secure channel agreed in the contract, not casual chat.</span></li>
+        <li><span data-ar><b>ما لن نطلبه أبداً:</b> رمز تحقق بنكي · OTP واتساب/SMS لحسابك الشخصي · كلمة مرور بريدك أو حسابك الحكومي عبر رسالة نصية.</span><span data-en><b>What we will never ask for:</b> bank verification codes · WhatsApp/SMS OTP for your personal accounts · your email or government account password via text message.</span></li>
+      </ul>
+    </div>
+
+    <details>
+      <summary><span data-ar>كيف ترفعون النظام وتربطون الخدمات بدون كلمة مروري؟</span><span data-en>How do you deploy & connect services without my password?</span></summary>
+      <div class="fq-a"><span data-ar>راجع الصندوق الأزرق أعلاه «كيف نرفع النظام ونربط الخدمات» — يشرح بالتفصيل: حساب مدير جديد للنظام، استضافة باسمك، بريد إلكتروني، ربط حكومي، وبوابات دفع. المبدأ: <b>الحسابات باسمك</b>، والوصول التقني إمّا بمستخدم فرعي محدود أو بإرشاد مباشر وأنت تُدخل البيانات الحساسة على جهازك.</span><span data-en>See the blue box above — it explains in detail: new admin account for your system, hosting in your name, business email, government integration, and payment gateways. Principle: <b>accounts are in your name</b>; technical access is either via a limited sub-user or guided setup where you enter sensitive data on your own device.</span></div>
+    </details>
+    <details open>
+      <summary><span data-ar>كيف يعمل السعر؟ تأسيس + دعم أم اشتراك شهري واحد؟</span><span data-en>How does pricing work? Setup + support or one monthly fee?</span></summary>
+      <div class="fq-a"><span data-ar><b>باقات الأنظمة (لايت/بلس/برو):</b> السعر مقسوم — <b>تأسيس لمرة واحدة</b> (مثال لايت: 5,005 ر.س · تدفع 50% + 50%) + <b>اشتراك دعم</b> (مثال لايت: من 1,200 ر.س/شهر · يبدأ بعد التسليم).<br><br><b>باقات المواقع:</b> بدون اشتراك شهري إلزامي — الدفع 50% عند العقد + 50% عند التسليم.<br><br><b>التملّك الكامل:</b> دفعة كبيرة (عادة 50% + 50%) + دعم اختياري بعدها.</span><span data-en><b>System plans (Lite/Plus/Pro):</b> split price — <b>one-time setup</b> (e.g. Lite: 5,005 SAR · pay 50% + 50%) + <b>support subscription</b> (e.g. Lite: from 1,200 SAR/month · starts after delivery).<br><br><b>Website packs:</b> no mandatory monthly subscription — pay 50% at contract + 50% at delivery.<br><br><b>Full ownership:</b> large one-time payment (usually 50% + 50%) + optional support after.</span></div>
+    </details>
     <details>
       <summary><span data-ar>كيف أضمن أن أموالي لا تضيع إذا دفعت؟</span><span data-en>How do I know my money is safe if I pay?</span></summary>
-      <div class="fq-a"><span data-ar>لا تدفع المبلغ كاملاً مقدّماً. تبدأ بعربون 50% بعد توقيع عقد رسمي يحدّد النطاق والمدة، والباقي عند التسليم. وللعميل الجديد المتردّد، يمكن الدفع عبر منصة وساطة مضمونة (مستقل/بحر) تحتفظ بالمبلغ ولا تُطلقه لي إلا بعد استلامك العمل. كل دفعة موثّقة بعقد وفاتورة.</span><span data-en>You never pay in full upfront. You start with a 50% deposit after signing a formal contract that defines scope and timeline; the rest is due on delivery. For hesitant new clients, payment can go through an escrow platform (Mostaql/Bahr) that holds the funds and releases them only after you accept the work. Every payment is documented by contract and invoice.</span></div>
+      <div class="fq-a"><span data-ar>لا تدفع المبلغ كاملاً مقدّماً. تدفع <b>عربون 50%</b> من مبلغ التأسيس بعد توقيع عقد رسمي يحدّد النطاق والمدة، و<b>50% المتبقية</b> عند التسليم بعد قبولك للعمل. وللعميل الجديد المتردّد، يمكن الدفع عبر منصة وساطة مضمونة (مستقل/بحر) تحتفظ بالمبلغ ولا تُطلقه لي إلا بعد استلامك العمل. كل دفعة موثّقة بعقد وفاتورة. <b>اشتراك الدعم</b> منفصل ويبدأ بعد التسليم.</span><span data-en>You never pay the full amount upfront. You pay a <b>50% deposit</b> of the setup fee after signing a formal contract defining scope and timeline, and the <b>remaining 50%</b> on delivery after you accept the work. For hesitant new clients, payment can go through an escrow platform (Mostaql/Bahr). Every payment is documented by contract and invoice. The <b>support subscription</b> is separate and starts after delivery.</span></div>
     </details>
     <details>
       <summary><span data-ar>هل بياناتي آمنة؟ وهل يمكن اختراق النظام؟</span><span data-en>Is my data safe? Can the system be hacked?</span></summary>
@@ -1670,7 +1849,7 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     </details>
     <details>
       <summary><span data-ar>هل يوجد دعم فني بعد التسليم؟</span><span data-en>Is there technical support after delivery?</span></summary>
-      <div class="fq-a"><span data-ar>نعم. يتوفّر عقد دعم وصيانة يشمل إصلاح الأعطال، التحديثات الأمنية، والاستشارات، مع وقت استجابة متفق عليه (SLA). التواصل عبر واتساب والبريد الإلكتروني.</span><span data-en>Yes. A support & maintenance plan covers bug fixes, security updates, and consulting, with an agreed response time (SLA). Reach me via WhatsApp and email.</span></div>
+      <div class="fq-a"><span data-ar>نعم. بعد التسليم يبدأ <b>اشتراك الدعم</b> (شهري أو سنوي) ويشمل: إصلاح الأعطال، التحديثات الأمنية، الاستضافة، والاستشارات ضمن النطاق المتفق. في باقة برو يُضاف SLA رسمي. التواصل عبر واتساب والبريد. إذا اخترت التملّك الكامل، الدعم اختياري بعقد صيانة منفصل.</span><span data-en>Yes. After delivery, the <b>support subscription</b> (monthly or annual) covers bug fixes, security updates, hosting, and consulting within the agreed scope. Pro includes a formal SLA. Reach me via WhatsApp and email. With full ownership, support is optional via a separate maintenance contract.</span></div>
     </details>
     <details>
       <summary><span data-ar>كيف أتواصل معك؟ وكم وقت الرد؟</span><span data-en>How do I reach you, and how fast is the reply?</span></summary>
@@ -1687,52 +1866,21 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
   </div>
 </section>
 
-<!-- ═══ HOW ORDERING WORKS ═══ -->
-<section class="section" id="how-ordering">
-  <div class="reveal">
-    <div class="section-label"><span data-ar>آلية الطلب</span><span data-en>How Ordering Works</span></div>
-    <h2 class="section-title"><span data-ar>كيف <span class="grad">تطلب خدمتك</span></span><span data-en>How to <span class="grad">Place Your Order</span></span></h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px">
-      <div class="howit-step"><span class="howit-n">1</span><div><b><span data-ar>اختر الخدمة</span><span data-en>Select a Service</span></b><span data-ar>اختر من الباقات أو الخدمات المتاحة</span><span data-en>Choose from available plans or services</span></div></div>
-      <div class="howit-step"><span class="howit-n">2</span><div><b><span data-ar>أرسل الطلب</span><span data-en>Send Request</span></b><span data-ar>عبر النموذج أو واتساب أو الهاتف أو البريد</span><span data-en>Via form, WhatsApp, phone, or email</span></div></div>
-      <div class="howit-step"><span class="howit-n">3</span><div><b><span data-ar>مراجعة المتطلبات</span><span data-en>Review Requirements</span></b><span data-ar>ندرس طلبك ونحدد النطاق</span><span data-en>We study your request and define scope</span></div></div>
-      <div class="howit-step"><span class="howit-n">4</span><div><b><span data-ar>عرض سعر مكتوب</span><span data-en>Written Quotation</span></b><span data-ar>نرسل عرضاً رسمياً بالسعر والمدة</span><span data-en>We send a formal quote with price & timeline</span></div></div>
-      <div class="howit-step"><span class="howit-n">5</span><div><b><span data-ar>رابط دفع آمن</span><span data-en>Secure Payment Link</span></b><span data-ar>بعد الموافقة نرسل رابط دفع آمن</span><span data-en>After approval, a secure payment link is sent</span></div></div>
-      <div class="howit-step"><span class="howit-n">6</span><div><b><span data-ar>تأكيد الدفع</span><span data-en>Payment Confirmed</span></b><span data-ar>يُؤكَّد استلام الدفعة</span><span data-en>Payment receipt is confirmed</span></div></div>
-      <div class="howit-step"><span class="howit-n">7</span><div><b><span data-ar>بدء العمل</span><span data-en>Work Starts</span></b><span data-ar>يبدأ التنفيذ حسب النطاق المتفق عليه</span><span data-en>Execution begins per the agreed scope</span></div></div>
-      <div class="howit-step"><span class="howit-n">8</span><div><b><span data-ar>التسليم والدعم</span><span data-en>Delivery & Support</span></b><span data-ar>تسليم المشروع مع دعم ما بعد التسليم</span><span data-en>Project delivery with post-delivery support</span></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ RESPONSE & EXECUTION TIME ═══ -->
-<section class="section" id="response-time">
-  <div class="reveal">
-    <div class="section-label"><span data-ar>وقت الاستجابة</span><span data-en>Response Time</span></div>
-    <h2 class="section-title"><span data-ar>مدة <span class="grad">الاستجابة والتنفيذ</span></span><span data-en>Response & <span class="grad">Execution Time</span></span></h2>
-    <div style="background:rgba(59,130,246,.06);border:1px solid var(--border);border-inline-start:4px solid var(--accent);border-radius:12px;padding:18px 22px;max-width:760px;line-height:1.9;font-size:.92rem">
-      <span data-ar>يتم الرد على الطلبات والاستفسارات خلال <strong>24 ساعة إلى 5 أيام عمل</strong> حسب نوع الطلب وحجم العمل واكتمال المتطلبات. مدة التنفيذ تُحدَّد في العرض الرسمي المكتوب.</span>
-      <span data-en>Requests and inquiries are answered within <strong>24 hours to 5 business days</strong> depending on request type, workload, and completeness of requirements. Execution time is confirmed in the final written quotation.</span>
-    </div>
-  </div>
-</section>
-
 <!-- ═══ SERVICES & PRICES SUMMARY ═══ -->
 <section class="section" id="services-prices">
   <div class="reveal">
     <div class="section-label"><span data-ar>الخدمات والأسعار</span><span data-en>Services & Prices</span></div>
-    <h2 class="section-title"><span data-ar>ملخص <span class="grad">الخدمات والأسعار</span></span><span data-en>Services & <span class="grad">Prices Summary</span></span></h2>
+    <h2 class="section-title"><span data-ar>ملخص <span class="grad">سريع</span></span><span data-en>Quick <span class="grad">Summary</span></span></h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:18px">
-      <div class="svc"><div class="svc-i">🌐</div><div class="svc-n"><span data-ar>موقع شركة احترافي</span><span data-en>Corporate Website</span></div><div class="svc-p"><span data-ar>يبدأ من</span><span data-en>Starts from</span> 2,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-      <div class="svc"><div class="svc-i">🛒</div><div class="svc-n"><span data-ar>متجر إلكتروني</span><span data-en>E-Commerce Store</span></div><div class="svc-p"><span data-ar>يبدأ من</span><span data-en>Starts from</span> 6,000 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-      <div class="svc"><div class="svc-i">🤖</div><div class="svc-n"><span data-ar>مساعد ذكاء اصطناعي</span><span data-en>AI Assistant</span></div><div class="svc-p"><span data-ar>يبدأ من</span><span data-en>Starts from</span> 4,000 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-      <div class="svc"><div class="svc-i">📊</div><div class="svc-n"><span data-ar>لوحات تحكم وتقارير</span><span data-en>Dashboards & Reports</span></div><div class="svc-p"><span data-ar>يبدأ من</span><span data-en>Starts from</span> 3,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-      <div class="svc"><div class="svc-i">⚙️</div><div class="svc-n"><span data-ar>أتمتة سير العمل</span><span data-en>Workflow Automation</span></div><div class="svc-p"><span data-ar>يبدأ من</span><span data-en>Starts from</span> 2,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-      <div class="svc"><div class="svc-i">✨</div><div class="svc-n"><span data-ar>خدمات رقمية للأفراد</span><span data-en>Individual Digital Services</span></div><div class="svc-p"><span data-ar>يبدأ من</span><span data-en>Starts from</span> 100 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
+      <div class="svc"><div class="svc-i">🌐</div><div class="svc-n"><span data-ar>باقات مواقع</span><span data-en>Website packs</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 2,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
+      <div class="svc"><div class="svc-i">⚙️</div><div class="svc-n"><span data-ar>نظام لايت (تأسيس)</span><span data-en>Lite system (setup)</span></div><div class="svc-p">5,005 <span data-ar>ر.س + دعم</span><span data-en>SAR + support</span></div></div>
+      <div class="svc"><div class="svc-i">🛒</div><div class="svc-n"><span data-ar>متجر إلكتروني</span><span data-en>E-Commerce Store</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 6,000 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
+      <div class="svc"><div class="svc-i">👑</div><div class="svc-n"><span data-ar>تملّك كامل</span><span data-en>Full ownership</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 85,000 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
+      <div class="svc"><div class="svc-i">✨</div><div class="svc-n"><span data-ar>خدمات الأفراد</span><span data-en>Individual Services</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 50 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
     </div>
     <div class="vat-note">
-      <span data-ar>⚠️ الأسعار المذكورة هي أسعار ابتدائية وقد تتغير حسب النطاق وعدد الصفحات والتكاملات والتصميم والميزات ومتطلبات العميل. السعر النهائي يُؤكَّد في عرض سعر مكتوب قبل الدفع.</span>
-      <span data-en>⚠️ Listed prices are starting prices and may change based on scope, pages, integrations, design, features, and customer requirements. The final price is confirmed by a written quotation before payment.</span>
+      <span data-ar>⚠️ الأسعار ابتدائية وتُؤكَّد في عرض مكتوب. المواقع = 50%+50% بدون اشتراك إلزامي. الأنظمة = تأسيس (50%+50%) + دعم شهري/سنوي بعد التسليم.</span>
+      <span data-en>⚠️ Starting prices confirmed in a written quote. Websites = 50%+50%, no mandatory subscription. Systems = setup (50%+50%) + monthly/annual support after delivery.</span>
     </div>
   </div>
 </section>
@@ -1853,8 +2001,8 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     </div>
 
     <div style="background:rgba(59,130,246,.06);border:1px solid var(--border);border-inline-start:4px solid var(--accent);border-radius:12px;padding:16px 20px;font-size:.88rem;line-height:1.9;margin-bottom:14px">
-      <span data-ar>💡 <strong>الاستضافة مشمولة في الاشتراك الشهري/السنوي</strong> — نتكفّل بالإعداد والصيانة والتحديثات. في خيار <strong>التملّك الكامل</strong>، يمكنك اختيار: نستضيفه لك بدعم شهري اختياري، أو تستضيفه بنفسك مع توثيق كامل لطريقة التشغيل. كل شي موثّق ومكتوب قبل البدء.</span>
-      <span data-en>💡 <strong>Hosting is included in monthly/annual subscriptions</strong> — we handle setup, maintenance & updates. With <strong>full ownership</strong>, you choose: we host it for you with optional monthly support, or you self-host with full operations documentation. Everything is documented and agreed in writing before kickoff.</span>
+      <span data-ar>💡 <strong>الاستضافة مشمولة في اشتراك الدعم</strong> (شهري/سنوي) — نتكفّل بالإعداد والصيانة والتحديثات. <strong>باقات المواقع</strong> تشمل استضافة سنة عند اختيار الباقة المناسبة. في <strong>التملّك الكامل</strong>، يمكنك اختيار: نستضيفه لك بدعم اختياري، أو تستضيفه بنفسك.</span>
+      <span data-en>💡 <strong>Hosting is included in the support subscription</strong> (monthly/annual) — we handle setup, maintenance & updates. <strong>Website packs</strong> include 1-year hosting when you pick the right tier. With <strong>full ownership</strong>, choose: we host with optional support, or you self-host.</span>
     </div>
 
     <div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:12px;padding:14px 18px;font-size:.82rem;line-height:1.8;color:var(--muted)">
