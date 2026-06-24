@@ -641,7 +641,10 @@ body:hover #cursor-glow{opacity:1}
 .plan-badge{position:absolute;top:-12px;inset-inline-start:50%;transform:translateX(50%);background:var(--grad1);color:#fff;font-size:.7rem;font-weight:800;padding:4px 14px;border-radius:999px;white-space:nowrap}
 body.en .plan-badge{transform:translateX(-50%)}
 .plan-name{font-size:1.5rem;font-weight:900;margin-bottom:2px}
-.plan-tag{font-size:.78rem;color:var(--muted);margin-bottom:16px}
+.plan-tag{font-size:.78rem;color:var(--muted);margin-bottom:8px}
+.plan-users{display:inline-flex;align-items:center;gap:5px;font-size:.74rem;font-weight:700;color:var(--accent2);background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.22);padding:4px 10px;border-radius:999px;margin-bottom:14px}
+.plans-sizing{max-width:820px;margin:0 0 16px;font-size:.86rem;line-height:1.8;color:var(--muted);background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.2);border-inline-start:4px solid var(--green);border-radius:12px;padding:12px 16px}
+.plans-sizing b{color:var(--text)}
 .plan-price{font-size:2rem;font-weight:900;margin-bottom:4px;font-family:Inter,Tajawal,sans-serif}
 .plan-price .price-suf{font-size:.5em;font-weight:600;color:var(--muted)}
 .plan-price-split{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
@@ -1052,15 +1055,21 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     </div>
 
     <p class="plans-note">
-      <span data-ar>💡 كل باقة تشمل <b>كل مميزات الباقة التي قبلها</b> تلقائياً + مميزات إضافية. كلما ارتفع المستوى، حصلت على نظام أكثر تكاملاً وقوة — بدون اختيار يدوي.</span>
-      <span data-en>💡 Each plan <b>includes everything in the tier below</b> automatically + additional features. The higher the tier, the more powerful and integrated your system — no manual picking.</span>
+      <span data-ar>💡 <b>محوران للسعر:</b> ① <b>الباقة</b> = قوة النظام والمميزات (لايت/بلس/برو) · ② <b>عدد المستخدمين والوحدات</b> = يُضبط في <a href="#configurator" style="color:var(--accent2)">المُكوّن</a> أو العرض الرسمي. شركة 10 موظفين لكن تحتاج زاتكا؟ → <b>بلس</b> مو لايت.</span>
+      <span data-en>💡 <b>Two pricing axes:</b> ① <b>Plan</b> = system power & features (Lite/Plus/Pro) · ② <b>Users & modules</b> = adjusted in the <a href="#configurator" style="color:var(--accent2)">configurator</a> or formal quote. 10 staff but need ZATCA? → <b>Plus</b>, not Lite.</span>
     </p>
+
+    <div class="plans-sizing">
+      <span data-ar>👥 <b>نطاق الموظفين إرشادي</b> — مو قفل صارم. الأسعار المعروضة نقطة بداية لحجم نموذجي؛ إذا فريقك أكبر أو تحتاج وحدات كثيرة، السعر النهائي في المُكوّن أو العرض المكتوب.</span>
+      <span data-en>👥 <b>Employee ranges are guidance</b> — not hard limits. Shown prices are starting points for a typical size; larger teams or more modules → final price in the configurator or written quote.</span>
+    </div>
 
     <div class="plans">
       <!-- LITE -->
       <div class="plan" data-setup="7150" data-sm="1714" data-sa="17140">
         <div class="plan-name"><span data-ar>لايت</span><span data-en>Lite</span></div>
         <div class="plan-tag"><span data-ar>للمشاريع الناشئة والشركات الصغيرة</span><span data-en>For startups & small businesses</span></div>
+        <div class="plan-users">👥 <span data-ar>مناسب: 1 – 20 مستخدم</span><span data-en>Fits: 1 – 20 users</span></div>
         <div class="plan-price-split">
           <div class="pps-row">
             <span class="pps-label"><span data-ar>تأسيس (مرة واحدة)</span><span data-en>Setup (one-time)</span></span>
@@ -1090,6 +1099,7 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
         <div class="plan-badge"><span data-ar>الأكثر طلباً</span><span data-en>Most Popular</span></div>
         <div class="plan-name"><span data-ar>بلس</span><span data-en>Plus</span></div>
         <div class="plan-tag"><span data-ar>للشركات النامية والمتوسطة</span><span data-en>For growing & mid-size companies</span></div>
+        <div class="plan-users">👥 <span data-ar>مناسب: 21 – 100 مستخدم</span><span data-en>Fits: 21 – 100 users</span></div>
         <div class="plan-price-split">
           <div class="pps-row">
             <span class="pps-label"><span data-ar>تأسيس (مرة واحدة)</span><span data-en>Setup (one-time)</span></span>
@@ -1118,6 +1128,7 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       <div class="plan" data-setup="21400" data-sm="5000" data-sa="50000">
         <div class="plan-name"><span data-ar>برو</span><span data-en>Pro</span></div>
         <div class="plan-tag"><span data-ar>للمؤسسات الكبيرة والحكومية</span><span data-en>For enterprises & government</span></div>
+        <div class="plan-users">👥 <span data-ar>مناسب: 100+ أو متعدد الفروع</span><span data-en>Fits: 100+ or multi-branch</span></div>
         <div class="plan-price-split">
           <div class="pps-row">
             <span class="pps-label"><span data-ar>تأسيس (مرة واحدة)</span><span data-en>Setup (one-time)</span></span>
