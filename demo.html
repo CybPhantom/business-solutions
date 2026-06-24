@@ -324,6 +324,47 @@ select.form-input{cursor:pointer}
 .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:45;backdrop-filter:blur(4px)}
 @media(max-width:768px){.sidebar-overlay.open{display:block}}
 
+/* ═══ LIGHT THEME ═══ */
+body.light{--bg:#f0f2f8;--bg2:#ffffff;--bg3:#e8ecf4;
+  --sidebar:#ffffff;--card:#ffffff;--card2:#f4f6fb;
+  --border:rgba(0,0,0,.08);--border2:rgba(0,0,0,.12);
+  --text:#0f172a;--text2:#334155;--muted:#64748b;
+  --accent:#4f46e5;--accent2:#6366f1;--accent-bg:rgba(79,70,229,.06);
+  --green:#059669;--green2:#10b981;--green-bg:rgba(5,150,105,.06);
+  --gold:#d97706;--gold2:#f59e0b;--gold-bg:rgba(217,119,6,.06);
+  --red:#dc2626;--red2:#ef4444;--red-bg:rgba(220,38,38,.06);
+  --purple:#7c3aed;--purple-bg:rgba(124,58,237,.06);
+  --cyan:#0891b2;--cyan-bg:rgba(8,145,178,.06);
+  --glow:0 4px 24px rgba(0,0,0,.06);--card-glow:0 4px 20px rgba(0,0,0,.05),0 0 0 1px var(--border);
+  color-scheme:light}
+body.light::before{background:radial-gradient(ellipse 80% 50% at 20% 0%,rgba(79,70,229,.05),transparent),
+  radial-gradient(ellipse 60% 40% at 80% 100%,rgba(5,150,105,.04),transparent)}
+body.light .sidebar{background:#fff;border-inline-end-color:rgba(0,0,0,.08)}
+body.light .header{background:rgba(240,242,248,.9)}
+body.light .sb-logo-icon{box-shadow:0 4px 16px rgba(79,70,229,.2)}
+body.light .sb-item.active::after{background:var(--accent)}
+body.light .stat-card{background:#fff}
+body.light .stat-card.blue .stat-value,body.light .stat-card.green .stat-value,body.light .stat-card.gold .stat-value,
+body.light .stat-card.purple .stat-value,body.light .stat-card.cyan .stat-value{-webkit-text-fill-color:initial;background:none}
+body.light .stat-card.blue .stat-value{color:var(--accent)}
+body.light .stat-card.green .stat-value{color:var(--green)}
+body.light .stat-card.gold .stat-value{color:var(--gold)}
+body.light .stat-card.purple .stat-value{color:var(--purple)}
+body.light .stat-card.cyan .stat-value{color:var(--cyan)}
+body.light .header-title{-webkit-text-fill-color:initial;background:none;color:var(--accent)}
+body.light .donut-center .num{-webkit-text-fill-color:initial;background:none;color:var(--accent)}
+body.light .data-table th{background:rgba(0,0,0,.02)}
+body.light .data-table tbody tr:hover td{background:rgba(79,70,229,.03)}
+body.light .search-box{background:rgba(0,0,0,.03)}
+body.light .form-input{background:rgba(0,0,0,.03)}
+body.light .form-input:focus{background:rgba(79,70,229,.03)}
+body.light .modal{background:#fff}
+body.light .toast{background:#fff}
+body.light select.form-input option{background:#fff;color:var(--text)}
+
+select.form-input{appearance:auto;-webkit-appearance:auto}
+select.form-input option{padding:8px;font-size:.84rem}
+
 [data-en]{display:none}
 body.en [data-ar]{display:none}
 body.en [data-en]{display:revert}
@@ -370,6 +411,7 @@ body.en [data-en]{display:revert}
     <div class="header-title" id="header-title"></div>
   </div>
   <div class="header-end">
+    <button type="button" class="header-btn" id="theme-toggle">🌙 <span data-ar>فاتح</span><span data-en>Light</span></button>
     <button type="button" class="header-btn" id="lang-btn">🌐 <span data-ar>EN</span><span data-en>ع</span></button>
     <div class="header-user">
       <div class="header-avatar">AD</div>
@@ -715,9 +757,16 @@ document.getElementById('sb-request-demo').addEventListener('click',function(){
   b+='<div class="form-group"><label>'+esc(t('الاسم','Name'))+'</label><input type="text" class="form-input" autocomplete="name"></div>';
   b+='<div class="form-group"><label>'+esc(t('الجوال','Phone'))+'</label><input type="tel" class="form-input" autocomplete="tel"></div>';
   b+='<div class="form-group"><label>'+esc(t('البريد','Email'))+'</label><input type="email" class="form-input" autocomplete="email"></div>';
-  b+='<div class="form-group"><label>'+esc(t('نوع الخدمة','Service'))+'</label><select class="form-input"><option>Operations ERP</option><option>Clinic</option><option>Workshop</option><option>Website</option><option>'+esc(t('أخرى','Other'))+'</option></select></div>';
+  b+='<div class="form-group"><label>'+esc(t('نوع الخدمة','Service'))+'</label><select class="form-input">';
+  b+='<option>'+esc(t('نظام عمليات ERP','Operations ERP'))+'</option>';
+  b+='<option>'+esc(t('منصة عيادة','Clinic Platform'))+'</option>';
+  b+='<option>'+esc(t('ورشة وقطع غيار','Workshop & Parts'))+'</option>';
+  b+='<option>'+esc(t('موقع شركة','Corporate Website'))+'</option>';
+  b+='<option>'+esc(t('متجر إلكتروني','E-Commerce Store'))+'</option>';
+  b+='<option>'+esc(t('أخرى','Other'))+'</option>';
+  b+='</select></div>';
   b+='<div class="form-group"><label>'+esc(t('وصف الطلب','Description'))+'</label><textarea class="form-input" rows="3"></textarea></div>';
-  b+='<div class="form-group"><label>'+esc(t('الميزانية','Budget'))+'</label><input type="text" class="form-input" placeholder="SAR"></div>';
+  b+='<div style="background:var(--accent-bg);border:1px solid rgba(99,102,241,.2);border-radius:var(--radius-sm);padding:12px 16px;font-size:.78rem;color:var(--accent2);font-weight:600;line-height:1.7">'+esc(t('هذه تجربة فقط. الأسعار تُحدَّد في عرض رسمي مكتوب بعد مراجعة المتطلبات.','This is a demo only. Prices are set in a formal written quote after reviewing requirements.'))+'</div>';
   var f='<button type="button" class="btn btn-outline" id="mc">'+esc(t('إلغاء','Cancel'))+'</button>';
   f+='<button type="button" class="btn btn-primary" id="ms">📩 '+esc(t('إرسال','Submit'))+'</button>';
   openModal(t('طلب تجربة المنصة','Request Platform Demo'),b,f);
@@ -730,6 +779,10 @@ document.getElementById('lang-btn').addEventListener('click',function(){isEn=!is
   document.querySelectorAll('[data-ar]').forEach(function(el){el.style.display=isEn?'none':''});
   document.querySelectorAll('[data-en]').forEach(function(el){el.style.display=isEn?'':'none'})});
 
+document.getElementById('theme-toggle').addEventListener('click',function(){
+  var isLight=document.body.classList.toggle('light');
+  this.innerHTML=isLight?('☀️ <span'+(isEn?' data-en':' data-ar')+'>'+esc(t('داكن','Dark'))+'</span>'):('🌙 <span'+(isEn?' data-en':' data-ar')+'>'+esc(t('فاتح','Light'))+'</span>');
+});
 document.getElementById('menu-toggle').addEventListener('click',function(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('sidebar-overlay').classList.toggle('open')});
 document.getElementById('sidebar-overlay').addEventListener('click',closeSB);
 document.getElementById('modal-close').addEventListener('click',closeModal);
