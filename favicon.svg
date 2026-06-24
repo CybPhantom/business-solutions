@@ -1,10 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#fbbf24"/>
-      <stop offset="1" stop-color="#ef4444"/>
+    <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="16" fill="#0d0905"/>
-  <path d="M16 48 28 16h8l12 32h-9l-2.2-7H26.9L24.7 48H16Zm13.2-14h5.4L32 25.4 29.2 34Z" fill="url(#g)"/>
+  <rect width="64" height="64" rx="14" fill="#0a0e1a"/>
+  <path d="M32,6 L56,17 L56,33 Q56,50 32,60 Q8,50 8,33 L8,17 Z" fill="none" stroke="url(#sg)" stroke-width="2.5"/>
+  <path d="M32,11 L51,20 L51,32 Q51,46 32,54 Q13,46 13,32 L13,20 Z" fill="url(#sg)" opacity=".1"/>
+  <text x="17" y="42" fill="url(#sg)" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="900">CP</text>
 </svg>

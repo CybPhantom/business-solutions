@@ -424,7 +424,7 @@ body.en [data-en]{display:revert}
 <div class="app">
 <aside class="sidebar" id="sidebar">
   <div class="sb-logo">
-    <div class="sb-logo-icon">CP</div>
+    <div class="sb-logo-icon"><svg viewBox="0 0 40 40" width="28" height="28" xmlns="http://www.w3.org/2000/svg"><path d="M20,3 L36,10 L36,21 Q36,33 20,38 Q4,33 4,21 L4,10 Z" fill="none" stroke="#fff" stroke-width="1.8" opacity=".9"/><text x="8.5" y="27" fill="#fff" font-family="Inter,sans-serif" font-size="16" font-weight="900">CP</text></svg></div>
     <div class="sb-logo-text">CybPhantom<small>Demo Platform v2.0</small></div>
   </div>
 
@@ -634,6 +634,34 @@ function renderContent(){
   if(currentPlatform==='erp')h+=renderERP();
   else if(currentPlatform==='clinic')h+=renderClinic();
   else if(currentPlatform==='workshop')h+=renderWorkshop();
+
+  // Trust & features banner
+  h+='<div class="glass" style="padding:22px;margin-top:24px;border:1px solid rgba(99,102,241,.15)">';
+  h+='<div style="font-size:1rem;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px">🛡️ '+esc(t('لماذا يثق العملاء بأنظمتنا؟','Why Clients Trust Our Systems'))+'</div>';
+  h+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">';
+  var feats=[
+    {i:'🔐',ar:'حماية متعددة الطبقات',en:'Multi-Layer Security'},
+    {i:'⚡',ar:'سرعة استجابة فائقة',en:'Ultra-Fast Response'},
+    {i:'🔒',ar:'تشفير كامل للبيانات',en:'Full Data Encryption'},
+    {i:'📋',ar:'سجل تدقيق لكل عملية',en:'Complete Audit Trail'},
+    {i:'👥',ar:'صلاحيات دقيقة حسب الدور',en:'Granular Role Permissions'},
+    {i:'💾',ar:'نسخ احتياطي مشفّر تلقائي',en:'Encrypted Auto Backups'},
+    {i:'🏛️',ar:'التزام PDPL السعودي',en:'Saudi PDPL Compliant'},
+    {i:'✅',ar:'ضمان 30 يوم بعد التسليم',en:'30-Day Post-Delivery Guarantee'},
+    {i:'📄',ar:'توثيق كامل لكل شي',en:'Full Documentation'},
+    {i:'🚀',ar:'أداء محسّن ومختبر',en:'Optimized & Tested Performance'},
+    {i:'🔄',ar:'تحديثات أمنية مستمرة',en:'Continuous Security Updates'},
+    {i:'🤝',ar:'دعم مباشر مع المطوّر',en:'Direct Developer Support'},
+  ];
+  feats.forEach(function(f){
+    h+='<div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--green-bg);border:1px solid rgba(16,185,129,.15);border-radius:var(--radius-sm);font-size:.76rem;font-weight:600;color:var(--green2)">'+esc(f.i)+' '+esc(t(f.ar,f.en))+'</div>';
+  });
+  h+='</div>';
+  h+='<p style="margin-top:14px;font-size:.78rem;color:var(--muted);line-height:1.7">'+esc(t(
+    'النظام الحقيقي يتضمّن كل هذه المميزات والتأثيرات والحماية بشكل أقوى وأعمق — هذه مجرد نظرة تجريبية مبسّطة. لا شيء مستحيل: كل شي يُصمَّم بأعلى معايير الأمان الحديث.',
+    'The real system includes all these features with stronger and deeper implementation — this is just a simplified preview. Nothing is impossible: everything is built with the highest modern security standards.'
+  ))+'</p></div>';
+
   el.innerHTML=h;bindEvents();}
 
 /* ═══ COMPONENTS ═══ */
