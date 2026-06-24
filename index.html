@@ -828,14 +828,9 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
   <button class="menu-btn" id="menu-btn" type="button" aria-controls="nav-links" aria-expanded="false" onclick="toggleMenu()">☰ <span data-ar>القائمة</span><span data-en>Menu</span></button>
   <ul class="nav-links" id="nav-links">
     <li><a href="https://cybphantom.github.io/" class="page-turn" data-ar>← المعرض</a><a href="https://cybphantom.github.io/en.html" class="page-turn" data-en>← Portfolio</a></li>
-    <li><a href="https://cybphantom.github.io/#flagship" class="page-turn" data-ar>المشروع الأبرز</a><a href="https://cybphantom.github.io/en.html#flagship" class="page-turn" data-en>Flagship</a></li>
-    <li><a href="https://cybphantom.github.io/#skills" class="page-turn" data-ar>المهارات</a><a href="https://cybphantom.github.io/en.html#skills" class="page-turn" data-en>Skills</a></li>
-    <li><a href="#offer" data-ar>أنظمة الأعمال</a><a href="#offer" data-en>Business Systems</a></li>
-    <li><a href="#website-packs" data-ar>باقات المواقع</a><a href="#website-packs" data-en>Website Packs</a></li>
+    <li><a href="#offer" data-ar>الباقات والأسعار</a><a href="#offer" data-en>Plans & Pricing</a></li>
     <li><a href="#trust" data-ar>الأمان والثقة</a><a href="#trust" data-en>Security & Trust</a></li>
-    <li><a href="#transparency" data-ar>الشفافية</a><a href="#transparency" data-en>Transparency</a></li>
-    <li><a href="#hosting" data-ar>الاستضافة</a><a href="#hosting" data-en>Hosting</a></li>
-    <li><a href="#faq" data-ar>الأسئلة والدعم</a><a href="#faq" data-en>FAQ & Support</a></li>
+    <li><a href="#faq" data-ar>الأسئلة الشائعة</a><a href="#faq" data-en>FAQ</a></li>
     <li><a href="demo.html" data-ar>تجربة المنصات</a><a href="demo.html" data-en>Platform Demo</a></li>
     <li><a href="#contact" data-ar>التواصل</a><a href="#contact" data-en>Contact</a></li>
   </ul>
@@ -868,11 +863,11 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     <p class="hero-title">
       <span data-ar>
         <strong>أنظمة إدارة وأعمال متكاملة لأي قطاع</strong> — لوجستيات، ورش سيارات، قطع غيار، مطاعم، عيادات، تجارة.
-        اختر باقتك الجاهزة، صمّم نظامك بنفسك، أو تملّكه بالكامل بدفعة واحدة.
+        اختر باقتك الجاهزة، صمّم نظامك بنفسك، أو تملّكه بالكامل (<b>50% عند العقد + 50% عند التسليم</b>).
       </span>
       <span data-en>
         <strong>Complete business & management systems for any industry</strong> — logistics, workshops, spare parts, F&B, clinics, retail.
-        Pick a plan, design your own, or own it fully with one payment.
+        Pick a plan, design your own, or own it fully (<b>50% at contract + 50% at delivery</b>).
       </span>
     </p>
     <div class="hero-cta">
@@ -984,7 +979,7 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     </div>
 
     <!-- promo + billing toggle -->
-    <div class="promo-banner">🎉 <strong><span data-ar>خصم 30%</span><span data-en>30% OFF</span></strong> <span data-ar>لكل المشتركين قبل نهاية 2026 — العرض لفترة محدودة</span><span data-en>for all subscriptions before end of 2026 — limited time</span></div>
+    <div class="promo-banner">🎉 <strong><span data-ar>عرض تأسيس 2026</span><span data-en>2026 Setup Offer</span></strong> <span data-ar>— خصم 30% على باقات التأسيس حتى نهاية 2026</span><span data-en>— 30% off setup fees until end of 2026</span></div>
 
     <div class="bill-toggle">
       <button type="button" class="active" data-m="monthly" onclick="setBilling('monthly')"><span data-ar>دعم شهري</span><span data-en>Monthly support</span></button>
@@ -1563,6 +1558,41 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
   </script>
 </section>
 
+<!-- PROOF / SECTORS -->
+<section class="section" id="proof">
+  <style>
+  #proof .pr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin:0 0 20px}
+  #proof .pr-chip{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 10px;text-align:center;font-size:.8rem;font-weight:700;color:var(--text)}
+  #proof .pr-chip span{display:block;font-size:1.3rem;margin-bottom:4px}
+  #proof .pr-stats{display:flex;flex-wrap:wrap;gap:12px}
+  #proof .pr-stat{flex:1;min-width:140px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.22);border-radius:12px;padding:14px 16px}
+  #proof .pr-stat b{display:block;font-size:1.35rem;color:var(--green2);font-family:Inter,sans-serif}
+  #proof .pr-stat small{color:var(--muted);font-size:.76rem;line-height:1.5}
+  </style>
+  <div class="reveal">
+    <div class="section-label"><span data-ar>لماذا يثقون بنا</span><span data-en>Why Clients Trust Us</span></div>
+    <h2 class="section-title"><span data-ar>خبرة <span class="grad">مجرّبة</span> في قطاعات متعددة</span><span data-en>Proven <span class="grad">Across Industries</span></span></h2>
+    <p style="color:var(--muted);max-width:680px;margin:-32px 0 22px;line-height:1.85;font-size:.9rem">
+      <span data-ar>نبني أنظمة إنتاجية حقيقية — من منصة لوجستيات حية بـ 130+ تحديث موثّق، إلى مواقع ومتاجر وعيادات وورش. التوثيق الرسمي والعقد والوساطة جزء من كل مشروع.</span>
+      <span data-en>We build real production systems — from a live logistics platform with 130+ documented updates to websites, stores, clinics & workshops. Official license, contract & escrow are part of every project.</span>
+    </p>
+    <div class="pr-grid">
+      <div class="pr-chip"><span>🚛</span><span data-ar>لوجستيات</span><span data-en>Logistics</span></div>
+      <div class="pr-chip"><span>🔧</span><span data-ar>ورش</span><span data-en>Workshops</span></div>
+      <div class="pr-chip"><span>🏥</span><span data-ar>عيادات</span><span data-en>Clinics</span></div>
+      <div class="pr-chip"><span>🛍️</span><span data-ar>تجارة</span><span data-en>Retail</span></div>
+      <div class="pr-chip"><span>🍽️</span><span data-ar>مطاعم</span><span data-en>F&amp;B</span></div>
+      <div class="pr-chip"><span>🏗️</span><span data-ar>مقاولات</span><span data-en>Contracting</span></div>
+    </div>
+    <div class="pr-stats">
+      <div class="pr-stat"><b>130+</b><small><span data-ar>تحديث موثّق في المنصة الرئيسية</span><span data-en>documented updates on flagship platform</span></small></div>
+      <div class="pr-stat"><b>14</b><small><span data-ar>وحدة مدمجة في نظام ERP</span><span data-en>integrated ERP modules</span></small></div>
+      <div class="pr-stat"><b>11+</b><small><span data-ar>سنة خبرة عمليات + تقنية</span><span data-en>years operations + tech experience</span></small></div>
+      <div class="pr-stat"><b>✓</b><small><span data-ar>وثيقة عمل حر FL-758795208</span><span data-en>freelance license FL-758795208</span></small></div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="trust">
   <style>
   /* ===== Security & Trust (scoped: tr-) ===== */
@@ -1595,6 +1625,11 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
   #trust .tr-guard .tr-gp{font-size:.78rem;color:var(--muted);line-height:1.6}
   #trust .tr-note{font-size:.76rem;color:var(--muted2);line-height:1.8;background:var(--bg3);
     border:1px solid var(--border);border-radius:var(--radius2);padding:14px 18px;margin:0}
+  #trust .tr-more{margin:28px 0 0}
+  #trust .tr-more details{background:var(--card);border:1px solid var(--border);border-radius:var(--radius2);margin:0 0 10px;overflow:hidden}
+  #trust .tr-more summary{cursor:pointer;padding:14px 18px;font-weight:700;font-size:.9rem;color:var(--text);list-style:none}
+  #trust .tr-more summary::-webkit-details-marker{display:none}
+  #trust .tr-more .tr-more-body{padding:0 18px 16px;color:var(--muted);font-size:.84rem;line-height:1.85}
   @media(max-width:620px){
     #trust .tr-cmp{font-size:.8rem;display:block;overflow-x:auto;white-space:nowrap}
     #trust .tr-cmp .tr-crit{width:auto}
@@ -1722,6 +1757,22 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       <div class="tr-guard"><span class="tr-gi">🔄</span><div><div class="tr-gh"><span data-ar>أمان مستمر ضمن الدعم</span><span data-en>Ongoing Security</span></div><div class="tr-gp"><span data-ar>تحديثات حماية ومراجعة دورية وفحص للثغرات ضمن عقد الدعم السنوي.</span><span data-en>Security updates, periodic reviews & vulnerability scans within the annual support plan.</span></div></div></div>
     </div>
 
+    <div class="tr-more">
+      <details id="transparency">
+        <summary><span data-ar>🤖 الشفافية — أدوات الذكاء ومراجعة الكود</span><span data-en>🤖 Transparency — AI tools & code review</span></summary>
+        <div class="tr-more-body">
+          <span data-ar>نستخدم أحدث أدوات التطوير (بما فيها الذكاء الاصطناعي) لتسريع العمل — لكن <b>كل كود يُراجَع يدوياً</b> قبل التسليم. بيانات نظامك <b>لا تُرسل لأي خدمة خارجية</b> ولا تُستخدم لتدريب نماذج. تقدر تعرض الكود على أي مطوّر أو شركة أمنية قبل الاستلام النهائي.</span>
+          <span data-en>We use modern dev tools (including AI) to speed up work — but <b>every line is manually reviewed</b> before delivery. Your system data is <b>never sent externally</b> or used to train models. You may have any developer or security firm review the code before final acceptance.</span>
+        </div>
+      </details>
+      <details id="hosting">
+        <summary><span data-ar>☁️ الاستضافة والبنية التحتية</span><span data-en>☁️ Hosting & infrastructure</span></summary>
+        <div class="tr-more-body">
+          <p style="margin:0 0 12px"><span data-ar><b>🇸🇦 محلية:</b> STC Cloud، Jeracloud، SITE — للبيانات الحساسة والربط الحكومي.<br><b>🌍 عالمية:</b> AWS، DigitalOcean، Render، Vercel — للمشاريع التجارية.<br><b>💡</b> الاستضافة مشمولة في اشتراك الدعم بعد التسليم. باقات المواقع قد تشمل سنة استضافة. الإيميلات المهنية (Google/Microsoft) من 1,200 ر.س/سنة.</span><span data-en><b>🇸🇦 Local:</b> STC Cloud, Jeracloud, SITE — for sensitive data & government APIs.<br><b>🌍 Global:</b> AWS, DigitalOcean, Render, Vercel — for commercial projects.<br><b>💡</b> Hosting included in support subscription after delivery. Website packs may include 1-year hosting. Business email from 1,200 SAR/year.</span></p>
+        </div>
+      </details>
+    </div>
+
     <p class="tr-note">
       <span data-ar><strong>ملاحظة بصدق مهني:</strong> لا يوجد نظام «محمي 100%» — حتى أنظمة البنوك. ما نقدّمه هو مستوى حماية عالٍ مبني على ممارسات فعلية، مع التزام بالمراجعة والتحديث المستمر. المقارنة أعلاه عامة لأغراض توضيحية، والأسماء التجارية تخص أصحابها.</span>
       <span data-en><strong>An honest professional note:</strong> no system is "100% secure" — not even banks'. What we provide is a high level of protection built on real practices, with a commitment to continuous review and updates. The comparison above is general and illustrative; trademarks belong to their respective owners.</span>
@@ -1747,6 +1798,11 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
   #faq .fq-access b{color:var(--text)}
   #faq .fq-access ul{margin:8px 0 0;padding-inline-start:18px}
   #faq .fq-access li{margin-bottom:6px}
+  #faq .fq-fair{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.28);border-inline-start:4px solid var(--gold);border-radius:12px;padding:14px 16px;margin:0 0 18px;font-size:.84rem;line-height:1.85;color:var(--muted)}
+  #faq .fq-fair b{color:var(--text)}
+  #faq .fq-fair ul{margin:8px 0 0;padding-inline-start:18px}
+  #faq .fq-fair li{margin-bottom:6px}
+  #faq .fq-pay-sub{font-size:.78rem;color:var(--muted);margin:-8px 0 14px;line-height:1.6}
   #faq .fq-steps{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
   #faq .fq-step{background:var(--card);border:1px solid var(--border2);border-radius:100px;padding:7px 14px;font-size:.8rem;font-weight:700;color:var(--text)}
   #faq .fq-step em{color:var(--green2);font-style:normal}
@@ -1764,12 +1820,13 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
 
     <!-- PAY SAFELY -->
     <div class="fq-pay">
-      <div class="fq-pay-h">🛡️ <span data-ar>ادفع بأمان — أموالك محمية</span><span data-en>Pay Safely — Your Money Is Protected</span></div>
+      <div class="fq-pay-h">🛡️ <span data-ar>دفع آمن — حماية الطرفين</span><span data-en>Secure Payment — Both Sides Protected</span></div>
+      <p class="fq-pay-sub"><span data-ar>العقد يحمي <b>حق العميل</b> (لا يدفع كاملاً مقدّماً) و<b>حق مقدّم الخدمة</b> (لا يبدأ التعب قبل العربون، ولا تُفتح تكاليف شهرية باسمه قبل الاتفاق).</span><span data-en>The contract protects <b>the client</b> (no full upfront payment) and <b>the provider</b> (no work before deposit, no monthly costs on the provider's dime before agreement).</span></p>
       <div class="fq-pay-grid">
-        <div class="fq-pay-item"><span class="fq-pi">💸</span><div><b><span data-ar>50% عند العقد — 50% عند التسليم</span><span data-en>50% at contract — 50% at delivery</span></b><span class="d"><span data-ar>لا تدفع المبلغ كاملاً مقدّماً. <b>نصف مبلغ التأسيس</b> بعد توقيع العقد، و<b>النصف الثاني</b> بعد استلامك العمل وقبوله — موثّق بعقد وفاتورة.</span><span data-en>You never pay the full setup amount upfront. <b>Half the setup fee</b> after signing the contract, and the <b>other half</b> after you receive and accept the work — documented by contract & invoice.</span></span></div></div>
-        <div class="fq-pay-item"><span class="fq-pi">🤝</span><div><b><span data-ar>خيار الوساطة المضمونة</span><span data-en>Escrow option</span></b><span class="d"><span data-ar>للعميل الجديد: ادفع عبر منصة مستقل/بحر تمسك المبلغ ولا تُطلقه إلا بعد التسليم والقبول.</span><span data-en>For new clients: pay via Mostaql/Bahr, which holds the funds until delivery & acceptance.</span></span></div></div>
+        <div class="fq-pay-item"><span class="fq-pi">💸</span><div><b><span data-ar>50% عند العقد — 50% عند التسليم</span><span data-en>50% at contract — 50% at delivery</span></b><span class="d"><span data-ar>لا تدفع المبلغ كاملاً مقدّماً. <b>نصف مبلغ التأسيس</b> بعد توقيع العقد، و<b>النصف الثاني</b> بعد استلامك العمل وقبولك — موثّق بعقد وفاتورة.</span><span data-en>You never pay the full setup amount upfront. <b>Half the setup fee</b> after signing the contract, and the <b>other half</b> after you receive and accept the work — documented by contract & invoice.</span></span></div></div>
+        <div class="fq-pay-item"><span class="fq-pi">🤝</span><div><b><span data-ar>الوساطة (مستقل / بحر) — للطرفين</span><span data-en>Escrow (Mostaql / Bahr) — for both sides</span></b><span class="d"><span data-ar><b>للعميل:</b> المبلغ محجوز في المنصة ولا يُطلق للمطوّر إلا بعد قبولك التسليم.<br><b>للمطوّر:</b> لا يبدأ العمل قبل إيداع العربون في المنصة أو تأكيد استلامه — فلا يتعب بدون ضمان.</span><span data-en><b>For the client:</b> funds stay on the platform and aren't released to the developer until you accept delivery.<br><b>For the developer:</b> work doesn't start until the deposit is in escrow or confirmed — no unpaid effort.</span></span></div></div>
         <div class="fq-pay-item"><span class="fq-pi">📜</span><div><b><span data-ar>عقد رسمي + فاتورة</span><span data-en>Formal contract + invoice</span></b><span class="d"><span data-ar>كل دفعة موثّقة بعقد وفاتورة باسمك — مرجع رسمي كامل.</span><span data-en>Every payment documented by contract & invoice in your name.</span></span></div></div>
-        <div class="fq-pay-item"><span class="fq-pi">🔐</span><div><b><span data-ar>بياناتك الحساسة تبقى عندك</span><span data-en>Your sensitive data stays with you</span></b><span class="d"><span data-ar>لا نطلب عبر واتساب/بريد: رموز تحقق بنكية، OTP، أو كلمات مرور حساباتك الشخصية. التفاصيل في السؤال أدناه «كيف ترفعون النظام بدون كلمة مروري؟»</span><span data-en>We never ask via WhatsApp/email for: bank OTPs, verification codes, or your personal account passwords. See the FAQ below: "How do you deploy without my password?"</span></span></div></div>
+        <div class="fq-pay-item"><span class="fq-pi">🔐</span><div><b><span data-ar>بياناتك الحساسة تبقى عندك</span><span data-en>Your sensitive data stays with you</span></b><span class="d"><span data-ar>لا نطلب عبر واتساب/بريد: رموز تحقق بنكية، OTP، أو كلمات مرور حساباتك الشخصية.</span><span data-en>We never ask via WhatsApp/email for: bank OTPs, verification codes, or your personal account passwords.</span></span></div></div>
       </div>
       <table class="fq-pay-table" aria-label="ملخص طرق الدفع">
         <thead>
@@ -1811,6 +1868,18 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
       </div>
     </div>
 
+    <div class="fq-fair">
+      <b><span data-ar>⚖️ متى يبدأ العمل؟ ومن يدفع الاستضافة وأدوات الذكاء؟ — وضوح لحماية الجميع</span><span data-en>⚖️ When does work start? Who pays hosting & AI tools? — clarity for everyone</span></b>
+      <ul>
+        <li><span data-ar><b>لا يبدأ التطوير</b> (لا كود، لا رفع، لا ربط) قبل استلام <b>عربون 50%</b> موثّق: تحويل بنكي + فاتورة، أو إيداع مؤكّد في منصة الوساطة.</span><span data-en><b>No development starts</b> (no code, deploy, or integration) before a documented <b>50% deposit</b>: bank transfer + invoice, or confirmed escrow deposit.</span></li>
+        <li><span data-ar><b>الاستضافة والدومين والبريد:</b> الحسابات <b>باسم العميل</b> ويدفعها العميل مباشرة للمزوّد — أو تُغطّى ضمن <b>اشتراك الدعم بعد التسليم</b>. لا يُفتح اشتراك استضافة شهري باسم المطوّر قبل استلام العربون.</span><span data-en><b>Hosting, domain & email:</b> accounts are <b>in the client's name</b> and paid by the client to the provider — or covered in the <b>support subscription after delivery</b>. No monthly hosting is opened in the developer's name before the deposit is received.</span></li>
+        <li><span data-ar><b>أدوات الذكاء الاصطناعي (API):</b> إمّا حساب API <b>باسم العميل</b> يدفع منه، أو التكلفة مذكورة ومشمولة في العرض المتفق — لا تُفعَّل تكاملات مدفوعة قبل العربون.</span><span data-en><b>AI tools (API):</b> either an API account <b>in the client's name</b> they pay from, or the cost is stated and included in the agreed quote — no paid integrations are activated before the deposit.</span></li>
+        <li><span data-ar><b>الوساطة (مستقل / بحر) خطوة بخطوة:</b> ① توقيع العقد · ② العميل يودع العربون (أو كامل المبلغ) في المنصة · ③ المطوّر يبدأ بعد تأكيد الإيداع · ④ تسليم العمل · ⑤ العميل يقبل → المنصة تُطلق المبلغ للمطوّر · ⑥ الدفعة الثانية بنفس الآلية أو تحويل عند التسليم النهائي.</span><span data-en><b>Escrow (Mostaql / Bahr) step by step:</b> ① sign contract · ② client deposits into the platform · ③ developer starts after deposit confirmed · ④ deliver work · ⑤ client accepts → platform releases funds · ⑥ second payment same way or transfer on final delivery.</span></li>
+        <li><span data-ar><b>إذا تعثّر العميل بعد البدء:</b> العربون غير مسترد (يغطي العمل المنجز وفق العقد). إذا سلّم المطوّر العمل كاملاً والعميل يتأخّر بالقبول دون سبب، يُرفع النزاع للمنصة أو يُستكمل السداد حسب العقد.</span><span data-en><b>If the client stalls after work started:</b> the deposit is non-refundable (covers work done per contract). If the developer fully delivers and the client delays acceptance without cause, the dispute goes to the platform or payment completes per contract.</span></li>
+        <li><span data-ar><b>إذا انقطع العميل قبل التسليم:</b> يحق للمطوّر الاحتفاظ بالعربون مقابل العمل المنجز، وتسليم ما اكتمل فقط بعد تسوية المتبقي أو عبر الوساطة.</span><span data-en><b>If the client disappears before delivery:</b> the developer keeps the deposit for work done and delivers only what was completed after settling the balance or via escrow.</span></li>
+      </ul>
+    </div>
+
     <div class="fq-access">
       <b><span data-ar>🔑 كيف نرفع النظام ونربط الخدمات بدون أن تسلّمنا كلمة مرورك؟</span><span data-en>🔑 How do we deploy & connect services without you giving us your password?</span></b>
       <ul>
@@ -1824,6 +1893,10 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     </div>
 
     <details>
+      <summary><span data-ar>كيف تعمل الوساطة؟ وهل المطوّر يبدأ قبل ما يستلم شي؟</span><span data-en>How does escrow work? Does the developer start before receiving payment?</span></summary>
+      <div class="fq-a"><span data-ar>راجع الصندوق الذهبي أعلاه «متى يبدأ العمل؟». باختصار: <b>لا يبدأ أي عمل</b> قبل إيداع العربون (تحويل أو وساطة). في مستقل/بحر: العميل يودع أولاً → المطوّر يبدأ بعد التأكيد → عند قبول التسليم تُطلق المنصة المبلغ للمطوّر. الاستضافة وأدوات الذكاء إمّا <b>باسم العميل</b> أو ضمن اشتراك الدعم <b>بعد</b> التسليم — لا تُشترى باسم المطوّر قبل العربون.</span><span data-en>See the gold box above. In short: <b>no work starts</b> before the deposit (transfer or escrow). On Mostaql/Bahr: client deposits first → developer starts after confirmation → on acceptance the platform releases funds. Hosting & AI tools are either <b>in the client's name</b> or in the support plan <b>after</b> delivery — never bought in the developer's name before the deposit.</span></div>
+    </details>
+    <details>
       <summary><span data-ar>كيف ترفعون النظام وتربطون الخدمات بدون كلمة مروري؟</span><span data-en>How do you deploy & connect services without my password?</span></summary>
       <div class="fq-a"><span data-ar>راجع الصندوق الأزرق أعلاه «كيف نرفع النظام ونربط الخدمات» — يشرح بالتفصيل: حساب مدير جديد للنظام، استضافة باسمك، بريد إلكتروني، ربط حكومي، وبوابات دفع. المبدأ: <b>الحسابات باسمك</b>، والوصول التقني إمّا بمستخدم فرعي محدود أو بإرشاد مباشر وأنت تُدخل البيانات الحساسة على جهازك.</span><span data-en>See the blue box above — it explains in detail: new admin account for your system, hosting in your name, business email, government integration, and payment gateways. Principle: <b>accounts are in your name</b>; technical access is either via a limited sub-user or guided setup where you enter sensitive data on your own device.</span></div>
     </details>
@@ -1833,7 +1906,7 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
     </details>
     <details>
       <summary><span data-ar>كيف أضمن أن أموالي لا تضيع إذا دفعت؟</span><span data-en>How do I know my money is safe if I pay?</span></summary>
-      <div class="fq-a"><span data-ar>لا تدفع المبلغ كاملاً مقدّماً. تدفع <b>عربون 50%</b> من مبلغ التأسيس بعد توقيع عقد رسمي يحدّد النطاق والمدة، و<b>50% المتبقية</b> عند التسليم بعد قبولك للعمل. وللعميل الجديد المتردّد، يمكن الدفع عبر منصة وساطة مضمونة (مستقل/بحر) تحتفظ بالمبلغ ولا تُطلقه لي إلا بعد استلامك العمل. كل دفعة موثّقة بعقد وفاتورة. <b>اشتراك الدعم</b> منفصل ويبدأ بعد التسليم.</span><span data-en>You never pay the full amount upfront. You pay a <b>50% deposit</b> of the setup fee after signing a formal contract defining scope and timeline, and the <b>remaining 50%</b> on delivery after you accept the work. For hesitant new clients, payment can go through an escrow platform (Mostaql/Bahr). Every payment is documented by contract and invoice. The <b>support subscription</b> is separate and starts after delivery.</span></div>
+      <div class="fq-a"><span data-ar>لا تدفع المبلغ كاملاً مقدّماً. تدفع <b>عربون 50%</b> بعد العقد و<b>50%</b> عند التسليم. عبر الوساطة: المبلغ محجوز لحمايتك — وللمطوّر ضمان أن العمل لا يبدأ قبل الإيداع. كل دفعة بعقد وفاتورة.</span><span data-en>You never pay the full amount upfront. Pay <b>50% deposit</b> after contract and <b>50%</b> on delivery. Via escrow: funds are held to protect you — and the developer is guaranteed work won't start before deposit. Every payment by contract & invoice.</span></div>
     </details>
     <details>
       <summary><span data-ar>هل بياناتي آمنة؟ وهل يمكن اختراق النظام؟</span><span data-en>Is my data safe? Can the system be hacked?</span></summary>
@@ -1866,153 +1939,6 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
   </div>
 </section>
 
-<!-- ═══ SERVICES & PRICES SUMMARY ═══ -->
-<section class="section" id="services-prices">
-  <div class="reveal">
-    <div class="section-label"><span data-ar>الخدمات والأسعار</span><span data-en>Services & Prices</span></div>
-    <h2 class="section-title"><span data-ar>ملخص <span class="grad">سريع</span></span><span data-en>Quick <span class="grad">Summary</span></span></h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:18px">
-      <div class="svc"><div class="svc-i">🌐</div><div class="svc-n"><span data-ar>باقات مواقع</span><span data-en>Website packs</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 2,500 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-      <div class="svc"><div class="svc-i">⚙️</div><div class="svc-n"><span data-ar>نظام لايت (تأسيس)</span><span data-en>Lite system (setup)</span></div><div class="svc-p">5,005 <span data-ar>ر.س + دعم</span><span data-en>SAR + support</span></div></div>
-      <div class="svc"><div class="svc-i">🛒</div><div class="svc-n"><span data-ar>متجر إلكتروني</span><span data-en>E-Commerce Store</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 6,000 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-      <div class="svc"><div class="svc-i">👑</div><div class="svc-n"><span data-ar>تملّك كامل</span><span data-en>Full ownership</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 85,000 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-      <div class="svc"><div class="svc-i">✨</div><div class="svc-n"><span data-ar>خدمات الأفراد</span><span data-en>Individual Services</span></div><div class="svc-p"><span data-ar>من</span><span data-en>from</span> 50 <span data-ar>ر.س</span><span data-en>SAR</span></div></div>
-    </div>
-    <div class="vat-note">
-      <span data-ar>⚠️ الأسعار ابتدائية وتُؤكَّد في عرض مكتوب. المواقع = 50%+50% بدون اشتراك إلزامي. الأنظمة = تأسيس (50%+50%) + دعم شهري/سنوي بعد التسليم.</span>
-      <span data-en>⚠️ Starting prices confirmed in a written quote. Websites = 50%+50%, no mandatory subscription. Systems = setup (50%+50%) + monthly/annual support after delivery.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CONTACT, SUPPORT & COMPLAINTS ═══ -->
-<section class="section" id="support-complaints">
-  <div class="reveal">
-    <div class="section-label"><span data-ar>التواصل والدعم والشكاوى</span><span data-en>Contact, Support & Complaints</span></div>
-    <h2 class="section-title"><span data-ar>تواصل معنا <span class="grad">للدعم أو الشكاوى</span></span><span data-en>Reach Us for <span class="grad">Support or Complaints</span></span></h2>
-    <p style="color:var(--muted);max-width:680px;margin:0 0 22px;line-height:1.9;font-size:.92rem">
-      <span data-ar>يمكنكم التواصل معنا للاستفسارات، الطلبات، الدعم الفني، أو تقديم الشكاوى عبر أي من القنوات التالية.</span>
-      <span data-en>You can contact us for inquiries, orders, technical support, or complaints through any of the following channels.</span>
-    </p>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px">
-      <a href="tel:+966530670502" class="contact-link" style="border-color:rgba(59,130,246,.4)">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.1.31.03.66-.25 1.02l-2.2 2.2z"/></svg>
-        <span data-ar>اتصل: 966530670502+</span><span data-en>Call: +966530670502</span>
-      </a>
-      <a href="https://wa.me/966530670502" target="_blank" rel="noopener noreferrer" class="contact-link" style="border-color:rgba(37,211,102,.5)">
-        <svg viewBox="0 0 24 24" width="16" height="16" style="fill:#25D366"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
-        <span data-ar>واتساب</span><span data-en>WhatsApp</span>
-      </a>
-      <a href="mailto:doomyksa@gmail.com" class="contact-link">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        doomyksa@gmail.com
-      </a>
-    </div>
-    <div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.25);border-radius:12px;padding:16px 20px;font-size:.88rem;line-height:1.9;max-width:700px">
-      <span data-ar>⏱️ <strong>وقت الرد على الشكاوى:</strong> من 24 ساعة إلى 5 أيام عمل حسب نوع الحالة وحجم العمل.</span>
-      <span data-en>⏱️ <strong>Complaint response time:</strong> 24 hours to 5 business days depending on case type and workload.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ TRANSPARENCY: TOOLS & DATA ═══ -->
-<section class="section" id="transparency">
-  <div class="reveal">
-    <div class="section-label"><span data-ar>الشفافية والمصداقية</span><span data-en>Transparency & Honesty</span></div>
-    <h2 class="section-title"><span data-ar>نعمل <span class="grad">بشفافية كاملة</span></span><span data-en>We Work with <span class="grad">Full Transparency</span></span></h2>
-    <p style="color:var(--muted);max-width:740px;margin:0 0 24px;line-height:1.9;font-size:.92rem">
-      <span data-ar>نؤمن أن الثقة تُبنى بالصدق لا بالمبالغة. إليك الحقيقة كاملة عن طريقة عملنا، والأدوات التي نستخدمها، وكيف نحمي بياناتك.</span>
-      <span data-en>We believe trust is built on honesty, not hype. Here's the full truth about how we work, the tools we use, and how we protect your data.</span>
-    </p>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px">
-      <div class="svc" style="border-inline-start:3px solid var(--accent)">
-        <div class="svc-i">🤖</div>
-        <div class="svc-n"><span data-ar>نستخدم أحدث الأدوات — بشفافية</span><span data-en>We use modern tools — transparently</span></div>
-        <div class="svc-d"><span data-ar>نستخدم أحدث أدوات التطوير (بما فيها الذكاء الاصطناعي) لتسريع العمل ورفع الجودة. لكن <strong>كل كود يُراجَع يدوياً</strong> سطراً بسطر قبل التسليم — الأدوات تساعدنا، والخبرة البشرية هي من يقرّر.</span><span data-en>We use the latest development tools (including AI) to speed up work and raise quality. But <strong>every line of code is manually reviewed</strong> before delivery — tools assist us, human expertise decides.</span></div>
-      </div>
-      <div class="svc" style="border-inline-start:3px solid var(--green)">
-        <div class="svc-i">🔒</div>
-        <div class="svc-n"><span data-ar>بياناتك لا تُرسل لأي طرف</span><span data-en>Your data is never sent anywhere</span></div>
-        <div class="svc-d"><span data-ar>بيانات نظامك وعملائك <strong>لا تُرسل لأي خدمة خارجية</strong> ولا تُستخدم لتدريب أي نموذج. تبقى على استضافتك الخاصة، تحت سيطرتك الكاملة، ووفق نظام حماية البيانات الشخصية (PDPL).</span><span data-en>Your system and customer data is <strong>never sent to any external service</strong> nor used to train any model. It stays on your own hosting, under your full control, per the Saudi PDPL.</span></div>
-      </div>
-      <div class="svc" style="border-inline-start:3px solid var(--gold)">
-        <div class="svc-i">🔍</div>
-        <div class="svc-n"><span data-ar>راجع الكود قبل التسليم</span><span data-en>Audit the code before delivery</span></div>
-        <div class="svc-d"><span data-ar>تقدر تعرض الكود على <strong>أي مطوّر أو شركة أمن سيبراني</strong> للمراجعة قبل الاستلام النهائي. لا نخفي شيئاً — الشفافية الكاملة جزء من العقد.</span><span data-en>You may have <strong>any developer or cybersecurity firm</strong> review the code before final acceptance. We hide nothing — full transparency is part of the contract.</span></div>
-      </div>
-      <div class="svc" style="border-inline-start:3px solid var(--purple)">
-        <div class="svc-i">🎯</div>
-        <div class="svc-n"><span data-ar>وعود واقعية، لا مبالغات</span><span data-en>Realistic promises, no hype</span></div>
-        <div class="svc-d"><span data-ar>لا ندّعي «المستحيل» ولا «الكمال». نقدّم حلولاً واقعية بجودة عالية، ونوضّح النطاق والمدة والتكلفة بعرض مكتوب قبل البدء. ما نوعد به، ننفّذه.</span><span data-en>We don't claim "the impossible" or "perfection." We deliver realistic, high-quality solutions, with scope, timeline, and cost defined in writing before we start. What we promise, we deliver.</span></div>
-      </div>
-    </div>
-
-    <div style="background:rgba(59,130,246,.06);border:1px solid var(--border);border-inline-start:4px solid var(--accent);border-radius:12px;padding:16px 20px;font-size:.88rem;line-height:1.9;margin-top:16px">
-      <span data-ar>💬 <strong>بصراحة:</strong> أنا مطوّر مستقل أستعين بأفضل الأدوات الحديثة لأقدّم لك جودة شركة كبيرة بسعر وسرعة المستقل. الفرق أنك تتعامل مباشرة معي، وتقدر تتحقق من كل شي بنفسك — التوثيق الرسمي، الكود، والعقد.</span>
-      <span data-en>💬 <strong>Honestly:</strong> I'm an independent developer who uses the best modern tools to give you enterprise quality at a freelancer's price and speed. The difference is you deal directly with me, and you can verify everything yourself — the official license, the code, and the contract.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ HOSTING & INFRASTRUCTURE ═══ -->
-<section class="section" id="hosting">
-  <div class="reveal">
-    <div class="section-label"><span data-ar>الاستضافة والبنية التحتية</span><span data-en>Hosting & Infrastructure</span></div>
-    <h2 class="section-title"><span data-ar>استضافة <span class="grad">آمنة ومرنة</span></span><span data-en>Secure & <span class="grad">Flexible Hosting</span></span></h2>
-
-    <div class="valueprop" style="border-inline-start-color:var(--accent)">
-      <span data-ar>🛡️ <strong>أمان مبني على ممارسات فعلية.</strong> كل نظام يُبنى بطبقات حماية حديثة — تشفير كامل، صلاحيات دقيقة حسب الدور، وسجل تدقيق لكل عملية. بياناتك تبقى ملكك، ويمكنك مراجعة الكود أو عرضه على مختص أمني قبل التسليم. لا نظام «محمي 100%» — لكن نلتزم بمستوى حماية عالٍ ومراجعة مستمرة.</span>
-      <span data-en>🛡️ <strong>Security built on real practices.</strong> Every system uses modern protection layers — full encryption, granular role-based access, and a complete audit trail. Your data stays yours, and you can review the code or have a security expert audit it before delivery. No system is "100% unbreakable" — but we commit to a high protection standard and continuous review.</span>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:22px">
-      <div class="svc" style="border-inline-start:3px solid var(--green)">
-        <div class="svc-i">🇸🇦</div>
-        <div class="svc-n"><span data-ar>استضافة محلية سعودية</span><span data-en>Saudi Local Hosting</span></div>
-        <div class="svc-d"><span data-ar>خوادم داخل المملكة — الأفضل للأنظمة الحكومية والبيانات الحساسة. سرعة عالية وامتثال كامل لنظام حماية البيانات (PDPL). مزودون موصى بهم: <strong>STC Cloud، Jeracloud، SITE</strong></span><span data-en>Servers inside Saudi Arabia — best for government systems & sensitive data. High speed & full PDPL compliance. Recommended: <strong>STC Cloud, Jeracloud, SITE</strong></span></div>
-      </div>
-      <div class="svc" style="border-inline-start:3px solid var(--accent)">
-        <div class="svc-i">🌍</div>
-        <div class="svc-n"><span data-ar>استضافة عالمية معتمدة</span><span data-en>Certified Global Hosting</span></div>
-        <div class="svc-d"><span data-ar>خوادم سحابية عالمية بشهادات SOC 2 و ISO 27001 — مناسبة للمشاريع التجارية والمواقع. مزودون: <strong>AWS، DigitalOcean، Render، Vercel</strong></span><span data-en>Global cloud servers with SOC 2 & ISO 27001 — suitable for commercial projects & websites. Providers: <strong>AWS, DigitalOcean, Render, Vercel</strong></span></div>
-      </div>
-      <div class="svc" style="border-inline-start:3px solid var(--gold)">
-        <div class="svc-i">🏛️</div>
-        <div class="svc-n"><span data-ar>الربط الحكومي</span><span data-en>Government Integration</span></div>
-        <div class="svc-d"><span data-ar>عند ربط أنظمة حكومية (ZATCA، أبشر، نفاذ، مقيم) <strong>يُنصح باستضافة محلية سعودية</strong> لضمان السرعة والامتثال وتقليل مشاكل الاتصال.</span><span data-en>When integrating government APIs (ZATCA, Absher, Nafath, Muqeem), <strong>Saudi local hosting is recommended</strong> for speed, compliance, and fewer connectivity issues.</span></div>
-      </div>
-    </div>
-
-    <div style="background:var(--card2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:18px">
-      <div style="font-weight:800;font-size:1rem;margin-bottom:14px"><span data-ar>🔐 طبقات الحماية المطبّقة في كل نظام</span><span data-en>🔐 Security Layers Applied in Every System</span></div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px">
-        <div style="font-size:.82rem;color:var(--muted);padding:8px 12px;background:rgba(16,185,129,.05);border-radius:8px;border:1px solid rgba(16,185,129,.15)">✅ <span data-ar>تشفير TLS/SSL كامل</span><span data-en>Full TLS/SSL encryption</span></div>
-        <div style="font-size:.82rem;color:var(--muted);padding:8px 12px;background:rgba(16,185,129,.05);border-radius:8px;border:1px solid rgba(16,185,129,.15)">✅ <span data-ar>تشفير كلمات المرور (bcrypt)</span><span data-en>Password hashing (bcrypt)</span></div>
-        <div style="font-size:.82rem;color:var(--muted);padding:8px 12px;background:rgba(16,185,129,.05);border-radius:8px;border:1px solid rgba(16,185,129,.15)">✅ <span data-ar>مصادقة ثنائية (MFA/OTP)</span><span data-en>Two-factor auth (MFA/OTP)</span></div>
-        <div style="font-size:.82rem;color:var(--muted);padding:8px 12px;background:rgba(16,185,129,.05);border-radius:8px;border:1px solid rgba(16,185,129,.15)">✅ <span data-ar>صلاحيات حسب الدور (RBAC)</span><span data-en>Role-based access (RBAC)</span></div>
-        <div style="font-size:.82rem;color:var(--muted);padding:8px 12px;background:rgba(16,185,129,.05);border-radius:8px;border:1px solid rgba(16,185,129,.15)">✅ <span data-ar>حماية من الحقن (SQL/XSS)</span><span data-en>Injection protection (SQL/XSS)</span></div>
-        <div style="font-size:.82rem;color:var(--muted);padding:8px 12px;background:rgba(16,185,129,.05);border-radius:8px;border:1px solid rgba(16,185,129,.15)">✅ <span data-ar>رؤوس أمان (CSP, HSTS)</span><span data-en>Security headers (CSP, HSTS)</span></div>
-        <div style="font-size:.82rem;color:var(--muted);padding:8px 12px;background:rgba(16,185,129,.05);border-radius:8px;border:1px solid rgba(16,185,129,.15)">✅ <span data-ar>نسخ احتياطي مشفّر تلقائي</span><span data-en>Encrypted auto backups</span></div>
-        <div style="font-size:.82rem;color:var(--muted);padding:8px 12px;background:rgba(16,185,129,.05);border-radius:8px;border:1px solid rgba(16,185,129,.15)">✅ <span data-ar>سجل تدقيق كامل لكل عملية</span><span data-en>Full audit log for every action</span></div>
-        <div style="font-size:.82rem;color:var(--muted);padding:8px 12px;background:rgba(16,185,129,.05);border-radius:8px;border:1px solid rgba(16,185,129,.15)">✅ <span data-ar>فحص ثغرات آلي قبل كل إصدار</span><span data-en>Automated vulnerability scan per release</span></div>
-        <div style="font-size:.82rem;color:var(--muted);padding:8px 12px;background:rgba(16,185,129,.05);border-radius:8px;border:1px solid rgba(16,185,129,.15)">✅ <span data-ar>التزام PDPL وحماية البيانات</span><span data-en>PDPL & data protection compliance</span></div>
-      </div>
-    </div>
-
-    <div style="background:rgba(59,130,246,.06);border:1px solid var(--border);border-inline-start:4px solid var(--accent);border-radius:12px;padding:16px 20px;font-size:.88rem;line-height:1.9;margin-bottom:14px">
-      <span data-ar>💡 <strong>الاستضافة مشمولة في اشتراك الدعم</strong> (شهري/سنوي) — نتكفّل بالإعداد والصيانة والتحديثات. <strong>باقات المواقع</strong> تشمل استضافة سنة عند اختيار الباقة المناسبة. في <strong>التملّك الكامل</strong>، يمكنك اختيار: نستضيفه لك بدعم اختياري، أو تستضيفه بنفسك.</span>
-      <span data-en>💡 <strong>Hosting is included in the support subscription</strong> (monthly/annual) — we handle setup, maintenance & updates. <strong>Website packs</strong> include 1-year hosting when you pick the right tier. With <strong>full ownership</strong>, choose: we host with optional support, or you self-host.</span>
-    </div>
-
-    <div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:12px;padding:14px 18px;font-size:.82rem;line-height:1.8;color:var(--muted)">
-      <span data-ar>📧 <strong>الإيميلات المهنية</strong> (name@company.com) تُعدّ كخدمة منفصلة عبر Google Workspace أو Microsoft 365 — السعر يعتمد على عدد المستخدمين ويبدأ من 1,200 ر.س/سنة. نتكفّل بالإعداد الكامل وربط الدومين.</span>
-      <span data-en>📧 <strong>Professional emails</strong> (name@company.com) are set up separately via Google Workspace or Microsoft 365 — price depends on user count, starting from 1,200 SAR/year. We handle full setup and domain linking.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ POLICIES ═══ -->
 <section class="section" id="policies">
   <div class="reveal">
     <div class="section-label"><span data-ar>السياسات</span><span data-en>Policies</span></div>
@@ -2027,9 +1953,13 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
 
 <section class="section" id="contact">
   <div class="contact-box reveal">
-    <h3><span data-ar>تواصل معنا الآن</span><span data-en>Get in Touch Now</span></h3>
-    <p><span data-ar>للاستفسار أو طلب عرض تجريبي آمن للمنصة — تواصل عبر LinkedIn أو البريد الإلكتروني.</span><span data-en>For inquiries or a sanitized platform demo, reach out through LinkedIn or email.</span></p>
+    <h3><span data-ar>تواصل معنا — طلبات · دعم · شكاوى</span><span data-en>Contact Us — Orders · Support · Complaints</span></h3>
+    <p><span data-ar>للاستفسار، طلب عرض سعر، تجربة المنصة، الدعم الفني، أو الشكاوى — تواصل عبر أي قناة أدناه. الرد عادة خلال ساعات العمل.</span><span data-en>For inquiries, quotes, platform demo, technical support, or complaints — reach out via any channel below. Replies are usually within business hours.</span></p>
     <div class="contact-links">
+      <a href="tel:+966530670502" class="contact-link" style="border-color:rgba(59,130,246,.4)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.1.31.03.66-.25 1.02l-2.2 2.2z"/></svg>
+        <span style="direction:ltr;display:inline-block">+966530670502</span>
+      </a>
       <a href="https://wa.me/966530670502?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A3%D9%86%D8%B8%D9%85%D8%A9%20%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84" target="_blank" rel="noopener noreferrer" class="contact-link" style="border-color:rgba(37,211,102,.5)">
         <svg viewBox="0 0 24 24" style="fill:#25D366"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.738-.981v.174zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.017-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
         <span data-ar>واتساب</span><span data-en>WhatsApp</span>
@@ -2047,6 +1977,10 @@ button.cfg-row.add:hover{border-color:var(--accent);background:rgba(59,130,246,.
         <span data-ar>اطلب عرض سعر</span><span data-en>Request a Quote</span>
       </a>
     </div>
+    <p style="margin-top:18px;font-size:.82rem;color:var(--muted);line-height:1.8">
+      <span data-ar>⏱️ <strong>وقت الرد على الشكاوى:</strong> 24 ساعة – 5 أيام عمل حسب نوع الحالة.</span>
+      <span data-en>⏱️ <strong>Complaint response:</strong> 24 hours – 5 business days depending on case type.</span>
+    </p>
   </div>
 </section>
 </main>
