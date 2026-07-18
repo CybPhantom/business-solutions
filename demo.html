@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhantomOps — Complete ERP Demo | CybPhantom</title>
+<meta name="description" content="PhantomOps is CybPhantom's safe, interactive ERP and operations showcase for fleet, trips, maintenance, fuel, workforce, reporting, and audit controls. All data is fictional.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0e1a">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0e1a;--bg2:#111827;--bg3:#1f2937;
+  --sidebar:#070b14;--sidebar-w:270px;
+  --card:#111827;--card2:#1a2236;
+  --border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);
+  --text:#f0f4ff;--text2:#c5cee0;--muted:#5a6a8a;
+  --accent:#6366f1;--accent2:#818cf8;--accent-bg:rgba(99,102,241,.1);
+  --green:#10b981;--green2:#34d399;--green-bg:rgba(16,185,129,.08);
+  --gold:#f59e0b;--gold2:#fbbf24;--gold-bg:rgba(245,158,11,.08);
+  --red:#ef4444;--red2:#f87171;--red-bg:rgba(239,68,68,.08);
+  --purple:#a78bfa;--purple-bg:rgba(167,139,250,.08);
+  --cyan:#22d3ee;--cyan-bg:rgba(34,211,238,.08);
+  --radius:14px;--radius-sm:10px;
+  --header-h:60px;
+  --glow:0 0 40px rgba(99,102,241,.15);
+  --card-glow:0 8px 32px rgba(0,0,0,.3),0 0 0 1px var(--border);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Tajawal','Inter',system-ui,sans-serif;line-height:1.6;overflow-x:hidden;min-height:100vh}
+
+/* ═══ ANIMATED BG ═══ */
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 80% 50% at 20% 0%,rgba(99,102,241,.08),transparent),
+    radial-gradient(ellipse 60% 40% at 80% 100%,rgba(16,185,129,.06),transparent),
+    radial-gradient(ellipse 40% 30% at 50% 50%,rgba(245,158,11,.03),transparent)}
+
+/* ═══ LAYOUT ═══ */
+.app{display:flex;min-height:100vh;position:relative;z-index:1}
+.sidebar{position:fixed;inset-block:0;inset-inline-start:0;width:var(--sidebar-w);
+  background:linear-gradient(180deg,var(--sidebar),rgba(7,11,20,.98));
+  border-inline-end:1px solid var(--border);z-index:50;display:flex;flex-direction:column;
+  transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;overflow-x:hidden;
+  backdrop-filter:blur(20px)}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
+.main{margin-inline-start:var(--sidebar-w);flex:1;min-width:0;display:flex;flex-direction:column}
+.header{height:var(--header-h);background:rgba(10,14,26,.85);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;position:sticky;top:0;z-index:40}
+.content{flex:1;padding:28px;overflow-y:auto}
+
+/* ═══ SIDEBAR ═══ */
+.sb-logo{padding:20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.sb-logo-icon{width:40px;height:40px;border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),var(--cyan));
+  display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;color:#fff;flex-shrink:0;
+  box-shadow:0 4px 20px rgba(99,102,241,.4);animation:logoPulse 3s ease-in-out infinite}
+@keyframes logoPulse{0%,100%{box-shadow:0 4px 20px rgba(99,102,241,.4)}50%{box-shadow:0 4px 30px rgba(99,102,241,.6)}}
+.sb-logo-text{font-size:.95rem;font-weight:800;color:var(--text);line-height:1.2}
+.sb-logo-text small{display:block;font-size:.68rem;font-weight:500;color:var(--muted)}
+
+.sb-section{padding:16px 14px 6px}
+.sb-section-title{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted);padding:0 10px;margin-bottom:8px}
+.sb-nav{list-style:none;display:flex;flex-direction:column;gap:2px}
+.sb-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--radius-sm);
+  cursor:pointer;font-size:.84rem;font-weight:600;color:var(--text2);transition:all .25s ease;
+  border:1px solid transparent;user-select:none;position:relative;overflow:hidden}
+.sb-item::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .25s;
+  background:linear-gradient(90deg,rgba(99,102,241,.12),transparent)}
+.sb-item:hover::before{opacity:1}
+.sb-item:hover{color:var(--text);border-color:rgba(99,102,241,.15)}
+.sb-item.active{color:var(--accent2);border-color:rgba(99,102,241,.3);background:rgba(99,102,241,.08)}
+.sb-item.active::after{content:'';position:absolute;inset-inline-start:0;top:20%;bottom:20%;width:3px;
+  background:var(--accent);border-radius:0 3px 3px 0}
+.sb-item .icon{font-size:1.15rem;width:24px;text-align:center;flex-shrink:0}
+.sb-item .badge{margin-inline-start:auto;background:linear-gradient(135deg,var(--accent),var(--purple));color:#fff;
+  font-size:.6rem;font-weight:800;padding:2px 8px;border-radius:100px;min-width:22px;text-align:center}
+
+.sb-platform{padding:14px}
+.sb-platform-title{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--muted);padding:0 10px;margin-bottom:10px}
+.sb-plat-btn{display:flex;align-items:center;gap:10px;width:100%;padding:12px 14px;border-radius:var(--radius-sm);
+  cursor:pointer;font-size:.84rem;font-weight:700;color:var(--text2);transition:all .25s;
+  border:1px solid var(--border);background:transparent;font-family:inherit;text-align:inherit;margin-bottom:6px;
+  position:relative;overflow:hidden}
+.sb-plat-btn::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;
+  background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(34,211,238,.05))}
+.sb-plat-btn:hover::before{opacity:1}
+.sb-plat-btn:hover{border-color:var(--accent);color:var(--text)}
+.sb-plat-btn.active{border-color:var(--accent);color:var(--accent2);
+  background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(34,211,238,.03));
+  box-shadow:0 0 20px rgba(99,102,241,.1)}
+.sb-plat-btn .plat-icon{font-size:1.3rem}
+.sb-bottom{margin-top:auto;padding:14px;border-top:1px solid var(--border)}
+
+/* ═══ HEADER ═══ */
+.header-start{display:flex;align-items:center;gap:14px}
+.menu-toggle{display:none;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.3);color:var(--accent2);
+  width:38px;height:38px;border-radius:var(--radius-sm);cursor:pointer;font-size:1.1rem}
+.header-title{font-size:1rem;font-weight:800;background:linear-gradient(135deg,var(--accent2),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header-end{display:flex;align-items:center;gap:10px}
+.header-btn{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text2);
+  padding:7px 16px;border-radius:var(--radius-sm);cursor:pointer;font-family:inherit;
+  font-size:.78rem;font-weight:700;transition:all .25s;display:flex;align-items:center;gap:6px}
+.header-btn:hover{border-color:var(--accent);color:var(--accent2);background:var(--accent-bg)}
+.header-user{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600}
+.header-avatar{width:34px;height:34px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),var(--purple));
+  display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:#fff;
+  box-shadow:0 2px 12px rgba(99,102,241,.3)}
+
+/* ═══ DEMO BANNER ═══ */
+.demo-banner{background:linear-gradient(135deg,rgba(239,68,68,.08),rgba(245,158,11,.05));
+  border:1px solid rgba(239,68,68,.2);border-radius:var(--radius);padding:14px 20px;
+  font-size:.82rem;font-weight:600;color:var(--gold2);margin-bottom:24px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  backdrop-filter:blur(10px)}
+.demo-banner a{color:var(--accent2);text-decoration:none;font-weight:700;margin-inline-start:auto;
+  padding:6px 16px;border:1px solid var(--accent);border-radius:100px;font-size:.76rem;transition:all .25s}
+.demo-banner a:hover{background:var(--accent);color:#fff}
+
+/* ═══ STAT CARDS ═══ */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:24px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;
+  transition:all .3s ease;position:relative;overflow:hidden;cursor:default;
+  backdrop-filter:blur(10px)}
+.stat-card::before{content:'';position:absolute;top:0;inset-inline:0;height:3px;transition:height .3s}
+.stat-card:hover{transform:translateY(-4px);box-shadow:var(--glow);border-color:var(--border2)}
+.stat-card:hover::before{height:4px}
+.stat-card.blue::before{background:linear-gradient(90deg,var(--accent),var(--cyan))}
+.stat-card.green::before{background:linear-gradient(90deg,var(--green),var(--cyan))}
+.stat-card.gold::before{background:linear-gradient(90deg,var(--gold),#fb923c)}
+.stat-card.purple::before{background:linear-gradient(90deg,var(--purple),var(--accent))}
+.stat-card.red::before{background:linear-gradient(90deg,var(--red),var(--gold))}
+.stat-card.cyan::before{background:linear-gradient(90deg,var(--cyan),var(--green))}
+.stat-icon{font-size:1.6rem;margin-bottom:8px;display:block}
+.stat-label{font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.stat-value{font-size:2rem;font-weight:900;font-family:'Inter',sans-serif;line-height:1}
+.stat-card.blue .stat-value{background:linear-gradient(135deg,var(--accent2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card.green .stat-value{background:linear-gradient(135deg,var(--green2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card.gold .stat-value{background:linear-gradient(135deg,var(--gold2),#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card.purple .stat-value{background:linear-gradient(135deg,var(--purple),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card.red .stat-value{color:var(--red2)}
+.stat-card.cyan .stat-value{background:linear-gradient(135deg,var(--cyan),var(--green2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-change{font-size:.72rem;font-weight:700;margin-top:8px;display:flex;align-items:center;gap:4px}
+.stat-change.up{color:var(--green2)}
+.stat-change.down{color:var(--red2)}
+
+/* ═══ GLASS CARD ═══ */
+.glass{background:rgba(17,24,39,.6);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);
+  border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--card-glow)}
+
+/* ═══ TABLE ═══ */
+.table-card{border-radius:var(--radius);overflow:hidden;margin-bottom:20px}
+.table-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.table-title{font-size:1rem;font-weight:800;display:flex;align-items:center;gap:8px}
+.table-actions{display:flex;gap:8px;flex-wrap:wrap}
+.search-box{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text);padding:8px 16px;
+  border-radius:100px;font-family:inherit;font-size:.8rem;width:220px;transition:all .25s}
+.search-box:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:100px;
+  font-family:inherit;font-size:.78rem;font-weight:700;cursor:pointer;transition:all .25s;border:1px solid}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--purple));border-color:transparent;color:#fff;
+  box-shadow:0 4px 16px rgba(99,102,241,.3)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(99,102,241,.4)}
+.btn-outline{background:transparent;border-color:var(--border);color:var(--text2)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent2)}
+.btn-sm{padding:5px 12px;font-size:.72rem}
+
+.data-table{width:100%;border-collapse:collapse}
+.data-table th{background:rgba(255,255,255,.02);color:var(--muted);font-size:.66rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:1px;padding:12px 16px;text-align:start;border-bottom:1px solid var(--border)}
+.data-table td{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.03);font-size:.84rem;vertical-align:middle;transition:background .15s}
+.data-table tr{transition:all .15s}
+.data-table tbody tr:hover td{background:rgba(99,102,241,.04)}
+.data-table tr:last-child td{border-bottom:0}
+
+.badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:100px;font-size:.68rem;font-weight:700;white-space:nowrap;border:1px solid transparent}
+.badge-green{background:var(--green-bg);color:var(--green2);border-color:rgba(16,185,129,.2)}
+.badge-gold{background:var(--gold-bg);color:var(--gold2);border-color:rgba(245,158,11,.2)}
+.badge-blue{background:var(--accent-bg);color:var(--accent2);border-color:rgba(99,102,241,.2)}
+.badge-red{background:var(--red-bg);color:var(--red2);border-color:rgba(239,68,68,.2)}
+.badge-purple{background:var(--purple-bg);color:var(--purple);border-color:rgba(167,139,250,.2)}
+.badge-gray{background:rgba(100,116,139,.1);color:var(--muted);border-color:rgba(100,116,139,.2)}
+.badge-cyan{background:var(--cyan-bg);color:var(--cyan);border-color:rgba(34,211,238,.2)}
+.badge-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.badge-green .badge-dot{background:var(--green2)}
+.badge-gold .badge-dot{background:var(--gold2)}
+.badge-blue .badge-dot{background:var(--accent2)}
+.badge-red .badge-dot{background:var(--red2)}
+.badge-purple .badge-dot{background:var(--purple)}
+.badge-cyan .badge-dot{background:var(--cyan)}
+.table-footer{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;font-size:.74rem;color:var(--muted);border-top:1px solid var(--border)}
+
+/* ═══ CHARTS ═══ */
+.chart-card{padding:22px;margin-bottom:20px}
+.chart-title{font-size:.92rem;font-weight:800;margin-bottom:16px}
+.bar-chart{display:flex;align-items:flex-end;gap:10px;height:180px;padding:12px 0 0}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.bar{width:100%;border-radius:8px 8px 0 0;transition:height .8s cubic-bezier(.4,0,.2,1);min-height:4px;position:relative}
+.bar:hover{filter:brightness(1.2)}
+.bar.blue{background:linear-gradient(to top,var(--accent),var(--accent2))}
+.bar.green{background:linear-gradient(to top,var(--green),var(--green2))}
+.bar.gold{background:linear-gradient(to top,var(--gold),var(--gold2))}
+.bar.purple{background:linear-gradient(to top,#7c3aed,var(--purple))}
+.bar.cyan{background:linear-gradient(to top,#0891b2,var(--cyan))}
+.bar-label{font-size:.64rem;color:var(--muted);font-weight:700}
+.bar-value{font-size:.68rem;font-weight:800;color:var(--text2)}
+
+.donut-chart{position:relative;width:150px;height:150px;margin:0 auto 14px}
+.donut-chart svg{width:100%;height:100%;transform:rotate(-90deg)}
+.donut-chart circle{fill:none;stroke-width:20;stroke-linecap:round;transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1)}
+.donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.donut-center .num{font-size:1.6rem;font-weight:900;font-family:'Inter',sans-serif;
+  background:linear-gradient(135deg,var(--accent2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.donut-center .lbl{font-size:.6rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.donut-legend{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.donut-legend-item{display:flex;align-items:center;gap:6px;font-size:.72rem;color:var(--text2);font-weight:600}
+.donut-legend-item .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+/* ═══ PROGRESS BAR ═══ */
+.progress-row{margin-bottom:12px}
+.progress-label{display:flex;justify-content:space-between;font-size:.74rem;font-weight:700;margin-bottom:5px}
+.progress-label span:first-child{color:var(--text2)}
+.progress-label span:last-child{color:var(--muted)}
+.progress-bar{height:8px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden}
+.progress-fill{height:100%;border-radius:100px;transition:width 1s cubic-bezier(.4,0,.2,1)}
+.progress-fill.blue{background:linear-gradient(90deg,var(--accent),var(--cyan))}
+.progress-fill.green{background:linear-gradient(90deg,var(--green),var(--cyan))}
+.progress-fill.gold{background:linear-gradient(90deg,var(--gold),#fb923c)}
+.progress-fill.purple{background:linear-gradient(90deg,var(--purple),var(--accent))}
+.progress-fill.red{background:linear-gradient(90deg,var(--red),var(--gold))}
+
+/* ═══ WORKFLOW ═══ */
+.workflow-card{padding:22px;margin-bottom:20px}
+.workflow-title{font-size:.92rem;font-weight:800;margin-bottom:16px}
+.workflow-steps{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.wf-step{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:100px;font-size:.76rem;
+  font-weight:700;border:1px solid;cursor:pointer;transition:all .3s ease}
+.wf-step.done{background:var(--green-bg);border-color:rgba(16,185,129,.3);color:var(--green2)}
+.wf-step.current{background:var(--accent-bg);border-color:rgba(99,102,241,.4);color:var(--accent2);
+  box-shadow:0 0 0 4px rgba(99,102,241,.12);animation:wfPulse 2s ease-in-out infinite}
+@keyframes wfPulse{0%,100%{box-shadow:0 0 0 4px rgba(99,102,241,.12)}50%{box-shadow:0 0 0 8px rgba(99,102,241,.06)}}
+.wf-step.pending{background:transparent;border-color:var(--border);color:var(--muted)}
+.wf-step .wf-num{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:900;flex-shrink:0}
+.wf-step.done .wf-num{background:var(--green);color:#fff}
+.wf-step.current .wf-num{background:var(--accent);color:#fff}
+.wf-step.pending .wf-num{background:var(--bg3);color:var(--muted)}
+.wf-arrow{color:var(--border2);font-size:.7rem}
+
+/* ═══ ACTIVITY ═══ */
+.activity-card{padding:22px;margin-bottom:20px}
+.activity-title{font-size:.92rem;font-weight:800;margin-bottom:16px}
+.activity-list{display:flex;flex-direction:column;gap:14px}
+.activity-item{display:flex;gap:14px;align-items:flex-start;font-size:.82rem;padding:10px 14px;border-radius:var(--radius-sm);transition:background .15s}
+.activity-item:hover{background:rgba(255,255,255,.02)}
+.activity-dot{width:10px;height:10px;border-radius:50%;margin-top:5px;flex-shrink:0;box-shadow:0 0 0 3px rgba(255,255,255,.05)}
+.activity-dot.blue{background:var(--accent)}
+.activity-dot.green{background:var(--green)}
+.activity-dot.gold{background:var(--gold)}
+.activity-dot.red{background:var(--red)}
+.activity-dot.purple{background:var(--purple)}
+.activity-text{color:var(--text2);line-height:1.5}
+.activity-text strong{color:var(--text);font-weight:700}
+.activity-time{color:var(--muted);font-size:.66rem;margin-top:3px;font-weight:600}
+
+/* ═══ MODAL ═══ */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:200;
+  display:none;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:18px;
+  width:100%;max-width:540px;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.5),var(--glow)}
+.modal-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border)}
+.modal-head h3{font-size:1rem;font-weight:800}
+.modal-close{background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);
+  width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.modal-close:hover{color:var(--text);border-color:var(--red);background:var(--red-bg)}
+.modal-body{padding:24px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:5px}
+.form-input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text);
+  padding:10px 16px;border-radius:var(--radius-sm);font-family:inherit;font-size:.84rem;transition:all .25s}
+.form-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(99,102,241,.15);background:rgba(99,102,241,.04)}
+select.form-input{cursor:pointer}
+.modal-footer{display:flex;gap:8px;justify-content:flex-end;padding:16px 24px;border-top:1px solid var(--border)}
+
+/* ═══ TOAST ═══ */
+.toast-container{position:fixed;top:72px;inset-inline-end:24px;z-index:300;display:flex;flex-direction:column;gap:8px}
+.toast{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:14px 20px;
+  font-size:.82rem;font-weight:600;box-shadow:0 12px 40px rgba(0,0,0,.4),var(--glow);
+  display:flex;align-items:center;gap:10px;animation:toastIn .4s cubic-bezier(.4,0,.2,1);
+  min-width:280px;backdrop-filter:blur(12px)}
+.toast.success{border-color:rgba(16,185,129,.35);color:var(--green2)}
+.toast.info{border-color:rgba(99,102,241,.35);color:var(--accent2)}
+.toast.warning{border-color:rgba(245,158,11,.35);color:var(--gold2)}
+@keyframes toastIn{from{opacity:0;transform:translateY(-10px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* ═══ PAGE TRANSITION ═══ */
+.content{animation:pageIn .35s ease}
+@keyframes pageIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:768px){
+  .sidebar{transform:translateX(calc(var(--sidebar-w) * -1))}
+  html[dir="rtl"] .sidebar{transform:translateX(var(--sidebar-w))}
+  .sidebar.open{transform:translateX(0)!important}
+  .main{margin-inline-start:0}
+  .menu-toggle{display:flex;align-items:center;justify-content:center}
+  .content{padding:16px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .two-col{grid-template-columns:1fr}
+  .search-box{width:150px}
+  .data-table{font-size:.76rem}
+  .data-table th,.data-table td{padding:10px 12px}
+  .workflow-steps{gap:3px}.wf-step{padding:7px 10px;font-size:.68rem}
+  .table-header{flex-direction:column;align-items:stretch}
+  .stats-grid{gap:10px}
+}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:45;backdrop-filter:blur(4px)}
+@media(max-width:768px){.sidebar-overlay.open{display:block}}
+
+/* ═══ LIGHT THEME ═══ */
+body.light{--bg:#f0f2f8;--bg2:#ffffff;--bg3:#e8ecf4;
+  --sidebar:#ffffff;--card:#ffffff;--card2:#f4f6fb;
+  --border:rgba(0,0,0,.08);--border2:rgba(0,0,0,.12);
+  --text:#0f172a;--text2:#334155;--muted:#64748b;
+  --accent:#4f46e5;--accent2:#6366f1;--accent-bg:rgba(79,70,229,.06);
+  --green:#059669;--green2:#10b981;--green-bg:rgba(5,150,105,.06);
+  --gold:#d97706;--gold2:#f59e0b;--gold-bg:rgba(217,119,6,.06);
+  --red:#dc2626;--red2:#ef4444;--red-bg:rgba(220,38,38,.06);
+  --purple:#7c3aed;--purple-bg:rgba(124,58,237,.06);
+  --cyan:#0891b2;--cyan-bg:rgba(8,145,178,.06);
+  --glow:0 4px 24px rgba(0,0,0,.06);--card-glow:0 4px 20px rgba(0,0,0,.05),0 0 0 1px var(--border);
+  color-scheme:light}
+body.light::before{background:radial-gradient(ellipse 80% 50% at 20% 0%,rgba(79,70,229,.05),transparent),
+  radial-gradient(ellipse 60% 40% at 80% 100%,rgba(5,150,105,.04),transparent)}
+body.light .sidebar{background:#fff;border-inline-end-color:rgba(0,0,0,.08)}
+body.light .header{background:rgba(240,242,248,.9)}
+body.light .sb-logo-icon{box-shadow:0 4px 16px rgba(79,70,229,.2)}
+body.light .sb-item.active::after{background:var(--accent)}
+body.light .stat-card{background:#fff}
+body.light .stat-card.blue .stat-value,body.light .stat-card.green .stat-value,body.light .stat-card.gold .stat-value,
+body.light .stat-card.purple .stat-value,body.light .stat-card.cyan .stat-value{-webkit-text-fill-color:initial;background:none}
+body.light .stat-card.blue .stat-value{color:var(--accent)}
+body.light .stat-card.green .stat-value{color:var(--green)}
+body.light .stat-card.gold .stat-value{color:var(--gold)}
+body.light .stat-card.purple .stat-value{color:var(--purple)}
+body.light .stat-card.cyan .stat-value{color:var(--cyan)}
+body.light .header-title{-webkit-text-fill-color:initial;background:none;color:var(--accent)}
+body.light .donut-center .num{-webkit-text-fill-color:initial;background:none;color:var(--accent)}
+body.light .data-table th{background:rgba(0,0,0,.02)}
+body.light .data-table tbody tr:hover td{background:rgba(79,70,229,.03)}
+body.light .search-box{background:rgba(0,0,0,.03)}
+body.light .form-input{background:rgba(0,0,0,.03)}
+body.light .form-input:focus{background:rgba(79,70,229,.03)}
+body.light .modal{background:#fff}
+body.light .toast{background:#fff}
+body.light select.form-input option{background:#fff;color:var(--text)}
+body.light .glass,body.light .chart-card,body.light .workflow-card,body.light .activity-card,
+body.light .table-card,body.light .pay-sim,body.light .form-card{
+  background:#fff!important;backdrop-filter:none;-webkit-backdrop-filter:none;
+  border-color:rgba(0,0,0,.08)!important;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+body.light .bar.blue{background:linear-gradient(to top,#4f46e5,#818cf8)}
+body.light .bar.green{background:linear-gradient(to top,#059669,#34d399)}
+body.light .bar.gold{background:linear-gradient(to top,#d97706,#fbbf24)}
+body.light .bar.purple{background:linear-gradient(to top,#7c3aed,#a78bfa)}
+body.light .bar.cyan{background:linear-gradient(to top,#0891b2,#22d3ee)}
+body.light .progress-bar{background:rgba(0,0,0,.06)}
+body.light .progress-fill.blue{background:linear-gradient(90deg,#4f46e5,#0891b2)}
+body.light .progress-fill.green{background:linear-gradient(90deg,#059669,#0891b2)}
+body.light .progress-fill.gold{background:linear-gradient(90deg,#d97706,#fb923c)}
+body.light .progress-fill.purple{background:linear-gradient(90deg,#7c3aed,#6366f1)}
+body.light .progress-fill.cyan{background:linear-gradient(90deg,#0891b2,#34d399)}
+body.light .progress-fill.red{background:linear-gradient(90deg,#dc2626,#f59e0b)}
+body.light .progress-label span:first-child{color:var(--text)}
+body.light .wf-step.done{background:rgba(5,150,105,.08);border-color:rgba(5,150,105,.3);color:#059669}
+body.light .wf-step.current{background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.4);color:#4f46e5}
+body.light .wf-step.pending{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.1);color:#94a3b8}
+body.light .wf-step.done .wf-num{background:#059669}
+body.light .wf-step.current .wf-num{background:#4f46e5}
+body.light .wf-step.pending .wf-num{background:#cbd5e1;color:#64748b}
+body.light .activity-dot{box-shadow:0 0 0 3px rgba(0,0,0,.04)}
+body.light .activity-item:hover{background:rgba(0,0,0,.02)}
+body.light .badge{border-color:transparent}
+body.light .badge-green{background:rgba(5,150,105,.1);color:#059669}
+body.light .badge-gold{background:rgba(217,119,6,.1);color:#d97706}
+body.light .badge-blue{background:rgba(79,70,229,.1);color:#4f46e5}
+body.light .badge-red{background:rgba(220,38,38,.1);color:#dc2626}
+body.light .badge-purple{background:rgba(124,58,237,.1);color:#7c3aed}
+body.light .badge-cyan{background:rgba(8,145,178,.1);color:#0891b2}
+body.light .badge-gray{background:rgba(0,0,0,.05);color:#64748b}
+body.light .demo-banner{background:rgba(220,38,38,.05);border-color:rgba(220,38,38,.15)}
+body.light .sb-plat-btn{border-color:rgba(0,0,0,.08)}
+body.light .sb-plat-btn.active{background:rgba(79,70,229,.06);border-color:rgba(79,70,229,.25)}
+body.light .sb-item:hover{background:rgba(79,70,229,.04)}
+body.light .sb-item.active{background:rgba(79,70,229,.06);border-color:rgba(79,70,229,.2)}
+body.light .chart-title{color:var(--text)}
+body.light .bar-value{color:var(--text)}
+body.light .donut-legend-item{color:var(--text)}
+body.light .stat-card::before{opacity:.8}
+body.light .stat-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.08)}
+body.light .table-header{border-bottom-color:rgba(0,0,0,.06)}
+body.light .table-footer{border-top-color:rgba(0,0,0,.06)}
+body.light .data-table td{border-bottom-color:rgba(0,0,0,.04)}
+
+select.form-input{appearance:auto;-webkit-appearance:auto}
+select.form-input option{padding:8px;font-size:.84rem}
+
+[data-en]{display:none}
+body.en [data-ar]{display:none}
+body.en [data-en]{display:revert}
+</style>
+</head>
+<body>
+
+<div class="toast-container" id="toasts"></div>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="sb-logo">
+    <div class="sb-logo-icon"><svg viewBox="0 0 64 64" width="30" height="30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g stroke="#fff" fill="#fff"><path d="M32,5 L55,14 L55,33 C55,47.5 45.5,55.5 32,60 C18.5,55.5 9,47.5 9,33 L9,14 Z" fill="none" stroke-width="3" stroke-linejoin="round"/><path d="M41,22 L24,22 Q21,22 21,25 L21,39 Q21,42 24,42 L41,42" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="28" x2="21" y2="28" stroke-width="2.4" stroke-linecap="round"/><line x1="16" y1="36" x2="21" y2="36" stroke-width="2.4" stroke-linecap="round"/><line x1="28" y1="17" x2="28" y2="22" stroke-width="2.4" stroke-linecap="round"/><line x1="34" y1="17" x2="34" y2="22" stroke-width="2.4" stroke-linecap="round"/><line x1="28" y1="42" x2="28" y2="47" stroke-width="2.4" stroke-linecap="round"/><line x1="34" y1="42" x2="34" y2="47" stroke-width="2.4" stroke-linecap="round"/><circle cx="32" cy="32" r="3" stroke="none"/></g></svg></div>
+    <div class="sb-logo-text">CybPhantom<small>PhantomOps · Safe Demo</small></div>
+  </div>
+
+  <div class="sb-platform">
+    <div class="sb-platform-title"><span data-ar>اختر المنصة</span><span data-en>Select Platform</span></div>
+    <button type="button" id="erp" class="sb-plat-btn active" data-platform="erp"><span class="plat-icon">🛡️</span><span data-ar>PhantomOps — المنصة الكاملة</span><span data-en>PhantomOps — Complete ERP</span></button>
+    <button type="button" id="clinic" class="sb-plat-btn" data-platform="clinic"><span class="plat-icon">🏥</span><span data-ar>منصة العيادة</span><span data-en>Clinic Platform</span></button>
+    <button type="button" id="workshop" class="sb-plat-btn" data-platform="workshop"><span class="plat-icon">🔧</span><span data-ar>الورشة وقطع الغيار</span><span data-en>Workshop & Parts</span></button>
+  </div>
+
+  <div class="sb-section">
+    <div class="sb-section-title"><span data-ar>القائمة</span><span data-en>Menu</span></div>
+    <ul class="sb-nav" id="sb-nav"></ul>
+  </div>
+
+  <div class="sb-bottom">
+    <div class="sb-item" id="sb-request-demo" style="color:var(--gold2);border-color:rgba(245,158,11,.25);background:var(--gold-bg)">
+      <span class="icon">📩</span><span data-ar>طلب تجربة</span><span data-en>Request Demo</span>
+    </div>
+    <a href="index.html" style="text-decoration:none">
+      <div class="sb-item" style="margin-top:6px;color:var(--accent2);border-color:rgba(99,102,241,.25);background:var(--accent-bg)">
+        <span class="icon">🚀</span><span data-ar>صفحة المبيعات والباقات</span><span data-en>Plans & Pricing</span>
+      </div>
+    </a>
+  </div>
+</aside>
+
+<div class="main">
+<header class="header">
+  <div class="header-start">
+    <button type="button" class="menu-toggle" id="menu-toggle">☰</button>
+    <div class="header-title" id="header-title"></div>
+  </div>
+  <div class="header-end">
+    <button type="button" class="header-btn" id="theme-toggle">🌙 <span data-ar>فاتح</span><span data-en>Light</span></button>
+    <button type="button" class="header-btn" id="lang-btn">🌐 <span data-ar>EN</span><span data-en>ع</span></button>
+    <div class="header-user">
+      <div class="header-avatar">CP</div>
+      <span data-ar>مسؤول تجريبي</span><span data-en>Demo Operator</span>
+    </div>
+  </div>
+</header>
+<div class="content" id="content"></div>
+</div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal">
+    <div class="modal-head"><h3 id="modal-title"></h3><button type="button" class="modal-close" id="modal-close">&times;</button></div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer" id="modal-footer"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+function esc(s){if(s==null)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+var isEn=false,currentPlatform='erp',currentPage='dashboard';
+function t(ar,en){return isEn?en:ar}
+
+var PLATFORMS={
+  erp:{label:function(){return t('PhantomOps — منصة العمليات المتكاملة','PhantomOps — Complete Operations ERP')},pages:[
+    {id:'dashboard',icon:'📊',label:function(){return t('لوحة التحكم','Dashboard')}},
+    {id:'fleet',icon:'🚚',label:function(){return t('الأسطول والأصول','Fleet & Assets')},badge:'5'},
+    {id:'trips',icon:'📍',label:function(){return t('الرحلات والتوزيع','Trips & Dispatch')},badge:'3'},
+    {id:'maintenance',icon:'🔧',label:function(){return t('الصيانة الوقائية','Maintenance')},badge:'2'},
+    {id:'fuel',icon:'⛽',label:function(){return t('الوقود والزيوت','Fuel & Oils')}},
+    {id:'employees',icon:'👥',label:function(){return t('القوى العاملة','Workforce')}},
+    {id:'reports',icon:'📈',label:function(){return t('التقارير','Reports')}},
+    {id:'audit',icon:'🔐',label:function(){return t('التدقيق والصلاحيات','Audit & Access')}},
+  ]},
+  clinic:{label:function(){return t('منصة العيادة','Clinic Platform')},pages:[
+    {id:'dashboard',icon:'📊',label:function(){return t('لوحة التحكم','Dashboard')}},
+    {id:'appointments',icon:'📅',label:function(){return t('المواعيد','Appointments')},badge:'8'},
+    {id:'patients',icon:'🏥',label:function(){return t('المرضى','Patients')}},
+    {id:'services',icon:'💊',label:function(){return t('الخدمات','Services')}},
+    {id:'invoices',icon:'🧾',label:function(){return t('الفواتير','Invoices')}},
+  ]},
+  workshop:{label:function(){return t('الورشة وقطع الغيار','Workshop & Parts')},pages:[
+    {id:'dashboard',icon:'📊',label:function(){return t('لوحة التحكم','Dashboard')}},
+    {id:'jobs',icon:'🔧',label:function(){return t('أوامر الصيانة','Job Orders')},badge:'6'},
+    {id:'vehicles',icon:'🚗',label:function(){return t('المركبات','Vehicles')}},
+    {id:'parts',icon:'⚙️',label:function(){return t('قطع الغيار','Spare Parts')}},
+    {id:'invoices',icon:'🧾',label:function(){return t('الفواتير','Invoices')}},
+    {id:'delivery',icon:'🚚',label:function(){return t('تتبع التسليم','Delivery')}},
+  ]}
+};
+
+var DATA={erp:{orders:[
+  {id:'#ORD-1042',c:function(){return t('شركة النجم','Al-Najm Co.')},a:'12,500',s:'completed',d:'2026-06-24'},
+  {id:'#ORD-1041',c:function(){return t('مؤسسة الفجر','Al-Fajr Est.')},a:'8,200',s:'progress',d:'2026-06-23'},
+  {id:'#ORD-1040',c:function(){return t('متجر الأمل','Al-Amal Store')},a:'3,750',s:'quote',d:'2026-06-23'},
+  {id:'#ORD-1039',c:function(){return t('مصنع الرياض','Riyadh Factory')},a:'22,000',s:'completed',d:'2026-06-22'},
+  {id:'#ORD-1038',c:function(){return t('شركة البناء','Construction Co.')},a:'15,800',s:'progress',d:'2026-06-22'},
+  {id:'#ORD-1037',c:function(){return t('مجموعة السلام','Al-Salam Group')},a:'6,400',s:'new',d:'2026-06-21'},
+  {id:'#ORD-1036',c:function(){return t('مؤسسة التقنية','Tech Est.')},a:'9,100',s:'completed',d:'2026-06-20'},
+  {id:'#ORD-1035',c:function(){return t('شركة الخليج','Gulf Co.')},a:'4,500',s:'cancelled',d:'2026-06-19'},
+  {id:'#ORD-1034',c:function(){return t('مؤسسة الوفاء','Al-Wafa Est.')},a:'18,300',s:'completed',d:'2026-06-18'},
+  {id:'#ORD-1033',c:function(){return t('شركة المستقبل','Future Co.')},a:'7,900',s:'progress',d:'2026-06-17'},
+],customers:[
+  {n:function(){return t('شركة النجم','Al-Najm Co.')},e:'name@example.com',p:'055****567',o:8,tot:'98,500'},
+  {n:function(){return t('مؤسسة الفجر','Al-Fajr Est.')},e:'client@example.com',p:'055****543',o:5,tot:'45,200'},
+  {n:function(){return t('متجر الأمل','Al-Amal Store')},e:'ops@example.com',p:'055****789',o:12,tot:'125,000'},
+  {n:function(){return t('مصنع الرياض','Riyadh Factory')},e:'driver@example.com',p:'055****321',o:3,tot:'66,000'},
+  {n:function(){return t('شركة البناء','Construction Co.')},e:'client@example.com',p:'055****678',o:6,tot:'82,300'},
+  {n:function(){return t('مجموعة السلام','Al-Salam Group')},e:'ops@example.com',p:'055****456',o:4,tot:'51,600'},
+],tasks:[
+  {tt:function(){return t('مراجعة عرض سعر #1040','Review quote #1040')},as:function(){return t('الفريق أ','Team A')},pr:'high',st:'progress'},
+  {tt:function(){return t('تسليم طلب #1039','Deliver order #1039')},as:function(){return t('فهد','Fahd')},pr:'medium',st:'done'},
+  {tt:function(){return t('اتصال متابعة - الفجر','Follow-up call - Al-Fajr')},as:function(){return t('سارة','Sara')},pr:'low',st:'todo'},
+  {tt:function(){return t('تحديث التقرير الشهري','Update monthly report')},as:function(){return t('نورة','Noura')},pr:'medium',st:'progress'},
+  {tt:function(){return t('فحص المخزون','Inventory check')},as:function(){return t('خالد','Khalid')},pr:'high',st:'todo'},
+],users:[
+  {n:function(){return t('CybPhantom','CybPhantom')},r:function(){return t('مدير النظام','System Admin')},s:'active',l:'2026-06-24 09:15'},
+  {n:function(){return t('فهد العمري','Fahd Alomari')},r:function(){return t('مدير المبيعات','Sales Manager')},s:'active',l:'2026-06-24 08:30'},
+  {n:function(){return t('سارة الحربي','Sara Alharbi')},r:function(){return t('خدمة عملاء','Support')},s:'active',l:'2026-06-23 16:45'},
+  {n:function(){return t('نورة الدوسري','Noura Aldosari')},r:function(){return t('محاسبة','Accountant')},s:'away',l:'2026-06-22 14:00'},
+  {n:function(){return t('خالد الشمري','Khalid Alshammari')},r:function(){return t('مشرف مستودع','Warehouse Sup.')},s:'active',l:'2026-06-24 07:50'},
+]},
+clinic:{appointments:[
+  {p:function(){return t('مراجع تجريبي','Demo Patient')},sv:function(){return t('كشف عام','General Checkup')},d:'2026-06-25',tm:'09:00',s:'confirmed'},
+  {p:function(){return t('سارة خ.','Sara K.')},sv:function(){return t('أسنان - تنظيف','Dental Cleaning')},d:'2026-06-25',tm:'10:30',s:'pending'},
+  {p:function(){return t('فهد ع.','Fahd A.')},sv:function(){return t('عيون','Ophthalmology')},d:'2026-06-26',tm:'11:00',s:'scheduled'},
+  {p:function(){return t('نورة ر.','Noura R.')},sv:function(){return t('جلدية','Dermatology')},d:'2026-06-24',tm:'14:00',s:'completed'},
+  {p:function(){return t('محمد س.','Mohammed S.')},sv:function(){return t('باطنية','Internal Med.')},d:'2026-06-25',tm:'15:30',s:'confirmed'},
+  {p:function(){return t('هند ق.','Hind Q.')},sv:function(){return t('أطفال','Pediatrics')},d:'2026-06-26',tm:'09:30',s:'pending'},
+  {p:function(){return t('ريم ع.','Reem A.')},sv:function(){return t('نساء وولادة','OB/GYN')},d:'2026-06-26',tm:'12:00',s:'confirmed'},
+  {p:function(){return t('عبدالله ح.','Abdullah H.')},sv:function(){return t('عظام','Orthopedics')},d:'2026-06-27',tm:'10:00',s:'scheduled'},
+],patients:[
+  {n:function(){return t('عميل تجريبي','Demo Customer')},a:35,p:'05*******',v:4,l:'2026-06-24'},
+  {n:function(){return t('سارة خالد','Sara Khalid')},a:28,p:'055****43',v:2,l:'2026-06-20'},
+  {n:function(){return t('فهد عبدالله','Fahd Abdullah')},a:42,p:'055****89',v:6,l:'2026-06-18'},
+  {n:function(){return t('نورة راشد','Noura Rashid')},a:31,p:'055****21',v:3,l:'2026-06-24'},
+  {n:function(){return t('محمد سعود','Mohammed Saud')},a:55,p:'055****78',v:8,l:'2026-06-25'},
+  {n:function(){return t('هند قاسم','Hind Qasem')},a:24,p:'055****34',v:1,l:'2026-06-26'},
+],services:[
+  {n:function(){return t('كشف عام','General Checkup')},pr:'150',dur:'30',act:true},
+  {n:function(){return t('أسنان - تنظيف','Dental Cleaning')},pr:'200',dur:'45',act:true},
+  {n:function(){return t('عيون - فحص','Eye Exam')},pr:'250',dur:'30',act:true},
+  {n:function(){return t('جلدية','Dermatology')},pr:'200',dur:'20',act:true},
+  {n:function(){return t('باطنية','Internal Medicine')},pr:'180',dur:'30',act:true},
+  {n:function(){return t('أطفال','Pediatrics')},pr:'170',dur:'25',act:true},
+  {n:function(){return t('نساء وولادة','OB/GYN')},pr:'300',dur:'30',act:true},
+  {n:function(){return t('عظام','Orthopedics')},pr:'220',dur:'25',act:false},
+]},
+workshop:{jobs:[
+  {id:'#W-301',v:function(){return t('كامري 2024','Camry 2024')},sv:function(){return t('تغيير زيت + فلتر','Oil + Filter')},s:'ready',d:'2026-06-24',tc:function(){return t('عبدالله','Abdullah')}},
+  {id:'#W-300',v:function(){return t('هايلكس 2023','Hilux 2023')},sv:function(){return t('فحص شامل','Full Inspection')},s:'progress',d:'2026-06-26',tc:function(){return t('سعود','Saud')}},
+  {id:'#W-299',v:function(){return t('باترول 2022','Patrol 2022')},sv:function(){return t('تبديل بريك','Brake Replace')},s:'parts',d:'2026-06-28',tc:function(){return t('فيصل','Faisal')}},
+  {id:'#W-298',v:function(){return t('اكورد 2025','Accord 2025')},sv:function(){return t('كهرباء','Electrical')},s:'hold',d:'—',tc:function(){return t('عبدالله','Abdullah')}},
+  {id:'#W-297',v:function(){return t('لاندكروزر 2023','Land Cruiser 2023')},sv:function(){return t('ميكانيك عام','General Mech.')},s:'ready',d:'2026-06-24',tc:function(){return t('سعود','Saud')}},
+  {id:'#W-296',v:function(){return t('سوناتا 2024','Sonata 2024')},sv:function(){return t('تكييف','A/C Service')},s:'progress',d:'2026-06-25',tc:function(){return t('فيصل','Faisal')}},
+  {id:'#W-295',v:function(){return t('راف فور 2024','RAV4 2024')},sv:function(){return t('سمكرة ودهان','Body & Paint')},s:'progress',d:'2026-06-27',tc:function(){return t('عبدالله','Abdullah')}},
+],vehicles:[
+  {pl:'ABC 1234',mk:function(){return t('تويوتا كامري 2024','Toyota Camry 2024')},ow:function(){return t('محمد ع.','Mohammed A.')},vi:3,l:'2026-06-24'},
+  {pl:'DEF 5678',mk:function(){return t('تويوتا هايلكس 2023','Toyota Hilux 2023')},ow:function(){return t('خالد س.','Khalid S.')},vi:5,l:'2026-06-22'},
+  {pl:'GHI 9012',mk:function(){return t('نيسان باترول 2022','Nissan Patrol 2022')},ow:function(){return t('فهد م.','Fahd M.')},vi:2,l:'2026-06-20'},
+  {pl:'JKL 3456',mk:function(){return t('هوندا اكورد 2025','Honda Accord 2025')},ow:function(){return t('سعد ح.','Saad H.')},vi:1,l:'2026-06-18'},
+  {pl:'MNO 7890',mk:function(){return t('تويوتا لاندكروزر 2023','Toyota LC 2023')},ow:function(){return t('عبدالرحمن ن.','Abdulrahman N.')},vi:4,l:'2026-06-24'},
+],parts:[
+  {n:function(){return t('فلتر زيت تويوتا','Toyota Oil Filter')},sku:'TF-OIL-042',q:24,pr:'35',s:'instock'},
+  {n:function(){return t('بريك أمامي نيسان','Nissan Front Brake')},sku:'NB-FBP-018',q:8,pr:'180',s:'low'},
+  {n:function(){return t('بطارية بوش 70A','Bosch Battery 70A')},sku:'BB-70A-001',q:5,pr:'450',s:'instock'},
+  {n:function(){return t('شمعات إشعال NGK','NGK Spark Plugs')},sku:'NG-SP4-022',q:0,pr:'25',s:'out'},
+  {n:function(){return t('سير مكيف هوندا','Honda A/C Belt')},sku:'HB-AC-009',q:12,pr:'95',s:'instock'},
+  {n:function(){return t('فلتر هواء هيونداي','Hyundai Air Filter')},sku:'HF-AIR-033',q:3,pr:'45',s:'low'},
+  {n:function(){return t('زيت محرك موبيل 5W-30','Mobil 5W-30 Oil')},sku:'MO-5W30-005',q:40,pr:'85',s:'instock'},
+  {n:function(){return t('رديتر تويوتا','Toyota Radiator')},sku:'TR-RAD-011',q:2,pr:'650',s:'low'},
+]}};
+
+var SM={completed:function(){return{l:t('مكتمل','Completed'),c:'badge-green'}},progress:function(){return{l:t('قيد التنفيذ','In Progress'),c:'badge-gold'}},
+quote:function(){return{l:t('عرض سعر','Quotation'),c:'badge-blue'}},new:function(){return{l:t('جديد','New'),c:'badge-purple'}},
+cancelled:function(){return{l:t('ملغي','Cancelled'),c:'badge-red'}},confirmed:function(){return{l:t('مؤكد','Confirmed'),c:'badge-green'}},
+pending:function(){return{l:t('بانتظار','Pending'),c:'badge-gold'}},scheduled:function(){return{l:t('مجدول','Scheduled'),c:'badge-cyan'}},
+ready:function(){return{l:t('جاهز','Ready'),c:'badge-green'}},parts:function(){return{l:t('بانتظار قطع','Awaiting Parts'),c:'badge-blue'}},
+hold:function(){return{l:t('معلّق','On Hold'),c:'badge-red'}},active:function(){return{l:t('نشط','Active'),c:'badge-green'}},
+away:function(){return{l:t('غائب','Away'),c:'badge-gold'}},done:function(){return{l:t('مكتمل','Done'),c:'badge-green'}},
+todo:function(){return{l:t('للتنفيذ','To Do'),c:'badge-gray'}},high:function(){return{l:t('عالي','High'),c:'badge-red'}},
+medium:function(){return{l:t('متوسط','Medium'),c:'badge-gold'}},low:function(){return{l:t('منخفض','Low'),c:'badge-blue'}},
+instock:function(){return{l:t('متوفر','In Stock'),c:'badge-green'}},out:function(){return{l:t('نفذ','Out'),c:'badge-red'}},
+paid:function(){return{l:t('مدفوعة','Paid'),c:'badge-green'}},overdue:function(){return{l:t('متأخرة','Overdue'),c:'badge-red'}},
+draft:function(){return{l:t('مسودة','Draft'),c:'badge-gray'}}};
+function sb(k){var s=SM[k];if(!s)return'';var v=s();return'<span class="badge '+esc(v.c)+'"><span class="badge-dot"></span>'+esc(v.l)+'</span>'}
+
+function renderNav(){
+  var nav=document.getElementById('sb-nav'),pages=PLATFORMS[currentPlatform].pages,h='';
+  for(var i=0;i<pages.length;i++){var p=pages[i];
+    h+='<li class="sb-item'+(p.id===currentPage?' active':'')+'" data-page="'+esc(p.id)+'">';
+    h+='<span class="icon">'+esc(p.icon)+'</span><span>'+esc(p.label())+'</span>';
+    if(p.badge)h+='<span class="badge">'+esc(p.badge)+'</span>';h+='</li>';}
+  nav.innerHTML=h;
+  document.getElementById('header-title').textContent=PLATFORMS[currentPlatform].label();
+  nav.querySelectorAll('.sb-item').forEach(function(item){
+    item.addEventListener('click',function(){currentPage=this.getAttribute('data-page');renderNav();renderContent();closeSB()})});
+}
+function bindPB(){document.querySelectorAll('.sb-plat-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){currentPlatform=this.getAttribute('data-platform');currentPage='dashboard';
+    document.querySelectorAll('.sb-plat-btn').forEach(function(b){b.classList.remove('active')});this.classList.add('active');
+    if(history.replaceState)history.replaceState(null,'','#'+(currentPlatform==='erp'?'phantomops':currentPlatform));renderNav();renderContent();closeSB()})});}
+function showToast(m,ty){var c=document.getElementById('toasts'),d=document.createElement('div');d.className='toast '+(ty||'info');d.textContent=m;c.appendChild(d);setTimeout(function(){d.remove()},4000)}
+function openModal(ti,bo,fo){document.getElementById('modal-title').textContent=ti;document.getElementById('modal-body').innerHTML=bo;document.getElementById('modal-footer').innerHTML=fo||'';document.getElementById('modal-overlay').classList.add('open')}
+function closeModal(){document.getElementById('modal-overlay').classList.remove('open')}
+function closeSB(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebar-overlay').classList.remove('open')}
+
+function renderContent(){
+  var el=document.getElementById('content'),h='';
+  h+='<div class="demo-banner">🛡️ '+esc(t('PhantomOps عرض تجاري مستقل وآمن — جميع البيانات وهمية ولا يتصل بأي نظام إنتاج.','PhantomOps is an independent, safe commercial showcase — all data is fictional and no production system is connected.'));
+  h+=' <a href="index.html">'+esc(t('اطلب النظام الحقيقي','Get the real system'))+'</a></div>';
+  if(currentPlatform==='erp')h+=renderERP();
+  else if(currentPlatform==='clinic')h+=renderClinic();
+  else if(currentPlatform==='workshop')h+=renderWorkshop();
+
+  // Trust & features banner
+  h+='<div class="glass" style="padding:22px;margin-top:24px;border:1px solid rgba(99,102,241,.15)">';
+  h+='<div style="font-size:1rem;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px">🛡️ '+esc(t('لماذا يثق العملاء بأنظمتنا؟','Why Clients Trust Our Systems'))+'</div>';
+  h+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">';
+  var feats=[
+    {i:'🔐',ar:'حماية متعددة الطبقات',en:'Multi-Layer Security'},
+    {i:'⚡',ar:'أداء يُختبر حسب نطاق المشروع',en:'Performance tested to project scope'},
+    {i:'🔒',ar:'تشفير أثناء النقل وخيارات تشفير للتخزين',en:'Encryption in transit and at-rest options'},
+    {i:'📋',ar:'سجل تدقيق لكل عملية',en:'Complete Audit Trail'},
+    {i:'👥',ar:'صلاحيات دقيقة حسب الدور',en:'Granular Role Permissions'},
+    {i:'💾',ar:'نسخ احتياطي مشفّر تلقائي',en:'Encrypted Auto Backups'},
+    {i:'🏛️',ar:'ضوابط جاهزة لدعم متطلبات PDPL',en:'Controls designed to support PDPL requirements'},
+    {i:'✅',ar:'ضمان 30 يوم بعد التسليم',en:'30-Day Post-Delivery Guarantee'},
+    {i:'📄',ar:'توثيق كامل لكل شي',en:'Full Documentation'},
+    {i:'🚀',ar:'أداء محسّن ومختبر',en:'Optimized & Tested Performance'},
+    {i:'🔄',ar:'تحديثات أمنية مستمرة',en:'Continuous Security Updates'},
+    {i:'🤝',ar:'دعم مباشر مع المطوّر',en:'Direct Developer Support'},
+  ];
+  feats.forEach(function(f){
+    h+='<div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--green-bg);border:1px solid rgba(16,185,129,.15);border-radius:var(--radius-sm);font-size:.76rem;font-weight:600;color:var(--green2)">'+esc(f.i)+' '+esc(t(f.ar,f.en))+'</div>';
+  });
+  h+='</div>';
+  h+='<p style="margin-top:14px;font-size:.78rem;color:var(--muted);line-height:1.7">'+esc(t(
+    'النظام الحقيقي يتضمّن هذه المميزات والحماية بشكل أعمق وأكمل — هذه نظرة تجريبية مبسّطة. كل نظام يُبنى بطبقات حماية حديثة وممارسات أمان فعلية، ويمكنك مراجعة الكود قبل التسليم.',
+    'The real system includes these features and protection more deeply and completely — this is a simplified preview. Every system is built with modern security layers and real practices, and you can review the code before delivery.'
+  ))+'</p></div>';
+
+  el.innerHTML=h;bindEvents();}
+
+/* ═══ COMPONENTS ═══ */
+function sc(icon,lbl,val,clr,chg,dir){
+  return'<div class="stat-card '+esc(clr)+'"><span class="stat-icon">'+esc(icon)+'</span><div class="stat-label">'+esc(lbl)+'</div><div class="stat-value">'+esc(val)+'</div>'+(chg?'<div class="stat-change '+esc(dir)+'">'+(dir==='up'?'↑ ':dir==='down'?'↓ ':'')+esc(chg)+'</div>':'')+'</div>'}
+function tc(title,hds,rows,cnt,hasAdd){
+  var h='<div class="table-card glass"><div class="table-header"><div class="table-title">'+esc(title)+' <span class="badge badge-gray">'+esc(cnt)+'</span></div>';
+  h+='<div class="table-actions"><input type="text" class="search-box" placeholder="'+esc(t('بحث...','Search...'))+'" data-search>';
+  if(hasAdd)h+='<button type="button" class="btn btn-primary" data-add>+ '+esc(t('إضافة','Add'))+'</button>';
+  h+='</div></div><div style="overflow-x:auto"><table class="data-table"><thead><tr>';
+  hds.forEach(function(hd){h+='<th>'+esc(hd)+'</th>'});
+  h+='</tr></thead><tbody>'+rows+'</tbody></table></div>';
+  h+='<div class="table-footer"><span>'+esc(cnt)+' '+esc(t('سجل','records'))+'</span><span style="font-size:.66rem">'+esc(t('بيانات تجريبية','Demo data'))+'</span></div></div>';return h}
+function bc(title,data){
+  var mx=0;data.forEach(function(d){if(d.v>mx)mx=d.v});
+  var h='<div class="chart-card glass"><div class="chart-title">'+esc(title)+'</div><div class="bar-chart">';
+  data.forEach(function(d){var pct=mx?Math.round(d.v/mx*100):0;
+    h+='<div class="bar-col"><div class="bar-value">'+esc(d.v)+'</div><div class="bar '+esc(d.c)+'" style="height:'+pct+'%"></div><div class="bar-label">'+esc(d.l)+'</div></div>'});
+  h+='</div></div>';return h}
+function dc(title,data){
+  var tot=0;data.forEach(function(d){tot+=d.v});var ci=2*Math.PI*50,off=0;
+  var h='<div class="chart-card glass"><div class="chart-title">'+esc(title)+'</div><div class="donut-chart"><svg viewBox="0 0 140 140">';
+  data.forEach(function(d){var p=tot?d.v/tot:0,da=p*ci;h+='<circle cx="70" cy="70" r="50" stroke="'+d.clr+'" stroke-dasharray="'+da+' '+ci+'" stroke-dashoffset="-'+off+'" opacity=".85"/>';off+=da});
+  h+='</svg><div class="donut-center"><div class="num">'+esc(tot)+'</div><div class="lbl">'+esc(t('إجمالي','Total'))+'</div></div></div><div class="donut-legend">';
+  data.forEach(function(d){h+='<div class="donut-legend-item"><span class="dot" style="background:'+d.clr+'"></span>'+esc(d.l)+' ('+esc(d.v)+')</div>'});
+  h+='</div></div>';return h}
+function ac(items){
+  var h='<div class="activity-card glass"><div class="activity-title">📋 '+esc(t('آخر النشاطات','Recent Activity'))+'</div><div class="activity-list">';
+  items.forEach(function(it){h+='<div class="activity-item"><div class="activity-dot '+esc(it.d)+'"></div><div><div class="activity-text">'+it.t+'</div><div class="activity-time">'+esc(it.tm)+'</div></div></div>'});
+  h+='</div></div>';return h}
+function pb(lbl,pct,clr,val){
+  return'<div class="progress-row"><div class="progress-label"><span>'+esc(lbl)+'</span><span>'+esc(val||pct+'%')+'</span></div><div class="progress-bar"><div class="progress-fill '+esc(clr)+'" style="width:'+pct+'%"></div></div></div>'}
+
+/* ═══ ERP ═══ */
+function renderERP(){
+  if(currentPage==='dashboard')return erpDash();if(currentPage==='fleet')return phantomFleet();if(currentPage==='trips')return phantomTrips();
+  if(currentPage==='maintenance')return phantomMaintenance();if(currentPage==='fuel')return phantomFuel();if(currentPage==='employees')return phantomEmployees();
+  if(currentPage==='reports')return phantomReports();if(currentPage==='audit')return phantomAudit();return''}
+function erpDash(){
+  var h='<div style="background:var(--accent-bg);border:1px solid rgba(99,102,241,.25);border-radius:var(--radius-sm);padding:14px 18px;font-size:.8rem;color:var(--accent2);font-weight:700;margin-bottom:18px">'+esc(t('منصة ERP متكاملة لإدارة الأسطول والرحلات والصيانة والموارد والتقارير من مركز تحكم موحد.','A complete ERP showcase for fleet, trips, maintenance, workforce, and reporting from one control center.'))+'</div><div class="stats-grid">';
+  h+=sc('🚚',t('أصول الأسطول','Fleet Assets'),'5','blue','4 '+t('متاحة','available'),'up');
+  h+=sc('📍',t('رحلات اليوم','Trips Today'),'12','green','92% '+t('في الموعد','on time'),'up');
+  h+=sc('🔧',t('صيانة مستحقة','Maintenance Due'),'2','gold',t('خلال 7 أيام','within 7 days'),'');
+  h+=sc('⛽',t('كفاءة الوقود','Fuel Efficiency'),'8.7','purple',t('كم/لتر','km/L'),'up');
+  h+=sc('👥',t('الموظفون النشطون','Active Staff'),'5','cyan','100%','up');
+  h+=sc('🛡️',t('سلامة الضوابط','Control Health'),'98%','green',t('دون أحداث حرجة','no critical events'),'up');
+  h+='</div><div class="two-col">';
+  h+=bc(t('جاهزية الأسطول الأسبوعية','Weekly Fleet Availability'),[
+    {l:t('أحد','Sun'),v:91,c:'blue'},{l:t('اثنين','Mon'),v:94,c:'blue'},{l:t('ثلاثاء','Tue'),v:92,c:'purple'},
+    {l:t('أربعاء','Wed'),v:96,c:'purple'},{l:t('خميس','Thu'),v:95,c:'green'},{l:t('جمعة','Fri'),v:98,c:'cyan'}]);
+  h+=dc(t('توزيع الحالة التشغيلية','Operational Status'),[
+    {l:t('متاح','Available'),v:60,clr:'var(--green)'},{l:t('في رحلة','On Trip'),v:20,clr:'var(--accent)'},
+    {l:t('صيانة','Maintenance'),v:15,clr:'var(--gold)'},{l:t('مراجعة','Review'),v:5,clr:'var(--red)'}]);
+  h+='</div><div class="two-col">';
+  h+='<div class="chart-card glass"><div class="chart-title">'+esc(t('مؤشرات الرقابة التشغيلية','Operational Control Indicators'))+'</div>';
+  h+=pb(t('اكتمال فحص ما قبل الرحلة','Pre-trip Checks'),96,'blue');h+=pb(t('الصيانة في موعدها','On-time Maintenance'),92,'green');h+=pb(t('جودة سجلات الوقود','Fuel Record Quality'),98,'purple');h+=pb(t('اكتمال المستندات','Document Completeness'),95,'gold');h+=pb(t('الالتزام بالصلاحيات','Access Compliance'),100,'cyan');
+  h+='</div>';
+  h+=ac([{d:'green',t:t('اكتملت الرحلة <strong>TRIP-DEMO-104</strong>','Trip <strong>TRIP-DEMO-104</strong> completed'),tm:t('منذ ساعتين','2h ago')},
+    {d:'blue',t:t('اعتمد فحص الأصل <strong>DEMO-002</strong>','Asset <strong>DEMO-002</strong> inspection approved'),tm:t('منذ 3 ساعات','3h ago')},
+    {d:'gold',t:t('أضيف تنبيه صيانة <strong>DEMO-004</strong>','Maintenance alert added for <strong>DEMO-004</strong>'),tm:t('منذ 5 ساعات','5h ago')},
+    {d:'purple',t:t('تمت مراجعة سجل وقود تجريبي','A fictional fuel record was reviewed'),tm:t('منذ 8 ساعات','8h ago')},
+    {d:'green',t:t('اكتمل النسخ الاحتياطي التجريبي','Demo backup check completed'),tm:t('أمس','Yesterday')}]);
+  h+='</div>';return h}
+function erpOrders(){var r='';DATA.erp.orders.forEach(function(o){r+='<tr><td><strong>'+esc(o.id)+'</strong></td><td>'+esc(o.c())+'</td><td style="font-family:Inter,sans-serif;font-weight:700">'+esc(o.a)+' SAR</td><td>'+sb(o.s)+'</td><td>'+esc(o.d)+'</td></tr>'});
+  return tc(t('الطلبات','Orders'),[t('رقم','#'),t('العميل','Customer'),t('المبلغ','Amount'),t('الحالة','Status'),t('التاريخ','Date')],r,DATA.erp.orders.length,true)}
+function erpCust(){var r='';DATA.erp.customers.forEach(function(c){r+='<tr><td><strong>'+esc(c.n())+'</strong></td><td>'+esc(c.e)+'</td><td style="direction:ltr">'+esc(c.p)+'</td><td>'+esc(c.o)+'</td><td style="font-family:Inter,sans-serif;font-weight:700">'+esc(c.tot)+' SAR</td></tr>'});
+  return tc(t('العملاء','Customers'),[t('الاسم','Name'),t('البريد','Email'),t('الجوال','Phone'),t('الطلبات','Orders'),t('الإجمالي','Total')],r,DATA.erp.customers.length,true)}
+function erpTasks(){var r='';DATA.erp.tasks.forEach(function(tk){r+='<tr><td>'+esc(tk.tt())+'</td><td>'+esc(tk.as())+'</td><td>'+sb(tk.pr)+'</td><td>'+sb(tk.st)+'</td></tr>'});
+  return tc(t('المهام','Tasks'),[t('المهمة','Task'),t('المسؤول','Assignee'),t('الأولوية','Priority'),t('الحالة','Status')],r,DATA.erp.tasks.length,true)}
+function erpUsers(){var r='';DATA.erp.users.forEach(function(u){r+='<tr><td><strong>'+esc(u.n())+'</strong></td><td>'+esc(u.r())+'</td><td>'+sb(u.s)+'</td><td style="font-family:Inter,sans-serif;font-size:.78rem">'+esc(u.l)+'</td></tr>'});
+  return tc(t('المستخدمون','Users'),[t('الاسم','Name'),t('الدور','Role'),t('الحالة','Status'),t('آخر دخول','Last Login')],r,DATA.erp.users.length,false)}
+function erpRep(){var h='<div class="two-col">';
+  h+=bc(t('الإيرادات الشهرية (K SAR)','Monthly Revenue (K SAR)'),[{l:t('يناير','Jan'),v:52,c:'green'},{l:t('فبراير','Feb'),v:48,c:'green'},{l:t('مارس','Mar'),v:65,c:'cyan'},{l:t('أبريل','Apr'),v:71,c:'cyan'},{l:t('مايو','May'),v:84,c:'gold'},{l:t('يونيو','Jun'),v:96,c:'blue'}]);
+  h+=dc(t('مصادر العملاء','Customer Sources'),[{l:'WhatsApp',v:40,clr:'#25D366'},{l:t('البريد','Email'),v:25,clr:'var(--accent)'},{l:t('الهاتف','Phone'),v:20,clr:'var(--gold)'},{l:t('الموقع','Website'),v:15,clr:'var(--purple)'}]);
+  h+='</div><div class="chart-card glass"><div class="chart-title">'+esc(t('مؤشرات الأداء','KPIs'))+'</div>';
+  h+=pb(t('رضا العملاء','Customer Satisfaction'),94,'green','94%');h+=pb(t('معدل التحويل','Conversion Rate'),68,'blue','68%');
+  h+=pb(t('متوسط وقت التسليم','Avg Delivery Time'),82,'purple','3.2 '+t('يوم','days'));h+=pb(t('نسبة التحصيل','Collection Rate'),76,'gold','76%');
+  h+='</div>';return h}
+function erpWF(){
+  var steps=[{l:t('طلب جديد','New Request'),s:'done'},{l:t('مراجعة','Review'),s:'done'},{l:t('عرض سعر','Quotation'),s:'done'},
+    {l:t('الدفع','Payment'),s:'current'},{l:t('التنفيذ','Execution'),s:'pending'},{l:t('مكتمل','Completed'),s:'pending'}];
+  var h='<div class="workflow-card glass"><div class="workflow-title">🔄 '+esc(t('سير عمل الطلب','Order Workflow'))+'</div><div class="workflow-steps">';
+  steps.forEach(function(s,i){if(i>0)h+='<span class="wf-arrow">→</span>';
+    h+='<div class="wf-step '+esc(s.s)+'" data-wf="'+i+'"><span class="wf-num">'+(s.s==='done'?'✓':(i+1))+'</span>'+esc(s.l)+'</div>'});
+  h+='</div></div><p style="color:var(--muted);font-size:.8rem">'+esc(t('اضغط على أي خطوة لتحريك سير العمل (تجريبي).','Click any step to advance the workflow (demo).'))+'</p>';return h}
+
+/* ═══ PHANTOMOPS SAFE COMMERCIAL SHOWCASE ═══ */
+function phantomFleet(){var rows=[
+  ['DEMO-001',t('شاحنة توزيع','Distribution Truck'),t('متاح','Available'),'48,320','2026-07-18'],
+  ['DEMO-002',t('مركبة خدمة','Service Vehicle'),t('في رحلة','On Trip'),'31,845','2026-07-19'],
+  ['DEMO-003',t('شاحنة مبردة','Refrigerated Truck'),t('متاح','Available'),'62,410','2026-07-17'],
+  ['DEMO-004',t('مركبة دعم','Support Vehicle'),t('صيانة','Maintenance'),'27,090','2026-07-16'],
+  ['DEMO-005',t('شاحنة خفيفة','Light Truck'),t('متاح','Available'),'19,760','2026-07-19']
+],r='';rows.forEach(function(v){var st=v[2]===t('صيانة','Maintenance')?sb('pending'):v[2]===t('في رحلة','On Trip')?sb('progress'):sb('active');r+='<tr><td><strong>'+esc(v[0])+'</strong></td><td>'+esc(v[1])+'</td><td>'+st+'</td><td style="font-family:Inter,sans-serif">'+esc(v[3])+' km</td><td>'+esc(v[4])+'</td></tr>'});
+  return tc(t('الأسطول والأصول التجريبية','Demo Fleet & Assets'),[t('معرّف الأصل','Asset ID'),t('النوع','Type'),t('الحالة','Status'),t('العداد','Odometer'),t('آخر فحص','Last Check')],r,rows.length,true)}
+function phantomTrips(){var rows=[
+  ['TRIP-DEMO-104','DEMO-002',t('مركز تجريبي أ ← نقطة ب','Demo Hub A → Point B'),'08:30',t('مكتمل','Completed')],
+  ['TRIP-DEMO-105','DEMO-001',t('مركز تجريبي أ ← نقطة ج','Demo Hub A → Point C'),'10:15',t('قيد التنفيذ','In Progress')],
+  ['TRIP-DEMO-106','DEMO-003',t('مركز تجريبي ب ← نقطة د','Demo Hub B → Point D'),'13:00',t('مجدول','Scheduled')],
+  ['TRIP-DEMO-107','DEMO-005',t('مركز تجريبي أ ← نقطة هـ','Demo Hub A → Point E'),'15:20',t('مجدول','Scheduled')]
+],r='';rows.forEach(function(v){var st=v[4]===t('مكتمل','Completed')?sb('completed'):v[4]===t('قيد التنفيذ','In Progress')?sb('progress'):sb('scheduled');r+='<tr><td><strong>'+esc(v[0])+'</strong></td><td>'+esc(v[1])+'</td><td>'+esc(v[2])+'</td><td>'+esc(v[3])+'</td><td>'+st+'</td></tr>'});
+  return tc(t('الرحلات والتوزيع','Trips & Dispatch'),[t('الرحلة','Trip'),t('الأصل','Asset'),t('المسار التجريبي','Demo Route'),t('الوقت','Time'),t('الحالة','Status')],r,rows.length,true)}
+function phantomMaintenance(){var rows=[
+  ['WO-DEMO-021','DEMO-004',t('صيانة وقائية شاملة','Preventive Service'),t('قيد التنفيذ','In Progress'),'2026-07-20'],
+  ['WO-DEMO-022','DEMO-003',t('فحص تبريد','Cooling Inspection'),t('مجدول','Scheduled'),'2026-07-23'],
+  ['WO-DEMO-023','DEMO-001',t('زيت ومرشحات','Oil & Filters'),t('مجدول','Scheduled'),'2026-07-25'],
+  ['WO-DEMO-020','DEMO-005',t('فحص سلامة','Safety Check'),t('مكتمل','Completed'),'2026-07-18']
+],r='';rows.forEach(function(v){var st=v[3]===t('مكتمل','Completed')?sb('completed'):v[3]===t('قيد التنفيذ','In Progress')?sb('progress'):sb('scheduled');r+='<tr><td><strong>'+esc(v[0])+'</strong></td><td>'+esc(v[1])+'</td><td>'+esc(v[2])+'</td><td>'+st+'</td><td>'+esc(v[4])+'</td></tr>'});
+  return tc(t('الصيانة الوقائية وأوامر العمل','Preventive Maintenance & Work Orders'),[t('أمر العمل','Work Order'),t('الأصل','Asset'),t('الخدمة','Service'),t('الحالة','Status'),t('الاستحقاق','Due Date')],r,rows.length,true)}
+function phantomFuel(){var rows=[
+  ['FUEL-DEMO-301','DEMO-001','74.0','8.9',t('مطابق','Verified')],
+  ['FUEL-DEMO-302','DEMO-002','52.5','8.4',t('مطابق','Verified')],
+  ['FUEL-DEMO-303','DEMO-003','81.2','8.7',t('قيد المراجعة','In Review')],
+  ['FUEL-DEMO-304','DEMO-005','46.8','9.2',t('مطابق','Verified')]
+],r='';rows.forEach(function(v){var st=v[4]===t('مطابق','Verified')?sb('completed'):sb('pending');r+='<tr><td><strong>'+esc(v[0])+'</strong></td><td>'+esc(v[1])+'</td><td>'+esc(v[2])+' L</td><td>'+esc(v[3])+' km/L</td><td>'+st+'</td></tr>'});
+  return tc(t('الوقود والزيوت — سجلات وهمية','Fuel & Oils — Fictional Records'),[t('السجل','Record'),t('الأصل','Asset'),t('الكمية','Volume'),t('الكفاءة','Efficiency'),t('التحقق','Verification')],r,rows.length,true)}
+function phantomEmployees(){var rows=[
+  ['EMP-DEMO-01',t('مشرف عمليات','Operations Supervisor'),t('الفريق أ','Team A'),t('نشط','Active')],
+  ['EMP-DEMO-02',t('منسق رحلات','Dispatch Coordinator'),t('الفريق أ','Team A'),t('نشط','Active')],
+  ['EMP-DEMO-03',t('فني صيانة','Maintenance Technician'),t('الفريق ب','Team B'),t('نشط','Active')],
+  ['EMP-DEMO-04',t('محلل بيانات','Data Analyst'),t('الفريق ب','Team B'),t('نشط','Active')],
+  ['EMP-DEMO-05',t('مراقب جودة','Quality Controller'),t('الفريق ج','Team C'),t('نشط','Active')]
+],r='';rows.forEach(function(v){r+='<tr><td><strong>'+esc(v[0])+'</strong></td><td>'+esc(v[1])+'</td><td>'+esc(v[2])+'</td><td>'+sb('active')+'</td></tr>'});
+  return tc(t('القوى العاملة — هويات تجريبية','Workforce — Demo Identities'),[t('المعرّف','ID'),t('الدور','Role'),t('الفريق','Team'),t('الحالة','Status')],r,rows.length,true)}
+function phantomReports(){var h='<div class="two-col">';
+  h+=bc(t('تكلفة التشغيل الشهرية — مؤشر نسبي','Monthly Operating Cost — Indexed'),[{l:t('فبراير','Feb'),v:78,c:'gold'},{l:t('مارس','Mar'),v:72,c:'gold'},{l:t('أبريل','Apr'),v:69,c:'green'},{l:t('مايو','May'),v:66,c:'green'},{l:t('يونيو','Jun'),v:63,c:'cyan'},{l:t('يوليو','Jul'),v:61,c:'blue'}]);
+  h+=dc(t('اكتمال البيانات','Data Completeness'),[{l:t('الأسطول','Fleet'),v:99,clr:'var(--green)'},{l:t('الصيانة','Maintenance'),v:96,clr:'var(--accent)'},{l:t('الوقود','Fuel'),v:94,clr:'var(--gold)'},{l:t('الموظفون','Workforce'),v:100,clr:'var(--cyan)'}]);
+  h+='</div><div class="chart-card glass"><div class="chart-title">'+esc(t('مؤشرات الأداء التنفيذية','Executive KPIs'))+'</div>';
+  h+=pb(t('جاهزية الأسطول','Fleet Availability'),95,'green','95%');h+=pb(t('الرحلات في الموعد','On-time Trips'),92,'blue','92%');h+=pb(t('إغلاق الصيانة في الموعد','Maintenance SLA'),90,'purple','90%');h+=pb(t('جودة السجلات','Record Quality'),98,'cyan','98%');h+='</div>';return h}
+function phantomAudit(){var rows=[
+  ['AUD-DEMO-901','ROLE-DEMO-ADMIN',t('اعتماد فحص أصل','Approved asset inspection'),'DEMO-002','2026-07-19 09:12'],
+  ['AUD-DEMO-902','ROLE-DEMO-OPS',t('تحديث حالة رحلة','Updated trip status'),'TRIP-DEMO-104','2026-07-19 08:44'],
+  ['AUD-DEMO-903','ROLE-DEMO-MAINT',t('إنشاء أمر صيانة','Created work order'),'WO-DEMO-023','2026-07-19 08:21'],
+  ['AUD-DEMO-904','ROLE-DEMO-AUDIT',t('مراجعة سجل وقود','Reviewed fuel record'),'FUEL-DEMO-303','2026-07-19 07:58']
+],r='';rows.forEach(function(v){r+='<tr><td><strong>'+esc(v[0])+'</strong></td><td>'+esc(v[1])+'</td><td>'+esc(v[2])+'</td><td>'+esc(v[3])+'</td><td style="font-family:Inter,sans-serif;font-size:.76rem">'+esc(v[4])+'</td></tr>'});
+  var intro='<div style="background:var(--green-bg);border:1px solid rgba(16,185,129,.25);border-radius:var(--radius-sm);padding:14px 18px;font-size:.8rem;color:var(--green2);font-weight:700;margin-bottom:18px">'+esc(t('تصور توضيحي لضوابط RBAC والمصادقة الإضافية وسجل التدقيق. لا توجد حسابات أو مفاتيح أو جلسات حقيقية في هذا العرض.','Illustrative RBAC, additional-authentication, and audit controls. This showcase contains no real accounts, keys, or sessions.'))+'</div>';
+  return intro+tc(t('سجل التدقيق التجريبي','Demo Audit Log'),[t('الحدث','Event'),t('الدور','Role'),t('الإجراء','Action'),t('المرجع','Reference'),t('الوقت','Time')],r,rows.length,false)}
+
+/* ═══ CLINIC ═══ */
+function renderClinic(){if(currentPage==='dashboard')return clDash();if(currentPage==='appointments')return clAppt();
+  if(currentPage==='patients')return clPat();if(currentPage==='services')return clSvc();if(currentPage==='invoices')return genInv();return''}
+function clDash(){
+  var h='<div style="background:var(--red-bg);border:1px solid rgba(239,68,68,.2);border-radius:var(--radius-sm);padding:12px 18px;font-size:.78rem;color:var(--red2);font-weight:700;margin-bottom:18px">⚕️ '+esc(t('بيانات تجريبية — لا بيانات طبية حقيقية.','Demo data — no real medical data.'))+'</div>';
+  h+='<div class="stats-grid">';
+  h+=sc('📅',t('مواعيد اليوم','Today\'s Appts'),'8','blue','3 '+t('مؤكدة','confirmed'),'');
+  h+=sc('👤',t('المرضى','Patients'),'210','green','+12','up');
+  h+=sc('💊',t('الخدمات','Services'),'15','purple','','');
+  h+=sc('💰',t('إيرادات الشهر','Monthly Rev.'),'42K','gold','+8%','up');
+  h+=sc('⏱️',t('متوسط الانتظار','Avg Wait'),'12 '+t('د','m'),'cyan','↓2','up');
+  h+='</div><div class="two-col">';
+  h+=bc(t('المواعيد الأسبوعية','Weekly Appointments'),[{l:t('أحد','Sun'),v:12,c:'blue'},{l:t('اثنين','Mon'),v:18,c:'blue'},{l:t('ثلاثاء','Tue'),v:15,c:'green'},{l:t('أربعاء','Wed'),v:22,c:'green'},{l:t('خميس','Thu'),v:20,c:'cyan'},{l:t('جمعة','Fri'),v:5,c:'purple'}]);
+  h+='<div class="chart-card glass"><div class="chart-title">'+esc(t('توزيع التخصصات','Department Split'))+'</div>';
+  h+=pb(t('كشف عام','General'),35,'blue');h+=pb(t('أسنان','Dental'),22,'green');h+=pb(t('عيون','Eye'),15,'purple');h+=pb(t('جلدية','Derm'),12,'gold');h+=pb(t('باطنية','Internal'),10,'cyan');h+=pb(t('أخرى','Other'),6,'red');
+  h+='</div></div>';
+  h+=ac([{d:'green',t:t('اكتمل موعد <strong>نورة ر.</strong>','Appt. <strong>Noura R.</strong> done'),tm:t('منذ ساعة','1h ago')},
+    {d:'blue',t:t('موعد جديد <strong>محمد س.</strong>','New appt. <strong>Mohammed S.</strong>'),tm:t('منذ 3 ساعات','3h ago')},
+    {d:'gold',t:t('تأجيل <strong>هند ق.</strong>','<strong>Hind Q.</strong> rescheduled'),tm:t('منذ 5 ساعات','5h ago')},
+    {d:'purple',t:t('تسجيل مريض جديد <strong>ريم ع.</strong>','New patient <strong>Reem A.</strong>'),tm:t('منذ 6 ساعات','6h ago')}]);
+  return h}
+function clAppt(){var r='';DATA.clinic.appointments.forEach(function(a){r+='<tr><td><strong>'+esc(a.p())+'</strong></td><td>'+esc(a.sv())+'</td><td>'+esc(a.d)+'</td><td>'+esc(a.tm)+'</td><td>'+sb(a.s)+'</td></tr>'});
+  return tc(t('المواعيد','Appointments'),[t('المريض','Patient'),t('الخدمة','Service'),t('التاريخ','Date'),t('الوقت','Time'),t('الحالة','Status')],r,DATA.clinic.appointments.length,true)}
+function clPat(){var r='';DATA.clinic.patients.forEach(function(p){r+='<tr><td><strong>'+esc(p.n())+'</strong></td><td>'+esc(p.a)+'</td><td style="direction:ltr">'+esc(p.p)+'</td><td>'+esc(p.v)+'</td><td>'+esc(p.l)+'</td></tr>'});
+  return tc(t('المرضى','Patients'),[t('الاسم','Name'),t('العمر','Age'),t('الجوال','Phone'),t('الزيارات','Visits'),t('آخر زيارة','Last Visit')],r,DATA.clinic.patients.length,true)}
+function clSvc(){var r='';DATA.clinic.services.forEach(function(s){var st=s.act?sb('active'):'<span class="badge badge-gray"><span class="badge-dot"></span>'+esc(t('معطّل','Inactive'))+'</span>';
+  r+='<tr><td><strong>'+esc(s.n())+'</strong></td><td>'+esc(s.pr)+' SAR</td><td>'+esc(s.dur)+' '+esc(t('دقيقة','min'))+'</td><td>'+st+'</td></tr>'});
+  return tc(t('الخدمات','Services'),[t('الخدمة','Service'),t('السعر','Price'),t('المدة','Duration'),t('الحالة','Status')],r,DATA.clinic.services.length,true)}
+
+/* ═══ WORKSHOP ═══ */
+function renderWorkshop(){if(currentPage==='dashboard')return wsDash();if(currentPage==='jobs')return wsJobs();
+  if(currentPage==='vehicles')return wsVeh();if(currentPage==='parts')return wsParts();if(currentPage==='invoices')return genInv();if(currentPage==='delivery')return wsDel();return''}
+function wsDash(){
+  var h='<div class="stats-grid">';
+  h+=sc('🔧',t('أوامر الصيانة','Job Orders'),'47','blue','6 '+t('نشطة','active'),'');
+  h+=sc('🚗',t('المركبات','Vehicles'),'92','green','+4','up');
+  h+=sc('⚙️',t('قطع الغيار','Parts'),'340','gold','2 '+t('نفذت','out'),'down');
+  h+=sc('🧾',t('الفواتير','Invoices'),'28','purple','','');
+  h+=sc('👨‍🔧',t('الفنيون','Technicians'),'3','cyan','','');
+  h+='</div><div class="two-col">';
+  h+=bc(t('أوامر الصيانة الأسبوعية','Weekly Jobs'),[{l:t('أحد','Sun'),v:8,c:'blue'},{l:t('اثنين','Mon'),v:12,c:'blue'},{l:t('ثلاثاء','Tue'),v:10,c:'green'},{l:t('أربعاء','Wed'),v:14,c:'green'},{l:t('خميس','Thu'),v:11,c:'cyan'},{l:t('جمعة','Fri'),v:3,c:'purple'}]);
+  h+=dc(t('حالة الأوامر','Job Status'),[{l:t('جاهز','Ready'),v:35,clr:'var(--green)'},{l:t('قيد العمل','WIP'),v:30,clr:'var(--gold)'},
+    {l:t('بانتظار قطع','Parts'),v:20,clr:'var(--accent)'},{l:t('معلّق','Hold'),v:15,clr:'var(--red)'}]);
+  h+='</div><div class="chart-card glass"><div class="chart-title">'+esc(t('حالة المخزون','Inventory Status'))+'</div>';
+  h+=pb(t('متوفر','In Stock'),65,'green','221 '+t('قطعة','parts'));h+=pb(t('منخفض','Low Stock'),20,'gold','67 '+t('قطعة','parts'));h+=pb(t('نفذ','Out'),5,'red','2 '+t('قطعة','parts'));
+  h+='</div>';return h}
+function wsJobs(){var r='';DATA.workshop.jobs.forEach(function(j){r+='<tr><td><strong>'+esc(j.id)+'</strong></td><td>'+esc(j.v())+'</td><td>'+esc(j.sv())+'</td><td>'+esc(j.tc())+'</td><td>'+sb(j.s)+'</td><td>'+esc(j.d)+'</td></tr>'});
+  return tc(t('أوامر الصيانة','Job Orders'),[t('رقم','#'),t('المركبة','Vehicle'),t('الخدمة','Service'),t('الفني','Tech'),t('الحالة','Status'),t('التسليم','Delivery')],r,DATA.workshop.jobs.length,true)}
+function wsVeh(){var r='';DATA.workshop.vehicles.forEach(function(v){r+='<tr><td style="font-family:Inter,sans-serif;font-weight:700;direction:ltr">'+esc(v.pl)+'</td><td>'+esc(v.mk())+'</td><td>'+esc(v.ow())+'</td><td>'+esc(v.vi)+'</td><td>'+esc(v.l)+'</td></tr>'});
+  return tc(t('المركبات','Vehicles'),[t('اللوحة','Plate'),t('الموديل','Model'),t('المالك','Owner'),t('الزيارات','Visits'),t('آخر زيارة','Last Visit')],r,DATA.workshop.vehicles.length,true)}
+function wsParts(){var r='';DATA.workshop.parts.forEach(function(p){r+='<tr><td><strong>'+esc(p.n())+'</strong></td><td style="font-family:Inter,sans-serif;direction:ltr;font-size:.76rem">'+esc(p.sku)+'</td><td>'+esc(p.q)+'</td><td>'+esc(p.pr)+' SAR</td><td>'+sb(p.s)+'</td></tr>'});
+  return tc(t('قطع الغيار','Spare Parts'),[t('القطعة','Part'),'SKU',t('الكمية','Qty'),t('السعر','Price'),t('الحالة','Status')],r,DATA.workshop.parts.length,true)}
+function wsDel(){var r='';DATA.workshop.jobs.forEach(function(j){r+='<tr><td><strong>'+esc(j.id)+'</strong></td><td>'+esc(j.v())+'</td><td>'+sb(j.s)+'</td><td>'+esc(j.d)+'</td></tr>'});
+  return tc(t('تتبع التسليم','Delivery Tracking'),[t('رقم','#'),t('المركبة','Vehicle'),t('الحالة','Status'),t('التسليم','Delivery')],r,DATA.workshop.jobs.length,false)}
+
+/* ═══ GENERIC INVOICES ═══ */
+function genInv(){var invs=[
+  {id:'#INV-2048',cl:function(){return t('شركة النجم','Al-Najm Co.')},a:'12,500',s:'paid',d:'2026-06-24'},
+  {id:'#INV-2047',cl:function(){return t('مؤسسة الفجر','Al-Fajr Est.')},a:'8,200',s:'pending',d:'2026-06-23'},
+  {id:'#INV-2046',cl:function(){return t('متجر الأمل','Al-Amal Store')},a:'3,750',s:'draft',d:'2026-06-22'},
+  {id:'#INV-2045',cl:function(){return t('مصنع الرياض','Riyadh Factory')},a:'22,000',s:'paid',d:'2026-06-20'},
+  {id:'#INV-2044',cl:function(){return t('شركة البناء','Construction Co.')},a:'5,600',s:'overdue',d:'2026-06-15'},
+  {id:'#INV-2043',cl:function(){return t('مجموعة السلام','Al-Salam Group')},a:'6,400',s:'paid',d:'2026-06-12'},
+];var r='';invs.forEach(function(i){r+='<tr><td><strong>'+esc(i.id)+'</strong></td><td>'+esc(i.cl())+'</td><td style="font-family:Inter,sans-serif;font-weight:700">'+esc(i.a)+' SAR</td><td>'+sb(i.s)+'</td><td>'+esc(i.d)+'</td></tr>'});
+  return tc(t('الفواتير','Invoices'),[t('رقم','#'),t('العميل','Client'),t('المبلغ','Amount'),t('الحالة','Status'),t('التاريخ','Date')],r,invs.length,true)}
+
+/* ═══ EVENTS ═══ */
+function bindEvents(){
+  document.querySelectorAll('[data-search]').forEach(function(inp){inp.addEventListener('input',function(){var q=this.value.toLowerCase();
+    var tbl=this.closest('.table-card').querySelector('.data-table');if(!tbl)return;
+    tbl.querySelectorAll('tbody tr').forEach(function(row){row.style.display=row.textContent.toLowerCase().indexOf(q)>-1?'':'none'})})});
+  document.querySelectorAll('[data-add]').forEach(function(btn){btn.addEventListener('click',function(){
+    showToast(t('تجربة فقط — في النظام الحقيقي يمكنك الإضافة والتعديل.','Demo only — add/edit available in the real system.'),'info')})});
+  document.querySelectorAll('.wf-step').forEach(function(step){step.addEventListener('click',function(){var idx=parseInt(this.getAttribute('data-wf'));
+    document.querySelectorAll('.wf-step').forEach(function(s,i){s.className='wf-step '+(i<idx?'done':i===idx?'current':'pending');s.querySelector('.wf-num').textContent=i<idx?'✓':(i+1)});
+    showToast(t('سير العمل تحرّك (تجريبي)','Workflow advanced (demo)'),'success')})});
+}
+
+document.getElementById('sb-request-demo').addEventListener('click',function(){
+  var b='';
+  b+='<div class="form-group"><label>'+esc(t('الاسم','Name'))+'</label><input type="text" class="form-input" autocomplete="name"></div>';
+  b+='<div class="form-group"><label>'+esc(t('الجوال','Phone'))+'</label><input type="tel" class="form-input" autocomplete="tel"></div>';
+  b+='<div class="form-group"><label>'+esc(t('البريد','Email'))+'</label><input type="email" class="form-input" autocomplete="email"></div>';
+  b+='<div class="form-group"><label>'+esc(t('نوع الخدمة','Service'))+'</label><select class="form-input">';
+  b+='<option>'+esc(t('PhantomOps — منصة ERP متكاملة','PhantomOps — Complete ERP'))+'</option>';
+  b+='<option>'+esc(t('منصة عيادة','Clinic Platform'))+'</option>';
+  b+='<option>'+esc(t('ورشة وقطع غيار','Workshop & Parts'))+'</option>';
+  b+='<option>'+esc(t('موقع شركة','Corporate Website'))+'</option>';
+  b+='<option>'+esc(t('متجر إلكتروني','E-Commerce Store'))+'</option>';
+  b+='<option>'+esc(t('أخرى','Other'))+'</option>';
+  b+='</select></div>';
+  b+='<div class="form-group"><label>'+esc(t('وصف الطلب','Description'))+'</label><textarea class="form-input" rows="3"></textarea></div>';
+  b+='<div style="background:var(--accent-bg);border:1px solid rgba(99,102,241,.2);border-radius:var(--radius-sm);padding:12px 16px;font-size:.78rem;color:var(--accent2);font-weight:600;line-height:1.7">'+esc(t('هذه تجربة فقط. الأسعار تُحدَّد في عرض رسمي مكتوب بعد مراجعة المتطلبات.','This is a demo only. Prices are set in a formal written quote after reviewing requirements.'))+'</div>';
+  var f='<button type="button" class="btn btn-outline" id="mc">'+esc(t('إلغاء','Cancel'))+'</button>';
+  f+='<button type="button" class="btn btn-primary" id="ms">📩 '+esc(t('إرسال','Submit'))+'</button>';
+  openModal(t('طلب تجربة المنصة','Request Platform Demo'),b,f);
+  document.getElementById('mc').addEventListener('click',closeModal);
+  document.getElementById('ms').addEventListener('click',function(){closeModal();
+    showToast(t('تجربة فقط. في المسار الحقيقي يُراجَع الطلب ويُرسَل عرض سعر.','Demo only. In the real flow, the request is reviewed and a quote is sent.'),'success')})});
+
+document.getElementById('lang-btn').addEventListener('click',function(){isEn=!isEn;document.body.classList.toggle('en',isEn);
+  document.documentElement.lang=isEn?'en':'ar';document.documentElement.dir=isEn?'ltr':'rtl';renderNav();renderContent();
+  document.querySelectorAll('[data-ar]').forEach(function(el){el.style.display=isEn?'none':''});
+  document.querySelectorAll('[data-en]').forEach(function(el){el.style.display=isEn?'':'none'})});
+
+document.getElementById('theme-toggle').addEventListener('click',function(){
+  var isLight=document.body.classList.toggle('light');
+  this.innerHTML=isLight?('☀️ <span'+(isEn?' data-en':' data-ar')+'>'+esc(t('داكن','Dark'))+'</span>'):('🌙 <span'+(isEn?' data-en':' data-ar')+'>'+esc(t('فاتح','Light'))+'</span>');
+});
+document.getElementById('menu-toggle').addEventListener('click',function(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('sidebar-overlay').classList.toggle('open')});
+document.getElementById('sidebar-overlay').addEventListener('click',closeSB);
+document.getElementById('modal-close').addEventListener('click',closeModal);
+document.getElementById('modal-overlay').addEventListener('click',function(e){if(e.target===this)closeModal()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+
+(function(){var h=location.hash.replace('#','').toLowerCase();if(h==='phantomops')h='erp';if(h&&PLATFORMS[h]){currentPlatform=h;document.querySelectorAll('.sb-plat-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-platform')===h)})}})();
+bindPB();renderNav();renderContent();
+document.querySelectorAll('[data-en]').forEach(function(el){el.style.display='none'});
+})();
+</script>
+</body>
+</html>

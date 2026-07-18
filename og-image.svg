@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#030914"/><stop offset="1" stop-color="#071a1c"/></linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#10b981"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#10b981" stop-opacity=".18"/><stop offset="1" stop-color="#10b981" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1100" cy="520" r="430" fill="url(#glow)"/>
+  <g opacity=".18" stroke="#3b82f6"><path d="M0 92h1200M0 538h1200"/><path d="M700 0v630"/></g>
+  <g transform="translate(74 56) scale(1.05)" fill="none" stroke="url(#brand)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M32 5 55 14v19c0 14.5-9.5 22.5-23 27C18.5 55.5 9 47.5 9 33V14Z"/>
+    <path d="M41 22H24q-3 0-3 3v14q0 3 3 3h17M16 28h5M16 36h5M28 17v5M34 17v5M28 42v5M34 42v5"/>
+    <circle cx="32" cy="32" r="3" fill="url(#brand)" stroke="none"/>
+  </g>
+  <text x="160" y="88" fill="#f8fafc" font-family="Inter, DejaVu Sans, sans-serif" font-size="27" font-weight="800">CybPhantom</text>
+  <text x="160" y="116" fill="#7c91ad" font-family="Inter, DejaVu Sans, sans-serif" font-size="15" font-weight="700" letter-spacing="3">BUSINESS SOLUTIONS</text>
+  <text x="74" y="230" fill="#f8fafc" font-family="Inter, DejaVu Sans, sans-serif" font-size="60" font-weight="800">Custom operations &amp;</text>
+  <text x="74" y="302" fill="url(#brand)" font-family="Inter, DejaVu Sans, sans-serif" font-size="60" font-weight="800">ERP systems that fit.</text>
+  <text x="76" y="354" fill="#9fb0c6" font-family="Inter, DejaVu Sans, sans-serif" font-size="23">Arabic-first delivery for organizations in Saudi Arabia.</text>
+  <g transform="translate(76 411)" font-family="Inter, DejaVu Sans, sans-serif" font-size="17" font-weight="700">
+    <g><rect width="170" height="52" rx="14" fill="#0e1a2a" stroke="#22416b"/><text x="20" y="33" fill="#dbeafe">Clear scope</text></g>
+    <g transform="translate(186)"><rect width="190" height="52" rx="14" fill="#0e1a2a" stroke="#1d4d48"/><text x="20" y="33" fill="#d1fae5">Written contract</text></g>
+    <g transform="translate(392)"><rect width="230" height="52" rx="14" fill="#0e1a2a" stroke="#314064"/><text x="20" y="33" fill="#e0e7ff">Acceptance testing</text></g>
+  </g>
+  <g transform="translate(790 164)" font-family="Inter, DejaVu Sans, sans-serif">
+    <rect width="330" height="318" rx="28" fill="#0c1421" stroke="#243650"/>
+    <text x="30" y="48" fill="#7c91ad" font-size="14" font-weight="700" letter-spacing="2">DELIVERY PATH</text>
+    <g fill="#f8fafc" font-size="20" font-weight="700"><text x="76" y="102">Discover</text><text x="76" y="160">Scope</text><text x="76" y="218">Build &amp; test</text><text x="76" y="276">Accept &amp; support</text></g>
+    <g fill="url(#brand)" font-size="18" font-weight="800"><circle cx="42" cy="95" r="15"/><circle cx="42" cy="153" r="15"/><circle cx="42" cy="211" r="15"/><circle cx="42" cy="269" r="15"/></g>
+    <g fill="#04101b" font-size="14" font-weight="900" text-anchor="middle"><text x="42" y="100">1</text><text x="42" y="158">2</text><text x="42" y="216">3</text><text x="42" y="274">4</text></g>
+    <path d="M42 110v28M42 168v28M42 226v28" stroke="#2d4f65" stroke-width="2"/>
+  </g>
+  <text x="76" y="568" fill="#64748b" font-family="Inter, DejaVu Sans, sans-serif" font-size="16">Systems · Websites · Integrations · Reporting · Ongoing support</text>
+</svg>
