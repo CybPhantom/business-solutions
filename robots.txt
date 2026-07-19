@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /demo.html
+Disallow: /operations-demo.html
+Disallow: /restaurant-demo.html
 
 Sitemap: https://cybphantom.github.io/business-solutions/sitemap.xml

@@ -1,10 +1,12 @@
 # Business Solutions
 
-Standalone bilingual sales and pricing site for custom business systems.
+Standalone bilingual sales site and safe product showcases for custom business systems.
 
 - Arabic RTL and English support
 - Responsive layouts and selectable themes
-- Package comparison, configurable service pricing, and sanitized interactive demos
+- Concise solution positioning, a guided solution finder, and native expandable FAQs
+- Sanitized interactive PhantomOps Pro and PhantomDine demos
+- Demo pages are excluded from indexing and contain no uploads, imports, real identities, or production connections
 - Links back to the main professional portfolio
 
 Public site: https://cybphantom.github.io/business-solutions/
