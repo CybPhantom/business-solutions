@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PhantomOps — Complete ERP Demo | CybPhantom</title>
-<meta name="description" content="PhantomOps is CybPhantom's safe, interactive ERP and operations showcase for fleet, trips, maintenance, fuel, workforce, reporting, and audit controls. All data is fictional.">
+<meta name="description" content="PhantomOps is CybPhantom's safe, interactive ERP showcase for fleet, trips, maintenance, fuel, role controls, reporting, and audit. All records are synthetic and contain no employee identities.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0a0e1a">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
@@ -494,7 +494,7 @@ var PLATFORMS={
     {id:'trips',icon:'📍',label:function(){return t('الرحلات والتوزيع','Trips & Dispatch')},badge:'3'},
     {id:'maintenance',icon:'🔧',label:function(){return t('الصيانة الوقائية','Maintenance')},badge:'2'},
     {id:'fuel',icon:'⛽',label:function(){return t('الوقود والزيوت','Fuel & Oils')}},
-    {id:'employees',icon:'👥',label:function(){return t('القوى العاملة','Workforce')}},
+    {id:'employees',icon:'👥',label:function(){return t('الأدوار والصلاحيات','Roles & Access')}},
     {id:'reports',icon:'📈',label:function(){return t('التقارير','Reports')}},
     {id:'audit',icon:'🔐',label:function(){return t('التدقيق والصلاحيات','Audit & Access')}},
   ]},
@@ -516,52 +516,52 @@ var PLATFORMS={
 };
 
 var DATA={erp:{orders:[
-  {id:'#ORD-1042',c:function(){return t('شركة النجم','Al-Najm Co.')},a:'12,500',s:'completed',d:'2026-06-24'},
-  {id:'#ORD-1041',c:function(){return t('مؤسسة الفجر','Al-Fajr Est.')},a:'8,200',s:'progress',d:'2026-06-23'},
-  {id:'#ORD-1040',c:function(){return t('متجر الأمل','Al-Amal Store')},a:'3,750',s:'quote',d:'2026-06-23'},
-  {id:'#ORD-1039',c:function(){return t('مصنع الرياض','Riyadh Factory')},a:'22,000',s:'completed',d:'2026-06-22'},
-  {id:'#ORD-1038',c:function(){return t('شركة البناء','Construction Co.')},a:'15,800',s:'progress',d:'2026-06-22'},
-  {id:'#ORD-1037',c:function(){return t('مجموعة السلام','Al-Salam Group')},a:'6,400',s:'new',d:'2026-06-21'},
-  {id:'#ORD-1036',c:function(){return t('مؤسسة التقنية','Tech Est.')},a:'9,100',s:'completed',d:'2026-06-20'},
-  {id:'#ORD-1035',c:function(){return t('شركة الخليج','Gulf Co.')},a:'4,500',s:'cancelled',d:'2026-06-19'},
-  {id:'#ORD-1034',c:function(){return t('مؤسسة الوفاء','Al-Wafa Est.')},a:'18,300',s:'completed',d:'2026-06-18'},
-  {id:'#ORD-1033',c:function(){return t('شركة المستقبل','Future Co.')},a:'7,900',s:'progress',d:'2026-06-17'},
+  {id:'#ORD-1042',c:function(){return 'DEMO-CLIENT-A'},a:'12,500',s:'completed',d:'2026-06-24'},
+  {id:'#ORD-1041',c:function(){return 'DEMO-CLIENT-B'},a:'8,200',s:'progress',d:'2026-06-23'},
+  {id:'#ORD-1040',c:function(){return 'DEMO-CLIENT-C'},a:'3,750',s:'quote',d:'2026-06-23'},
+  {id:'#ORD-1039',c:function(){return 'DEMO-CLIENT-D'},a:'22,000',s:'completed',d:'2026-06-22'},
+  {id:'#ORD-1038',c:function(){return 'DEMO-CLIENT-E'},a:'15,800',s:'progress',d:'2026-06-22'},
+  {id:'#ORD-1037',c:function(){return 'DEMO-CLIENT-F'},a:'6,400',s:'new',d:'2026-06-21'},
+  {id:'#ORD-1036',c:function(){return 'DEMO-CLIENT-G'},a:'9,100',s:'completed',d:'2026-06-20'},
+  {id:'#ORD-1035',c:function(){return 'DEMO-CLIENT-H'},a:'4,500',s:'cancelled',d:'2026-06-19'},
+  {id:'#ORD-1034',c:function(){return 'DEMO-CLIENT-I'},a:'18,300',s:'completed',d:'2026-06-18'},
+  {id:'#ORD-1033',c:function(){return 'DEMO-CLIENT-J'},a:'7,900',s:'progress',d:'2026-06-17'},
 ],customers:[
-  {n:function(){return t('شركة النجم','Al-Najm Co.')},e:'name@example.com',p:'055****567',o:8,tot:'98,500'},
-  {n:function(){return t('مؤسسة الفجر','Al-Fajr Est.')},e:'client@example.com',p:'055****543',o:5,tot:'45,200'},
-  {n:function(){return t('متجر الأمل','Al-Amal Store')},e:'ops@example.com',p:'055****789',o:12,tot:'125,000'},
-  {n:function(){return t('مصنع الرياض','Riyadh Factory')},e:'driver@example.com',p:'055****321',o:3,tot:'66,000'},
-  {n:function(){return t('شركة البناء','Construction Co.')},e:'client@example.com',p:'055****678',o:6,tot:'82,300'},
-  {n:function(){return t('مجموعة السلام','Al-Salam Group')},e:'ops@example.com',p:'055****456',o:4,tot:'51,600'},
+  {n:function(){return 'DEMO-CLIENT-A'},o:8,tot:'98,500'},
+  {n:function(){return 'DEMO-CLIENT-B'},o:5,tot:'45,200'},
+  {n:function(){return 'DEMO-CLIENT-C'},o:12,tot:'125,000'},
+  {n:function(){return 'DEMO-CLIENT-D'},o:3,tot:'66,000'},
+  {n:function(){return 'DEMO-CLIENT-E'},o:6,tot:'82,300'},
+  {n:function(){return 'DEMO-CLIENT-F'},o:4,tot:'51,600'},
 ],tasks:[
   {tt:function(){return t('مراجعة عرض سعر #1040','Review quote #1040')},as:function(){return t('الفريق أ','Team A')},pr:'high',st:'progress'},
-  {tt:function(){return t('تسليم طلب #1039','Deliver order #1039')},as:function(){return t('فهد','Fahd')},pr:'medium',st:'done'},
-  {tt:function(){return t('اتصال متابعة - الفجر','Follow-up call - Al-Fajr')},as:function(){return t('سارة','Sara')},pr:'low',st:'todo'},
-  {tt:function(){return t('تحديث التقرير الشهري','Update monthly report')},as:function(){return t('نورة','Noura')},pr:'medium',st:'progress'},
-  {tt:function(){return t('فحص المخزون','Inventory check')},as:function(){return t('خالد','Khalid')},pr:'high',st:'todo'},
+  {tt:function(){return t('تسليم طلب #1039','Deliver order #1039')},as:function(){return t('الفريق ب','Team B')},pr:'medium',st:'done'},
+  {tt:function(){return t('متابعة DEMO-CLIENT-B','Follow up DEMO-CLIENT-B')},as:function(){return t('الفريق أ','Team A')},pr:'low',st:'todo'},
+  {tt:function(){return t('تحديث التقرير الشهري','Update monthly report')},as:function(){return t('الفريق ج','Team C')},pr:'medium',st:'progress'},
+  {tt:function(){return t('فحص المخزون','Inventory check')},as:function(){return t('الفريق ب','Team B')},pr:'high',st:'todo'},
 ],users:[
-  {n:function(){return t('CybPhantom','CybPhantom')},r:function(){return t('مدير النظام','System Admin')},s:'active',l:'2026-06-24 09:15'},
-  {n:function(){return t('فهد العمري','Fahd Alomari')},r:function(){return t('مدير المبيعات','Sales Manager')},s:'active',l:'2026-06-24 08:30'},
-  {n:function(){return t('سارة الحربي','Sara Alharbi')},r:function(){return t('خدمة عملاء','Support')},s:'active',l:'2026-06-23 16:45'},
-  {n:function(){return t('نورة الدوسري','Noura Aldosari')},r:function(){return t('محاسبة','Accountant')},s:'away',l:'2026-06-22 14:00'},
-  {n:function(){return t('خالد الشمري','Khalid Alshammari')},r:function(){return t('مشرف مستودع','Warehouse Sup.')},s:'active',l:'2026-06-24 07:50'},
+  {n:function(){return 'ROLE-DEMO-ADMIN'},r:function(){return t('إدارة النظام','System administration')},s:'active',l:'2026-06-24 09:15'},
+  {n:function(){return 'ROLE-DEMO-OPS'},r:function(){return t('إدارة التشغيل','Operations management')},s:'active',l:'2026-06-24 08:30'},
+  {n:function(){return 'ROLE-DEMO-SERVICE'},r:function(){return t('الخدمة والمتابعة','Service operations')},s:'active',l:'2026-06-23 16:45'},
+  {n:function(){return 'ROLE-DEMO-FIN'},r:function(){return t('الرقابة المالية','Financial control')},s:'away',l:'2026-06-22 14:00'},
+  {n:function(){return 'ROLE-DEMO-STOCK'},r:function(){return t('رقابة المخزون','Inventory control')},s:'active',l:'2026-06-24 07:50'},
 ]},
 clinic:{appointments:[
-  {p:function(){return t('مراجع تجريبي','Demo Patient')},sv:function(){return t('كشف عام','General Checkup')},d:'2026-06-25',tm:'09:00',s:'confirmed'},
-  {p:function(){return t('سارة خ.','Sara K.')},sv:function(){return t('أسنان - تنظيف','Dental Cleaning')},d:'2026-06-25',tm:'10:30',s:'pending'},
-  {p:function(){return t('فهد ع.','Fahd A.')},sv:function(){return t('عيون','Ophthalmology')},d:'2026-06-26',tm:'11:00',s:'scheduled'},
-  {p:function(){return t('نورة ر.','Noura R.')},sv:function(){return t('جلدية','Dermatology')},d:'2026-06-24',tm:'14:00',s:'completed'},
-  {p:function(){return t('محمد س.','Mohammed S.')},sv:function(){return t('باطنية','Internal Med.')},d:'2026-06-25',tm:'15:30',s:'confirmed'},
-  {p:function(){return t('هند ق.','Hind Q.')},sv:function(){return t('أطفال','Pediatrics')},d:'2026-06-26',tm:'09:30',s:'pending'},
-  {p:function(){return t('ريم ع.','Reem A.')},sv:function(){return t('نساء وولادة','OB/GYN')},d:'2026-06-26',tm:'12:00',s:'confirmed'},
-  {p:function(){return t('عبدالله ح.','Abdullah H.')},sv:function(){return t('عظام','Orthopedics')},d:'2026-06-27',tm:'10:00',s:'scheduled'},
+  {p:function(){return 'PAT-DEMO-001'},sv:function(){return t('كشف عام','General Checkup')},d:'2026-06-25',tm:'09:00',s:'confirmed'},
+  {p:function(){return 'PAT-DEMO-002'},sv:function(){return t('أسنان - تنظيف','Dental Cleaning')},d:'2026-06-25',tm:'10:30',s:'pending'},
+  {p:function(){return 'PAT-DEMO-003'},sv:function(){return t('عيون','Ophthalmology')},d:'2026-06-26',tm:'11:00',s:'scheduled'},
+  {p:function(){return 'PAT-DEMO-004'},sv:function(){return t('جلدية','Dermatology')},d:'2026-06-24',tm:'14:00',s:'completed'},
+  {p:function(){return 'PAT-DEMO-005'},sv:function(){return t('باطنية','Internal Med.')},d:'2026-06-25',tm:'15:30',s:'confirmed'},
+  {p:function(){return 'PAT-DEMO-006'},sv:function(){return t('أطفال','Pediatrics')},d:'2026-06-26',tm:'09:30',s:'pending'},
+  {p:function(){return 'PAT-DEMO-007'},sv:function(){return t('نساء وولادة','OB/GYN')},d:'2026-06-26',tm:'12:00',s:'confirmed'},
+  {p:function(){return 'PAT-DEMO-008'},sv:function(){return t('عظام','Orthopedics')},d:'2026-06-27',tm:'10:00',s:'scheduled'},
 ],patients:[
-  {n:function(){return t('عميل تجريبي','Demo Customer')},a:35,p:'05*******',v:4,l:'2026-06-24'},
-  {n:function(){return t('سارة خالد','Sara Khalid')},a:28,p:'055****43',v:2,l:'2026-06-20'},
-  {n:function(){return t('فهد عبدالله','Fahd Abdullah')},a:42,p:'055****89',v:6,l:'2026-06-18'},
-  {n:function(){return t('نورة راشد','Noura Rashid')},a:31,p:'055****21',v:3,l:'2026-06-24'},
-  {n:function(){return t('محمد سعود','Mohammed Saud')},a:55,p:'055****78',v:8,l:'2026-06-25'},
-  {n:function(){return t('هند قاسم','Hind Qasem')},a:24,p:'055****34',v:1,l:'2026-06-26'},
+  {n:function(){return 'PAT-DEMO-001'},v:4,l:'2026-06-24'},
+  {n:function(){return 'PAT-DEMO-002'},v:2,l:'2026-06-20'},
+  {n:function(){return 'PAT-DEMO-003'},v:6,l:'2026-06-18'},
+  {n:function(){return 'PAT-DEMO-004'},v:3,l:'2026-06-24'},
+  {n:function(){return 'PAT-DEMO-005'},v:8,l:'2026-06-25'},
+  {n:function(){return 'PAT-DEMO-006'},v:1,l:'2026-06-26'},
 ],services:[
   {n:function(){return t('كشف عام','General Checkup')},pr:'150',dur:'30',act:true},
   {n:function(){return t('أسنان - تنظيف','Dental Cleaning')},pr:'200',dur:'45',act:true},
@@ -573,19 +573,19 @@ clinic:{appointments:[
   {n:function(){return t('عظام','Orthopedics')},pr:'220',dur:'25',act:false},
 ]},
 workshop:{jobs:[
-  {id:'#W-301',v:function(){return t('كامري 2024','Camry 2024')},sv:function(){return t('تغيير زيت + فلتر','Oil + Filter')},s:'ready',d:'2026-06-24',tc:function(){return t('عبدالله','Abdullah')}},
-  {id:'#W-300',v:function(){return t('هايلكس 2023','Hilux 2023')},sv:function(){return t('فحص شامل','Full Inspection')},s:'progress',d:'2026-06-26',tc:function(){return t('سعود','Saud')}},
-  {id:'#W-299',v:function(){return t('باترول 2022','Patrol 2022')},sv:function(){return t('تبديل بريك','Brake Replace')},s:'parts',d:'2026-06-28',tc:function(){return t('فيصل','Faisal')}},
-  {id:'#W-298',v:function(){return t('اكورد 2025','Accord 2025')},sv:function(){return t('كهرباء','Electrical')},s:'hold',d:'—',tc:function(){return t('عبدالله','Abdullah')}},
-  {id:'#W-297',v:function(){return t('لاندكروزر 2023','Land Cruiser 2023')},sv:function(){return t('ميكانيك عام','General Mech.')},s:'ready',d:'2026-06-24',tc:function(){return t('سعود','Saud')}},
-  {id:'#W-296',v:function(){return t('سوناتا 2024','Sonata 2024')},sv:function(){return t('تكييف','A/C Service')},s:'progress',d:'2026-06-25',tc:function(){return t('فيصل','Faisal')}},
-  {id:'#W-295',v:function(){return t('راف فور 2024','RAV4 2024')},sv:function(){return t('سمكرة ودهان','Body & Paint')},s:'progress',d:'2026-06-27',tc:function(){return t('عبدالله','Abdullah')}},
+  {id:'#W-301',v:function(){return 'VEH-DEMO-001'},sv:function(){return t('تغيير زيت + فلتر','Oil + Filter')},s:'ready',d:'2026-06-24',tc:function(){return t('المسار أ','Bay A')}},
+  {id:'#W-300',v:function(){return 'VEH-DEMO-002'},sv:function(){return t('فحص شامل','Full Inspection')},s:'progress',d:'2026-06-26',tc:function(){return t('المسار ب','Bay B')}},
+  {id:'#W-299',v:function(){return 'VEH-DEMO-003'},sv:function(){return t('تبديل فرامل','Brake Replace')},s:'parts',d:'2026-06-28',tc:function(){return t('المسار ج','Bay C')}},
+  {id:'#W-298',v:function(){return 'VEH-DEMO-004'},sv:function(){return t('كهرباء','Electrical')},s:'hold',d:'—',tc:function(){return t('المسار أ','Bay A')}},
+  {id:'#W-297',v:function(){return 'VEH-DEMO-005'},sv:function(){return t('ميكانيك عام','General Mech.')},s:'ready',d:'2026-06-24',tc:function(){return t('المسار ب','Bay B')}},
+  {id:'#W-296',v:function(){return 'VEH-DEMO-006'},sv:function(){return t('تكييف','A/C Service')},s:'progress',d:'2026-06-25',tc:function(){return t('المسار ج','Bay C')}},
+  {id:'#W-295',v:function(){return 'VEH-DEMO-007'},sv:function(){return t('سمكرة ودهان','Body & Paint')},s:'progress',d:'2026-06-27',tc:function(){return t('المسار أ','Bay A')}},
 ],vehicles:[
-  {pl:'ABC 1234',mk:function(){return t('تويوتا كامري 2024','Toyota Camry 2024')},ow:function(){return t('محمد ع.','Mohammed A.')},vi:3,l:'2026-06-24'},
-  {pl:'DEF 5678',mk:function(){return t('تويوتا هايلكس 2023','Toyota Hilux 2023')},ow:function(){return t('خالد س.','Khalid S.')},vi:5,l:'2026-06-22'},
-  {pl:'GHI 9012',mk:function(){return t('نيسان باترول 2022','Nissan Patrol 2022')},ow:function(){return t('فهد م.','Fahd M.')},vi:2,l:'2026-06-20'},
-  {pl:'JKL 3456',mk:function(){return t('هوندا اكورد 2025','Honda Accord 2025')},ow:function(){return t('سعد ح.','Saad H.')},vi:1,l:'2026-06-18'},
-  {pl:'MNO 7890',mk:function(){return t('تويوتا لاندكروزر 2023','Toyota LC 2023')},ow:function(){return t('عبدالرحمن ن.','Abdulrahman N.')},vi:4,l:'2026-06-24'},
+  {pl:'VEH-DEMO-001',mk:function(){return t('مركبة تجريبية أ','Demo Vehicle A')},ow:function(){return 'DEMO-OWNER-A'},vi:3,l:'2026-06-24'},
+  {pl:'VEH-DEMO-002',mk:function(){return t('مركبة تجريبية ب','Demo Vehicle B')},ow:function(){return 'DEMO-OWNER-B'},vi:5,l:'2026-06-22'},
+  {pl:'VEH-DEMO-003',mk:function(){return t('مركبة تجريبية ج','Demo Vehicle C')},ow:function(){return 'DEMO-OWNER-C'},vi:2,l:'2026-06-20'},
+  {pl:'VEH-DEMO-004',mk:function(){return t('مركبة تجريبية د','Demo Vehicle D')},ow:function(){return 'DEMO-OWNER-D'},vi:1,l:'2026-06-18'},
+  {pl:'VEH-DEMO-005',mk:function(){return t('مركبة تجريبية هـ','Demo Vehicle E')},ow:function(){return 'DEMO-OWNER-E'},vi:4,l:'2026-06-24'},
 ],parts:[
   {n:function(){return t('فلتر زيت تويوتا','Toyota Oil Filter')},sku:'TF-OIL-042',q:24,pr:'35',s:'instock'},
   {n:function(){return t('بريك أمامي نيسان','Nissan Front Brake')},sku:'NB-FBP-018',q:8,pr:'180',s:'low'},
@@ -705,12 +705,12 @@ function renderERP(){
   if(currentPage==='maintenance')return phantomMaintenance();if(currentPage==='fuel')return phantomFuel();if(currentPage==='employees')return phantomEmployees();
   if(currentPage==='reports')return phantomReports();if(currentPage==='audit')return phantomAudit();return''}
 function erpDash(){
-  var h='<div style="background:var(--accent-bg);border:1px solid rgba(99,102,241,.25);border-radius:var(--radius-sm);padding:14px 18px;font-size:.8rem;color:var(--accent2);font-weight:700;margin-bottom:18px">'+esc(t('منصة ERP متكاملة لإدارة الأسطول والرحلات والصيانة والموارد والتقارير من مركز تحكم موحد.','A complete ERP showcase for fleet, trips, maintenance, workforce, and reporting from one control center.'))+'</div><div class="stats-grid">';
+  var h='<div style="background:var(--accent-bg);border:1px solid rgba(99,102,241,.25);border-radius:var(--radius-sm);padding:14px 18px;font-size:.8rem;color:var(--accent2);font-weight:700;margin-bottom:18px">'+esc(t('منصة ERP متكاملة لإدارة الأسطول والرحلات والصيانة والأدوار والتقارير من مركز تحكم موحد، بلا هويات موظفين أو اتصال بالإنتاج.','A complete ERP showcase for fleet, trips, maintenance, role controls, and reporting from one control center, with no employee identities or production connection.'))+'</div><div class="stats-grid">';
   h+=sc('🚚',t('أصول الأسطول','Fleet Assets'),'5','blue','4 '+t('متاحة','available'),'up');
   h+=sc('📍',t('رحلات اليوم','Trips Today'),'12','green','92% '+t('في الموعد','on time'),'up');
   h+=sc('🔧',t('صيانة مستحقة','Maintenance Due'),'2','gold',t('خلال 7 أيام','within 7 days'),'');
   h+=sc('⛽',t('كفاءة الوقود','Fuel Efficiency'),'8.7','purple',t('كم/لتر','km/L'),'up');
-  h+=sc('👥',t('الموظفون النشطون','Active Staff'),'5','cyan','100%','up');
+  h+=sc('👥',t('الأدوار المهيأة','Configured Roles'),'5','cyan','100%','up');
   h+=sc('🛡️',t('سلامة الضوابط','Control Health'),'98%','green',t('دون أحداث حرجة','no critical events'),'up');
   h+='</div><div class="two-col">';
   h+=bc(t('جاهزية الأسطول الأسبوعية','Weekly Fleet Availability'),[
@@ -731,12 +731,12 @@ function erpDash(){
   h+='</div>';return h}
 function erpOrders(){var r='';DATA.erp.orders.forEach(function(o){r+='<tr><td><strong>'+esc(o.id)+'</strong></td><td>'+esc(o.c())+'</td><td style="font-family:Inter,sans-serif;font-weight:700">'+esc(o.a)+' SAR</td><td>'+sb(o.s)+'</td><td>'+esc(o.d)+'</td></tr>'});
   return tc(t('الطلبات','Orders'),[t('رقم','#'),t('العميل','Customer'),t('المبلغ','Amount'),t('الحالة','Status'),t('التاريخ','Date')],r,DATA.erp.orders.length,true)}
-function erpCust(){var r='';DATA.erp.customers.forEach(function(c){r+='<tr><td><strong>'+esc(c.n())+'</strong></td><td>'+esc(c.e)+'</td><td style="direction:ltr">'+esc(c.p)+'</td><td>'+esc(c.o)+'</td><td style="font-family:Inter,sans-serif;font-weight:700">'+esc(c.tot)+' SAR</td></tr>'});
-  return tc(t('العملاء','Customers'),[t('الاسم','Name'),t('البريد','Email'),t('الجوال','Phone'),t('الطلبات','Orders'),t('الإجمالي','Total')],r,DATA.erp.customers.length,true)}
+function erpCust(){var r='';DATA.erp.customers.forEach(function(c){r+='<tr><td><strong>'+esc(c.n())+'</strong></td><td>'+esc(c.o)+'</td><td style="font-family:Inter,sans-serif;font-weight:700">'+esc(c.tot)+' SAR</td></tr>'});
+  return tc(t('سجلات تجريبية','Demo records'),[t('المعرّف','Identifier'),t('الطلبات','Orders'),t('الإجمالي','Total')],r,DATA.erp.customers.length,true)}
 function erpTasks(){var r='';DATA.erp.tasks.forEach(function(tk){r+='<tr><td>'+esc(tk.tt())+'</td><td>'+esc(tk.as())+'</td><td>'+sb(tk.pr)+'</td><td>'+sb(tk.st)+'</td></tr>'});
   return tc(t('المهام','Tasks'),[t('المهمة','Task'),t('المسؤول','Assignee'),t('الأولوية','Priority'),t('الحالة','Status')],r,DATA.erp.tasks.length,true)}
 function erpUsers(){var r='';DATA.erp.users.forEach(function(u){r+='<tr><td><strong>'+esc(u.n())+'</strong></td><td>'+esc(u.r())+'</td><td>'+sb(u.s)+'</td><td style="font-family:Inter,sans-serif;font-size:.78rem">'+esc(u.l)+'</td></tr>'});
-  return tc(t('المستخدمون','Users'),[t('الاسم','Name'),t('الدور','Role'),t('الحالة','Status'),t('آخر دخول','Last Login')],r,DATA.erp.users.length,false)}
+  return tc(t('أدوار تجريبية','Demo roles'),[t('رمز الدور','Role code'),t('النطاق','Scope'),t('الحالة','Status'),t('آخر نشاط تجريبي','Last demo activity')],r,DATA.erp.users.length,false)}
 function erpRep(){var h='<div class="two-col">';
   h+=bc(t('الإيرادات الشهرية (K SAR)','Monthly Revenue (K SAR)'),[{l:t('يناير','Jan'),v:52,c:'green'},{l:t('فبراير','Feb'),v:48,c:'green'},{l:t('مارس','Mar'),v:65,c:'cyan'},{l:t('أبريل','Apr'),v:71,c:'cyan'},{l:t('مايو','May'),v:84,c:'gold'},{l:t('يونيو','Jun'),v:96,c:'blue'}]);
   h+=dc(t('مصادر العملاء','Customer Sources'),[{l:'WhatsApp',v:40,clr:'#25D366'},{l:t('البريد','Email'),v:25,clr:'var(--accent)'},{l:t('الهاتف','Phone'),v:20,clr:'var(--gold)'},{l:t('الموقع','Website'),v:15,clr:'var(--purple)'}]);
@@ -783,16 +783,16 @@ function phantomFuel(){var rows=[
 ],r='';rows.forEach(function(v){var st=v[4]===t('مطابق','Verified')?sb('completed'):sb('pending');r+='<tr><td><strong>'+esc(v[0])+'</strong></td><td>'+esc(v[1])+'</td><td>'+esc(v[2])+' L</td><td>'+esc(v[3])+' km/L</td><td>'+st+'</td></tr>'});
   return tc(t('الوقود والزيوت — سجلات وهمية','Fuel & Oils — Fictional Records'),[t('السجل','Record'),t('الأصل','Asset'),t('الكمية','Volume'),t('الكفاءة','Efficiency'),t('التحقق','Verification')],r,rows.length,true)}
 function phantomEmployees(){var rows=[
-  ['EMP-DEMO-01',t('مشرف عمليات','Operations Supervisor'),t('الفريق أ','Team A'),t('نشط','Active')],
-  ['EMP-DEMO-02',t('منسق رحلات','Dispatch Coordinator'),t('الفريق أ','Team A'),t('نشط','Active')],
-  ['EMP-DEMO-03',t('فني صيانة','Maintenance Technician'),t('الفريق ب','Team B'),t('نشط','Active')],
-  ['EMP-DEMO-04',t('محلل بيانات','Data Analyst'),t('الفريق ب','Team B'),t('نشط','Active')],
-  ['EMP-DEMO-05',t('مراقب جودة','Quality Controller'),t('الفريق ج','Team C'),t('نشط','Active')]
+  ['ROLE-DEMO-OPS',t('إدارة التشغيل','Operations management'),t('التشغيل اليومي','Daily operations'),t('نشط','Active')],
+  ['ROLE-DEMO-DISPATCH',t('تنسيق الرحلات','Dispatch coordination'),t('الرحلات فقط','Trips only'),t('نشط','Active')],
+  ['ROLE-DEMO-MAINT',t('إدارة الصيانة','Maintenance management'),t('أوامر العمل','Work orders'),t('نشط','Active')],
+  ['ROLE-DEMO-ANALYTICS',t('قراءة التقارير','Report access'),t('قراءة فقط','Read only'),t('نشط','Active')],
+  ['ROLE-DEMO-AUDIT',t('مراجعة الضوابط','Control review'),t('سجل التدقيق','Audit trail'),t('نشط','Active')]
 ],r='';rows.forEach(function(v){r+='<tr><td><strong>'+esc(v[0])+'</strong></td><td>'+esc(v[1])+'</td><td>'+esc(v[2])+'</td><td>'+sb('active')+'</td></tr>'});
-  return tc(t('القوى العاملة — هويات تجريبية','Workforce — Demo Identities'),[t('المعرّف','ID'),t('الدور','Role'),t('الفريق','Team'),t('الحالة','Status')],r,rows.length,true)}
+  return tc(t('مصفوفة الأدوار التجريبية — بلا هويات موظفين','Demo Role Matrix — No Employee Identities'),[t('رمز الدور','Role code'),t('الوظيفة','Function'),t('نطاق الوصول','Access scope'),t('الحالة','Status')],r,rows.length,true)}
 function phantomReports(){var h='<div class="two-col">';
   h+=bc(t('تكلفة التشغيل الشهرية — مؤشر نسبي','Monthly Operating Cost — Indexed'),[{l:t('فبراير','Feb'),v:78,c:'gold'},{l:t('مارس','Mar'),v:72,c:'gold'},{l:t('أبريل','Apr'),v:69,c:'green'},{l:t('مايو','May'),v:66,c:'green'},{l:t('يونيو','Jun'),v:63,c:'cyan'},{l:t('يوليو','Jul'),v:61,c:'blue'}]);
-  h+=dc(t('اكتمال البيانات','Data Completeness'),[{l:t('الأسطول','Fleet'),v:99,clr:'var(--green)'},{l:t('الصيانة','Maintenance'),v:96,clr:'var(--accent)'},{l:t('الوقود','Fuel'),v:94,clr:'var(--gold)'},{l:t('الموظفون','Workforce'),v:100,clr:'var(--cyan)'}]);
+  h+=dc(t('اكتمال البيانات','Data Completeness'),[{l:t('الأسطول','Fleet'),v:99,clr:'var(--green)'},{l:t('الصيانة','Maintenance'),v:96,clr:'var(--accent)'},{l:t('الوقود','Fuel'),v:94,clr:'var(--gold)'},{l:t('الأدوار','Roles'),v:100,clr:'var(--cyan)'}]);
   h+='</div><div class="chart-card glass"><div class="chart-title">'+esc(t('مؤشرات الأداء التنفيذية','Executive KPIs'))+'</div>';
   h+=pb(t('جاهزية الأسطول','Fleet Availability'),95,'green','95%');h+=pb(t('الرحلات في الموعد','On-time Trips'),92,'blue','92%');h+=pb(t('إغلاق الصيانة في الموعد','Maintenance SLA'),90,'purple','90%');h+=pb(t('جودة السجلات','Record Quality'),98,'cyan','98%');h+='</div>';return h}
 function phantomAudit(){var rows=[
@@ -820,15 +820,15 @@ function clDash(){
   h+='<div class="chart-card glass"><div class="chart-title">'+esc(t('توزيع التخصصات','Department Split'))+'</div>';
   h+=pb(t('كشف عام','General'),35,'blue');h+=pb(t('أسنان','Dental'),22,'green');h+=pb(t('عيون','Eye'),15,'purple');h+=pb(t('جلدية','Derm'),12,'gold');h+=pb(t('باطنية','Internal'),10,'cyan');h+=pb(t('أخرى','Other'),6,'red');
   h+='</div></div>';
-  h+=ac([{d:'green',t:t('اكتمل موعد <strong>نورة ر.</strong>','Appt. <strong>Noura R.</strong> done'),tm:t('منذ ساعة','1h ago')},
-    {d:'blue',t:t('موعد جديد <strong>محمد س.</strong>','New appt. <strong>Mohammed S.</strong>'),tm:t('منذ 3 ساعات','3h ago')},
-    {d:'gold',t:t('تأجيل <strong>هند ق.</strong>','<strong>Hind Q.</strong> rescheduled'),tm:t('منذ 5 ساعات','5h ago')},
-    {d:'purple',t:t('تسجيل مريض جديد <strong>ريم ع.</strong>','New patient <strong>Reem A.</strong>'),tm:t('منذ 6 ساعات','6h ago')}]);
+  h+=ac([{d:'green',t:t('اكتمل الموعد <strong>PAT-DEMO-004</strong>','Appointment <strong>PAT-DEMO-004</strong> completed'),tm:t('منذ ساعة','1h ago')},
+    {d:'blue',t:t('موعد جديد <strong>PAT-DEMO-005</strong>','New appointment <strong>PAT-DEMO-005</strong>'),tm:t('منذ 3 ساعات','3h ago')},
+    {d:'gold',t:t('تأجيل <strong>PAT-DEMO-006</strong>','<strong>PAT-DEMO-006</strong> rescheduled'),tm:t('منذ 5 ساعات','5h ago')},
+    {d:'purple',t:t('إضافة سجل اصطناعي <strong>PAT-DEMO-007</strong>','Synthetic record <strong>PAT-DEMO-007</strong> added'),tm:t('منذ 6 ساعات','6h ago')}]);
   return h}
 function clAppt(){var r='';DATA.clinic.appointments.forEach(function(a){r+='<tr><td><strong>'+esc(a.p())+'</strong></td><td>'+esc(a.sv())+'</td><td>'+esc(a.d)+'</td><td>'+esc(a.tm)+'</td><td>'+sb(a.s)+'</td></tr>'});
   return tc(t('المواعيد','Appointments'),[t('المريض','Patient'),t('الخدمة','Service'),t('التاريخ','Date'),t('الوقت','Time'),t('الحالة','Status')],r,DATA.clinic.appointments.length,true)}
-function clPat(){var r='';DATA.clinic.patients.forEach(function(p){r+='<tr><td><strong>'+esc(p.n())+'</strong></td><td>'+esc(p.a)+'</td><td style="direction:ltr">'+esc(p.p)+'</td><td>'+esc(p.v)+'</td><td>'+esc(p.l)+'</td></tr>'});
-  return tc(t('المرضى','Patients'),[t('الاسم','Name'),t('العمر','Age'),t('الجوال','Phone'),t('الزيارات','Visits'),t('آخر زيارة','Last Visit')],r,DATA.clinic.patients.length,true)}
+function clPat(){var r='';DATA.clinic.patients.forEach(function(p){r+='<tr><td><strong>'+esc(p.n())+'</strong></td><td>'+esc(p.v)+'</td><td>'+esc(p.l)+'</td></tr>'});
+  return tc(t('سجلات حالات اصطناعية','Synthetic case records'),[t('المعرّف','Identifier'),t('الزيارات','Visits'),t('آخر زيارة','Last Visit')],r,DATA.clinic.patients.length,true)}
 function clSvc(){var r='';DATA.clinic.services.forEach(function(s){var st=s.act?sb('active'):'<span class="badge badge-gray"><span class="badge-dot"></span>'+esc(t('معطّل','Inactive'))+'</span>';
   r+='<tr><td><strong>'+esc(s.n())+'</strong></td><td>'+esc(s.pr)+' SAR</td><td>'+esc(s.dur)+' '+esc(t('دقيقة','min'))+'</td><td>'+st+'</td></tr>'});
   return tc(t('الخدمات','Services'),[t('الخدمة','Service'),t('السعر','Price'),t('المدة','Duration'),t('الحالة','Status')],r,DATA.clinic.services.length,true)}
@@ -851,7 +851,7 @@ function wsDash(){
   h+=pb(t('متوفر','In Stock'),65,'green','221 '+t('قطعة','parts'));h+=pb(t('منخفض','Low Stock'),20,'gold','67 '+t('قطعة','parts'));h+=pb(t('نفذ','Out'),5,'red','2 '+t('قطعة','parts'));
   h+='</div>';return h}
 function wsJobs(){var r='';DATA.workshop.jobs.forEach(function(j){r+='<tr><td><strong>'+esc(j.id)+'</strong></td><td>'+esc(j.v())+'</td><td>'+esc(j.sv())+'</td><td>'+esc(j.tc())+'</td><td>'+sb(j.s)+'</td><td>'+esc(j.d)+'</td></tr>'});
-  return tc(t('أوامر الصيانة','Job Orders'),[t('رقم','#'),t('المركبة','Vehicle'),t('الخدمة','Service'),t('الفني','Tech'),t('الحالة','Status'),t('التسليم','Delivery')],r,DATA.workshop.jobs.length,true)}
+  return tc(t('أوامر الصيانة','Job Orders'),[t('رقم','#'),t('المركبة','Vehicle'),t('الخدمة','Service'),t('مسار العمل','Work bay'),t('الحالة','Status'),t('التسليم','Delivery')],r,DATA.workshop.jobs.length,true)}
 function wsVeh(){var r='';DATA.workshop.vehicles.forEach(function(v){r+='<tr><td style="font-family:Inter,sans-serif;font-weight:700;direction:ltr">'+esc(v.pl)+'</td><td>'+esc(v.mk())+'</td><td>'+esc(v.ow())+'</td><td>'+esc(v.vi)+'</td><td>'+esc(v.l)+'</td></tr>'});
   return tc(t('المركبات','Vehicles'),[t('اللوحة','Plate'),t('الموديل','Model'),t('المالك','Owner'),t('الزيارات','Visits'),t('آخر زيارة','Last Visit')],r,DATA.workshop.vehicles.length,true)}
 function wsParts(){var r='';DATA.workshop.parts.forEach(function(p){r+='<tr><td><strong>'+esc(p.n())+'</strong></td><td style="font-family:Inter,sans-serif;direction:ltr;font-size:.76rem">'+esc(p.sku)+'</td><td>'+esc(p.q)+'</td><td>'+esc(p.pr)+' SAR</td><td>'+sb(p.s)+'</td></tr>'});
@@ -861,12 +861,12 @@ function wsDel(){var r='';DATA.workshop.jobs.forEach(function(j){r+='<tr><td><st
 
 /* ═══ GENERIC INVOICES ═══ */
 function genInv(){var invs=[
-  {id:'#INV-2048',cl:function(){return t('شركة النجم','Al-Najm Co.')},a:'12,500',s:'paid',d:'2026-06-24'},
-  {id:'#INV-2047',cl:function(){return t('مؤسسة الفجر','Al-Fajr Est.')},a:'8,200',s:'pending',d:'2026-06-23'},
-  {id:'#INV-2046',cl:function(){return t('متجر الأمل','Al-Amal Store')},a:'3,750',s:'draft',d:'2026-06-22'},
-  {id:'#INV-2045',cl:function(){return t('مصنع الرياض','Riyadh Factory')},a:'22,000',s:'paid',d:'2026-06-20'},
-  {id:'#INV-2044',cl:function(){return t('شركة البناء','Construction Co.')},a:'5,600',s:'overdue',d:'2026-06-15'},
-  {id:'#INV-2043',cl:function(){return t('مجموعة السلام','Al-Salam Group')},a:'6,400',s:'paid',d:'2026-06-12'},
+  {id:'#INV-2048',cl:function(){return 'DEMO-CLIENT-A'},a:'12,500',s:'paid',d:'2026-06-24'},
+  {id:'#INV-2047',cl:function(){return 'DEMO-CLIENT-B'},a:'8,200',s:'pending',d:'2026-06-23'},
+  {id:'#INV-2046',cl:function(){return 'DEMO-CLIENT-C'},a:'3,750',s:'draft',d:'2026-06-22'},
+  {id:'#INV-2045',cl:function(){return 'DEMO-CLIENT-D'},a:'22,000',s:'paid',d:'2026-06-20'},
+  {id:'#INV-2044',cl:function(){return 'DEMO-CLIENT-E'},a:'5,600',s:'overdue',d:'2026-06-15'},
+  {id:'#INV-2043',cl:function(){return 'DEMO-CLIENT-F'},a:'6,400',s:'paid',d:'2026-06-12'},
 ];var r='';invs.forEach(function(i){r+='<tr><td><strong>'+esc(i.id)+'</strong></td><td>'+esc(i.cl())+'</td><td style="font-family:Inter,sans-serif;font-weight:700">'+esc(i.a)+' SAR</td><td>'+sb(i.s)+'</td><td>'+esc(i.d)+'</td></tr>'});
   return tc(t('الفواتير','Invoices'),[t('رقم','#'),t('العميل','Client'),t('المبلغ','Amount'),t('الحالة','Status'),t('التاريخ','Date')],r,invs.length,true)}
 
@@ -884,25 +884,12 @@ function bindEvents(){
 
 document.getElementById('sb-request-demo').addEventListener('click',function(){
   var b='';
-  b+='<div class="form-group"><label>'+esc(t('الاسم','Name'))+'</label><input type="text" class="form-input" autocomplete="name"></div>';
-  b+='<div class="form-group"><label>'+esc(t('الجوال','Phone'))+'</label><input type="tel" class="form-input" autocomplete="tel"></div>';
-  b+='<div class="form-group"><label>'+esc(t('البريد','Email'))+'</label><input type="email" class="form-input" autocomplete="email"></div>';
-  b+='<div class="form-group"><label>'+esc(t('نوع الخدمة','Service'))+'</label><select class="form-input">';
-  b+='<option>'+esc(t('PhantomOps — منصة ERP متكاملة','PhantomOps — Complete ERP'))+'</option>';
-  b+='<option>'+esc(t('منصة عيادة','Clinic Platform'))+'</option>';
-  b+='<option>'+esc(t('ورشة وقطع غيار','Workshop & Parts'))+'</option>';
-  b+='<option>'+esc(t('موقع شركة','Corporate Website'))+'</option>';
-  b+='<option>'+esc(t('متجر إلكتروني','E-Commerce Store'))+'</option>';
-  b+='<option>'+esc(t('أخرى','Other'))+'</option>';
-  b+='</select></div>';
-  b+='<div class="form-group"><label>'+esc(t('وصف الطلب','Description'))+'</label><textarea class="form-input" rows="3"></textarea></div>';
-  b+='<div style="background:var(--accent-bg);border:1px solid rgba(99,102,241,.2);border-radius:var(--radius-sm);padding:12px 16px;font-size:.78rem;color:var(--accent2);font-weight:600;line-height:1.7">'+esc(t('هذه تجربة فقط. الأسعار تُحدَّد في عرض رسمي مكتوب بعد مراجعة المتطلبات.','This is a demo only. Prices are set in a formal written quote after reviewing requirements.'))+'</div>';
+  b+='<p style="color:var(--text2);line-height:1.9;margin-bottom:14px">'+esc(t('هذا العرض لا يجمع الاسم أو الجوال أو البريد ولا يحفظ أي مدخلات. لطلب جلسة اكتشاف، انتقل إلى قناة التواصل العامة من الزر أدناه.','This showcase collects no name, phone, email, or form input. To request a discovery call, use the public contact channel below.'))+'</p>';
+  b+='<div style="background:var(--accent-bg);border:1px solid rgba(99,102,241,.2);border-radius:var(--radius-sm);padding:12px 16px;font-size:.78rem;color:var(--accent2);font-weight:600;line-height:1.7">'+esc(t('لا ترسل كلمات مرور أو بيانات عملاء أو ملفات حساسة عبر قنوات التواصل العامة.','Do not send passwords, customer data, or sensitive files through public contact channels.'))+'</div>';
   var f='<button type="button" class="btn btn-outline" id="mc">'+esc(t('إلغاء','Cancel'))+'</button>';
-  f+='<button type="button" class="btn btn-primary" id="ms">📩 '+esc(t('إرسال','Submit'))+'</button>';
+  f+='<a class="btn btn-primary" href="https://t.me/PhantomSecSupport" target="_blank" rel="noopener noreferrer">📩 '+esc(t('فتح قناة التواصل','Open contact channel'))+'</a>';
   openModal(t('طلب تجربة المنصة','Request Platform Demo'),b,f);
-  document.getElementById('mc').addEventListener('click',closeModal);
-  document.getElementById('ms').addEventListener('click',function(){closeModal();
-    showToast(t('تجربة فقط. في المسار الحقيقي يُراجَع الطلب ويُرسَل عرض سعر.','Demo only. In the real flow, the request is reviewed and a quote is sent.'),'success')})});
+  document.getElementById('mc').addEventListener('click',closeModal)});
 
 document.getElementById('lang-btn').addEventListener('click',function(){isEn=!isEn;document.body.classList.toggle('en',isEn);
   document.documentElement.lang=isEn?'en':'ar';document.documentElement.dir=isEn?'ltr':'rtl';renderNav();renderContent();
